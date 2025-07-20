@@ -15,6 +15,14 @@ config/tags=PackedStringArray("game_jam", "practice")
 config/features=PackedStringArray("4.4", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+procam="*res://addons/ProCam2D/scripts/autoload.gd"
+
 [dotnet]
 
 project/assembly_name="Only One"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/ProCam2D/plugin.cfg")
