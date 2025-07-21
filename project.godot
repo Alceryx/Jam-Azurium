@@ -20,11 +20,6 @@ config/icon="res://icon.svg"
 
 procam="*res://addons/ProCam2D/scripts/autoload.gd"
 
-[display]
-
-window/size/viewport_width=1920
-window/size/viewport_height=1080
-
 [dotnet]
 
 project/assembly_name="Only One"
