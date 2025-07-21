@@ -12,7 +12,7 @@ public partial class BuildManager : Node
     [Export] private GhostTurret GhostTurret;
 
     public bool IsBuilding = false;
-    public Array<Vector2I> OccupiedTiles = new Array<Vector2I>();
+    public Array<Vector2I> OccupiedTiles = new();
     
     public static BuildManager BM;
 

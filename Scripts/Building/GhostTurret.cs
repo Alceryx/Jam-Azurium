@@ -19,8 +19,7 @@ public partial class GhostTurret : Sprite2D
     
     public override void _PhysicsProcess(double delta)
     {
-        if (!BuildManager.BM.IsBuilding)
-            return;
+        if (!BuildManager.BM.IsBuilding) return;
         
         GlobalPosition = SnapToGrid(GetGlobalMousePosition());
 

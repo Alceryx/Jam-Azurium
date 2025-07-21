@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://d3njk76vqeien"]
 
 [ext_resource type="Script" uid="uid://3jk3bpgstp46" path="res://Scripts/Turrets/Turret.cs" id="1_vsmea"]
-[ext_resource type="Texture2D" uid="uid://c7h1km7tlajhr" path="res://Assets/critters/boar/boar_NE_idle_0.png" id="2_vsmea"]
+[ext_resource type="Texture2D" uid="uid://c7h1km7tlajhr" path="res://Assets/Critters/boar/boar_NE_idle_0.png" id="2_vsmea"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_k7wci"]
 animations = [{
