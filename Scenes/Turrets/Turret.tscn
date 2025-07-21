@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://d3njk76vqeien"]
+
+[ext_resource type="Script" uid="uid://3jk3bpgstp46" path="res://Scripts/Turrets/Turret.cs" id="1_vsmea"]
+[ext_resource type="Texture2D" uid="uid://dld53kge87u6s" path="res://Assets/critters/boar/boar_NE_idle_0.png" id="2_vsmea"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k7wci"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_vsmea")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y2ltt"]
+radius = 14.0
+
+[node name="Turret" type="StaticBody2D"]
+script = ExtResource("1_vsmea")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_k7wci")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_y2ltt")
