@@ -62,6 +62,7 @@ public partial class BuildManager : Node
     }
     
     //Check if placement is valid or not
+    //
     public bool IsPlacementValid(Vector2 WorldPosition)
     {
         Vector2I GridPos = TileMap.LocalToMap(TileMap.ToLocal(WorldPosition));
