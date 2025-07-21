@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d5jc65pqbin2"
-path="res://.godot/imported/critter_badger_NE_unburrow.png-818f94d1f96c92bb7e2e0832737cae9e.ctex"
+uid="uid://btbvy44b43gaw"
+path="res://.godot/imported/critter_badger_NE_unburrow.png-8343ca8add540ad0f9df1ef53db6752a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/critters/badger/critter_badger_NE_unburrow.png"
-dest_files=["res://.godot/imported/critter_badger_NE_unburrow.png-818f94d1f96c92bb7e2e0832737cae9e.ctex"]
+source_file="res://Assets/Critters/badger/critter_badger_NE_unburrow.png"
+dest_files=["res://.godot/imported/critter_badger_NE_unburrow.png-8343ca8add540ad0f9df1ef53db6752a.ctex"]
 
 [params]
 

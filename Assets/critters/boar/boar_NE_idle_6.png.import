@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdkbckfa1sjpv"
-path="res://.godot/imported/boar_NE_idle_6.png-a8f10e93ef2aa7df14d1387024b420f6.ctex"
+uid="uid://ddoc574lwxfke"
+path="res://.godot/imported/boar_NE_idle_6.png-0f978071bedd1ddba77c4600c275bd62.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/critters/boar/boar_NE_idle_6.png"
-dest_files=["res://.godot/imported/boar_NE_idle_6.png-a8f10e93ef2aa7df14d1387024b420f6.ctex"]
+source_file="res://Assets/Critters/boar/boar_NE_idle_6.png"
+dest_files=["res://.godot/imported/boar_NE_idle_6.png-0f978071bedd1ddba77c4600c275bd62.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ctu7yverl7juo"
-path="res://.godot/imported/boar_SE_run_3.png-7cddabba74a59c496e33a5f9c237d98b.ctex"
+uid="uid://c5ijbo3oomx1a"
+path="res://.godot/imported/boar_SE_run_3.png-29e67a55349355852911e5ff333fe969.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/critters/boar/boar_SE_run_3.png"
-dest_files=["res://.godot/imported/boar_SE_run_3.png-7cddabba74a59c496e33a5f9c237d98b.ctex"]
+source_file="res://Assets/Critters/boar/boar_SE_run_3.png"
+dest_files=["res://.godot/imported/boar_SE_run_3.png-29e67a55349355852911e5ff333fe969.ctex"]
 
 [params]
 
