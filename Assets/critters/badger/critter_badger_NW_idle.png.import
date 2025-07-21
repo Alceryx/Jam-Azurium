@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dkqlech1qahve"
-path="res://.godot/imported/critter_badger_NW_idle.png-55e6268517e6f7a2850cd08bb467805a.ctex"
+uid="uid://bfat55th3gj2p"
+path="res://.godot/imported/critter_badger_NW_idle.png-18524e23b3c44b39101e1b6eb04a2630.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/critters/badger/critter_badger_NW_idle.png"
-dest_files=["res://.godot/imported/critter_badger_NW_idle.png-55e6268517e6f7a2850cd08bb467805a.ctex"]
+source_file="res://Assets/Critters/badger/critter_badger_NW_idle.png"
+dest_files=["res://.godot/imported/critter_badger_NW_idle.png-18524e23b3c44b39101e1b6eb04a2630.ctex"]
 
 [params]
 

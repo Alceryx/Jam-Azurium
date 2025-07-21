@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4kpcidak6mbr"
-path="res://.godot/imported/wolf-howl.png-dc0904b706a77e0bba14af8f4e258a05.ctex"
+uid="uid://b4woppakkrijo"
+path="res://.godot/imported/wolf-howl.png-c30854e978471cfb3c2c4e3a9040561a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/critters/wolf/no effects/wolf-howl.png"
-dest_files=["res://.godot/imported/wolf-howl.png-dc0904b706a77e0bba14af8f4e258a05.ctex"]
+source_file="res://Assets/Critters/wolf/no effects/wolf-howl.png"
+dest_files=["res://.godot/imported/wolf-howl.png-c30854e978471cfb3c2c4e3a9040561a.ctex"]
 
 [params]
 

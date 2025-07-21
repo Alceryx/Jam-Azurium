@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://diayinx7nfg41"
-path="res://.godot/imported/wolf-bite.png-66f55851ff1423b2ac85aea9521cace3.ctex"
+uid="uid://dsys3rq8fev5v"
+path="res://.godot/imported/wolf-bite.png-dc601cf25e3f55e5246645f8e8e859be.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/critters/wolf/no effects/wolf-bite.png"
-dest_files=["res://.godot/imported/wolf-bite.png-66f55851ff1423b2ac85aea9521cace3.ctex"]
+source_file="res://Assets/Critters/wolf/no effects/wolf-bite.png"
+dest_files=["res://.godot/imported/wolf-bite.png-dc601cf25e3f55e5246645f8e8e859be.ctex"]
 
 [params]
 
