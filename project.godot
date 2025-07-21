@@ -26,3 +26,7 @@ project/assembly_name="Only One"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/ProCam2D/plugin.cfg")
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
