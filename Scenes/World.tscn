@@ -1,8 +1,12 @@
-[gd_scene load_steps=2 format=4 uid="uid://jsl0kt2kqh1m"]
+[gd_scene load_steps=5 format=4 uid="uid://jsl0kt2kqh1m"]
 
 [ext_resource type="TileSet" uid="uid://812b6buxvihs" path="res://Resources/Map/Map.tres" id="1_5cjrv"]
+[ext_resource type="Script" uid="uid://cljto2ukqdtou" path="res://Scripts/GameManager.cs" id="1_gjpho"]
+[ext_resource type="PackedScene" uid="uid://dgymrcaln58wc" path="res://Scenes/Building/BuildManager.tscn" id="3_gjpho"]
+[ext_resource type="Resource" uid="uid://ct1kreps3d4lk" path="res://Resources/Turrets/BaseTurret.tres" id="4_gjpho"]
 
 [node name="World" type="Node"]
+script = ExtResource("1_gjpho")
 
 [node name="Tile Map" type="TileMapLayer" parent="."]
 texture_filter = 1
@@ -21,3 +25,7 @@ tile_set = ExtResource("1_5cjrv")
 [node name="Land Upper" type="TileMapLayer" parent="Tile Map"]
 tile_map_data = PackedByteArray("AAD9//z/AAAHAAMAAAD+//z/AAAHAAMAAAD///z/AAAHAAMAAAAAAPz/AAAHAAMAAAABAPz/AAAHAAMAAAD+//7/AAAIAAMAAAD///7/AAAIAAMAAAAAAP7/AAAJAAMAAAA=")
 tile_set = ExtResource("1_5cjrv")
+
+[node name="BuildManager" parent="." node_paths=PackedStringArray("TileMap") instance=ExtResource("3_gjpho")]
+TurretInfo = ExtResource("4_gjpho")
+TileMap = NodePath("../Tile Map")
