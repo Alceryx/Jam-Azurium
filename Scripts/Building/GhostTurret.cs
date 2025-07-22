@@ -30,7 +30,7 @@ public partial class GhostTurret : Sprite2D
         else
             Modulate = new Color(1, 0, 0, .75f);
         
-        if (Input.IsActionJustReleased("Place") && PlacementValid)
+        if (Input.IsActionJustReleased("Interact") && PlacementValid)
         {
             BuildManager.BM.Place(GlobalPosition);
         }

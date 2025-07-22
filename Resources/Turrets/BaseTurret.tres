@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cm64ammqner4" path="res://Resources/Turrets/TurretData.cs" id="1_gur8y"]
 [ext_resource type="PackedScene" uid="uid://d3njk76vqeien" path="res://Scenes/Turrets/Turret.tscn" id="1_oxx5t"]
-[ext_resource type="Texture2D" uid="uid://c7h1km7tlajhr" path="res://Assets/Critters/boar/boar_NE_idle_0.png" id="1_wunh7"]
+[ext_resource type="Texture2D" uid="uid://c7h1km7tlajhr" path="res://Assets/critters/boar/boar_NE_idle_0.png" id="1_wunh7"]
 
 [resource]
 script = ExtResource("1_gur8y")
