@@ -1,12 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dgymrcaln58wc"]
+[gd_scene load_steps=2 format=3 uid="uid://dgymrcaln58wc"]
 
 [ext_resource type="Script" uid="uid://mdgul34uldgv" path="res://Scripts/Building/BuildManager.cs" id="1_2qodn"]
-[ext_resource type="Script" uid="uid://dxkdgh4a1ug16" path="res://Scripts/Building/GhostTurret.cs" id="2_amlgp"]
 
-[node name="BuildManager" type="Node" node_paths=PackedStringArray("GhostTurret")]
+[node name="BuildManager" type="Node"]
 script = ExtResource("1_2qodn")
-GhostTurret = NodePath("GhostTurret")
-
-[node name="GhostTurret" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0.458824)
-script = ExtResource("2_amlgp")
