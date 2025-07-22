@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://1mhypvqig1xb"
-path="res://.godot/imported/critter_stag_NE_walk.png-e0583091fa556343c92aef3d1eb81699.ctex"
+path="res://.godot/imported/critter_stag_NE_walk.png-8cdaad237cf63dfbc454adad414c9751.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/critters/stag/critter_stag_NE_walk.png"
-dest_files=["res://.godot/imported/critter_stag_NE_walk.png-e0583091fa556343c92aef3d1eb81699.ctex"]
+source_file="res://Assets/Critters/stag/critter_stag_NE_walk.png"
+dest_files=["res://.godot/imported/critter_stag_NE_walk.png-8cdaad237cf63dfbc454adad414c9751.ctex"]
 
 [params]
 

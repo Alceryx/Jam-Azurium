@@ -1,7 +1,7 @@
 [gd_resource type="TileSet" load_steps=6 format=3 uid="uid://812b6buxvihs"]
 
 [ext_resource type="Texture2D" uid="uid://beg5tgb5f3ovu" path="res://Assets/Tile Map.png" id="1_yn4uc"]
-[ext_resource type="Texture2D" uid="uid://c7h1km7tlajhr" path="res://Assets/critters/boar/boar_NE_idle_0.png" id="2_71t2j"]
+[ext_resource type="Texture2D" uid="uid://c7h1km7tlajhr" path="res://Assets/Critters/boar/boar_NE_idle_0.png" id="2_71t2j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_71t2j"]
 resource_name = "Top Half"
