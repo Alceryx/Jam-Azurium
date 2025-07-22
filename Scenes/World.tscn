@@ -71,8 +71,9 @@ tile_set = ExtResource("1_5cjrv")
 
 [node name="Animal" type="TileMapLayer" parent="Tile Map"]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAD7/wIAAwAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAD9//3/AwAAAAAAAAA=")
 tile_set = ExtResource("1_5cjrv")
+collision_visibility_mode = 1
 
 [node name="PreviewTile" type="TileMapLayer" parent="Tile Map"]
 modulate = Color(1, 1, 1, 0.505882)
