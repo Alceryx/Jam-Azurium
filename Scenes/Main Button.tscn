@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://ewd3qwa6ccua"]
+[gd_scene load_steps=6 format=3 uid="uid://blmw20tskqcg8"]
 
 [ext_resource type="Script" uid="uid://dkwpps6dhmbbl" path="res://Scripts/MainButton.cs" id="1_hqswg"]
 [ext_resource type="Texture2D" uid="uid://lxvb0ixcad7p" path="res://Assets/critters/boar/boar_NE_run_0.png" id="1_jmim8"]
