@@ -1,11 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://blmw20tskqcg8"]
+[gd_scene load_steps=6 format=3 uid="uid://ewd3qwa6ccua"]
 
-[ext_resource type="Script" uid="uid://dkwpps6dhmbbl" path="res://Scripts/MainButton.cs" id="1_hqswg"]
-[ext_resource type="Texture2D" uid="uid://lxvb0ixcad7p" path="res://Assets/critters/boar/boar_NE_run_0.png" id="1_jmim8"]
-[ext_resource type="Shader" uid="uid://de5cqnc22f116" path="res://Resources/Shaders/2DOutline.gdshader" id="2_u20go"]
+[ext_resource type="Script" uid="uid://dkwpps6dhmbbl" path="res://Scripts/NexusButton.cs" id="1_0h4l8"]
+[ext_resource type="Shader" uid="uid://de5cqnc22f116" path="res://Resources/Shaders/2DOutline.gdshader" id="2_k7c6v"]
+[ext_resource type="Texture2D" uid="uid://lxvb0ixcad7p" path="res://Assets/Critters/boar/boar_NE_run_0.png" id="3_ke4vg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hqswg"]
-shader = ExtResource("2_u20go")
+shader = ExtResource("2_k7c6v")
 shader_parameter/allow_out_of_bounds = true
 shader_parameter/outline_thickness = 2.0
 shader_parameter/outline_color = Color(1, 1, 1, 0)
@@ -13,15 +13,15 @@ shader_parameter/outline_color = Color(1, 1, 1, 0)
 [sub_resource type="CircleShape2D" id="CircleShape2D_hqswg"]
 radius = 60.0167
 
-[node name="MainButton" type="StaticBody2D" node_paths=PackedStringArray("Sprite")]
+[node name="Nexus Button" type="StaticBody2D" node_paths=PackedStringArray("Sprite")]
 input_pickable = true
-script = ExtResource("1_hqswg")
+script = ExtResource("1_0h4l8")
 MaxCPS = 30
 Sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_hqswg")
-texture = ExtResource("1_jmim8")
+texture = ExtResource("3_ke4vg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_hqswg")
