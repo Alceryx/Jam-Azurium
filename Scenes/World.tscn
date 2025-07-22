@@ -10,10 +10,12 @@
 [node name="World" type="Node"]
 script = ExtResource("1_gjpho")
 
-[node name="Tile Map" type="TileMapLayer" parent="."]
+[node name="Tile Map" type="TileMapLayer" parent="." node_paths=PackedStringArray("PreviewTile", "PlaceableTile")]
 texture_filter = 1
 tile_set = ExtResource("1_5cjrv")
 script = ExtResource("3_45d1s")
+PreviewTile = NodePath("PreviewTile")
+PlaceableTile = NodePath("Animal")
 
 [node name="Water" type="TileMapLayer" parent="Tile Map"]
 y_sort_enabled = true
@@ -32,7 +34,11 @@ tile_set = ExtResource("1_5cjrv")
 
 [node name="Animal" type="TileMapLayer" parent="Tile Map"]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAD+//3/AwAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAD7/wIAAwAAAAAAAAA=")
+tile_set = ExtResource("1_5cjrv")
+
+[node name="PreviewTile" type="TileMapLayer" parent="Tile Map"]
+modulate = Color(1, 1, 1, 0.505882)
 tile_set = ExtResource("1_5cjrv")
 
 [node name="BuildManager" parent="." node_paths=PackedStringArray("TileMap", "PlaceableLayer") instance=ExtResource("3_gjpho")]

@@ -3,24 +3,22 @@ using System;
 
 public partial class TileManager : TileMapLayer
 {
-    private Vector2I Start;
-    private Vector2I End;
-
-    private Vector2I MousePos;
+    [Export] private TileMapLayer PreviewTile;
+    [Export] private TileMapLayer PlaceableTile;
+    private Vector2I PrevPos;
 
     public override void _PhysicsProcess(double delta)
     {
         
-    }
+        Vector2I GridPos = PreviewTile.LocalToMap(PreviewTile.GetLocalMousePosition());
+        if (PrevPos != GridPos)
+            PreviewTile.EraseCell(PrevPos);
+        PreviewTile.SetCell(GridPos, 3, Vector2I.Zero);
+        PrevPos = GridPos;
 
-    public void BuildRect(Vector2I Start, Vector2I End)
-    {
-        for (int x = Start.X; x <= End.X; x++)
+        if (Input.IsActionJustPressed("Interact"))
         {
-            for (int y = Start.Y; y <= End.Y; y++)
-            {
-                GetChild<TileMapLayer>(0).SetCell(new Vector2I(x, y), 0, new Vector2I(0,0));
-            }
+            PlaceableTile.SetCell(GridPos, 3, Vector2I.Zero);
         }
     }
 }
