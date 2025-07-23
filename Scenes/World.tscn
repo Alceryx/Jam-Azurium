@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dgymrcaln58wc" path="res://Scenes/Building/BuildManager.tscn" id="3_gjpho"]
 [ext_resource type="Resource" uid="uid://ct1kreps3d4lk" path="res://Resources/Turrets/BaseTurret.tres" id="4_gjpho"]
 [ext_resource type="Script" uid="uid://f51cuw0krxbt" path="res://addons/ProCam2D/scripts/procam2d.gd" id="5_p70al"]
-[ext_resource type="PackedScene" uid="uid://blmw20tskqcg8" path="res://Scenes/Main Button.tscn" id="6_45d1s"]
+[ext_resource type="PackedScene" uid="uid://ewd3qwa6ccua" path="res://Scenes/Nexus Button.tscn" id="6_45d1s"]
 
 [node name="World" type="Node"]
 script = ExtResource("1_gjpho")
@@ -36,11 +36,9 @@ tile_set = ExtResource("1_5cjrv")
 modulate = Color(1, 1, 1, 0.458824)
 tile_set = ExtResource("1_5cjrv")
 
-[node name="BuildManager" parent="." node_paths=PackedStringArray("PreviewLayer", "PlaceableLayer", "GroundLayer") instance=ExtResource("3_gjpho")]
+[node name="BuildManager" parent="." node_paths=PackedStringArray("PlaceableLayer") instance=ExtResource("3_gjpho")]
 TurretInfo = ExtResource("4_gjpho")
-PreviewLayer = NodePath("../Tile Map/PreviewTile")
 PlaceableLayer = NodePath("../Tile Map/Animal")
-GroundLayer = NodePath("../Tile Map/Land Lower")
 
 [node name="ProCam2D" type="Node2D" parent="."]
 z_index = 4096

@@ -5,7 +5,10 @@
 
 [resource]
 script = ExtResource("1_gur8y")
+ID = 0
 Name = "Base Turret"
 Size = Vector2(1, 2)
 Icon = ExtResource("1_wunh7")
+Price = 50
+ModeCount = 2
 metadata/_custom_type_script = "uid://cm64ammqner4"
