@@ -1,9 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://dae5k5bmio3hy"]
+[gd_scene load_steps=4 format=3 uid="uid://cxrkc6mxf5yor"]
 
 [ext_resource type="Script" uid="uid://uqyis6sthkr8" path="res://Scripts/InterfaceManager.cs" id="1_plesa"]
 [ext_resource type="PackedScene" uid="uid://bkf0xqfrwl72v" path="res://Scenes/GUI/Stats.tscn" id="2_kffii"]
+[ext_resource type="PackedScene" uid="uid://q1pnl7oci0id" path="res://Scenes/GUI/Shop.tscn" id="3_j73rx"]
 
 [node name="Interface Manager" type="CanvasLayer"]
 script = ExtResource("1_plesa")
 
 [node name="Stats" parent="." instance=ExtResource("2_kffii")]
+mouse_filter = 1
+
+[node name="Shop" parent="." instance=ExtResource("3_j73rx")]
+mouse_filter = 1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dex3irx743gqe"]
+[gd_scene load_steps=7 format=3 uid="uid://q1pnl7oci0id"]
 
 [ext_resource type="Texture2D" uid="uid://b1y3lny33brs1" path="res://Assets/GUI/[Shop] Turret PT.png" id="1_al5ip"]
 
@@ -12,6 +12,10 @@ skew = Vector2(0, -0.58)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qoiei"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 skew = Vector2(0, -0.58)
+expand_margin_left = 13.0
+expand_margin_top = 8.0
+expand_margin_right = 85.0
+expand_margin_bottom = 9.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7h1o4"]
 
@@ -38,6 +42,7 @@ offset_top = -309.0
 offset_bottom = 313.0
 grow_horizontal = 0
 grow_vertical = 2
+pivot_offset = Vector2(0, -0.04)
 texture = ExtResource("1_al5ip")
 
 [node name="Panel Container" type="PanelContainer" parent="."]
@@ -67,7 +72,6 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_al5ip")
 custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
 size_flags_vertical = 0
-size_flags_stretch_ratio = 0.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_qoiei")
 vertical_scroll_mode = 3
 
