@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class MainButton : StaticBody2D
+public partial class NexusButton : StaticBody2D
 {
     [Export] private int MaxCPS;
     [Export] private Sprite2D Sprite;

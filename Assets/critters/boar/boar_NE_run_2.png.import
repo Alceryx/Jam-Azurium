@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://diaag3isdm1qd"
-path="res://.godot/imported/boar_NE_run_2.png-43a5a68ef93d50824151dead122599fd.ctex"
+path="res://.godot/imported/boar_NE_run_2.png-ef64b19175190c7af606828dc5202c4d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Critters/boar/boar_NE_run_2.png"
-dest_files=["res://.godot/imported/boar_NE_run_2.png-43a5a68ef93d50824151dead122599fd.ctex"]
+source_file="res://Assets/critters/boar/boar_NE_run_2.png"
+dest_files=["res://.godot/imported/boar_NE_run_2.png-ef64b19175190c7af606828dc5202c4d.ctex"]
 
 [params]
 

@@ -1,6 +1,7 @@
-[gd_resource type="TileSet" load_steps=6 format=3 uid="uid://812b6buxvihs"]
+[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://812b6buxvihs"]
 
 [ext_resource type="Texture2D" uid="uid://beg5tgb5f3ovu" path="res://Assets/Tile Map.png" id="1_yn4uc"]
+[ext_resource type="PackedScene" uid="uid://di0av8ve8ft51" path="res://Scenes/Nexus Button.tscn" id="3_cu0q7"]
 [ext_resource type="PackedScene" uid="uid://d3njk76vqeien" path="res://Scenes/Turrets/Turret.tscn" id="3_uvt2t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_71t2j"]
@@ -456,6 +457,7 @@ texture_region_size = Vector2i(128, 128)
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_71t2j"]
 resource_name = "TurretLayer"
 scenes/1/scene = ExtResource("3_uvt2t")
+scenes/2/scene = ExtResource("3_cu0q7")
 
 [resource]
 tile_shape = 1

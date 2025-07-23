@@ -1,0 +1,24 @@
+[gd_scene load_steps=7 format=3 uid="uid://df24pg8xmxlx6"]
+
+[ext_resource type="Script" uid="uid://j5tokn85fm54" path="res://Scripts/Enemy/Enemy.cs" id="1_3l8kd"]
+[ext_resource type="Texture2D" uid="uid://bqjqh4wnrudt2" path="res://Assets/critters/boar/boar_NW_idle_0.png" id="1_i1u57"]
+[ext_resource type="Texture2D" uid="uid://dksofjos6syp" path="res://Assets/critters/boar/boar_SE_idle_0.png" id="3_fw0yv"]
+[ext_resource type="Texture2D" uid="uid://bbnvvrca4ih36" path="res://Assets/critters/boar/boar_SW_idle_0.png" id="4_seemo"]
+[ext_resource type="Texture2D" uid="uid://c7h1km7tlajhr" path="res://Assets/critters/boar/boar_NE_idle_0.png" id="5_ljmj3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3l8kd"]
+radius = 60.0167
+
+[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("Sprite")]
+script = ExtResource("1_3l8kd")
+FrontSprite = ExtResource("1_i1u57")
+BackSprite = ExtResource("3_fw0yv")
+LeftSprite = ExtResource("4_seemo")
+RightSprite = ExtResource("5_ljmj3")
+Sprite = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_i1u57")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_3l8kd")

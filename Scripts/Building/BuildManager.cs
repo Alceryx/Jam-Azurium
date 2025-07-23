@@ -59,6 +59,8 @@ public partial class BuildManager : Node
     //Place the turret
     public void Place()
     {
+        IsBuilding = false;
+        PreviewLayer.EraseCell(GridPos);
         PlaceableLayer.SetCell(GridPos, 2, Vector2I.Zero, TurretInfo.ID);
         
         //Add occupied spots
@@ -92,11 +94,12 @@ public partial class BuildManager : Node
         
         return true;
     }
-
+    
     private void PreviewPlacement()
     {
         if (PrevPos != GridPos)
             PreviewLayer.EraseCell(PrevPos);
+        
         PreviewLayer.SetCell(GridPos, 2, Vector2I.Zero, TurretInfo.ID);
         PrevPos = GridPos;
     }
