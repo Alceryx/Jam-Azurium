@@ -1,4 +1,6 @@
 using Godot;
+using Godot.Collections;
+
 using System;
 
 public partial class GameManager : Node
@@ -11,4 +13,4 @@ public partial class GameManager : Node
     {
         GM = this;
     }
-}
+ }
