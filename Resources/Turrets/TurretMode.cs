@@ -8,11 +8,16 @@ public partial class TurretMode : Resource
 {
     [ExportGroup("Basic Info")]
     [Export] public Texture2D Icon; //Icon (Preview icon)
-
+    [Export] public bool CanRotate;
+    
     [ExportGroup("Stats")] 
     [Export] public PackedScene Projectile;
     [Export] public float Damage;
-    [Export] public float BulletPerShot;
-    [Export(PropertyHint.Range, "0, 360, radians_as_degrees")] public float Arc;
+
+    [ExportGroup("Rotation")] 
+    [Export] public Texture2D TopLeft;
+    [Export] public Texture2D TopRight;
+    [Export] public Texture2D BottomLeft;
+    [Export] public Texture2D BottomRight;
 }
 #endif

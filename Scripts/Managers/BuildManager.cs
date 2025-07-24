@@ -12,6 +12,9 @@ public partial class BuildManager : Node
     [Export] private TileMapLayer PlaceableLayer; //Layer to place the object one
     [Export] private TileMapLayer GroundLayer; //Layer for checking if placeable or not
 
+    private Turret CurrentPreview;
+    private Turret.FacingDirection PreviewRotation;
+    
     public bool IsBuilding = false;
     public Array<Vector2I> OccupiedTiles = new();
     
@@ -37,12 +40,15 @@ public partial class BuildManager : Node
         else
             PreviewLayer.Modulate = new Color(1, 0, 0, 0.75f);
         
-        if (Input.IsActionJustPressed("Build"))
+        if (!IsBuilding && Input.IsActionJustPressed("Build"))
             Build();
 
         if (Input.IsActionJustReleased("Interact") && IsBuilding && IsPlacementValid())
             Place();
 
+        if (Input.IsActionJustPressed("Rotate") && TurretInfo.Modes[TurretMode].CanRotate && IsBuilding)
+            Rotate();
+        
         if (IsBuilding)
             PreviewPlacement();
     }
@@ -57,8 +63,17 @@ public partial class BuildManager : Node
     public void Build()
     {
         IsBuilding = true;
+        PreviewRotation = 0;
     }
 
+    //Rotate the turret
+    public void Rotate()
+    {
+        PreviewRotation += 1;
+        if ((int)PreviewRotation > 3)
+            PreviewRotation = 0;
+        UpdatePreviewData(CurrentPreview);
+    }
     
     //Place the turret
     public void Place()
@@ -72,7 +87,17 @@ public partial class BuildManager : Node
         {
             for (int y = 0; y < TurretInfo.Size.Y; y++)
             {
-                Vector2I pos = GridPos + new Vector2I(x, -y);
+                Vector2I pos = new Vector2I();
+                
+                if (PreviewRotation == Turret.FacingDirection.TopRight)
+                    pos = GridPos + new Vector2I(x, -y);
+                else if (PreviewRotation == Turret.FacingDirection.TopLeft)
+                    pos = GridPos + new Vector2I(-y, x);
+                else if (PreviewRotation == Turret.FacingDirection.BottomRight)
+                    pos = GridPos + new Vector2I(y, x);
+                else
+                    pos = GridPos + new Vector2I(x, y);
+                
                 OccupiedTiles.Add(pos);
             }
         }
@@ -85,7 +110,17 @@ public partial class BuildManager : Node
         {
             for (int y = 0; y < TurretInfo.Size.Y; y++)
             {
-                Vector2I pos = GridPos + new Vector2I(x, -y);
+                Vector2I pos = new Vector2I();
+                if (PreviewRotation == Turret.FacingDirection.TopRight)
+                    pos = GridPos + new Vector2I(x, -y);
+                else if (PreviewRotation == Turret.FacingDirection.TopLeft)
+                    pos = GridPos + new Vector2I(-y, x);
+                else if (PreviewRotation == Turret.FacingDirection.BottomRight)
+                    pos = GridPos + new Vector2I(y, x);
+                else
+                    pos = GridPos + new Vector2I(x, y);
+                
+                
                 if (OccupiedTiles.Contains(pos))
                     return false;
 
@@ -113,8 +148,31 @@ public partial class BuildManager : Node
     {
         if (node is Turret)
         {
-            Turret turret = (Turret)node;
-            turret.Sprite.Texture = TurretInfo.Modes[TurretMode].Icon;  
+            CurrentPreview = (Turret)node;
+
+            if (!IsInstanceValid(CurrentPreview.Sprite))
+                return;
+            
+            if (TurretInfo.Modes[TurretMode].CanRotate)
+            {
+                switch (PreviewRotation)
+                {
+                    case Turret.FacingDirection.TopLeft:
+                        CurrentPreview.Sprite.Texture = TurretInfo.Modes[TurretMode].TopLeft;
+                        break;
+                    case Turret.FacingDirection.TopRight:
+                        CurrentPreview.Sprite.Texture = TurretInfo.Modes[TurretMode].TopRight;
+                        break;
+                    case Turret.FacingDirection.BottomLeft:
+                        CurrentPreview.Sprite.Texture = TurretInfo.Modes[TurretMode].BottomLeft;
+                        break;
+                    case Turret.FacingDirection.BottomRight:
+                        CurrentPreview.Sprite.Texture = TurretInfo.Modes[TurretMode].BottomRight;
+                        break;
+                }
+            }
+            else
+                CurrentPreview.Sprite.Texture = TurretInfo.Modes[TurretMode].Icon;
         }
     }
 
@@ -123,7 +181,7 @@ public partial class BuildManager : Node
         if (node is Turret)
         {
             Turret turret = (Turret)node;
-            turret.SetUp(TurretInfo, TurretMode); 
+            turret.SetUp(TurretInfo, TurretMode, PreviewRotation); 
         }
     }
 }

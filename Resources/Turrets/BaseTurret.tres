@@ -1,24 +1,28 @@
-[gd_resource type="Resource" script_class="TurretData" load_steps=7 format=3 uid="uid://ct1kreps3d4lk"]
+[gd_resource type="Resource" script_class="TurretData" load_steps=9 format=3 uid="uid://ct1kreps3d4lk"]
 
 [ext_resource type="Script" uid="uid://cm64ammqner4" path="res://Resources/Turrets/TurretData.cs" id="1_gur8y"]
 [ext_resource type="Script" uid="uid://dpbvjc5ku3vl4" path="res://Resources/Turrets/TurretMode.cs" id="1_oxx5t"]
 [ext_resource type="Texture2D" uid="uid://c7h1km7tlajhr" path="res://Assets/critters/boar/boar_NE_idle_0.png" id="1_wunh7"]
-[ext_resource type="Texture2D" uid="uid://lxvb0ixcad7p" path="res://Assets/critters/boar/boar_NE_run_0.png" id="3_y42gg"]
+[ext_resource type="Texture2D" uid="uid://bbnvvrca4ih36" path="res://Assets/critters/boar/boar_SW_idle_0.png" id="3_odnls"]
+[ext_resource type="Texture2D" uid="uid://bqjqh4wnrudt2" path="res://Assets/critters/boar/boar_NW_idle_0.png" id="3_y42gg"]
+[ext_resource type="Texture2D" uid="uid://dksofjos6syp" path="res://Assets/critters/boar/boar_SE_idle_0.png" id="4_lisnj"]
 
 [sub_resource type="Resource" id="Resource_wunh7"]
 script = ExtResource("1_oxx5t")
 Icon = ExtResource("1_wunh7")
+CanRotate = false
 Damage = 5.0
-BulletPerShot = 3.0
-Arc = 0.523599
 metadata/_custom_type_script = "uid://dpbvjc5ku3vl4"
 
 [sub_resource type="Resource" id="Resource_vh6mg"]
 script = ExtResource("1_oxx5t")
-Icon = ExtResource("3_y42gg")
+Icon = ExtResource("1_wunh7")
+CanRotate = true
 Damage = 0.0
-BulletPerShot = 0.0
-Arc = 0.0
+TopLeft = ExtResource("3_y42gg")
+TopRight = ExtResource("1_wunh7")
+BottomLeft = ExtResource("3_odnls")
+BottomRight = ExtResource("4_lisnj")
 metadata/_custom_type_script = "uid://dpbvjc5ku3vl4"
 
 [resource]
