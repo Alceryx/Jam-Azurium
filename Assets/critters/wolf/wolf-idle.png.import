@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://7wsvi3mtdcjd"
-path="res://.godot/imported/wolf-idle.png-bf94f2c10045cad9b22ded077a233630.ctex"
+path="res://.godot/imported/wolf-idle.png-bab6f64867bd65d74e3dcc0725cc6993.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/critters/wolf/wolf-idle.png"
-dest_files=["res://.godot/imported/wolf-idle.png-bf94f2c10045cad9b22ded077a233630.ctex"]
+source_file="res://Assets/Critters/wolf/wolf-idle.png"
+dest_files=["res://.godot/imported/wolf-idle.png-bab6f64867bd65d74e3dcc0725cc6993.ctex"]
 
 [params]
 

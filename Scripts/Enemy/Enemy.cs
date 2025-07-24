@@ -6,21 +6,17 @@ public partial class Enemy : CharacterBody2D
 {
     public enum FacingDirection
     {
-        Front,
-        Back,
-        Left,
-        Right
+        TopLeft,
+        TopRight,
+        BottomLeft,
+        BottomRight
     }
     
     [ExportGroup("Data")]
     [Export] private float Speed = 100.0f;
-    [Export] private Texture2D FrontSprite;
-    [Export] private Texture2D BackSprite;
-    [Export] private Texture2D LeftSprite;
-    [Export] private Texture2D RightSprite;
 
     [ExportGroup("References")] 
-    [Export] private Sprite2D Sprite;
+    [Export] private AnimationPlayer sprite;
     
     private Path2D Path;
     private PathFollow2D PathFollow;
@@ -63,41 +59,35 @@ public partial class Enemy : CharacterBody2D
             angle += 360;
         
         if (angle >= 225 && angle < 315)
-            Direction = FacingDirection.Front;
+            Direction = FacingDirection.TopLeft;
         else if (angle >= 315 || angle < 45)
-            Direction = FacingDirection.Right;
-        else if (angle >= 45 && angle < 135)
-            Direction = FacingDirection.Back;
+            Direction = FacingDirection.TopRight;
         else if (angle >= 135 && angle < 225)
-            Direction = FacingDirection.Left;
+            Direction = FacingDirection.BottomLeft;
+        else if (angle >= 45 && angle < 135)
+            Direction = FacingDirection.BottomRight;
         
 
         UpdateSprite();
     }
 
-    private Vector2 CartesianToIsometric(Vector2 vector)
-    {
-        return new Vector2(
-            vector.X - vector.Y,
-            (vector.X + vector.Y) / 2f
-        );
-    }
+    private Vector2 CartesianToIsometric(Vector2 vector) => new(vector.X - vector.Y, (vector.X + vector.Y) / 2f);
 
     private void UpdateSprite()
     {
         switch (Direction)
         {
-            case FacingDirection.Front:
-                Sprite.Texture = FrontSprite;
+            case FacingDirection.TopLeft:
+                sprite.Play("Top Left");
                 break;
-            case FacingDirection.Back:
-                Sprite.Texture = BackSprite;
+            case FacingDirection.TopRight:
+                sprite.Play("Top Right");
                 break;
-            case FacingDirection.Left:
-                Sprite.Texture = LeftSprite;
+            case FacingDirection.BottomLeft:
+                sprite.Play("Bottom Left");
                 break;
-            case FacingDirection.Right:
-                Sprite.Texture = RightSprite;
+            case FacingDirection.BottomRight:
+                sprite.Play("Bottom Right");
                 break;
             
         }
