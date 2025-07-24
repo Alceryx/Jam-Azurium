@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=4 uid="uid://jsl0kt2kqh1m"]
 
 [ext_resource type="TileSet" uid="uid://812b6buxvihs" path="res://Resources/Map/Map.tres" id="1_5cjrv"]
-[ext_resource type="Script" uid="uid://cljto2ukqdtou" path="res://Scripts/GameManager.cs" id="1_gjpho"]
-[ext_resource type="PackedScene" uid="uid://dgymrcaln58wc" path="res://Scenes/Building/BuildManager.tscn" id="3_gjpho"]
+[ext_resource type="Script" uid="uid://cljto2ukqdtou" path="res://Scripts/Managers/GameManager.cs" id="1_gjpho"]
+[ext_resource type="PackedScene" uid="uid://dgymrcaln58wc" path="res://Scenes/Managers/BuildManager.tscn" id="3_gjpho"]
 [ext_resource type="Resource" uid="uid://ct1kreps3d4lk" path="res://Resources/Turrets/BaseTurret.tres" id="4_gjpho"]
-[ext_resource type="PackedScene" uid="uid://cxrkc6mxf5yor" path="res://Scenes/Interface Manager.tscn" id="5_45d1s"]
+[ext_resource type="PackedScene" uid="uid://cxrkc6mxf5yor" path="res://Scenes/Managers/Interface Manager.tscn" id="5_45d1s"]
 [ext_resource type="Script" uid="uid://f51cuw0krxbt" path="res://addons/ProCam2D/scripts/procam2d.gd" id="5_p70al"]
 [ext_resource type="PackedScene" uid="uid://df24pg8xmxlx6" path="res://Scenes/Enemy/Enemy.tscn" id="7_y7y61"]
 
@@ -92,6 +92,3 @@ curve = SubResource("Curve2D_y7y61")
 [node name="Enemy" parent="." node_paths=PackedStringArray("Path") instance=ExtResource("7_y7y61")]
 position = Vector2(284, 123)
 Path = NodePath("../Path2D")
-
-[connection signal="mouse_entered" from="Tile Map/Animal/Nexus Button" to="Tile Map/Animal/Nexus Button" method="OnMouseEntered"]
-[connection signal="mouse_exited" from="Tile Map/Animal/Nexus Button" to="Tile Map/Animal/Nexus Button" method="OnMouseExited"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cxrkc6mxf5yor"]
 
-[ext_resource type="Script" uid="uid://uqyis6sthkr8" path="res://Scripts/InterfaceManager.cs" id="1_plesa"]
+[ext_resource type="Script" uid="uid://uqyis6sthkr8" path="res://Scripts/Managers/InterfaceManager.cs" id="1_plesa"]
 [ext_resource type="PackedScene" uid="uid://bkf0xqfrwl72v" path="res://Scenes/GUI/Stats.tscn" id="2_kffii"]
 
 [node name="Interface Manager" type="CanvasLayer"]
