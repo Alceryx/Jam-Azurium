@@ -13,7 +13,6 @@ public partial class Enemy : CharacterBody2D
     }
     
     [ExportGroup("Data")]
-    [Export] private Path2D Path;
     [Export] private float Speed = 100.0f;
     [Export] private Texture2D FrontSprite;
     [Export] private Texture2D BackSprite;
@@ -23,20 +22,22 @@ public partial class Enemy : CharacterBody2D
     [ExportGroup("References")] 
     [Export] private Sprite2D Sprite;
     
+    private Path2D Path;
     private PathFollow2D PathFollow;
     private Vector2 LastPosition;
     private FacingDirection Direction;
-
-    public override void _Ready()
+    
+    public void Setup(Path2D Path)
     {
-        if (IsInstanceValid(Path))
-        {
-            PathFollow = new PathFollow2D();
-            PathFollow.Progress = 0;
-            PathFollow.Loop = false;
-            PathFollow.Rotates = false;
-            Path.AddChild(PathFollow);
-        }
+        this.Path = Path;
+        
+        PathFollow = new PathFollow2D();
+        PathFollow.Progress = 0;
+        PathFollow.Loop = false;
+        PathFollow.Rotates = false;
+        Path.AddChild(PathFollow);
+        
+        GlobalPosition = PathFollow.GlobalPosition;
     }
 
     public override void _PhysicsProcess(double delta)

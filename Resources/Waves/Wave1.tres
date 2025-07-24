@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="WaveData" load_steps=7 format=3 uid="uid://1wsglml18pqg"]
+
+[ext_resource type="PackedScene" uid="uid://df24pg8xmxlx6" path="res://Scenes/Enemy/Enemy.tscn" id="1_1sc38"]
+[ext_resource type="Script" uid="uid://c8ucpi2ldsff5" path="res://Resources/Waves/WaveData.cs" id="1_jqwoh"]
+[ext_resource type="Script" uid="uid://bnqqnodjbvisx" path="res://Resources/Waves/SpawnData.cs" id="2_jl2wl"]
+[ext_resource type="PackedScene" uid="uid://djbq55octpltn" path="res://Scenes/Enemy/StrongEnemy.tscn" id="3_jl2wl"]
+
+[sub_resource type="Resource" id="Resource_4q48n"]
+script = ExtResource("2_jl2wl")
+Enemy = ExtResource("1_1sc38")
+Count = 5
+SpawnInterval = 1.0
+Mode = 1
+metadata/_custom_type_script = "uid://bnqqnodjbvisx"
+
+[sub_resource type="Resource" id="Resource_l743t"]
+script = ExtResource("2_jl2wl")
+Enemy = ExtResource("3_jl2wl")
+Count = 10
+SpawnInterval = 1.0
+Mode = 1
+metadata/_custom_type_script = "uid://bnqqnodjbvisx"
+
+[resource]
+script = ExtResource("1_jqwoh")
+WaveNumber = 1
+SpawnedEnemy = [SubResource("Resource_4q48n"), SubResource("Resource_l743t")]
+metadata/_custom_type_script = "uid://c8ucpi2ldsff5"

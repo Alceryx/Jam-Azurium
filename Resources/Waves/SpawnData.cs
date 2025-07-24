@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using Godot.Collections;
 
 [Tool]
 [GlobalClass]
@@ -25,7 +26,6 @@ public partial class SpawnData : Resource
     [Export] public PackedScene Enemy;
     [Export] public int Count;
     [Export] public float SpawnInterval; //The Interval between each enemy spawned
-    [Export] public float SpawnCD; //The cool down between each batch of enemies. Each spawn data node is considered one batch
     [Export] public SpawnMode Mode;
 }
 #endif

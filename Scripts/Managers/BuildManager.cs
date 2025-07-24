@@ -84,9 +84,10 @@ public partial class BuildManager : Node
                 Vector2I pos = GridPos + new Vector2I(x, -y);
                 if (OccupiedTiles.Contains(pos))
                     return false;
-                
-                if (!IsInstanceValid(GroundLayer.GetCellTileData(pos))) 
+
+                if (!IsInstanceValid(GroundLayer.GetCellTileData(pos)))
                     return false;
+
                 if (!(bool)GroundLayer.GetCellTileData(pos).GetCustomData("Placeable"))
                     return false;
             }

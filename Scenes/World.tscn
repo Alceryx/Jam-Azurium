@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://jsl0kt2kqh1m"]
+[gd_scene load_steps=10 format=4 uid="uid://jsl0kt2kqh1m"]
 
 [ext_resource type="TileSet" uid="uid://812b6buxvihs" path="res://Resources/Map/Map.tres" id="1_5cjrv"]
 [ext_resource type="Script" uid="uid://cljto2ukqdtou" path="res://Scripts/Managers/GameManager.cs" id="1_gjpho"]
@@ -6,11 +6,12 @@
 [ext_resource type="Resource" uid="uid://ct1kreps3d4lk" path="res://Resources/Turrets/BaseTurret.tres" id="4_gjpho"]
 [ext_resource type="PackedScene" uid="uid://cxrkc6mxf5yor" path="res://Scenes/Managers/Interface Manager.tscn" id="5_45d1s"]
 [ext_resource type="Script" uid="uid://f51cuw0krxbt" path="res://addons/ProCam2D/scripts/procam2d.gd" id="5_p70al"]
-[ext_resource type="PackedScene" uid="uid://df24pg8xmxlx6" path="res://Scenes/Enemy/Enemy.tscn" id="7_y7y61"]
+[ext_resource type="PackedScene" uid="uid://bc6lkoeu16lv1" path="res://Scenes/Managers/Wave Manager.tscn" id="7_y7y61"]
+[ext_resource type="Resource" uid="uid://1wsglml18pqg" path="res://Resources/Waves/Wave1.tres" id="8_q2d71"]
 
 [sub_resource type="Curve2D" id="Curve2D_y7y61"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -162, 402, 0, 0, 0, 0, -1037, -64, 0, 0, 0, 0, -252, -474)
+"points": PackedVector2Array(0, 0, 0, 0, 837, 521, 0, 0, 0, 0, 644, 407, 0, 0, 0, 0, 988, 207)
 }
 point_count = 3
 
@@ -34,11 +35,11 @@ tile_set = ExtResource("1_5cjrv")
 
 [node name="Land Upper" type="TileMapLayer" parent="Tile Map"]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAD//wIAAAAHAAMAAAD//wEAAAAHAAMAAAD+/wEAAAAHAAMAAAD+/wAAAAAHAAMAAAD+////AAAHAAMAAAD/////AAAHAAMAAAAAAP7/AAAHAAMAAAABAP7/AAAHAAMAAAABAP//AAAHAAMAAAACAP//AAAHAAMAAAACAAAAAAAHAAMAAAADAAMAAAAHAAMAAAADAAQAAAAHAAMAAAD///7/AAAHAAMAAAD///3/AAAHAAMAAAD///z/AAAHAAMAAAAAAPz/AAAHAAMAAAABAPz/AAAHAAMAAAABAP3/AAAHAAMAAAAAAPv/AAAHAAMAAAAAAPr/AAADAAMAAAD///r/AAADAAMAAAD///v/AAAHAAMAAAD+//v/AAAHAAMAAAD+//r/AAADAAMAAAD+//z/AAAHAAMAAAD+//3/AAAHAAMAAAD+//7/AAAHAAMAAAD9//3/AAAHAAMAAAD9//z/AAAHAAMAAAD9//r/AAADAAMAAAD9//v/AAAHAAMAAAD8//z/AAAHAAMAAAD8//3/AAAHAAMAAAD8//7/AAAHAAMAAAD9////AAAHAAMAAAD9/wAAAAAHAAMAAAD9//7/AAAHAAMAAAD7/wIAAAAHAAMAAAD7/wEAAAADAAIAAAD8/wEAAAAHAAMAAAD9/wEAAAAHAAMAAAD8/wIAAAAHAAMAAAD6/wIAAAAHAAMAAAD6/wMAAAAHAAMAAAD5/wIAAAAEAAMAAAD5/wEAAAAEAAMAAAD5/wAAAAAEAAMAAAD5////AAAEAAMAAAD6////AAADAAIAAAD6//7/AAADAAIAAAD6//3/AAADAAIAAAD6//z/AAAEAAIAAAD6/wAAAAAEAAIAAAD7/wAAAAADAAIAAAD6/wEAAAADAAIAAAD7////AAADAAIAAAD7//7/AAAEAAIAAAD8////AAAHAAMAAAD8/wAAAAAHAAMAAAD7//3/AAADAAIAAAD7//z/AAADAAIAAAD5//7/AAAEAAMAAAD5//3/AAAFAAMAAAD5//z/AAAFAAMAAAD5//v/AAAFAAMAAAD5//r/AAAFAAMAAAD6//r/AAADAAMAAAD6//v/AAADAAIAAAD7//r/AAADAAMAAAD7//v/AAADAAIAAAD8//v/AAAHAAMAAAD8//r/AAADAAMAAAA=")
+tile_map_data = PackedByteArray("AAD//wIAAAAHAAMAAAD//wEAAAAHAAMAAAD+/wEAAAAHAAMAAAD+/wAAAAAHAAMAAAD+////AAAHAAMAAAD/////AAAHAAMAAAAAAP7/AAAHAAMAAAABAP7/AAAHAAMAAAABAP//AAAHAAMAAAACAP//AAAHAAMAAAACAAAAAAAHAAMAAAADAAMAAAAHAAMAAAADAAQAAAAHAAMAAAD///7/AAAHAAMAAAD///3/AAAHAAMAAAD///z/AAAHAAMAAAAAAPz/AAAHAAMAAAABAPz/AAAHAAMAAAABAP3/AAAHAAMAAAAAAPv/AAAHAAMAAAAAAPr/AAADAAMAAAD///r/AAADAAMAAAD///v/AAAHAAMAAAD+//v/AAAHAAMAAAD+//r/AAADAAMAAAD+//z/AAAHAAMAAAD+//3/AAAHAAMAAAD+//7/AAAHAAMAAAD9//3/AAAHAAMAAAD9//z/AAAHAAMAAAD9//r/AAADAAMAAAD9//v/AAAHAAMAAAD8//z/AAAHAAMAAAD8//3/AAAHAAMAAAD8//7/AAAHAAMAAAD9////AAAHAAMAAAD9/wAAAAAHAAMAAAD9//7/AAAHAAMAAAD7/wIAAAAHAAMAAAD7/wEAAAADAAIAAAD8/wEAAAAHAAMAAAD9/wEAAAAHAAMAAAD8/wIAAAAHAAMAAAD6/wIAAAAHAAMAAAD6/wMAAAAHAAMAAAD5/wIAAAAEAAMAAAD5/wEAAAAEAAMAAAD5/wAAAAAEAAMAAAD5////AAAEAAMAAAD6////AAADAAIAAAD6//7/AAADAAIAAAD6//3/AAADAAIAAAD6//z/AAAEAAIAAAD6/wAAAAAEAAIAAAD7/wAAAAADAAIAAAD6/wEAAAADAAIAAAD7////AAADAAIAAAD7//7/AAAEAAIAAAD8////AAAHAAMAAAD8/wAAAAAHAAMAAAD7//3/AAADAAIAAAD7//z/AAADAAIAAAD5//7/AAAEAAMAAAD5//3/AAAEAAMAAAD5//z/AAAEAAMAAAD5//v/AAAEAAMAAAD5//r/AAAEAAMAAAD6//r/AAADAAMAAAD6//v/AAADAAIAAAD7//r/AAADAAMAAAD7//v/AAADAAIAAAD8//v/AAAHAAMAAAD8//r/AAADAAMAAAA=")
 tile_set = ExtResource("1_5cjrv")
 
 [node name="Animal" type="TileMapLayer" parent="Tile Map"]
-tile_map_data = PackedByteArray("AAD2//v/AgAAAAAAAgD8//3/AgAAAAAAAQD+//v/AgAAAAAAAQA=")
+tile_map_data = PackedByteArray("AAD2//v/AgAAAAAAAgA=")
 tile_set = ExtResource("1_5cjrv")
 
 [node name="PreviewTile" type="TileMapLayer" parent="Tile Map"]
@@ -86,12 +87,12 @@ GroundLayer = NodePath("../Tile Map/Land Upper")
 
 [node name="Interface Manager" parent="." instance=ExtResource("5_45d1s")]
 
-[node name="Path2D" type="Path2D" parent="."]
-curve = SubResource("Curve2D_y7y61")
+[node name="WaveManager" parent="." node_paths=PackedStringArray("WavePath") instance=ExtResource("7_y7y61")]
+Waves = Array[Object]([ExtResource("8_q2d71")])
+WavePath = NodePath("Path2D")
 
-[node name="Enemy" parent="." node_paths=PackedStringArray("Path") instance=ExtResource("7_y7y61")]
-position = Vector2(284, 123)
-Path = NodePath("../Path2D")
+[node name="Path2D" type="Path2D" parent="WaveManager"]
+curve = SubResource("Curve2D_y7y61")
 
 [connection signal="mouse_entered" from="Tile Map/Animal/Nexus Button" to="Tile Map/Animal/Nexus Button" method="OnMouseEntered"]
 [connection signal="mouse_exited" from="Tile Map/Animal/Nexus Button" to="Tile Map/Animal/Nexus Button" method="OnMouseExited"]
