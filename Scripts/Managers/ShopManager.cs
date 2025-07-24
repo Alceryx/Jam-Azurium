@@ -13,6 +13,11 @@ public partial class ShopManager : Control
         AddItem();
     }
 
+    public override void _PhysicsProcess(double delta)
+    {
+        if (Input.IsActionJustPressed("Escape")) Hide();
+    }
+
     private void AddItem()
     {
         foreach (TurretData data in Database)
@@ -22,4 +27,6 @@ public partial class ShopManager : Control
             ItemList.AddChild(item);
         }
     }
+
+    public void OnClosePressed() => Hide();
 }

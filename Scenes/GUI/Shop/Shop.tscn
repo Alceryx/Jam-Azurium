@@ -1,11 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://dex3irx743gqe"]
+[gd_scene load_steps=9 format=3 uid="uid://dex3irx743gqe"]
 
 [ext_resource type="Texture2D" uid="uid://8j3a6skrhq5d" path="res://Assets/GUI/[Shop] PT.png" id="1_al5ip"]
 [ext_resource type="Theme" uid="uid://bm2m53cf2qpe4" path="res://Resources/GUI.tres" id="2_7h1o4"]
-[ext_resource type="Script" uid="uid://uli68ss1jvut" path="res://Scripts/GUI/ShopManager.cs" id="2_blcw4"]
+[ext_resource type="Script" uid="uid://uli68ss1jvut" path="res://Scripts/Managers/ShopManager.cs" id="2_blcw4"]
 [ext_resource type="Resource" uid="uid://ct1kreps3d4lk" path="res://Resources/Turrets/BaseTurret.tres" id="3_22k1p"]
 [ext_resource type="PackedScene" uid="uid://dp1iskdniviuw" path="res://Scenes/GUI/Shop/Shop Item.tscn" id="3_w80hu"]
 [ext_resource type="Script" uid="uid://cm64ammqner4" path="res://Resources/Turrets/TurretData.cs" id="4_r0504"]
+[ext_resource type="Texture2D" uid="uid://d2o5d8y6g8qsr" path="res://icon.svg" id="7_0d586"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r0504"]
 
 [node name="Shop" type="Control" node_paths=PackedStringArray("ItemList")]
 layout_mode = 3
@@ -17,54 +20,86 @@ grow_vertical = 2
 mouse_filter = 1
 theme = ExtResource("2_7h1o4")
 script = ExtResource("2_blcw4")
-ItemList = NodePath("PanelContainer/TabContainer/Turret/List/Options")
+ItemList = NodePath("Placeholder/Main/Background/Options/TabContainer/Turret/List/Options")
 Item = ExtResource("3_w80hu")
 Database = Array[ExtResource("4_r0504")]([ExtResource("3_22k1p"), ExtResource("3_22k1p")])
 
 [node name="Ref" type="TextureRect" parent="."]
-layout_mode = 1
-offset_left = -77.0
-offset_top = -65.0
-offset_right = 598.0
-offset_bottom = 730.0
+layout_mode = 0
+offset_left = -12.0
+offset_top = -43.0
+offset_right = 663.0
+offset_bottom = 752.0
 texture = ExtResource("1_al5ip")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
-custom_minimum_size = Vector2(450, 0)
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.001
-anchor_right = 0.266
-anchor_bottom = 0.636
-offset_top = 2.92
-offset_right = 0.279999
-offset_bottom = 0.119934
+[node name="Placeholder" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_right = 603.0
+offset_bottom = 735.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_r0504")
 
-[node name="TabContainer" type="TabContainer" parent="PanelContainer"]
+[node name="Main" type="MarginContainer" parent="Placeholder"]
+layout_mode = 2
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 32
+
+[node name="Background" type="PanelContainer" parent="Placeholder/Main"]
+layout_mode = 2
+
+[node name="Options" type="MarginContainer" parent="Placeholder/Main/Background"]
+layout_mode = 2
+theme_override_constants/margin_left = 65
+
+[node name="TabContainer" type="TabContainer" parent="Placeholder/Main/Background/Options"]
 layout_mode = 2
 current_tab = 0
 
-[node name="Turret" type="TabBar" parent="PanelContainer/TabContainer"]
+[node name="Turret" type="TabBar" parent="Placeholder/Main/Background/Options/TabContainer"]
 layout_mode = 2
 metadata/_tab_index = 0
 
-[node name="List" type="ScrollContainer" parent="PanelContainer/TabContainer/Turret"]
+[node name="List" type="ScrollContainer" parent="Placeholder/Main/Background/Options/TabContainer/Turret"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 13.0
-offset_bottom = 6.10352e-05
+offset_bottom = -72.0
 grow_horizontal = 2
 grow_vertical = 2
+vertical_scroll_mode = 3
 
-[node name="Options" type="VBoxContainer" parent="PanelContainer/TabContainer/Turret/List"]
+[node name="Options" type="VBoxContainer" parent="Placeholder/Main/Background/Options/TabContainer/Turret/List"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 50
 
-[node name="Utility" type="TabBar" parent="PanelContainer/TabContainer"]
+[node name="Utility" type="TabBar" parent="Placeholder/Main/Background/Options/TabContainer"]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 1
+
+[node name="Buy Bar" type="HBoxContainer" parent="Placeholder"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="Push" type="VSeparator" parent="Placeholder/Buy Bar"]
+layout_mode = 2
+theme_override_constants/separation = 345
+
+[node name="Button" type="Button" parent="Placeholder/Buy Bar"]
+custom_minimum_size = Vector2(130, 52)
+layout_mode = 2
+text = "Buy"
+
+[node name="Close" type="TextureButton" parent="Placeholder"]
+custom_minimum_size = Vector2(58, 68)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+texture_normal = ExtResource("7_0d586")
+ignore_texture_size = true
+stretch_mode = 6
+
+[connection signal="pressed" from="Placeholder/Close" to="." method="OnClosePressed"]

@@ -18,14 +18,16 @@ bg_color = Color(0.0431373, 0.0431373, 0.0431373, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6cxcf"]
 content_margin_left = 50.0
-content_margin_top = 17.0
+content_margin_top = 20.0
 content_margin_right = 50.0
-content_margin_bottom = 7.0
+content_margin_bottom = 4.0
 bg_color = Color(0.0431373, 0.0431373, 0.0431373, 0.686275)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k4ube"]
 
 [resource]
+Button/font_sizes/font_size = 42
+Button/fonts/font = ExtResource("1_0vcbm")
 HSeparator/styles/separator = SubResource("StyleBoxEmpty_ck8wu")
 Label/font_sizes/font_size = 35
 Label/fonts/font = ExtResource("1_k4ube")

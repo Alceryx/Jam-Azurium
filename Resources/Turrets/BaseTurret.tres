@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="TurretData" load_steps=3 format=3 uid="uid://ct1kreps3d4lk"]
 
 [ext_resource type="Script" uid="uid://cm64ammqner4" path="res://Resources/Turrets/TurretData.cs" id="1_gur8y"]
-[ext_resource type="Texture2D" uid="uid://c7h1km7tlajhr" path="res://Assets/critters/boar/boar_NE_idle_0.png" id="1_wunh7"]
+[ext_resource type="Texture2D" uid="uid://c7h1km7tlajhr" path="res://Assets/Critters/boar/boar_NE_idle_0.png" id="1_wunh7"]
 
 [resource]
 script = ExtResource("1_gur8y")
@@ -9,4 +9,5 @@ ID = 0
 Name = "Base Turret"
 Size = Vector2(1, 2)
 Icon = ExtResource("1_wunh7")
+Price = 0
 metadata/_custom_type_script = "uid://cm64ammqner4"
