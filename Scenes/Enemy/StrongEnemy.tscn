@@ -1,25 +1,172 @@
-[gd_scene load_steps=7 format=3 uid="uid://djbq55octpltn"]
+[gd_scene load_steps=12 format=3 uid="uid://djbq55octpltn"]
 
 [ext_resource type="Script" uid="uid://j5tokn85fm54" path="res://Scripts/Enemy/Enemy.cs" id="1_lta73"]
-[ext_resource type="Texture2D" uid="uid://bqjqh4wnrudt2" path="res://Assets/critters/boar/boar_NW_idle_0.png" id="2_mgbs8"]
-[ext_resource type="Texture2D" uid="uid://dksofjos6syp" path="res://Assets/critters/boar/boar_SE_idle_0.png" id="3_v72u3"]
-[ext_resource type="Texture2D" uid="uid://bbnvvrca4ih36" path="res://Assets/critters/boar/boar_SW_idle_0.png" id="4_pjke1"]
-[ext_resource type="Texture2D" uid="uid://c7h1km7tlajhr" path="res://Assets/critters/boar/boar_NE_idle_0.png" id="5_50nln"]
+[ext_resource type="Texture2D" uid="uid://bqjqh4wnrudt2" path="res://Assets/Critters/boar/boar_NW_idle_0.png" id="2_mgbs8"]
+[ext_resource type="Texture2D" uid="uid://dksofjos6syp" path="res://Assets/Critters/boar/boar_SE_idle_0.png" id="3_v72u3"]
+[ext_resource type="Texture2D" uid="uid://bbnvvrca4ih36" path="res://Assets/Critters/boar/boar_SW_idle_0.png" id="4_pjke1"]
+[ext_resource type="Texture2D" uid="uid://c7h1km7tlajhr" path="res://Assets/Critters/boar/boar_NE_idle_0.png" id="5_50nln"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_3l8kd"]
-radius = 60.0167
+[sub_resource type="Animation" id="Animation_seemo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [ExtResource("2_mgbs8")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-20, 32)]
+}
 
-[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("Sprite")]
+[sub_resource type="Animation" id="Animation_fw0yv"]
+resource_name = "BaseAnimation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-20, 32)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [ExtResource("2_mgbs8")]
+}
+
+[sub_resource type="Animation" id="Animation_ljmj3"]
+resource_name = "Bottom Left"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 32)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [ExtResource("4_pjke1")]
+}
+
+[sub_resource type="Animation" id="Animation_shrp6"]
+resource_name = "Top Right"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(20, 32)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [ExtResource("5_50nln")]
+}
+
+[sub_resource type="Animation" id="Animation_xqoj7"]
+resource_name = "Bottom Right"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 32)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [ExtResource("3_v72u3")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_seemo"]
+_data = {
+&"Bottom Left": SubResource("Animation_ljmj3"),
+&"Bottom Right": SubResource("Animation_xqoj7"),
+&"RESET": SubResource("Animation_seemo"),
+&"Top Left": SubResource("Animation_fw0yv"),
+&"Top Right": SubResource("Animation_shrp6")
+}
+
+[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("sprite")]
 script = ExtResource("1_lta73")
-FrontSprite = ExtResource("2_mgbs8")
-BackSprite = ExtResource("3_v72u3")
-LeftSprite = ExtResource("4_pjke1")
-RightSprite = ExtResource("5_50nln")
-Sprite = NodePath("Sprite2D")
+sprite = NodePath("AnimationPlayer")
+
+[node name="Feet" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, 64)
+polygon = PackedVector2Array(0, -32, 64, 0, 0, 32, -64, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_seemo")
+}
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 0.0980392, 0.0666667, 1)
 texture = ExtResource("2_mgbs8")
+offset = Vector2(-20, 32)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_3l8kd")
+[node name="Head" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, -32, 64, 0, 0, 32, -64, 0)

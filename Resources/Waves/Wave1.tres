@@ -10,6 +10,7 @@ script = ExtResource("2_jl2wl")
 Enemy = ExtResource("1_1sc38")
 Count = 5
 SpawnInterval = 1.0
+SpawnCD = 0.0
 Mode = 1
 metadata/_custom_type_script = "uid://bnqqnodjbvisx"
 
@@ -18,6 +19,7 @@ script = ExtResource("2_jl2wl")
 Enemy = ExtResource("3_jl2wl")
 Count = 10
 SpawnInterval = 1.0
+SpawnCD = 0.0
 Mode = 1
 metadata/_custom_type_script = "uid://bnqqnodjbvisx"
 

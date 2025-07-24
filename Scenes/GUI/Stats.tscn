@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bkf0xqfrwl72v"]
 
 [ext_resource type="Script" uid="uid://chfqbb7h5sprm" path="res://Scripts/GUI/Stats.cs" id="1_8ewys"]
-[ext_resource type="Theme" uid="uid://cbx23junhh30k" path="res://Resources/GUI.tres" id="2_btas5"]
+[ext_resource type="Theme" uid="uid://bm2m53cf2qpe4" path="res://Resources/GUI.tres" id="2_btas5"]
 
 [node name="Stats" type="Control" node_paths=PackedStringArray("currency")]
 layout_mode = 3
