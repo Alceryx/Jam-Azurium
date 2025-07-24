@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://bkf0xqfrwl72v"]
+[gd_scene load_steps=6 format=3 uid="uid://bkf0xqfrwl72v"]
 
 [ext_resource type="Script" uid="uid://chfqbb7h5sprm" path="res://Scripts/GUI/Stats.cs" id="1_8ewys"]
 [ext_resource type="Theme" uid="uid://bm2m53cf2qpe4" path="res://Resources/GUI.tres" id="2_btas5"]
+[ext_resource type="Texture2D" uid="uid://bd6akk5h2yr32" path="res://Assets/GUI/[Stats] PT.png" id="3_btas5"]
+[ext_resource type="Texture2D" uid="uid://d2o5d8y6g8qsr" path="res://icon.svg" id="4_bkq53"]
+[ext_resource type="FontFile" uid="uid://o2lc8i6f1dwl" path="res://Assets/Fonts/Liberator/Liberator-Light.ttf" id="5_n6joj"]
 
 [node name="Stats" type="Control" node_paths=PackedStringArray("currency")]
 layout_mode = 3
@@ -12,15 +15,117 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_btas5")
 script = ExtResource("1_8ewys")
-currency = NodePath("Currency")
+currency = NodePath("Placeholder/Property/Currency")
 
-[node name="Currency" type="Label" parent="."]
+[node name="Ref" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 23.0
+offset_left = -545.0
+offset_bottom = 287.0
 grow_horizontal = 0
+texture = ExtResource("3_btas5")
+
+[node name="Placeholder" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -547.0
+offset_bottom = 291.0
+grow_horizontal = 0
+
+[node name="Main" type="MarginContainer" parent="Placeholder"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 60
+
+[node name="PanelContainer" type="PanelContainer" parent="Placeholder/Main"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Placeholder/Main/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 27
+theme_override_constants/margin_bottom = 50
+
+[node name="Align" type="HBoxContainer" parent="Placeholder/Main/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Start" type="VSeparator" parent="Placeholder/Main/PanelContainer/MarginContainer/Align"]
+layout_mode = 2
+theme_override_constants/separation = 42
+
+[node name="TextureRect" type="TextureRect" parent="Placeholder/Main/PanelContainer/MarginContainer/Align"]
+custom_minimum_size = Vector2(35, 0)
+layout_mode = 2
+texture = ExtResource("4_bkq53")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Decor>Icon" type="VSeparator" parent="Placeholder/Main/PanelContainer/MarginContainer/Align"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Detail" type="VBoxContainer" parent="Placeholder/Main/PanelContainer/MarginContainer/Align"]
+layout_mode = 2
+
+[node name="Health" type="HBoxContainer" parent="Placeholder/Main/PanelContainer/MarginContainer/Align/Detail"]
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="Placeholder/Main/PanelContainer/MarginContainer/Align/Detail/Health"]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 6
+
+[node name="HP" type="TextureProgressBar" parent="Placeholder/Main/PanelContainer/MarginContainer/Align/Detail/Health"]
+custom_minimum_size = Vector2(360, 60)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+fill_mode = 1
+
+[node name="Efficiency" type="HBoxContainer" parent="Placeholder/Main/PanelContainer/MarginContainer/Align/Detail"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Icon" type="TextureRect" parent="Placeholder/Main/PanelContainer/MarginContainer/Align/Detail/Efficiency"]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 6
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Placeholder/Main/PanelContainer/MarginContainer/Align/Detail/Efficiency"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/normal_font = ExtResource("5_n6joj")
+theme_override_font_sizes/normal_font_size = 50
+text = "10/Click"
+vertical_alignment = 1
+
+[node name="Property" type="HBoxContainer" parent="Placeholder"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="Start" type="VSeparator" parent="Placeholder/Property"]
+layout_mode = 2
+theme_override_constants/separation = 285
+
+[node name="TextureRect" type="TextureRect" parent="Placeholder/Property"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+size_flags_vertical = 0
+texture = ExtResource("4_bkq53")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Currency" type="Label" parent="Placeholder/Property"]
+custom_minimum_size = Vector2(130, 110)
+layout_mode = 2
+size_flags_vertical = 8
 theme_override_font_sizes/font_size = 100
-text = "TEXT"
+text = "123"
+
+[node name="End" type="VSeparator" parent="Placeholder/Property"]
+layout_mode = 2
+theme_override_constants/separation = 12
