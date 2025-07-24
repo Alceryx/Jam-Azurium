@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dkwpps6dhmbbl" path="res://Scripts/NexusButton.cs" id="1_0h4l8"]
 [ext_resource type="Shader" uid="uid://de5cqnc22f116" path="res://Resources/Shaders/2DOutline.gdshader" id="2_k7c6v"]
-[ext_resource type="Texture2D" uid="uid://lxvb0ixcad7p" path="res://Assets/Critters/boar/boar_NE_run_0.png" id="3_ke4vg"]
+[ext_resource type="Texture2D" uid="uid://lxvb0ixcad7p" path="res://Assets/critters/boar/boar_NE_run_0.png" id="3_ke4vg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hqswg"]
 shader = ExtResource("2_k7c6v")

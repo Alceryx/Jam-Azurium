@@ -5,7 +5,7 @@ public partial class BuildManager : Node
 {
     [ExportGroup("Data")]
     [Export] private TurretData TurretInfo;
-    private int TurretMode = 1;
+    [Export] private int TurretMode = 1;
     
     [ExportGroup("References")]
     [Export] private TileMapLayer PreviewLayer;
