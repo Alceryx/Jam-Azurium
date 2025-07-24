@@ -1,28 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://d3njk76vqeien"]
+[gd_scene load_steps=3 format=3 uid="uid://d3njk76vqeien"]
 
 [ext_resource type="Script" uid="uid://3jk3bpgstp46" path="res://Scripts/Turrets/Turret.cs" id="1_vsmea"]
 [ext_resource type="Texture2D" uid="uid://c7h1km7tlajhr" path="res://Assets/critters/boar/boar_NE_idle_0.png" id="2_vsmea"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_k7wci"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_vsmea")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[node name="Turret" type="StaticBody2D"]
+[node name="Turret" type="StaticBody2D" node_paths=PackedStringArray("Sprite")]
 script = ExtResource("1_vsmea")
+Sprite = NodePath("Sprite2D")
 
 [node name="Feet" type="CollisionPolygon2D" parent="."]
 position = Vector2(0, 64)
 polygon = PackedVector2Array(0, -32, 64, 0, 0, 32, -64, 0)
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_k7wci")
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_vsmea")
 offset = Vector2(20, 32)
 
 [node name="Head" type="CollisionPolygon2D" parent="."]

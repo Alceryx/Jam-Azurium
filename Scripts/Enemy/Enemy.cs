@@ -99,6 +99,7 @@ public partial class Enemy : CharacterBody2D
             case FacingDirection.Right:
                 Sprite.Texture = RightSprite;
                 break;
+            
         }
     }
 }

@@ -11,7 +11,7 @@ public partial class ShopItems : PanelContainer
     public void SetUp(TurretData data)
     {
         name.Text = data.Name;
-        icon.Texture = data.Icon;
+        icon.Texture = data.Modes[0].Icon;
         price.Text = data.Price.ToString();
     }
 }

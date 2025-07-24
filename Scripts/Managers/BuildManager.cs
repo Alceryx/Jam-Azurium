@@ -5,6 +5,7 @@ public partial class BuildManager : Node
 {
     [ExportGroup("Data")]
     [Export] private TurretData TurretInfo;
+    private int TurretMode = 1;
     
     [ExportGroup("References")]
     [Export] private TileMapLayer PreviewLayer;
@@ -22,6 +23,8 @@ public partial class BuildManager : Node
     public override void _Ready()
     {
         BM = this;
+        PreviewLayer.ChildEnteredTree += (Node node) => UpdatePreviewData(node);
+        PlaceableLayer.ChildEnteredTree += (Node node) => UpdatePlacementData(node);
     }
 
     public override void _Process(double delta)
@@ -44,9 +47,10 @@ public partial class BuildManager : Node
             PreviewPlacement();
     }
 
-    public void SetTurret(TurretData TurretInfo)
+    public void SetTurret(TurretData TurretInfo, int Mode)
     {
         this.TurretInfo = TurretInfo;
+        this.TurretMode = Mode;
     }
     
     //Start building the turret
@@ -100,8 +104,26 @@ public partial class BuildManager : Node
     {
         if (PrevPos != GridPos)
             PreviewLayer.EraseCell(PrevPos);
-        
+
         PreviewLayer.SetCell(GridPos, 2, Vector2I.Zero, TurretInfo.ID);
         PrevPos = GridPos;
+    }
+
+    private void UpdatePreviewData(Node node)
+    {
+        if (node is Turret)
+        {
+            Turret turret = (Turret)node;
+            turret.Sprite.Texture = TurretInfo.Modes[TurretMode].Icon;  
+        }
+    }
+
+    private void UpdatePlacementData(Node node)
+    {
+        if (node is Turret)
+        {
+            Turret turret = (Turret)node;
+            turret.SetUp(TurretInfo, TurretMode); 
+        }
     }
 }
