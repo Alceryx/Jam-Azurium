@@ -14,11 +14,11 @@ public partial class ShopManager : Control
     {
         if (Input.IsActionJustPressed("Escape")) Close();
     }
+    private void OnClosePressed() => Close();
 
     public void Open()
     {
-        if (IsOpened)
-            return;
+        if (IsOpened) return;
         
         Show();
         IsOpened = true;
@@ -26,24 +26,21 @@ public partial class ShopManager : Control
         foreach (TurretData data in Database)
         {
             ShopItems item = Item.Instantiate() as ShopItems;
-            item.SetUp(data);
+            item.SetUp(data, 0);
             ItemList.AddChild(item);
         }
     }
 
     public void Close()
     {
-        if (!IsOpened)
-            return;
+        if (!IsOpened) return;
         
-        IsOpened = false;
         Hide();
+        IsOpened = false;
         
         foreach (var child in ItemList.GetChildren())
         {
             child.QueueFree();
         }
     }
-
-    private void OnClosePressed() => Close();
 }

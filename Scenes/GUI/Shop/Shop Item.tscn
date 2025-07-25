@@ -107,3 +107,6 @@ theme_override_constants/separation = 50
 [node name="Bottom" type="HSeparator" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 20
+
+[connection signal="pressed" from="VBoxContainer/Detail/Buttons/Mode 1" to="." method="OnMode1Selected"]
+[connection signal="pressed" from="VBoxContainer/Detail/Buttons/Mode 2" to="." method="OnMode2Selected"]
