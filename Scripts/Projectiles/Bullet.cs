@@ -8,7 +8,7 @@ public partial class Bullet : Projectile
     public override void _PhysicsProcess(double delta)
     {
         Velocity = Direction * Speed;
-        LookAt(Direction * 100);
+        LookAt(Direction * 10000);
         MoveAndSlide();
     }
 }

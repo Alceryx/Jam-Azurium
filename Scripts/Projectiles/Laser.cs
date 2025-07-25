@@ -19,6 +19,9 @@ public partial class Laser : Projectile
 
     public override void _PhysicsProcess(double delta)
     {
+        if (!IsInstanceValid(Turret))
+            QueueFree();
+        
         RayCast.TargetPosition = RayCast.TargetPosition.MoveToward(Direction * Turret.Data.Modes[Turret.Mode].Range, CastSpeed * (float)delta);
         Ray.SetLength(GlobalPosition.DistanceTo(ToGlobal(RayCast.TargetPosition)));
         Collider.SetRotation((ToGlobal(RayCast.TargetPosition) - GlobalPosition).Normalized().Angle() - Mathf.Pi / 2);

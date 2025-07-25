@@ -7,8 +7,9 @@ public partial class WaveManager : Node
     [Export] public Array<WaveData> Waves;
     [Export] public Path2D WavePath;
     private Dictionary<int, WaveData> WaveQuery = new();
-
+    
     public WaveData CurrentWave;
+    public int CurrentWaveNumber;
     public Array<SpawnData> CurrentBatches = new();
     public Dictionary<SpawnData, int> CurrentBatchesQueue = new();
     public int CurrentBatchIndex; 
@@ -19,6 +20,9 @@ public partial class WaveManager : Node
     
     public static WaveManager WM;
     public bool WaveFinished = false;
+
+    [Signal]
+    public delegate void WaveEndedEventHandler(int WaveNumber);
     
     public override void _Ready()
     {
@@ -76,6 +80,7 @@ public partial class WaveManager : Node
     {
         CurrentWave = WaveQuery[WaveNumber];
         CurrentBatchIndex = 0;
+        CurrentQueueIndex = WaveNumber;
         NextBatch(CurrentBatchIndex);
     }
 
@@ -87,6 +92,7 @@ public partial class WaveManager : Node
         if (BatchIndex >= CurrentWave.SpawnedEnemy.Count)
         {
             WaveFinished = true;
+            EmitSignalWaveEnded(CurrentWaveNumber);
             return;
         }
         
