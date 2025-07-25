@@ -49,6 +49,11 @@ public partial class NexusButton : StaticBody2D
         }
         
     }
+    public void TakeDamage(float damage)
+    {
+        GameManager.GM.ButtonHP -= damage;
+        GD.Print(GameManager.GM.ButtonHP);
+    }
     private void OnMouseEntered()
     {
         Tween tween = CreateTween();
@@ -64,4 +69,5 @@ public partial class NexusButton : StaticBody2D
         tween.Parallel().TweenProperty(this, "scale", new Vector2(1, 1), 0.15f);
         CanClick = false;
     }
+
 }

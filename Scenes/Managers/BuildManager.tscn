@@ -4,3 +4,4 @@
 
 [node name="BuildManager" type="Node"]
 script = ExtResource("1_2qodn")
+TurretMode = 0

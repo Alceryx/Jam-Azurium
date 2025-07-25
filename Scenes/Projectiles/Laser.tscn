@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://dx8jxkf7r6n2d"]
+
+[ext_resource type="Script" uid="uid://csoxeu28261jy" path="res://Scripts/Projectiles/Laser.cs" id="1_xxohi"]
+
+[sub_resource type="SeparationRayShape2D" id="SeparationRayShape2D_xxohi"]
+
+[node name="Laser" type="CharacterBody2D" node_paths=PackedStringArray("RayCast", "Line", "Hitbox")]
+script = ExtResource("1_xxohi")
+CastSpeed = 1200.0
+RayCast = NodePath("RayCast2D")
+Line = NodePath("Line2D")
+Hitbox = NodePath("Area2D")
+Pierce = true
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(0, 20)
+target_position = Vector2(0, 0)
+collision_mask = 2
+
+[node name="Line2D" type="Line2D" parent="."]
+z_index = 1
+points = PackedVector2Array(0, 0, 0, 0)
+default_color = Color(0.352941, 1, 1, 1)
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("SeparationRayShape2D_xxohi")

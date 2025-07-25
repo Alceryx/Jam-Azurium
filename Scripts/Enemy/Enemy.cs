@@ -15,6 +15,7 @@ public partial class Enemy : CharacterBody2D
     [ExportGroup("Data")] 
     [Export] private float Health = 5f;
     [Export] private float Speed = 100.0f;
+    [Export] private float Damage = 5f;
 
     [ExportGroup("References")] 
     [Export] private AnimationPlayer sprite;
@@ -92,6 +93,15 @@ public partial class Enemy : CharacterBody2D
                 sprite.Play("Bottom Right");
                 break;
             
+        }
+    }
+
+    private void OnBodyEntered(Node2D body)
+    {
+        if (body is NexusButton)
+        {
+            ((NexusButton)body).TakeDamage(Damage);
+            QueueFree();
         }
     }
 }

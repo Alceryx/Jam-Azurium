@@ -18,6 +18,7 @@ point_count = 3
 [node name="World" type="Node"]
 script = ExtResource("1_gjpho")
 Efficiency = 20
+ButtonMaxHP = 100.0
 
 [node name="Tile Map" type="TileMapLayer" parent="."]
 texture_filter = 1
@@ -40,7 +41,7 @@ tile_map_data = PackedByteArray("AAD//wIAAAAHAAMAAAD//wEAAAAHAAMAAAD+/wEAAAAHAAM
 tile_set = ExtResource("1_5cjrv")
 
 [node name="Animal" type="TileMapLayer" parent="Tile Map"]
-tile_map_data = PackedByteArray("AAD7//r/AgAAAAAAAgA=")
+tile_map_data = PackedByteArray("AAD6//r/AgAAAAAAAgA=")
 tile_set = ExtResource("1_5cjrv")
 
 [node name="PreviewTile" type="TileMapLayer" parent="Tile Map"]
@@ -82,7 +83,7 @@ metadata/_custom_type_script = "uid://f51cuw0krxbt"
 
 [node name="BuildManager" parent="." node_paths=PackedStringArray("PreviewLayer", "PlaceableLayer", "GroundLayer") instance=ExtResource("3_gjpho")]
 TurretInfo = ExtResource("4_gjpho")
-TurretMode = 0
+TurretMode = 1
 PreviewLayer = NodePath("../Tile Map/PreviewTile")
 PlaceableLayer = NodePath("../Tile Map/Animal")
 GroundLayer = NodePath("../Tile Map/Land Upper")

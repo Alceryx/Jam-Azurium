@@ -7,11 +7,17 @@ public partial class GameManager : Node
 {
     public static GameManager GM;
 
-    public int Currency;
+    [ExportGroup("Nexus Button")]
     [Export] public int Efficiency;
+    [Export] public float ButtonMaxHP;
+    public float ButtonHP;
+    
+    public int Currency;
+    
 
     public override void _Ready()
     {
         GM = this;
+        ButtonHP = ButtonMaxHP;
     }
  }
