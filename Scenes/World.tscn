@@ -98,3 +98,6 @@ WavePath = NodePath("Path2D")
 position = Vector2(-53.0974, 61.0574)
 scale = Vector2(1.08309, 0.893443)
 curve = SubResource("Curve2D_y7y61")
+
+[connection signal="mouse_entered" from="Tile Map/Animal/Nexus Button" to="Tile Map/Animal/Nexus Button" method="OnMouseEntered"]
+[connection signal="mouse_exited" from="Tile Map/Animal/Nexus Button" to="Tile Map/Animal/Nexus Button" method="OnMouseExited"]
