@@ -81,6 +81,7 @@ metadata/_custom_type_script = "uid://f51cuw0krxbt"
 
 [node name="BuildManager" parent="." node_paths=PackedStringArray("PreviewLayer", "PlaceableLayer", "GroundLayer") instance=ExtResource("3_gjpho")]
 TurretInfo = ExtResource("4_gjpho")
+TurretMode = 0
 PreviewLayer = NodePath("../Tile Map/PreviewTile")
 PlaceableLayer = NodePath("../Tile Map/Animal")
 GroundLayer = NodePath("../Tile Map/Land Upper")

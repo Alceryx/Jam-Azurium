@@ -12,6 +12,6 @@ public partial class ShopItems : PanelContainer
     {
         name.Text = data.Name;
         icon.Texture = data.Modes[0].Icon;
-        price.Text = data.Price.ToString();
+        price.Text = data.Modes[0].Price.ToString();
     }
 }

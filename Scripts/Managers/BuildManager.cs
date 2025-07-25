@@ -9,14 +9,15 @@ public partial class BuildManager : Node
     
     [ExportGroup("References")]
     [Export] private TileMapLayer PreviewLayer;
-    [Export] private TileMapLayer PlaceableLayer; //Layer to place the object one
+    [Export] public TileMapLayer PlaceableLayer; //Layer to place the object one
     [Export] private TileMapLayer GroundLayer; //Layer for checking if placeable or not
 
     private Turret CurrentPreview;
     private Turret.FacingDirection PreviewRotation;
     
-    public bool IsBuilding = false;
+    public bool IsBuilding;
     public Array<Vector2I> OccupiedTiles = new();
+    private Array<Vector2I> RecentlyOccupied = new();
     
     public static BuildManager BM;
 
@@ -48,6 +49,7 @@ public partial class BuildManager : Node
 
         if (Input.IsActionJustPressed("Rotate") && TurretInfo.Modes[TurretMode].CanRotate && IsBuilding)
             Rotate();
+            
         
         if (IsBuilding)
             PreviewPlacement();
@@ -81,7 +83,7 @@ public partial class BuildManager : Node
         IsBuilding = false;
         PreviewLayer.EraseCell(GridPos);
         PlaceableLayer.SetCell(GridPos, 2, Vector2I.Zero, TurretInfo.ID);
-        
+        RecentlyOccupied.Clear();
         //Add occupied spots
         for (int x = 0; x < TurretInfo.Size.X; x++)
         {
@@ -99,6 +101,7 @@ public partial class BuildManager : Node
                     pos = GridPos + new Vector2I(x, y);
                 
                 OccupiedTiles.Add(pos);
+                RecentlyOccupied.Add(pos);
             }
         }
     }
@@ -120,7 +123,6 @@ public partial class BuildManager : Node
                 else
                     pos = GridPos + new Vector2I(x, y);
                 
-                
                 if (OccupiedTiles.Contains(pos))
                     return false;
 
@@ -134,6 +136,7 @@ public partial class BuildManager : Node
         
         return true;
     }
+    
     
     private void PreviewPlacement()
     {
@@ -152,36 +155,22 @@ public partial class BuildManager : Node
 
             if (!IsInstanceValid(CurrentPreview.Sprite))
                 return;
-            
-            if (TurretInfo.Modes[TurretMode].CanRotate)
-            {
-                switch (PreviewRotation)
-                {
-                    case Turret.FacingDirection.TopLeft:
-                        CurrentPreview.Sprite.Texture = TurretInfo.Modes[TurretMode].TopLeft;
-                        break;
-                    case Turret.FacingDirection.TopRight:
-                        CurrentPreview.Sprite.Texture = TurretInfo.Modes[TurretMode].TopRight;
-                        break;
-                    case Turret.FacingDirection.BottomLeft:
-                        CurrentPreview.Sprite.Texture = TurretInfo.Modes[TurretMode].BottomLeft;
-                        break;
-                    case Turret.FacingDirection.BottomRight:
-                        CurrentPreview.Sprite.Texture = TurretInfo.Modes[TurretMode].BottomRight;
-                        break;
-                }
-            }
-            else
-                CurrentPreview.Sprite.Texture = TurretInfo.Modes[TurretMode].Icon;
+            CurrentPreview.SetUp(TurretInfo, TurretMode, PreviewRotation, Preview:true);
+            CurrentPreview.ShowDetectionPreview();
         }
     }
 
     private void UpdatePlacementData(Node node)
     {
-        if (node is Turret)
-        {
-            Turret turret = (Turret)node;
-            turret.SetUp(TurretInfo, TurretMode, PreviewRotation); 
-        }
+        if (node is not Turret)
+            return;
+        
+        Turret turret = (Turret)node;
+        
+        Array<Vector2I> temp = new Array<Vector2I>();
+        temp.AddRange(RecentlyOccupied);
+        
+        turret.SetUp(TurretInfo, TurretMode, PreviewRotation, temp); 
+        turret.HideDetectionPreview();
     }
 }

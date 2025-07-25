@@ -4,7 +4,7 @@ using System;
 public partial class Stats : Control
 {
     [Export] private Label currency;
-    [Export] private Label efficiency;
+    [Export] private RichTextLabel efficiency;
 
     public override void _PhysicsProcess(double delta)
     {

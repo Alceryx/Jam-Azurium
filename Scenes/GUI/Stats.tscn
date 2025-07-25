@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://d2o5d8y6g8qsr" path="res://icon.svg" id="4_bkq53"]
 [ext_resource type="FontFile" uid="uid://o2lc8i6f1dwl" path="res://Assets/Fonts/Liberator/Liberator-Light.ttf" id="5_n6joj"]
 
-[node name="Stats" type="Control" node_paths=PackedStringArray("currency")]
+[node name="Stats" type="Control" node_paths=PackedStringArray("currency", "efficiency")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,6 +16,7 @@ grow_vertical = 2
 theme = ExtResource("2_btas5")
 script = ExtResource("1_8ewys")
 currency = NodePath("Placeholder/Property/Currency")
+efficiency = NodePath("Placeholder/Main/PanelContainer/MarginContainer/Align/Detail/Efficiency/RichTextLabel")
 
 [node name="Ref" type="TextureRect" parent="."]
 layout_mode = 1

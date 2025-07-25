@@ -11,8 +11,9 @@ public partial class Enemy : CharacterBody2D
         BottomLeft,
         BottomRight
     }
-    
-    [ExportGroup("Data")]
+
+    [ExportGroup("Data")] 
+    [Export] private float Health = 5f;
     [Export] private float Speed = 100.0f;
 
     [ExportGroup("References")] 
@@ -36,6 +37,13 @@ public partial class Enemy : CharacterBody2D
         GlobalPosition = PathFollow.GlobalPosition;
     }
 
+    public void TakeDamage(float damage)
+    {
+        Health -= damage;
+        if (Health <= 0)
+            QueueFree();
+    }
+    
     public override void _PhysicsProcess(double delta)
     {
         if (!IsInstanceValid(Path) || !IsInstanceValid(PathFollow))
@@ -49,14 +57,8 @@ public partial class Enemy : CharacterBody2D
 
     private void UpdateFacingDirection()
     {
-        Vector2 movementVector = GlobalPosition - LastPosition;
+        float angle = LastPosition.GetIsometricAngleTo(GlobalPosition);
         LastPosition = GlobalPosition;
-
-        Vector2 isoVector = CartesianToIsometric(movementVector);
-
-        float angle = Mathf.RadToDeg(isoVector.Angle());
-        if (angle < 0)
-            angle += 360;
         
         if (angle >= 225 && angle < 315)
             Direction = FacingDirection.TopLeft;

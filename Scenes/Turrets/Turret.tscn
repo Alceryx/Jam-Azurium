@@ -1,11 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://d3njk76vqeien"]
+[gd_scene load_steps=5 format=3 uid="uid://d3njk76vqeien"]
 
-[ext_resource type="Script" uid="uid://3jk3bpgstp46" path="res://Scripts/Turrets/Turret.cs" id="1_vsmea"]
+[ext_resource type="Script" uid="uid://b4ehhsn5s6b7c" path="res://Scripts/Turrets/FirstTurret.cs" id="1_vsmea"]
 [ext_resource type="Texture2D" uid="uid://c7h1km7tlajhr" path="res://Assets/critters/boar/boar_NE_idle_0.png" id="2_vsmea"]
 
-[node name="Turret" type="StaticBody2D" node_paths=PackedStringArray("Sprite")]
+[sub_resource type="SphereMesh" id="SphereMesh_vsmea"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vsmea"]
+
+[node name="Turret" type="StaticBody2D" node_paths=PackedStringArray("Sprite", "DetectionArea", "DectectionPreview")]
 script = ExtResource("1_vsmea")
 Sprite = NodePath("Sprite2D")
+DetectionArea = NodePath("DetectionArea/CollisionShape2D")
+DectectionPreview = NodePath("DetectionPreview")
+DestructDelay = 0.2
+
+[node name="DetectionPreview" type="MeshInstance2D" parent="."]
+modulate = Color(1, 1, 1, 0.309804)
+mesh = SubResource("SphereMesh_vsmea")
 
 [node name="Feet" type="CollisionPolygon2D" parent="."]
 position = Vector2(0, 64)
@@ -17,3 +28,10 @@ offset = Vector2(20, 32)
 
 [node name="Head" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(0, -32, 64, 0, 0, 32, -64, 0)
+
+[node name="DetectionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource("CircleShape2D_vsmea")
+
+[connection signal="body_entered" from="DetectionArea" to="." method="OnBodyEntered"]

@@ -28,12 +28,13 @@ public partial class WaveManager : Node
         {
             WaveQuery.Add(wave.WaveNumber, wave);
         }
-        
-        StartWave(1);
     }
 
     public override void _Process(double delta)
     {
+        if (Input.IsActionJustPressed("NextWave"))
+            StartWave(1);
+        
         if (CurrentBatchesQueue.Count > 0)
         {
             SpawnTimer -= (float)delta;
@@ -80,6 +81,9 @@ public partial class WaveManager : Node
 
     public void NextBatch(int BatchIndex)
     {
+        if (!IsInstanceValid(CurrentWave))
+            return;
+        
         if (BatchIndex >= CurrentWave.SpawnedEnemy.Count)
         {
             WaveFinished = true;
