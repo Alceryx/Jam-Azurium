@@ -9,10 +9,12 @@ public partial class ShopItems : PanelContainer
     [Export] private Label price;
 
     private TurretData data;
+    private int mode;
     
     public void SetUp(TurretData data, int mode)
     {
         this.data = data;
+        this.mode = mode;
         
         name.Text = data.Name;
         icon.Texture = data.Modes[mode].Icon;
