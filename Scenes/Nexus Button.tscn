@@ -14,6 +14,7 @@ shader_parameter/outline_color = Color(1, 1, 1, 0)
 input_pickable = true
 script = ExtResource("1_0h4l8")
 MaxCPS = 20
+HoldThreshold = 0.5
 Sprite = NodePath("Sprite2D")
 
 [node name="Feet" type="CollisionPolygon2D" parent="."]

@@ -8,18 +8,21 @@ public partial class ShopManager : Control
     [Export] public PackedScene Item;
     [Export] public Array<TurretData> Database = [];
 
-    public override void _Ready()
-    {
-        AddItem();
-    }
+    public bool IsOpened;
 
     public override void _PhysicsProcess(double delta)
     {
-        if (Input.IsActionJustPressed("Escape")) Hide();
+        if (Input.IsActionJustPressed("Escape")) Close();
     }
 
-    private void AddItem()
+    public void Open()
     {
+        if (IsOpened)
+            return;
+        
+        Show();
+        IsOpened = true;
+        
         foreach (TurretData data in Database)
         {
             ShopItems item = Item.Instantiate() as ShopItems;
@@ -28,5 +31,19 @@ public partial class ShopManager : Control
         }
     }
 
-    public void OnClosePressed() => Hide();
+    public void Close()
+    {
+        if (!IsOpened)
+            return;
+        
+        IsOpened = false;
+        Hide();
+        
+        foreach (var child in ItemList.GetChildren())
+        {
+            child.QueueFree();
+        }
+    }
+
+    private void OnClosePressed() => Close();
 }

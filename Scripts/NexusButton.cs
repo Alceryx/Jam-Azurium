@@ -4,11 +4,13 @@ using System;
 public partial class NexusButton : StaticBody2D
 {
     [Export] private int MaxCPS;
+    [Export] private float HoldThreshold;
     [Export] private Sprite2D Sprite;
     private bool CanClick;
 
     private float ClickDelay;
     private float ClickTimer;
+    private float HoldTimer;
 
     public override void _Ready()
     {
@@ -20,14 +22,32 @@ public partial class NexusButton : StaticBody2D
         if (ClickTimer > 0)
         {
             ClickTimer -= (float)delta;
-        } 
-        
-        if (!BuildManager.BM.IsBuilding && Input.IsActionJustPressed("Interact") && CanClick && ClickTimer <= 0)
-        {
-            ClickTimer = ClickDelay;
-            GameManager.GM.Currency += 1;
-            GD.Print(GameManager.GM.Currency);
         }
+
+        if (HoldTimer >= HoldThreshold)
+        {
+            InterfaceManager.IM.ShopMenu.Open();
+        }
+
+        if (!BuildManager.BM.IsBuilding && CanClick && ClickTimer <= 0)
+        {
+            if (Input.IsActionJustPressed("Interact"))
+            {
+                ClickTimer = ClickDelay;
+                GameManager.GM.Currency += GameManager.GM.Efficiency;
+            }
+
+            if (Input.IsActionPressed("Interact") )
+            {
+                HoldTimer += (float)delta;
+            }
+
+            if (Input.IsActionJustReleased("Interact"))
+            {
+                HoldTimer = 0;
+            }
+        }
+        
     }
     private void OnMouseEntered()
     {
