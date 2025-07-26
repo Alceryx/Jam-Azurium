@@ -76,6 +76,13 @@ public partial class BuildManager : Node
         }
         BM.PlaceableLayer.EraseCell(OccupiedPositions[0]);
     }
+
+    public void Move(Turret turret)
+    {
+        Destroy(turret.OccupiedPositions);
+        SetTurret(turret.Data, turret.Mode);
+        Build();
+    }
  
     //Rotate the turret
     public void Rotate()

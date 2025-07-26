@@ -29,7 +29,7 @@ public abstract partial class Turret : StaticBody2D
    public bool Interacted;
    public bool CanShoot = true;
    
-   private Array<Vector2I> OccupiedPositions;
+   public Array<Vector2I> OccupiedPositions;
 
    public abstract void Shoot(Vector2 target);
 
@@ -70,6 +70,9 @@ public abstract partial class Turret : StaticBody2D
       
       if (Input.IsActionJustPressed("Destroy") && Interacted)
          BuildManager.BM.Destroy(OccupiedPositions);
+      
+      if (Input.IsActionJustPressed("Move") && Interacted)
+         BuildManager.BM.Move(this);
    }
 
    public void SetUp(TurretData Data, int Mode, FacingDirection Direction, Array<Vector2I> OccupiedPositions = null, bool Preview = false)
@@ -83,10 +86,7 @@ public abstract partial class Turret : StaticBody2D
       Sprite.Texture = Data.Modes[Mode].Icon;
       ((CircleShape2D)DetectionArea.Shape).SetRadius(Data.Modes[Mode].Range);
 
-      if (Data.Modes[Mode].CanRotate)
-      {
-         UpdateSprite();
-      }
+      UpdateSprite();
 
       DetectionArea.Disabled = Preview;
    }
