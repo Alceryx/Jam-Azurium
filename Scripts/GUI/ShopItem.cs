@@ -13,7 +13,6 @@ public partial class ShopItem : PanelContainer
     [Export] private Label price;
     
     public int Price;
-    public Dictionary<int, int> Amount = new();
 
     public int ModeCount;
     public int Mode;

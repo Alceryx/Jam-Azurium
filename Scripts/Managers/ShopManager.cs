@@ -1,6 +1,5 @@
 using Godot;
 using System;
-using System.Collections.Generic;
 using Godot.Collections;
 
 public partial class ShopManager : Control
@@ -47,13 +46,20 @@ public partial class ShopManager : Control
 
     public void OnPurchase()
     {
-        if (GameManager.GM.Currency > SelectedItem.Price)
+        if (GameManager.GM.Currency >= SelectedItem.Price)
         {
             Lock();
-            if (!SelectedItem.Amount.TryAdd(SelectedItem.Mode, 1)) SelectedItem.Amount[SelectedItem.Mode]++;
-
-            HotbarManager.HM.AddSlot(SelectedItem.ModeCount);
-            HotbarManager.HM.ItemToBar(SelectedItem.Mode, SelectedItem);
+            
+            if (HotbarManager.HM.TurretsSlot.ContainsKey(SelectedItem.Data))
+            {
+                if (HotbarManager.HM.TurretsSlot[SelectedItem.Data].ContainsKey(SelectedItem.Mode))
+                    HotbarManager.HM.UpdateSlot(SelectedItem.Data, SelectedItem.Mode);
+                else
+                    HotbarManager.HM.AddSlot(SelectedItem.Data, SelectedItem.Mode);
+            }
+            else
+                HotbarManager.HM.AddSlot(SelectedItem.Data, SelectedItem.Mode);
+            
             GameManager.GM.Currency -= SelectedItem.Price;
         }
     }

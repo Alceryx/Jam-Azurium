@@ -7,6 +7,8 @@ public partial class HotbarManager : Control
     [Export] public HBoxContainer Bar;
     [Export] public PackedScene Slot;
 
+    public Dictionary<TurretData, Dictionary<int, HotbarSlot>> TurretsSlot = new();
+    
     public static HotbarManager HM;
     
     public override void _Ready()
@@ -14,19 +16,19 @@ public partial class HotbarManager : Control
         HM = this;
     }
 
-    public void AddSlot(int amount)
+    public void AddSlot(TurretData data, int mode)
     {
-        if (Bar.GetChildCount() > 0) return;
-        
-        for (int i = 0; i < amount; i++)
-        {
-            HotbarSlot slot = Slot.Instantiate() as HotbarSlot;
-            Bar.AddChild(slot);
-        }
+        HotbarSlot slot = Slot.Instantiate() as HotbarSlot;
+        if (TurretsSlot.ContainsKey(data))
+            TurretsSlot[data].Add(mode, slot);
+        else
+            TurretsSlot.Add(data, new Dictionary<int, HotbarSlot>() {{mode, slot}});
+        slot.SetUp(data, mode, 1);
+        Bar.AddChild(slot);
     }
 
-    public void ItemToBar(int mode, ShopItem item)
+    public void UpdateSlot(TurretData data, int mode)
     {
-        Bar.GetChild<HotbarSlot>(mode).SetUp(item.Icon.Texture, item.Amount[mode]);
+        TurretsSlot[data][mode].SetUp(data, mode, TurretsSlot[data][mode].Amount + 1);
     }
 }

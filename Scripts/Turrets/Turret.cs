@@ -48,7 +48,7 @@ public abstract partial class Turret : StaticBody2D
          DestructTimer -= (float)delta;
          if (DestructTimer <= 0)
          {
-            BuildManager.BM.Destroy(OccupiedPositions);
+            BuildManager.BM.Destroy(this);
          }
       }
       
@@ -69,7 +69,7 @@ public abstract partial class Turret : StaticBody2D
       }
       
       if (Input.IsActionJustPressed("Destroy") && Interacted)
-         BuildManager.BM.Destroy(OccupiedPositions);
+         BuildManager.BM.Store(this);
       
       if (Input.IsActionJustPressed("Move") && Interacted)
          BuildManager.BM.Move(this);

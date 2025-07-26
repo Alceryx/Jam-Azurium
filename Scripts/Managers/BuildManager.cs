@@ -24,6 +24,9 @@ public partial class BuildManager : Node
     private Vector2I PrevPos;
     private Vector2I GridPos;
 
+    [Signal]
+    public delegate void PlacedTurretEventHandler(TurretData data, int mode);
+
     public override void _Ready()
     {
         BM = this;
@@ -40,9 +43,6 @@ public partial class BuildManager : Node
             PreviewLayer.Modulate = new Color(1, 1, 1, 0.5f);
         else
             PreviewLayer.Modulate = new Color(1, 0, 0, 0.75f);
-        
-        if (!IsBuilding && Input.IsActionJustPressed("Build"))
-            Build();
 
         if (Input.IsActionJustReleased("Interact") && IsBuilding && IsPlacementValid())
             Place();
@@ -68,18 +68,35 @@ public partial class BuildManager : Node
         PreviewRotation = 0;
     }
 
-    public void Destroy(Array<Vector2I> OccupiedPositions)
+    public void Destroy(Turret turret)
     {
-        foreach (Vector2I pos in OccupiedPositions)
+        foreach (Vector2I pos in turret.OccupiedPositions)
         {
             OccupiedTiles.Remove(pos + Vector2I.One);
         }
-        BM.PlaceableLayer.EraseCell(OccupiedPositions[0]);
+        BM.PlaceableLayer.EraseCell(turret.OccupiedPositions[0]);
+        
+        
+    }
+
+    public void Store(Turret turret)
+    {
+        Destroy(turret);
+        
+        if (HotbarManager.HM.TurretsSlot.ContainsKey(turret.Data))
+        {
+            if (HotbarManager.HM.TurretsSlot[turret.Data].ContainsKey(turret.Mode))
+                HotbarManager.HM.UpdateSlot(turret.Data, turret.Mode);
+            else
+                HotbarManager.HM.AddSlot(turret.Data, turret.Mode);
+        }
+        else
+            HotbarManager.HM.AddSlot(turret.Data, turret.Mode);
     }
 
     public void Move(Turret turret)
     {
-        Destroy(turret.OccupiedPositions);
+        Destroy(turret);
         SetTurret(turret.Data, turret.Mode);
         Build();
     }
@@ -205,5 +222,7 @@ public partial class BuildManager : Node
         
         turret.SetUp(TurretInfo, TurretMode, PreviewRotation, temp); 
         turret.HideDetectionPreview();
+        
+        EmitSignalPlacedTurret(TurretInfo, TurretMode);
     }
 }
