@@ -12,6 +12,7 @@
 
 [node name="Shop" type="Control" node_paths=PackedStringArray("ItemList")]
 layout_mode = 3
+anchors_preset = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
 grow_horizontal = 2

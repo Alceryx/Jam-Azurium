@@ -19,6 +19,5 @@ mouse_filter = 1
 
 [node name="Shop" parent="." instance=ExtResource("3_7ud4v")]
 visible = false
-anchors_preset = 0
 grow_horizontal = 1
 grow_vertical = 1

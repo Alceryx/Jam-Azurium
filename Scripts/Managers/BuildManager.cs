@@ -72,7 +72,7 @@ public partial class BuildManager : Node
     {
         foreach (Vector2I pos in OccupiedPositions)
         {
-            OccupiedTiles.Remove(pos);
+            OccupiedTiles.Remove(pos + Vector2I.One);
         }
         BM.PlaceableLayer.EraseCell(OccupiedPositions[0]);
     }
@@ -89,28 +89,43 @@ public partial class BuildManager : Node
     //Place the turret
     public void Place()
     {
+        Vector2I RealPos = GridPos + Vector2I.One;
         IsBuilding = false;
         PreviewLayer.EraseCell(GridPos);
         PlaceableLayer.SetCell(GridPos, 2, Vector2I.Zero, TurretInfo.ID);
         RecentlyOccupied.Clear();
         //Add occupied spots
+        
         for (int x = 0; x < TurretInfo.Size.X; x++)
         {
             for (int y = 0; y < TurretInfo.Size.Y; y++)
             {
                 Vector2I pos = new Vector2I();
-                
+                Vector2I display = new Vector2I();
+
                 if (PreviewRotation == Turret.FacingDirection.TopRight)
-                    pos = GridPos + new Vector2I(x, -y);
+                {
+                    pos = RealPos + new Vector2I(x, -y);
+                    display = GridPos + new Vector2I(x, -y);
+                }
                 else if (PreviewRotation == Turret.FacingDirection.TopLeft)
-                    pos = GridPos + new Vector2I(-y, x);
+                {
+                    pos = RealPos + new Vector2I(-y, x);
+                    display = GridPos + new Vector2I(-y, x);
+                }
                 else if (PreviewRotation == Turret.FacingDirection.BottomRight)
-                    pos = GridPos + new Vector2I(y, x);
+                {
+                    pos = RealPos + new Vector2I(y, x);
+                    display = GridPos + new Vector2I(y, x);
+                }
                 else
-                    pos = GridPos + new Vector2I(x, y);
+                { 
+                    pos = RealPos + new Vector2I(x, y);
+                    display = GridPos + new Vector2I(x, y);
+                }
                 
                 OccupiedTiles.Add(pos);
-                RecentlyOccupied.Add(pos);
+                RecentlyOccupied.Add(display);
             }
         }
     }
@@ -118,19 +133,21 @@ public partial class BuildManager : Node
     //Check if placement is valid or not
     public bool IsPlacementValid()
     {
+        Vector2I RealPos = GridPos + Vector2I.One;
+        
         for (int x = 0; x < TurretInfo.Size.X; x++)
         {
             for (int y = 0; y < TurretInfo.Size.Y; y++)
             {
                 Vector2I pos = new Vector2I();
                 if (PreviewRotation == Turret.FacingDirection.TopRight)
-                    pos = GridPos + new Vector2I(x, -y);
+                    pos = RealPos + new Vector2I(x, -y);
                 else if (PreviewRotation == Turret.FacingDirection.TopLeft)
-                    pos = GridPos + new Vector2I(-y, x);
+                    pos = RealPos + new Vector2I(-y, x);
                 else if (PreviewRotation == Turret.FacingDirection.BottomRight)
-                    pos = GridPos + new Vector2I(y, x);
+                    pos = RealPos + new Vector2I(y, x);
                 else
-                    pos = GridPos + new Vector2I(x, y);
+                    pos = RealPos + new Vector2I(x, y);
                 
                 if (OccupiedTiles.Contains(pos))
                     return false;

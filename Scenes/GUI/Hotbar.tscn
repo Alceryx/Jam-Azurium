@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cjmodeiwt6ovk"]
+[gd_scene load_steps=0 format=3 uid="uid://cjmodeiwt6ovk"]
 
 [node name="Hotbar" type="Control"]
 layout_mode = 3

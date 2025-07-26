@@ -1,10 +1,9 @@
-[gd_scene load_steps=10 format=4 uid="uid://jsl0kt2kqh1m"]
+[gd_scene load_steps=9 format=4 uid="uid://jsl0kt2kqh1m"]
 
 [ext_resource type="TileSet" uid="uid://812b6buxvihs" path="res://Resources/Map/Map.tres" id="1_5cjrv"]
 [ext_resource type="Script" uid="uid://cljto2ukqdtou" path="res://Scripts/Managers/GameManager.cs" id="1_gjpho"]
 [ext_resource type="PackedScene" uid="uid://dgymrcaln58wc" path="res://Scenes/Managers/BuildManager.tscn" id="3_gjpho"]
 [ext_resource type="Resource" uid="uid://ct1kreps3d4lk" path="res://Resources/Turrets/BaseTurret.tres" id="4_gjpho"]
-[ext_resource type="PackedScene" uid="uid://cxrkc6mxf5yor" path="res://Scenes/Managers/Interface Manager.tscn" id="5_45d1s"]
 [ext_resource type="Script" uid="uid://f51cuw0krxbt" path="res://addons/ProCam2D/scripts/procam2d.gd" id="5_p70al"]
 [ext_resource type="PackedScene" uid="uid://bc6lkoeu16lv1" path="res://Scenes/Managers/Wave Manager.tscn" id="7_y7y61"]
 [ext_resource type="Resource" uid="uid://1wsglml18pqg" path="res://Resources/Waves/Wave1.tres" id="8_q2d71"]
@@ -41,7 +40,6 @@ tile_map_data = PackedByteArray("AAD//wIAAAAHAAMAAAD//wEAAAAHAAMAAAD+/wEAAAAHAAM
 tile_set = ExtResource("1_5cjrv")
 
 [node name="Animal" type="TileMapLayer" parent="Tile Map"]
-tile_map_data = PackedByteArray("AAD6//r/AgAAAAAAAgA=")
 tile_set = ExtResource("1_5cjrv")
 
 [node name="PreviewTile" type="TileMapLayer" parent="Tile Map"]
@@ -86,8 +84,6 @@ TurretInfo = ExtResource("4_gjpho")
 PreviewLayer = NodePath("../Tile Map/PreviewTile")
 PlaceableLayer = NodePath("../Tile Map/Animal")
 GroundLayer = NodePath("../Tile Map/Land Upper")
-
-[node name="Interface Manager" parent="." instance=ExtResource("5_45d1s")]
 
 [node name="WaveManager" parent="." node_paths=PackedStringArray("WavePath") instance=ExtResource("7_y7y61")]
 Waves = Array[Object]([ExtResource("8_q2d71")])
