@@ -9,6 +9,7 @@ public partial class TurretMode : Resource
     [ExportGroup("Basic Info")]
     [Export] public Texture2D Icon; //Icon (Preview icon)
     [Export] public int Price;
+    [Export] public int Amount;
     [Export] public bool CanRotate; //Can Rotate on placing
     
     [ExportGroup("Stats")] 

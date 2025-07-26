@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://dydw14v600iar"]
+
+[ext_resource type="Theme" uid="uid://bm2m53cf2qpe4" path="res://Resources/GUI.tres" id="1_03178"]
+[ext_resource type="Script" uid="uid://dyd3sdloaq7ys" path="res://Scripts/GUI/HotbarSlot.cs" id="2_x2gbf"]
+
+[node name="Slot" type="PanelContainer" node_paths=PackedStringArray("icon", "amount")]
+custom_minimum_size = Vector2(225, 225)
+offset_right = 225.0
+offset_bottom = 225.0
+theme = ExtResource("1_03178")
+script = ExtResource("2_x2gbf")
+icon = NodePath("Icon")
+amount = NodePath("Amount")
+
+[node name="Icon" type="TextureRect" parent="."]
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+
+[node name="Amount" type="Label" parent="."]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 50
+text = "x12"
+horizontal_alignment = 2

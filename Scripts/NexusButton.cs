@@ -26,7 +26,7 @@ public partial class NexusButton : StaticBody2D
 
         if (HoldTimer >= HoldThreshold)
         {
-            InterfaceManager.IM.ShopMenu.Show();
+            ShopManager.SM.Show();
         }
 
         if (!BuildManager.BM.IsBuilding && CanClick && ClickTimer <= 0)

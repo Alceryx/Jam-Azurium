@@ -7,14 +7,21 @@ public partial class ShopManager : Control
     [Export] public VBoxContainer ItemList;
     [Export] public PackedScene Item;
     [Export] public Array<TurretData> Database = [];
+    [Export] public Button Buy;
 
-    public bool IsOpened;
+    public static ShopManager SM;
+    
+    public bool AnySelected;
+    public ShopItem SelectedItem;
 
     public override void _Ready()
     {
+        SM = this;
+        Buy.Disabled = true;
+        
         foreach (TurretData data in Database)
         {
-            ShopItems item = Item.Instantiate() as ShopItems;
+            ShopItem item = Item.Instantiate() as ShopItem;
             item.SetUp(data, 0);
             ItemList.AddChild(item);
         }
@@ -23,16 +30,26 @@ public partial class ShopManager : Control
     public override void _PhysicsProcess(double delta)
     {
         if (Input.IsActionJustPressed("Escape")) Hide();
+        if (AnySelected) Buy.Disabled = false;
     }
     
     private void OnClosePressed() => Hide();
 
-    public void LockItem()
+    public void OnPurchase()
     {
-        foreach (ShopItems item in ItemList.GetChildren())
+        Lock();
+        SelectedItem.Amount++;
+        
+        HotbarManager.HM.AddSlot(SelectedItem.ModeAmt);
+        HotbarManager.HM.ItemToBar(SelectedItem.Mode, SelectedItem);
+        GameManager.GM.Currency -= SelectedItem.Price;
+    }
+
+    public void Lock()
+    {
+        foreach (ShopItem item in ItemList.GetChildren())
         {
-            if (item.IsPurchased) continue;
-            item.SetProcessInput(false);
+            if (item != SelectedItem) item.Lock.Show();
         }
     }
 }

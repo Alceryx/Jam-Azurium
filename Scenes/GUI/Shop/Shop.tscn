@@ -10,11 +10,11 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r0504"]
 
-[node name="Shop" type="Control" node_paths=PackedStringArray("ItemList")]
+[node name="Shop" type="Control" node_paths=PackedStringArray("ItemList", "Buy")]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 1920.0
-offset_bottom = 1080.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
@@ -25,6 +25,7 @@ script = ExtResource("2_kktns")
 ItemList = NodePath("Placeholder/Main/Background/Options/TabContainer/Turret/List/Options")
 Item = ExtResource("3_0d586")
 Database = Array[ExtResource("3_r0504")]([ExtResource("4_0d586"), ExtResource("4_0d586")])
+Buy = NodePath("Placeholder/Buy Bar/Buy")
 
 [node name="Ref" type="TextureRect" parent="."]
 layout_mode = 0
@@ -104,4 +105,5 @@ texture_normal = ExtResource("7_0d586")
 ignore_texture_size = true
 stretch_mode = 6
 
+[connection signal="pressed" from="Placeholder/Buy Bar/Buy" to="." method="OnPurchase"]
 [connection signal="pressed" from="Placeholder/Close" to="." method="OnClosePressed"]

@@ -2,27 +2,30 @@
 
 [ext_resource type="Theme" uid="uid://bm2m53cf2qpe4" path="res://Resources/GUI.tres" id="1_6rkdq"]
 [ext_resource type="Texture2D" uid="uid://d2o5d8y6g8qsr" path="res://icon.svg" id="1_rgnhs"]
-[ext_resource type="Script" uid="uid://deovqbn6kvfek" path="res://Scripts/GUI/ShopItems.cs" id="2_tgcjo"]
+[ext_resource type="Script" uid="uid://deovqbn6kvfek" path="res://Scripts/GUI/ShopItem.cs" id="2_52ifu"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7h1o4"]
 content_margin_left = 35.0
 
-[node name="Item" type="TextureButton" node_paths=PackedStringArray("name", "icon", "price")]
+[node name="Item" type="PanelContainer" node_paths=PackedStringArray("Lock", "Icon", "name", "price")]
 custom_minimum_size = Vector2(358, 255)
-offset_right = 358.0
-offset_bottom = 255.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1562.0
+offset_bottom = -825.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
 theme = ExtResource("1_6rkdq")
-toggle_mode = true
-script = ExtResource("2_tgcjo")
+script = ExtResource("2_52ifu")
+Lock = NodePath("Lock")
+Icon = NodePath("VBoxContainer/Detail/Icon")
 name = NodePath("VBoxContainer/Name")
-icon = NodePath("VBoxContainer/Detail/Icon")
 price = NodePath("VBoxContainer/Cost/Price")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
-offset_right = 358.0
-offset_bottom = 255.0
 
 [node name="Top" type="HSeparator" parent="VBoxContainer"]
 layout_mode = 2
@@ -47,6 +50,7 @@ theme_override_constants/separation = 8
 [node name="Mode 1" type="TextureButton" parent="VBoxContainer/Detail/Buttons"]
 custom_minimum_size = Vector2(35, 50)
 layout_mode = 2
+toggle_mode = true
 texture_normal = ExtResource("1_rgnhs")
 ignore_texture_size = true
 stretch_mode = 6
@@ -54,6 +58,7 @@ stretch_mode = 6
 [node name="Mode 2" type="TextureButton" parent="VBoxContainer/Detail/Buttons"]
 custom_minimum_size = Vector2(35, 50)
 layout_mode = 2
+toggle_mode = true
 texture_normal = ExtResource("1_rgnhs")
 ignore_texture_size = true
 stretch_mode = 6
@@ -113,6 +118,9 @@ theme_override_constants/separation = 50
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[connection signal="toggled" from="." to="." method="OnToggled"]
-[connection signal="pressed" from="VBoxContainer/Detail/Buttons/Mode 1" to="." method="OnMode1Selected"]
-[connection signal="pressed" from="VBoxContainer/Detail/Buttons/Mode 2" to="." method="OnMode2Selected"]
+[node name="Lock" type="Panel" parent="."]
+visible = false
+layout_mode = 2
+
+[connection signal="toggled" from="VBoxContainer/Detail/Buttons/Mode 1" to="." method="OnMode1Selected"]
+[connection signal="toggled" from="VBoxContainer/Detail/Buttons/Mode 2" to="." method="OnMode2Selected"]

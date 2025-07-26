@@ -6,16 +6,19 @@
 [ext_resource type="Texture2D" uid="uid://d2o5d8y6g8qsr" path="res://icon.svg" id="4_bkq53"]
 [ext_resource type="FontFile" uid="uid://o2lc8i6f1dwl" path="res://Assets/Fonts/Liberator/Liberator-Light.ttf" id="5_n6joj"]
 
-[node name="Stats" type="Control" node_paths=PackedStringArray("currency", "efficiency")]
+[node name="Stats" type="Control" node_paths=PackedStringArray("currency", "health", "efficiency")]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 1920.0
-offset_bottom = 1080.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme = ExtResource("2_btas5")
 script = ExtResource("1_8ewys")
 currency = NodePath("Placeholder/Property/Currency")
+health = NodePath("Placeholder/Main/PanelContainer/MarginContainer/Align/Detail/Health/HP")
 efficiency = NodePath("Placeholder/Main/PanelContainer/MarginContainer/Align/Detail/Efficiency/RichTextLabel")
 
 [node name="Ref" type="TextureRect" parent="."]
