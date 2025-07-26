@@ -153,7 +153,7 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_fw0yv"]
 radius = 30.0832
 
-[node name="Enemy2" type="CharacterBody2D" node_paths=PackedStringArray("sprite")]
+[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("sprite") groups=["Enemy"]]
 script = ExtResource("1_3l8kd")
 sprite = NodePath("AnimationPlayer")
 

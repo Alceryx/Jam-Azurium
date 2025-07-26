@@ -68,6 +68,15 @@ public partial class BuildManager : Node
         PreviewRotation = 0;
     }
 
+    public void Destroy(Array<Vector2I> OccupiedPositions)
+    {
+        foreach (Vector2I pos in OccupiedPositions)
+        {
+            OccupiedTiles.Remove(pos);
+        }
+        BM.PlaceableLayer.EraseCell(OccupiedPositions[0]);
+    }
+ 
     //Rotate the turret
     public void Rotate()
     {

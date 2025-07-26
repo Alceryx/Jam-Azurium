@@ -19,6 +19,7 @@ public partial class WaveManager : Node
     private float SpawnTimer;
     
     public static WaveManager WM;
+    public bool SpawnFinished = false;
     public bool WaveFinished = false;
 
     [Signal]
@@ -38,6 +39,13 @@ public partial class WaveManager : Node
     {
         if (Input.IsActionJustPressed("NextWave"))
             StartWave(1);
+
+        if (SpawnFinished && GetTree().GetNodesInGroup("Enemy").Count == 0 && !WaveFinished)
+        {
+            WaveFinished = true;
+            EmitSignalWaveEnded(CurrentWaveNumber);
+            return;
+        }
         
         if (CurrentBatchesQueue.Count > 0)
         {
@@ -57,7 +65,7 @@ public partial class WaveManager : Node
                 SpawnTimer = SpawnInterval;
             }
         }
-        else if (!WaveFinished)
+        else if (!SpawnFinished)
             NextBatch(CurrentBatchIndex);
     }
 
@@ -91,8 +99,7 @@ public partial class WaveManager : Node
         
         if (BatchIndex >= CurrentWave.SpawnedEnemy.Count)
         {
-            WaveFinished = true;
-            EmitSignalWaveEnded(CurrentWaveNumber);
+            SpawnFinished = true;
             return;
         }
         

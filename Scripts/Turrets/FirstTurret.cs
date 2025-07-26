@@ -8,9 +8,11 @@ public partial class FirstTurret : Turret
     [Export] private Marker2D TopRightShootPoint;
     [Export] private Marker2D BottomLeftShootPoint;
     [Export] private Marker2D BottomRightShootPoint;
-
+    
     public override void _Ready()
     {
+        base._Ready();
+        
         if (!Preview && Mode == 1)
         {
             Shoot(Vector2.Zero);

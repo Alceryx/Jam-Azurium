@@ -150,7 +150,7 @@ _data = {
 &"Top Right": SubResource("Animation_shrp6")
 }
 
-[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("sprite")]
+[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("sprite") groups=["Enemy"]]
 script = ExtResource("1_lta73")
 sprite = NodePath("AnimationPlayer")
 

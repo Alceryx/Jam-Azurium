@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://d3njk76vqeien"]
+[gd_scene load_steps=6 format=3 uid="uid://d3njk76vqeien"]
 
 [ext_resource type="Script" uid="uid://b4ehhsn5s6b7c" path="res://Scripts/Turrets/FirstTurret.cs" id="1_vsmea"]
+[ext_resource type="Shader" uid="uid://de5cqnc22f116" path="res://Resources/Shaders/2DOutline.gdshader" id="2_54pmo"]
 [ext_resource type="Texture2D" uid="uid://bbnvvrca4ih36" path="res://Assets/critters/boar/boar_SW_idle_0.png" id="2_vsmea"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_vsmea"]
@@ -8,6 +9,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_vsmea"]
 
 [node name="Turret" type="StaticBody2D" node_paths=PackedStringArray("OriginPoint", "TopLeftShootPoint", "TopRightShootPoint", "BottomLeftShootPoint", "BottomRightShootPoint", "Sprite", "DetectionArea", "DectectionPreview")]
+input_pickable = true
 script = ExtResource("1_vsmea")
 OriginPoint = NodePath("ShootPoints/Origin")
 TopLeftShootPoint = NodePath("ShootPoints/TopLeft")
@@ -17,6 +19,7 @@ BottomRightShootPoint = NodePath("ShootPoints/BottomRight")
 Sprite = NodePath("Sprite2D")
 DetectionArea = NodePath("DetectionArea/CollisionShape2D")
 DectectionPreview = NodePath("DetectionPreview")
+HighlightShader = ExtResource("2_54pmo")
 DestructDelay = 0.2
 
 [node name="DetectionPreview" type="MeshInstance2D" parent="."]
@@ -28,8 +31,9 @@ position = Vector2(0, 64)
 polygon = PackedVector2Array(0, -32, 64, 0, 0, 32, -64, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2011, 192)
 texture = ExtResource("2_vsmea")
-offset = Vector2(20, 32)
+offset = Vector2(-1991, -160)
 
 [node name="Head" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(0, -32, 64, 0, 0, 32, -64, 0)
@@ -56,4 +60,6 @@ position = Vector2(-37, 73)
 [node name="Origin" type="Marker2D" parent="ShootPoints"]
 position = Vector2(25, 35)
 
+[connection signal="mouse_entered" from="." to="." method="OnMouseEntered"]
+[connection signal="mouse_exited" from="." to="." method="OnMouseExited"]
 [connection signal="body_entered" from="DetectionArea" to="." method="OnBodyEntered"]

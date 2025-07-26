@@ -83,7 +83,6 @@ metadata/_custom_type_script = "uid://f51cuw0krxbt"
 
 [node name="BuildManager" parent="." node_paths=PackedStringArray("PreviewLayer", "PlaceableLayer", "GroundLayer") instance=ExtResource("3_gjpho")]
 TurretInfo = ExtResource("4_gjpho")
-TurretMode = 1
 PreviewLayer = NodePath("../Tile Map/PreviewTile")
 PlaceableLayer = NodePath("../Tile Map/Animal")
 GroundLayer = NodePath("../Tile Map/Land Upper")
@@ -98,3 +97,6 @@ WavePath = NodePath("Path2D")
 position = Vector2(-53.0974, 61.0574)
 scale = Vector2(1.08309, 0.893443)
 curve = SubResource("Curve2D_y7y61")
+
+[connection signal="mouse_entered" from="Tile Map/Animal/Nexus Button" to="Tile Map/Animal/Nexus Button" method="OnMouseEntered"]
+[connection signal="mouse_exited" from="Tile Map/Animal/Nexus Button" to="Tile Map/Animal/Nexus Button" method="OnMouseExited"]
