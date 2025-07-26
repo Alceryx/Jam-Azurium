@@ -1,13 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cxrkc6mxf5yor"]
+[gd_scene load_steps=3 format=3 uid="uid://cxrkc6mxf5yor"]
 
-[ext_resource type="PackedScene" uid="uid://bkf0xqfrwl72v" path="res://Scenes/GUI/Stats.tscn" id="2_kffii"]
 [ext_resource type="PackedScene" uid="uid://dex3irx743gqe" path="res://Scenes/GUI/Shop/Shop.tscn" id="3_7ud4v"]
 [ext_resource type="PackedScene" uid="uid://cjmodeiwt6ovk" path="res://Scenes/GUI/Hotbar/Hotbar.tscn" id="3_wxi3v"]
 
 [node name="Interface Manager" type="CanvasLayer"]
-
-[node name="Stats" parent="." instance=ExtResource("2_kffii")]
-mouse_filter = 1
 
 [node name="Shop" parent="." instance=ExtResource("3_7ud4v")]
 grow_horizontal = 1

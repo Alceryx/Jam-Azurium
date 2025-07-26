@@ -7,7 +7,7 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7h1o4"]
 content_margin_left = 35.0
 
-[node name="Item" type="PanelContainer" node_paths=PackedStringArray("Lock", "Icon", "name", "price")]
+[node name="Item" type="PanelContainer" node_paths=PackedStringArray("Lock", "Icon", "ModeButton", "name", "price")]
 custom_minimum_size = Vector2(358, 255)
 anchors_preset = 15
 anchor_right = 1.0
@@ -21,6 +21,7 @@ theme = ExtResource("1_6rkdq")
 script = ExtResource("2_52ifu")
 Lock = NodePath("Lock")
 Icon = NodePath("VBoxContainer/Detail/Icon")
+ModeButton = [NodePath("VBoxContainer/Detail/Buttons/Mode 1"), NodePath("VBoxContainer/Detail/Buttons/Mode 2")]
 name = NodePath("VBoxContainer/Name")
 price = NodePath("VBoxContainer/Cost/Price")
 

@@ -27,6 +27,6 @@ public partial class HotbarManager : Control
 
     public void ItemToBar(int mode, ShopItem item)
     {
-        Bar.GetChild<HotbarSlot>(mode).SetUp(item.Icon.Texture, item.Amount);
+        Bar.GetChild<HotbarSlot>(mode).SetUp(item.Icon.Texture, item.Amount[mode]);
     }
 }
