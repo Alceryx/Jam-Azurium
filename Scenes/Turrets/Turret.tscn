@@ -1,22 +1,170 @@
-[gd_scene load_steps=6 format=3 uid="uid://d3njk76vqeien"]
+[gd_scene load_steps=15 format=3 uid="uid://d3njk76vqeien"]
 
 [ext_resource type="Script" uid="uid://b4ehhsn5s6b7c" path="res://Scripts/Turrets/FirstTurret.cs" id="1_vsmea"]
 [ext_resource type="Shader" uid="uid://de5cqnc22f116" path="res://Resources/Shaders/2DOutline.gdshader" id="2_54pmo"]
-[ext_resource type="Texture2D" uid="uid://bbnvvrca4ih36" path="res://Assets/critters/boar/boar_SW_idle_0.png" id="2_vsmea"]
+[ext_resource type="Texture2D" uid="uid://bbnvvrca4ih36" path="res://Assets/Critters/boar/boar_SW_idle_0.png" id="2_vsmea"]
+[ext_resource type="Texture2D" uid="uid://dksofjos6syp" path="res://Assets/Critters/boar/boar_SE_idle_0.png" id="3_8o54u"]
+[ext_resource type="Texture2D" uid="uid://bqjqh4wnrudt2" path="res://Assets/Critters/boar/boar_NW_idle_0.png" id="4_3psih"]
+[ext_resource type="Texture2D" uid="uid://c7h1km7tlajhr" path="res://Assets/Critters/boar/boar_NE_idle_0.png" id="5_k7wci"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_vsmea"]
 
+[sub_resource type="Animation" id="Animation_ljmj3"]
+resource_name = "Bottom Left"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 32)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [ExtResource("2_vsmea")]
+}
+
+[sub_resource type="Animation" id="Animation_xqoj7"]
+resource_name = "Bottom Right"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 32)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [ExtResource("3_8o54u")]
+}
+
+[sub_resource type="Animation" id="Animation_seemo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [ExtResource("4_3psih")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-20, 32)]
+}
+
+[sub_resource type="Animation" id="Animation_fw0yv"]
+resource_name = "BaseAnimation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-20, 32)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [ExtResource("4_3psih")]
+}
+
+[sub_resource type="Animation" id="Animation_shrp6"]
+resource_name = "Top Right"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(20, 32)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [ExtResource("5_k7wci")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_seemo"]
+_data = {
+&"Bottom Left": SubResource("Animation_ljmj3"),
+&"Bottom Right": SubResource("Animation_xqoj7"),
+&"RESET": SubResource("Animation_seemo"),
+&"Top Left": SubResource("Animation_fw0yv"),
+&"Top Right": SubResource("Animation_shrp6")
+}
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_vsmea"]
 
-[node name="Turret" type="StaticBody2D" node_paths=PackedStringArray("OriginPoint", "TopLeftShootPoint", "TopRightShootPoint", "BottomLeftShootPoint", "BottomRightShootPoint", "Sprite", "DetectionArea", "DectectionPreview")]
+[node name="Turret" type="StaticBody2D" node_paths=PackedStringArray("OriginPoint", "TopLeftShootPoint", "TopRightShootPoint", "BottomLeftShootPoint", "BottomRightShootPoint", "Sprite", "SpriteState", "DetectionArea", "DectectionPreview")]
 input_pickable = true
 script = ExtResource("1_vsmea")
 OriginPoint = NodePath("ShootPoints/Origin")
-TopLeftShootPoint = NodePath("ShootPoints/TopLeft")
-TopRightShootPoint = NodePath("ShootPoints/TopRight")
-BottomLeftShootPoint = NodePath("ShootPoints/BottomLeft")
-BottomRightShootPoint = NodePath("ShootPoints/BottomRight")
+TopLeftShootPoint = NodePath("ShootPoints/Top Left")
+TopRightShootPoint = NodePath("ShootPoints/Top Right")
+BottomLeftShootPoint = NodePath("ShootPoints/Bottom Left")
+BottomRightShootPoint = NodePath("ShootPoints/Bottom Right")
 Sprite = NodePath("Sprite2D")
+SpriteState = NodePath("AnimationPlayer")
 DetectionArea = NodePath("DetectionArea/CollisionShape2D")
 DectectionPreview = NodePath("DetectionPreview")
 HighlightShader = ExtResource("2_54pmo")
@@ -30,10 +178,14 @@ mesh = SubResource("SphereMesh_vsmea")
 position = Vector2(0, 64)
 polygon = PackedVector2Array(0, -32, 64, 0, 0, 32, -64, 0)
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_seemo")
+}
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(2011, 192)
-texture = ExtResource("2_vsmea")
-offset = Vector2(-1991, -160)
+texture = ExtResource("4_3psih")
+offset = Vector2(-20, 32)
 
 [node name="Head" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(0, -32, 64, 0, 0, 32, -64, 0)
@@ -45,16 +197,16 @@ shape = SubResource("CircleShape2D_vsmea")
 
 [node name="ShootPoints" type="Node2D" parent="."]
 
-[node name="TopRight" type="Marker2D" parent="ShootPoints"]
+[node name="Top Right" type="Marker2D" parent="ShootPoints"]
 position = Vector2(72, 7)
 
-[node name="TopLeft" type="Marker2D" parent="ShootPoints"]
+[node name="Top Left" type="Marker2D" parent="ShootPoints"]
 position = Vector2(-37, 0)
 
-[node name="BottomRight" type="Marker2D" parent="ShootPoints"]
+[node name="Bottom Right" type="Marker2D" parent="ShootPoints"]
 position = Vector2(81, 65)
 
-[node name="BottomLeft" type="Marker2D" parent="ShootPoints"]
+[node name="Bottom Left" type="Marker2D" parent="ShootPoints"]
 position = Vector2(-37, 73)
 
 [node name="Origin" type="Marker2D" parent="ShootPoints"]

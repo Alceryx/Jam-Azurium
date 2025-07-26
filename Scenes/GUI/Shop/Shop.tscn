@@ -12,11 +12,12 @@
 
 [node name="Shop" type="Control" node_paths=PackedStringArray("ItemList")]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+offset_right = 1920.0
+offset_bottom = 1080.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
 mouse_filter = 1
 theme = ExtResource("2_7h1o4")
 script = ExtResource("2_kktns")
@@ -88,7 +89,7 @@ size_flags_vertical = 8
 layout_mode = 2
 theme_override_constants/separation = 345
 
-[node name="Button" type="Button" parent="Placeholder/Buy Bar"]
+[node name="Buy" type="Button" parent="Placeholder/Buy Bar"]
 custom_minimum_size = Vector2(130, 52)
 layout_mode = 2
 text = "Buy"

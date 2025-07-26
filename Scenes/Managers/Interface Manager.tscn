@@ -9,7 +9,16 @@ script = ExtResource("1_plesa")
 ShopMenu = NodePath("Shop")
 
 [node name="Stats" parent="." instance=ExtResource("2_kffii")]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1920.0
+offset_right = 0.0
+grow_horizontal = 0
 mouse_filter = 1
 
 [node name="Shop" parent="." instance=ExtResource("3_7ud4v")]
 visible = false
+anchors_preset = 0
+grow_horizontal = 1
+grow_vertical = 1

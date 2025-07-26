@@ -10,19 +10,8 @@ public partial class ShopManager : Control
 
     public bool IsOpened;
 
-    public override void _PhysicsProcess(double delta)
+    public override void _Ready()
     {
-        if (Input.IsActionJustPressed("Escape")) Close();
-    }
-    private void OnClosePressed() => Close();
-
-    public void Open()
-    {
-        if (IsOpened) return;
-        
-        Show();
-        IsOpened = true;
-        
         foreach (TurretData data in Database)
         {
             ShopItems item = Item.Instantiate() as ShopItems;
@@ -31,16 +20,19 @@ public partial class ShopManager : Control
         }
     }
 
-    public void Close()
+    public override void _PhysicsProcess(double delta)
     {
-        if (!IsOpened) return;
-        
-        Hide();
-        IsOpened = false;
-        
-        foreach (var child in ItemList.GetChildren())
+        if (Input.IsActionJustPressed("Escape")) Hide();
+    }
+    
+    private void OnClosePressed() => Hide();
+
+    public void LockItem()
+    {
+        foreach (ShopItems item in ItemList.GetChildren())
         {
-            child.QueueFree();
+            if (item.IsPurchased) continue;
+            item.SetProcessInput(false);
         }
     }
 }

@@ -15,11 +15,5 @@ public partial class TurretMode : Resource
     [Export] public PackedScene Projectile;
     [Export] public float Damage;
     [Export] public float Range;
-
-    [ExportGroup("Rotation")] 
-    [Export] public Texture2D TopLeft;
-    [Export] public Texture2D TopRight;
-    [Export] public Texture2D BottomLeft;
-    [Export] public Texture2D BottomRight;
 }
 #endif

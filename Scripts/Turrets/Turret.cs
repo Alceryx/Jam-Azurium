@@ -13,6 +13,7 @@ public abstract partial class Turret : StaticBody2D
    }
    
    [Export] public Sprite2D Sprite;
+   [Export] public AnimationPlayer SpriteState;
    [Export] private CollisionShape2D DetectionArea;
    [Export] private MeshInstance2D DectectionPreview;
    [Export] private Shader HighlightShader;
@@ -96,16 +97,16 @@ public abstract partial class Turret : StaticBody2D
       switch (Direction)
       {
          case FacingDirection.TopLeft:
-            Sprite.Texture = Data.Modes[Mode].TopLeft;
+            SpriteState.Play("Top Left");
             break;
          case FacingDirection.TopRight:
-            Sprite.Texture = Data.Modes[Mode].TopRight;
+            SpriteState.Play("Top Right");
             break;
          case FacingDirection.BottomLeft:
-            Sprite.Texture = Data.Modes[Mode].BottomLeft;
+            SpriteState.Play("Bottom Left");
             break;
          case FacingDirection.BottomRight:
-            Sprite.Texture = Data.Modes[Mode].BottomRight;
+            SpriteState.Play("Bottom Right");
             break;
       }
    }
