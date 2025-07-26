@@ -21,3 +21,4 @@ size_flags_vertical = 8
 mouse_filter = 1
 
 [node name="Stats" parent="." instance=ExtResource("2_kffii")]
+mouse_filter = 1
