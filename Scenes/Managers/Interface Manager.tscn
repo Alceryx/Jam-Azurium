@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cxrkc6mxf5yor"]
+[gd_scene load_steps=4 format=3 uid="uid://cxrkc6mxf5yor"]
 
+[ext_resource type="PackedScene" uid="uid://bkf0xqfrwl72v" path="res://Scenes/GUI/Stats.tscn" id="2_kffii"]
 [ext_resource type="PackedScene" uid="uid://dex3irx743gqe" path="res://Scenes/GUI/Shop/Shop.tscn" id="3_7ud4v"]
 [ext_resource type="PackedScene" uid="uid://cjmodeiwt6ovk" path="res://Scenes/GUI/Hotbar/Hotbar.tscn" id="3_wxi3v"]
 
@@ -18,3 +19,5 @@ grow_vertical = 0
 size_flags_horizontal = 0
 size_flags_vertical = 8
 mouse_filter = 1
+
+[node name="Stats" parent="." instance=ExtResource("2_kffii")]
