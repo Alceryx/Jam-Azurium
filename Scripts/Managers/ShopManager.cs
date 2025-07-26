@@ -17,17 +17,19 @@ public partial class ShopManager : Control
     
     public bool AnySelected;
     public ShopItem SelectedItem;
+    public ButtonGroup Mode = new();
 
     public override void _Ready()
     {
         SM = this;
         Buy.Disabled = true;
         
-        ButtonGroup grp = new ButtonGroup();
-        grp.AllowUnpress = true;
-        DefenceTab.SetButtonGroup(grp);
-        UpgradeTab.SetButtonGroup(grp);
+        Mode.AllowUnpress = true;
         
+        ButtonGroup tab = new ButtonGroup();
+        DefenceTab.SetButtonGroup(tab);
+        UpgradeTab.SetButtonGroup(tab);
+
         foreach (TurretData data in Database)
         {
             ShopItem item = Item.Instantiate() as ShopItem;
@@ -53,12 +55,12 @@ public partial class ShopManager : Control
             if (HotbarManager.HM.TurretsSlot.ContainsKey(SelectedItem.Data))
             {
                 if (HotbarManager.HM.TurretsSlot[SelectedItem.Data].ContainsKey(SelectedItem.Mode))
+                {
                     HotbarManager.HM.UpdateSlot(SelectedItem.Data, SelectedItem.Mode);
-                else
-                    HotbarManager.HM.AddSlot(SelectedItem.Data, SelectedItem.Mode);
+                }
+                else HotbarManager.HM.AddSlot(SelectedItem.Data, SelectedItem.Mode);
             }
-            else
-                HotbarManager.HM.AddSlot(SelectedItem.Data, SelectedItem.Mode);
+            else HotbarManager.HM.AddSlot(SelectedItem.Data, SelectedItem.Mode);
             
             GameManager.GM.Currency -= SelectedItem.Price;
         }

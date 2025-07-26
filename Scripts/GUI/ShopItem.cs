@@ -7,8 +7,8 @@ public partial class ShopItem : PanelContainer
 {
     [Export] public Panel Lock;
     [Export] public TextureRect Icon;
-
-    [Export] private Array<TextureButton> ModeButton = [];
+    [Export] public Array<TextureButton> ModeButton = [];
+    
     [Export] private Label name;
     [Export] private Label price;
     
@@ -20,9 +20,7 @@ public partial class ShopItem : PanelContainer
 
     public override void _Ready()
     {
-        ButtonGroup grp = new ButtonGroup();
-        grp.AllowUnpress = true;
-        foreach (TextureButton button in ModeButton) button.SetButtonGroup(grp);
+        foreach (TextureButton button in ModeButton) button.SetButtonGroup(ShopManager.SM.Mode);
     }
 
     public void SetUp(TurretData data, int mode)
