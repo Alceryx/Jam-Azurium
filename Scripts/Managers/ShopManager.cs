@@ -30,7 +30,7 @@ public partial class ShopManager : Control
     public override void _PhysicsProcess(double delta)
     {
         if (Input.IsActionJustPressed("Escape")) Hide();
-        if (AnySelected) Buy.Disabled = false;
+        Buy.Disabled = !AnySelected;
     }
     
     private void OnClosePressed() => Hide();
