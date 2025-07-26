@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dex3irx743gqe"]
+[gd_scene load_steps=24 format=3 uid="uid://dex3irx743gqe"]
 
 [ext_resource type="Texture2D" uid="uid://8j3a6skrhq5d" path="res://Assets/GUI/[Shop] PT.png" id="1_al5ip"]
 [ext_resource type="Theme" uid="uid://bm2m53cf2qpe4" path="res://Resources/GUI.tres" id="2_7h1o4"]
@@ -6,11 +6,29 @@
 [ext_resource type="PackedScene" uid="uid://dp1iskdniviuw" path="res://Scenes/GUI/Shop/Shop Item.tscn" id="3_0d586"]
 [ext_resource type="Script" uid="uid://cm64ammqner4" path="res://Resources/Turrets/TurretData.cs" id="3_r0504"]
 [ext_resource type="Resource" uid="uid://ct1kreps3d4lk" path="res://Resources/Turrets/BaseTurret.tres" id="4_0d586"]
-[ext_resource type="Texture2D" uid="uid://d2o5d8y6g8qsr" path="res://icon.svg" id="7_0d586"]
+[ext_resource type="Texture2D" uid="uid://lflsw3cxcox4" path="res://Assets/GUI/Shop/ShopBuyButton - Enabled.png" id="7_fovie"]
+[ext_resource type="Texture2D" uid="uid://ww8wi7rkjaxd" path="res://Assets/GUI/Shop/ShopBG.png" id="7_oa8j1"]
+[ext_resource type="Texture2D" uid="uid://c4626j2kd7qus" path="res://Assets/GUI/Shop/ShopDef - Hover.png" id="8_doqmf"]
+[ext_resource type="Texture2D" uid="uid://3byn6dq7nxg0" path="res://Assets/GUI/Shop/ShopBuyButton - Clicked.png" id="8_j0swu"]
+[ext_resource type="Texture2D" uid="uid://be0x83el1e216" path="res://Assets/GUI/Shop/ShopDef - Selected.png" id="8_rk5li"]
+[ext_resource type="Texture2D" uid="uid://dstjaieyp6wt" path="res://Assets/GUI/Shop/ShopDef - Unselected.png" id="8_rr8or"]
+[ext_resource type="Texture2D" uid="uid://cwdcgmuwt5ctq" path="res://Assets/GUI/Shop/ShopBuyButton - Hover.png" id="9_oa8j1"]
+[ext_resource type="Texture2D" uid="uid://rg11keputdlm" path="res://Assets/GUI/Shop/ShopBuyButton - Disabled.png" id="10_btsfi"]
+[ext_resource type="Texture2D" uid="uid://bisptep5w755v" path="res://Assets/GUI/Shop/ShopUp - Unselected.png" id="11_4dw0l"]
+[ext_resource type="Texture2D" uid="uid://c110rx1mqksqn" path="res://Assets/GUI/Shop/ShopCloseButton - Default.png" id="12_8hndj"]
+[ext_resource type="Texture2D" uid="uid://c3d33ieeu5gn5" path="res://Assets/GUI/Shop/ShopUp - Selected.png" id="12_dgiod"]
+[ext_resource type="Texture2D" uid="uid://di6v1mpw3rp8g" path="res://Assets/GUI/Shop/ShopUp - Hover.png" id="13_h5hno"]
+[ext_resource type="Texture2D" uid="uid://itr6s6gd3xoi" path="res://Assets/GUI/Shop/ShopCloseButton - Clicked.png" id="13_rk5li"]
+[ext_resource type="Texture2D" uid="uid://cfyo2sbokcgj8" path="res://Assets/GUI/Shop/ShopCloseButton - Hover.png" id="14_doqmf"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r0504"]
 
-[node name="Shop" type="Control" node_paths=PackedStringArray("ItemList", "Buy")]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_btsfi"]
+texture = ExtResource("7_oa8j1")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4dw0l"]
+
+[node name="Shop" type="Control" node_paths=PackedStringArray("ItemList", "Buy", "DefenceTab", "defence", "UpgradeTab")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -22,12 +40,16 @@ size_flags_vertical = 0
 mouse_filter = 1
 theme = ExtResource("2_7h1o4")
 script = ExtResource("2_kktns")
-ItemList = NodePath("Placeholder/Main/Background/Options/TabContainer/Turret/List/Options")
+ItemList = NodePath("Placeholder/Main/Background/Options/Defence/Options/List")
 Item = ExtResource("3_0d586")
 Database = Array[ExtResource("3_r0504")]([ExtResource("4_0d586"), ExtResource("4_0d586")])
 Buy = NodePath("Placeholder/Buy Bar/Buy")
+DefenceTab = NodePath("Placeholder/Main/Background/Options/Tabs/Defence")
+defence = NodePath("Placeholder/Main/Background/Options/Defence")
+UpgradeTab = NodePath("Placeholder/Main/Background/Options/Tabs/Upgrade")
 
 [node name="Ref" type="TextureRect" parent="."]
+visible = false
 layout_mode = 0
 offset_left = -12.0
 offset_top = -43.0
@@ -37,51 +59,65 @@ texture = ExtResource("1_al5ip")
 
 [node name="Placeholder" type="PanelContainer" parent="."]
 layout_mode = 0
-offset_right = 603.0
-offset_bottom = 735.0
+offset_right = 608.0
+offset_bottom = 733.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_r0504")
 
 [node name="Main" type="MarginContainer" parent="Placeholder"]
 layout_mode = 2
-theme_override_constants/margin_top = 25
-theme_override_constants/margin_right = 32
+theme_override_constants/margin_top = 35
+theme_override_constants/margin_right = 42
+theme_override_constants/margin_bottom = 60
 
 [node name="Background" type="PanelContainer" parent="Placeholder/Main"]
+custom_minimum_size = Vector2(576, 708)
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_btsfi")
 
 [node name="Options" type="MarginContainer" parent="Placeholder/Main/Background"]
 layout_mode = 2
-theme_override_constants/margin_left = 65
+theme_override_constants/margin_left = 45
+theme_override_constants/margin_top = -17
 
-[node name="TabContainer" type="TabContainer" parent="Placeholder/Main/Background/Options"]
+[node name="Tabs" type="HBoxContainer" parent="Placeholder/Main/Background/Options"]
 layout_mode = 2
-current_tab = 0
+size_flags_vertical = 0
 
-[node name="Turret" type="TabBar" parent="Placeholder/Main/Background/Options/TabContainer"]
+[node name="Defence" type="TextureButton" parent="Placeholder/Main/Background/Options/Tabs"]
+custom_minimum_size = Vector2(257, 54)
 layout_mode = 2
-metadata/_tab_index = 0
+toggle_mode = true
+button_pressed = true
+texture_normal = ExtResource("8_rr8or")
+texture_pressed = ExtResource("8_rk5li")
+texture_hover = ExtResource("8_doqmf")
+ignore_texture_size = true
+stretch_mode = 6
 
-[node name="List" type="ScrollContainer" parent="Placeholder/Main/Background/Options/TabContainer/Turret"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 13.0
-offset_bottom = -72.0
-grow_horizontal = 2
-grow_vertical = 2
-vertical_scroll_mode = 3
+[node name="Upgrade" type="TextureButton" parent="Placeholder/Main/Background/Options/Tabs"]
+custom_minimum_size = Vector2(224, 41)
+layout_mode = 2
+toggle_mode = true
+texture_normal = ExtResource("11_4dw0l")
+texture_pressed = ExtResource("12_dgiod")
+texture_hover = ExtResource("13_h5hno")
+ignore_texture_size = true
+stretch_mode = 6
 
-[node name="Options" type="VBoxContainer" parent="Placeholder/Main/Background/Options/TabContainer/Turret/List"]
+[node name="Defence" type="PanelContainer" parent="Placeholder/Main/Background/Options"]
+custom_minimum_size = Vector2(0, 650)
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxEmpty_4dw0l")
+
+[node name="Options" type="ScrollContainer" parent="Placeholder/Main/Background/Options/Defence"]
+layout_mode = 2
+
+[node name="List" type="VBoxContainer" parent="Placeholder/Main/Background/Options/Defence/Options"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_constants/separation = 50
-
-[node name="Utility" type="TabBar" parent="Placeholder/Main/Background/Options/TabContainer"]
-visible = false
-layout_mode = 2
-metadata/_tab_index = 1
+theme_override_constants/separation = 45
 
 [node name="Buy Bar" type="HBoxContainer" parent="Placeholder"]
 layout_mode = 2
@@ -89,21 +125,29 @@ size_flags_vertical = 8
 
 [node name="Push" type="VSeparator" parent="Placeholder/Buy Bar"]
 layout_mode = 2
-theme_override_constants/separation = 345
+theme_override_constants/separation = 335
 
-[node name="Buy" type="Button" parent="Placeholder/Buy Bar"]
-custom_minimum_size = Vector2(130, 52)
+[node name="Buy" type="TextureButton" parent="Placeholder/Buy Bar"]
+custom_minimum_size = Vector2(144, 93)
 layout_mode = 2
-text = "Buy"
+texture_normal = ExtResource("7_fovie")
+texture_pressed = ExtResource("8_j0swu")
+texture_hover = ExtResource("9_oa8j1")
+texture_disabled = ExtResource("10_btsfi")
+ignore_texture_size = true
+stretch_mode = 6
 
 [node name="Close" type="TextureButton" parent="Placeholder"]
 custom_minimum_size = Vector2(58, 68)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
-texture_normal = ExtResource("7_0d586")
+texture_normal = ExtResource("12_8hndj")
+texture_pressed = ExtResource("13_rk5li")
+texture_hover = ExtResource("14_doqmf")
 ignore_texture_size = true
 stretch_mode = 6
 
+[connection signal="toggled" from="Placeholder/Main/Background/Options/Tabs/Defence" to="." method="OnDefenceToggled"]
 [connection signal="pressed" from="Placeholder/Buy Bar/Buy" to="." method="OnPurchase"]
 [connection signal="pressed" from="Placeholder/Close" to="." method="OnClosePressed"]

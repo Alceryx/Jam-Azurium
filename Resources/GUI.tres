@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=9 format=3 uid="uid://bm2m53cf2qpe4"]
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://bm2m53cf2qpe4"]
 
 [ext_resource type="FontFile" uid="uid://dxwy40mal8xcd" path="res://Assets/Fonts/Liberator/Liberator-Heavy.ttf" id="1_0vcbm"]
 [ext_resource type="FontFile" uid="uid://du2m45j7iaaoc" path="res://Assets/Fonts/Liberator/Liberator-Medium.ttf" id="1_k4ube"]
@@ -8,20 +8,6 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d02d6"]
 content_margin_top = 5.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ck8wu"]
-content_margin_left = 66.0
-content_margin_top = 17.0
-content_margin_right = 66.0
-content_margin_bottom = 7.0
-bg_color = Color(0.0431373, 0.0431373, 0.0431373, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6cxcf"]
-content_margin_left = 50.0
-content_margin_top = 20.0
-content_margin_right = 50.0
-content_margin_bottom = 4.0
-bg_color = Color(0.0431373, 0.0431373, 0.0431373, 0.686275)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k4ube"]
 
@@ -36,6 +22,4 @@ RichTextLabel/styles/normal = SubResource("StyleBoxEmpty_d02d6")
 TabContainer/constants/side_margin = 0
 TabContainer/font_sizes/font_size = 35
 TabContainer/fonts/font = ExtResource("1_0vcbm")
-TabContainer/styles/tab_selected = SubResource("StyleBoxFlat_ck8wu")
-TabContainer/styles/tab_unselected = SubResource("StyleBoxFlat_6cxcf")
 VSeparator/styles/separator = SubResource("StyleBoxEmpty_k4ube")

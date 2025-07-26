@@ -8,7 +8,11 @@ public partial class ShopManager : Control
     [Export] public VBoxContainer ItemList;
     [Export] public PackedScene Item;
     [Export] public Array<TurretData> Database = [];
-    [Export] public Button Buy;
+    [Export] public TextureButton Buy;
+
+    [Export] public TextureButton DefenceTab;
+    [Export] private PanelContainer defence;
+    [Export] public TextureButton UpgradeTab;
 
     public static ShopManager SM;
     
@@ -19,6 +23,11 @@ public partial class ShopManager : Control
     {
         SM = this;
         Buy.Disabled = true;
+        
+        ButtonGroup grp = new ButtonGroup();
+        grp.AllowUnpress = true;
+        DefenceTab.SetButtonGroup(grp);
+        UpgradeTab.SetButtonGroup(grp);
         
         foreach (TurretData data in Database)
         {
@@ -55,5 +64,10 @@ public partial class ShopManager : Control
         {
             if (item != SelectedItem) item.Lock.Show();
         }
+    }
+
+    public void OnDefenceToggled(bool toggled_on)
+    {
+        defence.Visible = toggled_on;
     }
 }

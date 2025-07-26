@@ -1,0 +1,129 @@
+[gd_scene load_steps=17 format=3 uid="uid://gve8cgviyois"]
+
+[ext_resource type="Theme" uid="uid://bm2m53cf2qpe4" path="res://Resources/GUI.tres" id="1_xb7im"]
+[ext_resource type="Script" uid="uid://uli68ss1jvut" path="res://Scripts/Managers/ShopManager.cs" id="2_w1yau"]
+[ext_resource type="PackedScene" uid="uid://dp1iskdniviuw" path="res://Scenes/GUI/Shop/Shop Item.tscn" id="3_kbyvc"]
+[ext_resource type="Script" uid="uid://cm64ammqner4" path="res://Resources/Turrets/TurretData.cs" id="4_uuoeq"]
+[ext_resource type="Resource" uid="uid://ct1kreps3d4lk" path="res://Resources/Turrets/BaseTurret.tres" id="5_4a1c7"]
+[ext_resource type="Texture2D" uid="uid://8j3a6skrhq5d" path="res://Assets/GUI/[Shop] PT.png" id="6_amej4"]
+[ext_resource type="Texture2D" uid="uid://ww8wi7rkjaxd" path="res://Assets/GUI/Shop/ShopBG.png" id="7_loh44"]
+[ext_resource type="Texture2D" uid="uid://lflsw3cxcox4" path="res://Assets/GUI/Shop/ShopBuyButton - Enabled.png" id="8_lgtso"]
+[ext_resource type="Texture2D" uid="uid://3byn6dq7nxg0" path="res://Assets/GUI/Shop/ShopBuyButton - Clicked.png" id="9_mv8g5"]
+[ext_resource type="Texture2D" uid="uid://cwdcgmuwt5ctq" path="res://Assets/GUI/Shop/ShopBuyButton - Hover.png" id="10_q2yvk"]
+[ext_resource type="Texture2D" uid="uid://rg11keputdlm" path="res://Assets/GUI/Shop/ShopBuyButton - Disabled.png" id="11_rgoi5"]
+[ext_resource type="Texture2D" uid="uid://c110rx1mqksqn" path="res://Assets/GUI/Shop/ShopCloseButton - Default.png" id="12_xhc4r"]
+[ext_resource type="Texture2D" uid="uid://itr6s6gd3xoi" path="res://Assets/GUI/Shop/ShopCloseButton - Clicked.png" id="13_nrcev"]
+[ext_resource type="Texture2D" uid="uid://cfyo2sbokcgj8" path="res://Assets/GUI/Shop/ShopCloseButton - Hover.png" id="14_luhad"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r0504"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_btsfi"]
+texture = ExtResource("7_loh44")
+
+[node name="Shop" type="Control" node_paths=PackedStringArray("ItemList")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+mouse_filter = 1
+theme = ExtResource("1_xb7im")
+script = ExtResource("2_w1yau")
+ItemList = NodePath("Placeholder/Main/Background/Options/TabContainer/‌‌/List/Options")
+Item = ExtResource("3_kbyvc")
+Database = Array[ExtResource("4_uuoeq")]([ExtResource("5_4a1c7"), ExtResource("5_4a1c7")])
+
+[node name="Ref" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = -12.0
+offset_top = -43.0
+offset_right = 663.0
+offset_bottom = 752.0
+texture = ExtResource("6_amej4")
+
+[node name="Placeholder" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_right = 608.0
+offset_bottom = 733.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_r0504")
+
+[node name="Main" type="MarginContainer" parent="Placeholder"]
+layout_mode = 2
+theme_override_constants/margin_top = 35
+theme_override_constants/margin_right = 42
+theme_override_constants/margin_bottom = 60
+
+[node name="Background" type="PanelContainer" parent="Placeholder/Main"]
+custom_minimum_size = Vector2(576, 708)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_btsfi")
+
+[node name="Options" type="MarginContainer" parent="Placeholder/Main/Background"]
+layout_mode = 2
+theme_override_constants/margin_left = 65
+
+[node name="TabContainer" type="TabContainer" parent="Placeholder/Main/Background/Options"]
+layout_mode = 2
+current_tab = 0
+
+[node name="‌‌" type="TabBar" parent="Placeholder/Main/Background/Options/TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="List" type="ScrollContainer" parent="Placeholder/Main/Background/Options/TabContainer/‌‌"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 13.0
+offset_bottom = -72.0
+grow_horizontal = 2
+grow_vertical = 2
+vertical_scroll_mode = 3
+
+[node name="Options" type="VBoxContainer" parent="Placeholder/Main/Background/Options/TabContainer/‌‌/List"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 50
+
+[node name="Utility" type="TabBar" parent="Placeholder/Main/Background/Options/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Buy Bar" type="HBoxContainer" parent="Placeholder"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="Push" type="VSeparator" parent="Placeholder/Buy Bar"]
+layout_mode = 2
+theme_override_constants/separation = 335
+
+[node name="Buy" type="TextureButton" parent="Placeholder/Buy Bar"]
+custom_minimum_size = Vector2(144, 93)
+layout_mode = 2
+texture_normal = ExtResource("8_lgtso")
+texture_pressed = ExtResource("9_mv8g5")
+texture_hover = ExtResource("10_q2yvk")
+texture_disabled = ExtResource("11_rgoi5")
+ignore_texture_size = true
+stretch_mode = 6
+
+[node name="Close" type="TextureButton" parent="Placeholder"]
+custom_minimum_size = Vector2(58, 68)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+texture_normal = ExtResource("12_xhc4r")
+texture_pressed = ExtResource("13_nrcev")
+texture_hover = ExtResource("14_luhad")
+ignore_texture_size = true
+stretch_mode = 6
+
+[connection signal="pressed" from="Placeholder/Buy Bar/Buy" to="." method="OnPurchase"]
+[connection signal="pressed" from="Placeholder/Close" to="." method="OnClosePressed"]
