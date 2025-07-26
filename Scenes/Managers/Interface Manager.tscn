@@ -7,6 +7,7 @@
 [node name="Interface Manager" type="CanvasLayer"]
 
 [node name="Stats" parent="." instance=ExtResource("2_kffii")]
+mouse_filter = 1
 
 [node name="Shop" parent="." instance=ExtResource("3_7ud4v")]
 grow_horizontal = 1
@@ -20,3 +21,4 @@ grow_horizontal = 1
 grow_vertical = 0
 size_flags_horizontal = 0
 size_flags_vertical = 8
+mouse_filter = 1
