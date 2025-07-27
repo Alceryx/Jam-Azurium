@@ -56,7 +56,7 @@ public partial class FirstTurret : Turret
             UpdateSprite();
             
             Vector2 direction = (target - ShootPoint).Normalized();
-            projectile.Setup(this, direction, Data.Modes[Mode].Damage);
+            projectile.Setup(this, direction, Data.Modes[Mode].Damage, target);
             projectile.GlobalPosition = ShootPoint;
             GameManager.GM.CallDeferred("add_child", projectile);
             
@@ -77,7 +77,7 @@ public partial class FirstTurret : Turret
                 ShootPoint = BottomRightShootPoint.GlobalPosition;
             
             Vector2 direction = (ShootPoint - OriginPoint.GlobalPosition).Normalized();
-            projectile.Setup(this, direction, Data.Modes[Mode].Damage);
+            projectile.Setup(this, direction, Data.Modes[Mode].Damage, target);
             projectile.GlobalPosition = ShootPoint;
             GameManager.GM.CallDeferred("add_child", projectile);
 

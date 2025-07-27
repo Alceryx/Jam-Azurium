@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://cxrkc6mxf5yor"]
+[gd_scene load_steps=6 format=3 uid="uid://cxrkc6mxf5yor"]
 
 [ext_resource type="PackedScene" uid="uid://bkf0xqfrwl72v" path="res://Scenes/GUI/Stats.tscn" id="2_kffii"]
 [ext_resource type="PackedScene" uid="uid://dex3irx743gqe" path="res://Scenes/GUI/Shop/Shop.tscn" id="3_7ud4v"]
 [ext_resource type="PackedScene" uid="uid://cjmodeiwt6ovk" path="res://Scenes/GUI/Hotbar/Hotbar.tscn" id="3_wxi3v"]
+[ext_resource type="Resource" uid="uid://ct1kreps3d4lk" path="res://Resources/Turrets/BaseTurret.tres" id="4_760ko"]
+[ext_resource type="Resource" uid="uid://yt3fun5805m5" path="res://Resources/Turrets/SecondTurret.tres" id="5_q13l1"]
 
 [node name="Interface Manager" type="CanvasLayer"]
 
@@ -18,3 +20,4 @@ visible = false
 grow_horizontal = 1
 grow_vertical = 1
 mouse_filter = 2
+Database = [ExtResource("4_760ko"), ExtResource("5_q13l1")]

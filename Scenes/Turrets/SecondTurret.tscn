@@ -1,0 +1,201 @@
+[gd_scene load_steps=15 format=3 uid="uid://byjt12v8wjc8c"]
+
+[ext_resource type="Script" uid="uid://cfimxhfc8u3aa" path="res://Scripts/Turrets/SecondTurret.cs" id="1_obnts"]
+[ext_resource type="Shader" uid="uid://de5cqnc22f116" path="res://Resources/Shaders/2DOutline.gdshader" id="2_mg5gd"]
+[ext_resource type="Texture2D" uid="uid://bbnvvrca4ih36" path="res://Assets/critters/boar/boar_SW_idle_0.png" id="3_ujnuh"]
+[ext_resource type="Texture2D" uid="uid://dksofjos6syp" path="res://Assets/critters/boar/boar_SE_idle_0.png" id="4_ma8i5"]
+[ext_resource type="Texture2D" uid="uid://bqjqh4wnrudt2" path="res://Assets/critters/boar/boar_NW_idle_0.png" id="5_afb1a"]
+[ext_resource type="Texture2D" uid="uid://c7h1km7tlajhr" path="res://Assets/critters/boar/boar_NE_idle_0.png" id="6_xacyt"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_vsmea"]
+
+[sub_resource type="Animation" id="Animation_ljmj3"]
+resource_name = "Bottom Left"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 32)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [ExtResource("3_ujnuh")]
+}
+
+[sub_resource type="Animation" id="Animation_xqoj7"]
+resource_name = "Bottom Right"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 32)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [ExtResource("4_ma8i5")]
+}
+
+[sub_resource type="Animation" id="Animation_seemo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [ExtResource("5_afb1a")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-20, 32)]
+}
+
+[sub_resource type="Animation" id="Animation_fw0yv"]
+resource_name = "BaseAnimation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-20, 32)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [ExtResource("5_afb1a")]
+}
+
+[sub_resource type="Animation" id="Animation_shrp6"]
+resource_name = "Top Right"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(20, 32)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [ExtResource("6_xacyt")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_seemo"]
+_data = {
+&"Bottom Left": SubResource("Animation_ljmj3"),
+&"Bottom Right": SubResource("Animation_xqoj7"),
+&"RESET": SubResource("Animation_seemo"),
+&"Top Left": SubResource("Animation_fw0yv"),
+&"Top Right": SubResource("Animation_shrp6")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vsmea"]
+
+[node name="SecondTurret" type="StaticBody2D" node_paths=PackedStringArray("ShootPoint", "Sprite", "SpriteState", "DetectionArea", "DectectionPreview")]
+input_pickable = true
+script = ExtResource("1_obnts")
+ShootPoint = NodePath("ShootPoint")
+Sprite = NodePath("Sprite2D")
+SpriteState = NodePath("AnimationPlayer")
+DetectionArea = NodePath("DetectionArea/CollisionShape2D")
+DectectionPreview = NodePath("DetectionPreview")
+HighlightShader = ExtResource("2_mg5gd")
+DestructDelay = 0.2
+
+[node name="ShootPoint" type="Marker2D" parent="."]
+position = Vector2(25, 35)
+
+[node name="DetectionPreview" type="MeshInstance2D" parent="."]
+modulate = Color(1, 1, 1, 0.309804)
+mesh = SubResource("SphereMesh_vsmea")
+
+[node name="Feet" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, 64)
+polygon = PackedVector2Array(0, -32, 64, 0, 0, 32, -64, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_seemo")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("5_afb1a")
+offset = Vector2(-20, 32)
+
+[node name="Head" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, -32, 64, 0, 0, 32, -64, 0)
+
+[node name="DetectionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource("CircleShape2D_vsmea")
+
+[node name="ShootPoints" type="Node2D" parent="."]
+
+[connection signal="mouse_entered" from="." to="." method="OnMouseEntered"]
+[connection signal="mouse_exited" from="." to="." method="OnMouseExited"]
+[connection signal="body_entered" from="DetectionArea" to="." method="OnBodyEntered"]

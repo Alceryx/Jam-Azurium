@@ -92,7 +92,7 @@ public abstract partial class Turret : StaticBody2D
    }
 
 
-   public void UpdateSprite()
+   public virtual void UpdateSprite()
    {
       switch (Direction)
       {

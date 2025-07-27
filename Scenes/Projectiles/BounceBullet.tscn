@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://c47sp1oj85g4l"]
+
+[ext_resource type="Texture2D" uid="uid://d2o5d8y6g8qsr" path="res://icon.svg" id="1_5cs0p"]
+[ext_resource type="Script" uid="uid://btskkxxokh83d" path="res://Scripts/Projectiles/BounceBullet.cs" id="1_dkg77"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dkg77"]
+size = Vector2(56, 10)
+
+[node name="Bounce Bullet" type="CharacterBody2D" node_paths=PackedStringArray("Hitbox")]
+script = ExtResource("1_dkg77")
+JumpHeight = 500.0
+TimeToApex = 0.5
+TimeToGround = 0.3
+Hitbox = NodePath("Hitbox")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1.90735e-06, 4.76837e-07)
+scale = Vector2(0.4375, 0.078125)
+texture = ExtResource("1_5cs0p")
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("RectangleShape2D_dkg77")

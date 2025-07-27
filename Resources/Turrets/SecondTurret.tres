@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="TurretData" load_steps=7 format=3 uid="uid://yt3fun5805m5"]
+
+[ext_resource type="Texture2D" uid="uid://c7h1km7tlajhr" path="res://Assets/critters/boar/boar_NE_idle_0.png" id="1_3fquq"]
+[ext_resource type="Script" uid="uid://cm64ammqner4" path="res://Resources/Turrets/TurretData.cs" id="1_33sie"]
+[ext_resource type="PackedScene" uid="uid://c47sp1oj85g4l" path="res://Scenes/Projectiles/BounceBullet.tscn" id="2_7yynm"]
+[ext_resource type="Script" uid="uid://dpbvjc5ku3vl4" path="res://Resources/Turrets/TurretMode.cs" id="3_oaqtr"]
+
+[sub_resource type="Resource" id="Resource_6fjfc"]
+script = ExtResource("3_oaqtr")
+Icon = ExtResource("1_3fquq")
+Price = 30
+CanRotate = false
+Projectile = ExtResource("2_7yynm")
+Damage = 5.0
+Range = 400.0
+metadata/_custom_type_script = "uid://dpbvjc5ku3vl4"
+
+[sub_resource type="Resource" id="Resource_icsto"]
+script = ExtResource("3_oaqtr")
+Icon = ExtResource("1_3fquq")
+Price = 50
+CanRotate = false
+Damage = 0.0
+Range = 0.0
+metadata/_custom_type_script = "uid://dpbvjc5ku3vl4"
+
+[resource]
+script = ExtResource("1_33sie")
+ID = 3
+Name = "Second Turret"
+Size = Vector2(1, 2)
+Modes = [SubResource("Resource_6fjfc"), SubResource("Resource_icsto")]
+metadata/_custom_type_script = "uid://cm64ammqner4"

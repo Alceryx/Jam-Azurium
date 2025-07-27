@@ -1,20 +1,20 @@
 [gd_scene load_steps=4 format=3 uid="uid://b6i78g0nc3avm"]
 
-[ext_resource type="Texture2D" uid="uid://d2o5d8y6g8qsr" path="res://icon.svg" id="1_dqbtj"]
-[ext_resource type="Script" uid="uid://bips1wvo63cen" path="res://Scripts/Projectiles/Bullet.cs" id="1_qupxw"]
+[ext_resource type="Script" uid="uid://bips1wvo63cen" path="res://Scripts/Projectiles/Bullet.cs" id="1_jnb4d"]
+[ext_resource type="Texture2D" uid="uid://d2o5d8y6g8qsr" path="res://icon.svg" id="2_rjcpp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qupxw"]
 size = Vector2(56, 10)
 
-[node name="Projectile" type="CharacterBody2D" node_paths=PackedStringArray("Hitbox")]
-script = ExtResource("1_qupxw")
+[node name="Bullet" type="CharacterBody2D" node_paths=PackedStringArray("Hitbox")]
+script = ExtResource("1_jnb4d")
 Speed = 500.0
 Hitbox = NodePath("Hitbox")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-1.90735e-06, 4.76837e-07)
 scale = Vector2(0.4375, 0.078125)
-texture = ExtResource("1_dqbtj")
+texture = ExtResource("2_rjcpp")
 
 [node name="Hitbox" type="Area2D" parent="."]
 
