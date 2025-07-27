@@ -19,6 +19,7 @@ public partial class NexusButton : StaticBody2D
 
     public override void _Ready()
     {
+        SpriteState.Play("Neutral");
         ClickDelay = 1.0f / MaxCPS;
     }
 
@@ -56,6 +57,7 @@ public partial class NexusButton : StaticBody2D
 
             if (Input.IsActionPressed("Interact") )
             {
+                SpriteState.Play("Clicked");
                 HoldTimer += (float)delta;
             }
 
