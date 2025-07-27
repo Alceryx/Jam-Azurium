@@ -5,12 +5,17 @@ public partial class NexusButton : StaticBody2D
 {
     [Export] private int MaxCPS;
     [Export] private float HoldThreshold;
+    [Export] private AnimationPlayer SpriteState;
     [Export] private Sprite2D Sprite;
     private bool CanClick;
+    private bool Releasing;
 
     private float ClickDelay;
     private float ClickTimer;
     private float HoldTimer;
+
+    private float RiseDelay = .3f;
+    private float RiseTimer;
 
     public override void _Ready()
     {
@@ -19,6 +24,14 @@ public partial class NexusButton : StaticBody2D
 
     public override void _Process(double delta)
     {
+        if (Releasing && RiseTimer > 0)
+        {
+            SpriteState.Play("Mid");
+            RiseTimer -= (float)delta;
+        }
+        else if (!Releasing) RiseTimer = RiseDelay;
+        if (RiseTimer <= 0) SpriteState.Play("Neutral");
+        
         if (ClickTimer > 0)
         {
             ClickTimer -= (float)delta;
@@ -31,10 +44,14 @@ public partial class NexusButton : StaticBody2D
 
         if (!BuildManager.BM.IsBuilding && CanClick && ClickTimer <= 0)
         {
+            SpriteState.Play("Mid");
             if (Input.IsActionJustPressed("Interact"))
             {
                 ClickTimer = ClickDelay;
                 GameManager.GM.Currency += GameManager.GM.Efficiency;
+                
+                SpriteState.Play("Clicked");
+                if (ShopManager.SM.Visible) ShopManager.SM.Hide();
             }
 
             if (Input.IsActionPressed("Interact") )
@@ -47,8 +64,8 @@ public partial class NexusButton : StaticBody2D
                 HoldTimer = 0;
             }
         }
-        
     }
+    
     public void TakeDamage(float damage)
     {
         GameManager.GM.ButtonHP -= damage;
@@ -56,15 +73,13 @@ public partial class NexusButton : StaticBody2D
     }
     private void OnMouseEntered()
     {
-        Tween tween = CreateTween();
-        tween.TweenProperty((ShaderMaterial)Sprite.Material, "shader_parameter/outline_color", new Color(1,1,1), 0.15f);
+        Releasing = false;
         CanClick = true;
     }
 
     private void OnMouseExited()
     {
-        Tween tween = CreateTween();
-        tween.TweenProperty((ShaderMaterial)Sprite.Material, "shader_parameter/outline_color", new Color(1,1,1, 0), 0.15f);
+        Releasing = true;
         CanClick = false;
     }
 

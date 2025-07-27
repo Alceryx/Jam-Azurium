@@ -28,6 +28,6 @@ metadata/_custom_type_script = "uid://dpbvjc5ku3vl4"
 script = ExtResource("1_gur8y")
 ID = 1
 Name = "Base Turret"
-Size = Vector2(1, 2)
+Size = Vector2(1, 1)
 Modes = Array[Resource]([SubResource("Resource_wunh7"), SubResource("Resource_vh6mg")])
 metadata/_custom_type_script = "uid://cm64ammqner4"
