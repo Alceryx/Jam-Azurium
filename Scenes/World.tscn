@@ -81,10 +81,11 @@ working_radius = 2000.0
 global_debug_draw = false
 metadata/_custom_type_script = "uid://f51cuw0krxbt"
 
-[node name="BuildManager" parent="." node_paths=PackedStringArray("PreviewLayer", "PlaceableLayer") instance=ExtResource("3_gjpho")]
+[node name="BuildManager" parent="." node_paths=PackedStringArray("PreviewLayer", "PlaceableLayer", "GroundLayer") instance=ExtResource("3_gjpho")]
 TurretInfo = ExtResource("4_gjpho")
 PreviewLayer = NodePath("../Tile Map/PreviewTile")
 PlaceableLayer = NodePath("../Tile Map/Animal")
+GroundLayer = [NodePath("../Tile Map/Land Lower"), NodePath("../Tile Map/Land Upper")]
 
 [node name="Interface Manager" parent="." instance=ExtResource("6_q2d71")]
 
