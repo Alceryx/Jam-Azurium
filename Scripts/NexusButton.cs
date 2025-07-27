@@ -58,7 +58,6 @@ public partial class NexusButton : StaticBody2D
     {
         Tween tween = CreateTween();
         tween.TweenProperty((ShaderMaterial)Sprite.Material, "shader_parameter/outline_color", new Color(1,1,1), 0.15f);
-        tween.Parallel().TweenProperty(this, "scale", new Vector2(1.1f, 1.1f), 0.15f);
         CanClick = true;
     }
 
@@ -66,7 +65,6 @@ public partial class NexusButton : StaticBody2D
     {
         Tween tween = CreateTween();
         tween.TweenProperty((ShaderMaterial)Sprite.Material, "shader_parameter/outline_color", new Color(1,1,1, 0), 0.15f);
-        tween.Parallel().TweenProperty(this, "scale", new Vector2(1, 1), 0.15f);
         CanClick = false;
     }
 

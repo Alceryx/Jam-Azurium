@@ -64,7 +64,6 @@ public abstract partial class Turret : StaticBody2D
          HideDetectionPreview();
          Tween tween = CreateTween();
          tween.TweenProperty((ShaderMaterial)Sprite.Material, "shader_parameter/outline_color", new Color(1,1,1, 0), 0.15f);
-         tween.Parallel().TweenProperty(this, "scale", new Vector2(1, 1), 0.15f);
          CanClick = false;
       }
       

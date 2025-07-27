@@ -19,10 +19,8 @@ public partial class HotbarManager : Control
     public void AddSlot(TurretData data, int mode)
     {
         HotbarSlot slot = Slot.Instantiate() as HotbarSlot;
-        if (TurretsSlot.ContainsKey(data))
-            TurretsSlot[data].Add(mode, slot);
-        else
-            TurretsSlot.Add(data, new Dictionary<int, HotbarSlot>() {{mode, slot}});
+        if (TurretsSlot.ContainsKey(data)) TurretsSlot[data].Add(mode, slot);
+        else TurretsSlot.Add(data, new Dictionary<int, HotbarSlot> {{mode, slot}});
         slot.SetUp(data, mode, 1);
         Bar.AddChild(slot);
     }
