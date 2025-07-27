@@ -42,6 +42,13 @@ public partial class HotbarSlot : Button
             if (Amount == 0)
             {
                 HotbarManager.HM.TurretsSlot[data].Remove(mode);
+                if (HotbarManager.HM.TurretsSlot[data].Count == 0)
+                {
+                    HotbarManager.HM.TurretsSlot.Remove(data);
+                    if (HotbarManager.HM.TurretsSlot.Count == 0)
+                        HotbarManager.HM.Hide();
+                }
+                                
                 QueueFree();
             }
         }

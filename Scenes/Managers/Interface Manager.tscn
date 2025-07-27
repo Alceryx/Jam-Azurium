@@ -6,12 +6,13 @@
 
 [node name="Interface Manager" type="CanvasLayer"]
 
-[node name="Hotbar" parent="." instance=ExtResource("3_wxi3v")]
-size_flags_horizontal = 0
-size_flags_vertical = 8
-
 [node name="Stats" parent="." instance=ExtResource("2_kffii")]
 mouse_filter = 2
+
+[node name="Hotbar" parent="." instance=ExtResource("3_wxi3v")]
+visible = false
+size_flags_horizontal = 0
+size_flags_vertical = 8
 
 [node name="Shop" parent="." instance=ExtResource("3_7ud4v")]
 visible = false
