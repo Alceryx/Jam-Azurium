@@ -7,6 +7,7 @@ public partial class ShopItem : PanelContainer
 {
     [Export] public Panel Lock;
     [Export] public TextureRect Icon;
+    [Export] public PanelContainer Panel;
     [Export] public Array<TextureButton> ModeButton = [];
     
     [Export] private Label name;

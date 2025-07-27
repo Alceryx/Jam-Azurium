@@ -70,7 +70,11 @@ public partial class ShopManager : Control
     {
         foreach (ShopItem item in ItemList.GetChildren())
         {
-            if (item != SelectedItem) item.Lock.Show();
+            if (item != SelectedItem)
+            {
+                item.Panel.Hide();
+                item.Lock.Show();
+            }
         }
     }
 
