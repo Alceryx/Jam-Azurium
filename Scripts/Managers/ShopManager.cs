@@ -10,8 +10,8 @@ public partial class ShopManager : Control
     [Export] public TextureButton Buy;
 
     [Export] public TextureButton DefenceTab;
-    [Export] private PanelContainer defence;
     [Export] public TextureButton UpgradeTab;
+    [Export] private PanelContainer defence;
 
     public static ShopManager SM;
     

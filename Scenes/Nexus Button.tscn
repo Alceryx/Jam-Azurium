@@ -89,9 +89,9 @@ libraries = {
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_hqswg")
-position = Vector2(0, 18)
+position = Vector2(0, -32)
 scale = Vector2(0.883, 0.883)
-texture = ExtResource("4_k7c6v")
+texture = ExtResource("3_0h4l8")
 offset = Vector2(0, 30)
 
 [node name="Body" type="CollisionPolygon2D" parent="."]

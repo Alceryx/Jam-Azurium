@@ -1,9 +1,8 @@
-[gd_resource type="Resource" script_class="TurretData" load_steps=8 format=3 uid="uid://ct1kreps3d4lk"]
+[gd_resource type="Resource" script_class="TurretData" load_steps=7 format=3 uid="uid://ct1kreps3d4lk"]
 
 [ext_resource type="Script" uid="uid://cm64ammqner4" path="res://Resources/Turrets/TurretData.cs" id="1_gur8y"]
 [ext_resource type="Script" uid="uid://dpbvjc5ku3vl4" path="res://Resources/Turrets/TurretMode.cs" id="1_oxx5t"]
-[ext_resource type="Texture2D" uid="uid://c7h1km7tlajhr" path="res://Assets/critters/boar/boar_NE_idle_0.png" id="1_wunh7"]
-[ext_resource type="PackedScene" uid="uid://b6i78g0nc3avm" path="res://Scenes/Projectiles/Bullet.tscn" id="2_vh6mg"]
+[ext_resource type="Texture2D" uid="uid://c7h1km7tlajhr" path="res://Assets/Critters/boar/boar_NE_idle_0.png" id="1_wunh7"]
 [ext_resource type="PackedScene" uid="uid://dx8jxkf7r6n2d" path="res://Scenes/Projectiles/Laser.tscn" id="7_4hak1"]
 
 [sub_resource type="Resource" id="Resource_wunh7"]
@@ -11,7 +10,6 @@ script = ExtResource("1_oxx5t")
 Icon = ExtResource("1_wunh7")
 Price = 20
 CanRotate = false
-Projectile = ExtResource("2_vh6mg")
 Damage = 5.0
 Range = 200.0
 metadata/_custom_type_script = "uid://dpbvjc5ku3vl4"

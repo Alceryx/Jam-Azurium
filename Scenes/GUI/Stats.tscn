@@ -1,12 +1,27 @@
-[gd_scene load_steps=6 format=3 uid="uid://bkf0xqfrwl72v"]
+[gd_scene load_steps=16 format=3 uid="uid://bkf0xqfrwl72v"]
 
 [ext_resource type="Script" uid="uid://chfqbb7h5sprm" path="res://Scripts/GUI/Stats.cs" id="1_8ewys"]
 [ext_resource type="Theme" uid="uid://bm2m53cf2qpe4" path="res://Resources/GUI.tres" id="2_btas5"]
-[ext_resource type="Texture2D" uid="uid://bd6akk5h2yr32" path="res://Assets/GUI/[Stats] PT.png" id="3_btas5"]
-[ext_resource type="Texture2D" uid="uid://d2o5d8y6g8qsr" path="res://icon.svg" id="4_bkq53"]
-[ext_resource type="FontFile" uid="uid://o2lc8i6f1dwl" path="res://Assets/Fonts/Liberator/Liberator-Light.ttf" id="5_n6joj"]
+[ext_resource type="Texture2D" uid="uid://cxmpbeble1yly" path="res://Assets/GUI/Stats HUD/Stats - Ref.png" id="3_n6joj"]
+[ext_resource type="Texture2D" uid="uid://2ak5oy1ajct" path="res://Assets/GUI/Stats HUD/Stats - Panel.png" id="4_w8uvi"]
+[ext_resource type="Texture2D" uid="uid://b0ull1lacweb1" path="res://Assets/GUI/Stats HUD/StatsIcon - Health.png" id="5_42i26"]
+[ext_resource type="Texture2D" uid="uid://cvms5pbc5wi4e" path="res://Assets/GUI/Stats HUD/StatsBar - Line.png" id="6_1b80i"]
+[ext_resource type="Texture2D" uid="uid://cfqd6y6v4ekev" path="res://Assets/GUI/Stats HUD/StatsBar - BG.png" id="6_vfcsv"]
+[ext_resource type="Texture2D" uid="uid://b2f1ejykpic2v" path="res://Assets/GUI/Stats HUD/StatsBar - Line+Fill.png" id="6_ys8ko"]
+[ext_resource type="FontFile" uid="uid://dxwy40mal8xcd" path="res://Assets/Fonts/Liberator/Liberator-Heavy.ttf" id="9_vfcsv"]
+[ext_resource type="Texture2D" uid="uid://cukdxj6qf3v4s" path="res://Assets/GUI/Stats HUD/StatsIcon - Efficiency.png" id="9_w8uvi"]
+[ext_resource type="Texture2D" uid="uid://kpscnlvfec36" path="res://Assets/GUI/Stats HUD/Stats - Currency.png" id="11_mikfe"]
+[ext_resource type="Texture2D" uid="uid://bye4afijpdw17" path="res://Assets/GUI/Stats HUD/StatsIcon - Currency.png" id="11_w8uvi"]
 
-[node name="Stats" type="Control" node_paths=PackedStringArray("currency", "health", "efficiency")]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mikfe"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n6joj"]
+texture = ExtResource("4_w8uvi")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o8vwe"]
+texture = ExtResource("11_mikfe")
+
+[node name="Stats" type="Control" node_paths=PackedStringArray("health", "healthBar", "efficiency", "currency")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -17,115 +32,173 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 theme = ExtResource("2_btas5")
 script = ExtResource("1_8ewys")
-currency = NodePath("Placeholder/Property/Currency")
-health = NodePath("Placeholder/Main/PanelContainer/MarginContainer/Align/Detail/Health/HP")
-efficiency = NodePath("Placeholder/Main/PanelContainer/MarginContainer/Align/Detail/Efficiency/RichTextLabel")
+health = NodePath("Placeholder/Background/MarginContainer/Align/Detail/Health/MarginContainer/Health Bar/Align/HP")
+healthBar = NodePath("Placeholder/Background/MarginContainer/Align/Detail/Health/MarginContainer/Health Bar")
+efficiency = NodePath("Placeholder/Background/MarginContainer/Align/Detail/Efficiency/RichTextLabel")
+currency = NodePath("Placeholder/Property/PanelContainer/VBoxContainer/Detail/Currency")
 
 [node name="Ref" type="TextureRect" parent="."]
 visible = false
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -545.0
-offset_bottom = 287.0
-grow_horizontal = 0
-texture = ExtResource("3_btas5")
+offset_right = 1727.0
+offset_bottom = 1050.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_n6joj")
 
 [node name="Placeholder" type="PanelContainer" parent="."]
 layout_mode = 1
-offset_right = 547.0
-offset_bottom = 291.0
+offset_right = 518.0
+offset_bottom = 278.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_mikfe")
 
-[node name="Main" type="MarginContainer" parent="Placeholder"]
+[node name="Background" type="PanelContainer" parent="Placeholder"]
+custom_minimum_size = Vector2(0, 217)
 layout_mode = 2
-theme_override_constants/margin_bottom = 60
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_n6joj")
 
-[node name="PanelContainer" type="PanelContainer" parent="Placeholder/Main"]
+[node name="MarginContainer" type="MarginContainer" parent="Placeholder/Background"]
 layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="Placeholder/Main/PanelContainer"]
-layout_mode = 2
-theme_override_constants/margin_top = 27
+theme_override_constants/margin_top = 22
 theme_override_constants/margin_bottom = 50
 
-[node name="Align" type="HBoxContainer" parent="Placeholder/Main/PanelContainer/MarginContainer"]
+[node name="Align" type="HBoxContainer" parent="Placeholder/Background/MarginContainer"]
 layout_mode = 2
 
-[node name="Start" type="VSeparator" parent="Placeholder/Main/PanelContainer/MarginContainer/Align"]
+[node name="Start" type="VSeparator" parent="Placeholder/Background/MarginContainer/Align"]
 layout_mode = 2
-theme_override_constants/separation = 42
+theme_override_constants/separation = 35
 
-[node name="TextureRect" type="TextureRect" parent="Placeholder/Main/PanelContainer/MarginContainer/Align"]
-custom_minimum_size = Vector2(35, 0)
+[node name="Decor>Icon" type="VSeparator" parent="Placeholder/Background/MarginContainer/Align"]
 layout_mode = 2
-texture = ExtResource("4_bkq53")
-expand_mode = 1
-stretch_mode = 6
+theme_override_constants/separation = 7
 
-[node name="Decor>Icon" type="VSeparator" parent="Placeholder/Main/PanelContainer/MarginContainer/Align"]
-layout_mode = 2
-theme_override_constants/separation = 5
-
-[node name="Detail" type="VBoxContainer" parent="Placeholder/Main/PanelContainer/MarginContainer/Align"]
-layout_mode = 2
-
-[node name="Health" type="HBoxContainer" parent="Placeholder/Main/PanelContainer/MarginContainer/Align/Detail"]
-layout_mode = 2
-
-[node name="Icon" type="TextureRect" parent="Placeholder/Main/PanelContainer/MarginContainer/Align/Detail/Health"]
-custom_minimum_size = Vector2(70, 70)
-layout_mode = 2
-expand_mode = 1
-stretch_mode = 6
-
-[node name="HP" type="TextureProgressBar" parent="Placeholder/Main/PanelContainer/MarginContainer/Align/Detail/Health"]
-custom_minimum_size = Vector2(360, 60)
+[node name="Detail" type="VBoxContainer" parent="Placeholder/Background/MarginContainer/Align"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 0
-fill_mode = 1
+theme_override_constants/separation = 15
 
-[node name="Efficiency" type="HBoxContainer" parent="Placeholder/Main/PanelContainer/MarginContainer/Align/Detail"]
+[node name="Health" type="HBoxContainer" parent="Placeholder/Background/MarginContainer/Align/Detail"]
 layout_mode = 2
-theme_override_constants/separation = 10
+size_flags_horizontal = 0
+size_flags_vertical = 4
 
-[node name="Icon" type="TextureRect" parent="Placeholder/Main/PanelContainer/MarginContainer/Align/Detail/Efficiency"]
-custom_minimum_size = Vector2(70, 70)
+[node name="Icon" type="TextureRect" parent="Placeholder/Background/MarginContainer/Align/Detail/Health"]
+custom_minimum_size = Vector2(60, 55.7)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("5_42i26")
 expand_mode = 1
 stretch_mode = 6
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Placeholder/Main/PanelContainer/MarginContainer/Align/Detail/Efficiency"]
+[node name="MarginContainer" type="MarginContainer" parent="Placeholder/Background/MarginContainer/Align/Detail/Health"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_fonts/normal_font = ExtResource("5_n6joj")
-theme_override_font_sizes/normal_font_size = 50
-text = "10/Click"
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+
+[node name="Health Bar" type="TextureProgressBar" parent="Placeholder/Background/MarginContainer/Align/Detail/Health/MarginContainer"]
+custom_minimum_size = Vector2(330, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+nine_patch_stretch = true
+texture_under = ExtResource("6_vfcsv")
+texture_over = ExtResource("6_1b80i")
+texture_progress = ExtResource("6_ys8ko")
+
+[node name="Align" type="HBoxContainer" parent="Placeholder/Background/MarginContainer/Align/Detail/Health/MarginContainer/Health Bar"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="HP" type="Label" parent="Placeholder/Background/MarginContainer/Align/Detail/Health/MarginContainer/Health Bar/Align"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "2/5"
+horizontal_alignment = 2
+
+[node name="VSeparator" type="VSeparator" parent="Placeholder/Background/MarginContainer/Align/Detail/Health/MarginContainer/Health Bar/Align"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Efficiency" type="HBoxContainer" parent="Placeholder/Background/MarginContainer/Align/Detail"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Icon" type="TextureRect" parent="Placeholder/Background/MarginContainer/Align/Detail/Efficiency"]
+custom_minimum_size = Vector2(60, 66.4)
+layout_mode = 2
+texture = ExtResource("9_w8uvi")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Placeholder/Background/MarginContainer/Align/Detail/Efficiency"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+theme_override_fonts/normal_font = ExtResource("9_vfcsv")
+theme_override_font_sizes/normal_font_size = 35
+text = "13 / Click"
 vertical_alignment = 1
 
 [node name="Property" type="HBoxContainer" parent="Placeholder"]
+custom_minimum_size = Vector2(0, 118)
 layout_mode = 2
 size_flags_vertical = 8
 
 [node name="Start" type="VSeparator" parent="Placeholder/Property"]
 layout_mode = 2
-theme_override_constants/separation = 285
+theme_override_constants/separation = 161
 
-[node name="TextureRect" type="TextureRect" parent="Placeholder/Property"]
-custom_minimum_size = Vector2(75, 75)
+[node name="PanelContainer" type="PanelContainer" parent="Placeholder/Property"]
 layout_mode = 2
-size_flags_vertical = 0
-texture = ExtResource("4_bkq53")
+theme_override_styles/panel = SubResource("StyleBoxTexture_o8vwe")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Placeholder/Property/PanelContainer"]
+layout_mode = 2
+
+[node name="Push" type="HSeparator" parent="Placeholder/Property/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="Detail" type="HBoxContainer" parent="Placeholder/Property/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(260, 0)
+layout_mode = 2
+
+[node name="Start" type="VSeparator" parent="Placeholder/Property/PanelContainer/VBoxContainer/Detail"]
+layout_mode = 2
+theme_override_constants/separation = 26
+
+[node name="Icon" type="TextureRect" parent="Placeholder/Property/PanelContainer/VBoxContainer/Detail"]
+custom_minimum_size = Vector2(65, 71)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("11_w8uvi")
 expand_mode = 1
 stretch_mode = 6
 
-[node name="Currency" type="Label" parent="Placeholder/Property"]
-custom_minimum_size = Vector2(130, 110)
+[node name="Icon>Text" type="VSeparator" parent="Placeholder/Property/PanelContainer/VBoxContainer/Detail"]
 layout_mode = 2
+theme_override_constants/separation = 9
+
+[node name="Currency" type="Label" parent="Placeholder/Property/PanelContainer/VBoxContainer/Detail"]
+layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 8
-theme_override_font_sizes/font_size = 100
-text = "123"
+theme_override_colors/font_color = Color(0.0509804, 0.0509804, 0.0509804, 1)
+theme_override_font_sizes/font_size = 75
+text = "138"
 
 [node name="End" type="VSeparator" parent="Placeholder/Property"]
 layout_mode = 2

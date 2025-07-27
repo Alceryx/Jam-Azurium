@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8j3a6skrhq5d"
-path="res://.godot/imported/[Shop] PT.png-fdf99bc466b560d43b78e59fc1b74b9b.ctex"
+uid="uid://kpscnlvfec36"
+path="res://.godot/imported/Stats - Currency.png-182de28df8e2152cfca21f76ea0af54c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/GUI/[Shop] PT.png"
-dest_files=["res://.godot/imported/[Shop] PT.png-fdf99bc466b560d43b78e59fc1b74b9b.ctex"]
+source_file="res://Assets/GUI/Stats HUD/Stats - Currency.png"
+dest_files=["res://.godot/imported/Stats - Currency.png-182de28df8e2152cfca21f76ea0af54c.ctex"]
 
 [params]
 

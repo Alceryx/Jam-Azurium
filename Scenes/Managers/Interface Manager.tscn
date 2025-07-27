@@ -5,11 +5,12 @@
 [ext_resource type="PackedScene" uid="uid://cjmodeiwt6ovk" path="res://Scenes/GUI/Hotbar/Hotbar.tscn" id="3_wxi3v"]
 [ext_resource type="Resource" uid="uid://ct1kreps3d4lk" path="res://Resources/Turrets/BaseTurret.tres" id="4_760ko"]
 [ext_resource type="Script" uid="uid://cm64ammqner4" path="res://Resources/Turrets/TurretData.cs" id="4_q13l1"]
-[ext_resource type="Resource" uid="uid://yt3fun5805m5" path="res://Resources/Turrets/SecondTurret.tres" id="5_q13l1"]
+[ext_resource type="Resource" uid="uid://bb1usc2y6f5ix" path="res://Resources/Turrets/SecondTurret.tres" id="5_q13l1"]
 
 [node name="Interface Manager" type="CanvasLayer"]
 
 [node name="Hotbar" parent="." instance=ExtResource("3_wxi3v")]
+visible = false
 size_flags_horizontal = 0
 size_flags_vertical = 8
 

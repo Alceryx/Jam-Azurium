@@ -37,6 +37,10 @@ enabled=PackedStringArray("res://addons/ProCam2D/plugin.cfg")
 
 Enemy=""
 
+[gui]
+
+theme/default_font_multichannel_signed_distance_field=true
+
 [input]
 
 Interact={
