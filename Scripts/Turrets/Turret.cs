@@ -14,7 +14,8 @@ public abstract partial class Turret : StaticBody2D
    
    [Export] public Sprite2D Sprite;
    [Export] public AnimationPlayer SpriteState;
-   [Export] private CollisionShape2D DetectionArea;
+   [Export] private Area2D DetectionArea;
+   [Export] private CollisionShape2D DetectionShape;
    [Export] private MeshInstance2D DectectionPreview;
    [Export] private Shader HighlightShader;
    [Export] private float DestructDelay;
@@ -22,6 +23,7 @@ public abstract partial class Turret : StaticBody2D
 
    public FacingDirection Direction = FacingDirection.TopRight;
    public TurretData Data;
+   public Enemy TargetedEnemy;
    public int Mode;
 
    public bool Preview;
@@ -30,6 +32,7 @@ public abstract partial class Turret : StaticBody2D
    public bool CanShoot = true;
    
    public Array<Vector2I> OccupiedPositions;
+   public Array<Enemy> EnemyToTarget = new();
 
    public abstract void Shoot(Vector2 target);
 
@@ -39,10 +42,38 @@ public abstract partial class Turret : StaticBody2D
       ((ShaderMaterial)Sprite.Material).SetShader(HighlightShader);
       ((ShaderMaterial)Sprite.Material).SetShaderParameter("outline_color", new Color(1,1,1,0));
       ((ShaderMaterial)Sprite.Material).SetShaderParameter("outline_thickness", 2);
+
+      if (!Preview)
+      {
+         DetectionArea.BodyEntered += (body) => OnBodyEntered(body);
+         DetectionArea.BodyExited += (body) => OnBodyExited(body); 
+      }
    }
 
    public override void _Process(double delta)
    {
+      if (EnemyToTarget.Count > 0)
+         {
+            while (EnemyToTarget.Count > 0 && EnemyToTarget[EnemyToTarget.Count - 1].Targeted)
+               EnemyToTarget.RemoveAt(EnemyToTarget.Count - 1);
+
+            float MinDist = Mathf.Inf;
+            foreach (Enemy enemy in EnemyToTarget)
+            {
+               if (enemy.GlobalPosition.DistanceTo(GlobalPosition) < MinDist)
+               {
+                  MinDist = enemy.GlobalPosition.DistanceTo(GlobalPosition);
+                  TargetedEnemy = enemy;
+               }
+            }
+
+            if (IsInstanceValid(TargetedEnemy))
+            {
+               TargetedEnemy.Targeted = true;
+               Shoot(TargetedEnemy.GlobalPosition);
+            }
+         }
+      
       if (DestructTimer > 0)
       {
          DestructTimer -= (float)delta;
@@ -83,11 +114,11 @@ public abstract partial class Turret : StaticBody2D
       this.OccupiedPositions = OccupiedPositions;
 
       Sprite.Texture = Data.Modes[Mode].Icon;
-      ((CircleShape2D)DetectionArea.Shape).SetRadius(Data.Modes[Mode].Range);
+      ((CircleShape2D)DetectionShape.Shape).SetRadius(Data.Modes[Mode].Range);
 
       UpdateSprite();
 
-      DetectionArea.Disabled = Preview;
+      DetectionShape.Disabled = Preview;
    }
 
 
@@ -149,5 +180,27 @@ public abstract partial class Turret : StaticBody2D
       Tween tween = CreateTween();
       tween.TweenProperty((ShaderMaterial)Sprite.Material, "shader_parameter/outline_color", new Color(1,1,1, 0), 0.15f);
       tween.Parallel().TweenProperty(this, "scale", new Vector2(1, 1), 0.15f);
+   }
+   
+   private void OnBodyEntered(Node2D body)
+   {
+      if (body is Enemy)
+      {
+         Enemy enemy = (Enemy)body;
+         EnemyToTarget.Add(enemy);
+      }
+   }
+
+   private void OnBodyExited(Node2D body)
+   {
+      if (body is Enemy && EnemyToTarget.Contains((Enemy)body))
+      {
+         EnemyToTarget.Remove((Enemy)body);
+      }
+
+      if (body is Enemy && TargetedEnemy == (Enemy)body)
+      {
+         ((Enemy)body).Targeted = false;
+      }
    }
 }

@@ -10,7 +10,7 @@ public partial class BuildManager : Node
     [ExportGroup("References")]
     [Export] private TileMapLayer PreviewLayer;
     [Export] public TileMapLayer PlaceableLayer; //Layer to place the object one
-    [Export] private TileMapLayer GroundLayer; //Layer for checking if placeable or not
+    [Export] private Array<TileMapLayer> GroundLayer; //Layer for checking if placeable or not
 
     private Turret CurrentPreview;
     private Turret.FacingDirection PreviewRotation;
@@ -176,11 +176,14 @@ public partial class BuildManager : Node
                 if (OccupiedTiles.Contains(pos))
                     return false;
 
-                if (!IsInstanceValid(GroundLayer.GetCellTileData(pos)))
-                    return false;
+                foreach (TileMapLayer layer in GroundLayer)
+                {
+                    if (IsInstanceValid(layer.GetCellTileData(pos)) && (bool)layer.GetCellTileData(pos).GetCustomData("Placeable"))
+                        return true;
+                }
 
-                if (!(bool)GroundLayer.GetCellTileData(pos).GetCustomData("Placeable"))
-                    return false;
+                return false;
+
             }
         }
         
