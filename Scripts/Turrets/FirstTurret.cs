@@ -84,12 +84,6 @@ public partial class FirstTurret : Turret
         }
         CanShoot = false;
     }
-    
-    private void OnBodyEntered(Node2D body)
-    {
-        if (body is Enemy)
-            Shoot(body.GlobalPosition);
-    }
 
     private void OnWaveEnded(int WaveNumber)
     {

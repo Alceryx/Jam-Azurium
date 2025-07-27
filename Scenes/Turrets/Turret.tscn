@@ -155,7 +155,7 @@ _data = {
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vsmea"]
 
-[node name="Turret" type="StaticBody2D" node_paths=PackedStringArray("OriginPoint", "TopLeftShootPoint", "TopRightShootPoint", "BottomLeftShootPoint", "BottomRightShootPoint", "Sprite", "SpriteState", "DetectionArea", "DectectionPreview")]
+[node name="Turret" type="StaticBody2D" node_paths=PackedStringArray("OriginPoint", "TopLeftShootPoint", "TopRightShootPoint", "BottomLeftShootPoint", "BottomRightShootPoint", "Sprite", "SpriteState", "DetectionArea", "DetectionShape", "DectectionPreview")]
 input_pickable = true
 script = ExtResource("1_vsmea")
 OriginPoint = NodePath("ShootPoints/Origin")
@@ -165,7 +165,8 @@ BottomLeftShootPoint = NodePath("ShootPoints/Bottom Left")
 BottomRightShootPoint = NodePath("ShootPoints/Bottom Right")
 Sprite = NodePath("Sprite2D")
 SpriteState = NodePath("AnimationPlayer")
-DetectionArea = NodePath("DetectionArea/CollisionShape2D")
+DetectionArea = NodePath("DetectionArea")
+DetectionShape = NodePath("DetectionArea/CollisionShape2D")
 DectectionPreview = NodePath("DetectionPreview")
 HighlightShader = ExtResource("2_54pmo")
 DestructDelay = 0.2

@@ -24,7 +24,6 @@ public partial class BounceBullet : Projectile
 
     public override void _Ready()
     {
-        
         Speed = GlobalPosition.DistanceTo(Target) / (TimeToApex + TimeToGround);
         
         NewVelocity.Y = JumpForce;

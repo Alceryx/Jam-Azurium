@@ -16,17 +16,17 @@ public partial class SecondTurret : Turret
             
             UpdateSprite();
             
-            Vector2 direction = (target - ShootPoint.GlobalPosition).Normalized();
-            projectile.Setup(this, direction, Data.Modes[Mode].Damage, target);
+            Vector2 AimPos = target + TargetedEnemy.MoveDirection * TargetedEnemy.Speed;
+            Vector2 direction = (AimPos - ShootPoint.GlobalPosition).Normalized();
+            projectile.Setup(this, direction, Data.Modes[Mode].Damage, AimPos);
             projectile.GlobalPosition = ShootPoint.GlobalPosition;
             GameManager.GM.CallDeferred("add_child", projectile);
             
             SelfDestruct();
         }
         else
-        {
+        {   
             
-
         }
         CanShoot = false;
     }
@@ -34,11 +34,5 @@ public partial class SecondTurret : Turret
     public override void UpdateSprite()
     {
         SpriteState.Play("Top Right");
-    }
-
-    private void OnBodyEntered(Node2D body)
-    {
-        if (body is Enemy)
-            Shoot(body.GlobalPosition);
     }
 }

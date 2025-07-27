@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://whu6pu2khjw1"
-path="res://.godot/imported/boar_NW_run_strip.png-d44361f07ba941b68c826a41d7e1eac1.ctex"
+path="res://.godot/imported/boar_NW_run_strip.png-b0fab86516458f1bd1730c11b49e977c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Critters/boar/boar_NW_run_strip.png"
-dest_files=["res://.godot/imported/boar_NW_run_strip.png-d44361f07ba941b68c826a41d7e1eac1.ctex"]
+source_file="res://Assets/critters/boar/boar_NW_run_strip.png"
+dest_files=["res://.godot/imported/boar_NW_run_strip.png-b0fab86516458f1bd1730c11b49e977c.ctex"]
 
 [params]
 

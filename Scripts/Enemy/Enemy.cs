@@ -14,7 +14,7 @@ public partial class Enemy : CharacterBody2D
 
     [ExportGroup("Data")] 
     [Export] private float Health = 5f;
-    [Export] private float Speed = 100.0f;
+    [Export] public float Speed = 100.0f;
     [Export] private float Damage = 5f;
 
     [ExportGroup("References")] 
@@ -23,7 +23,10 @@ public partial class Enemy : CharacterBody2D
     private Path2D Path;
     private PathFollow2D PathFollow;
     private Vector2 LastPosition;
+    public Vector2 MoveDirection;
     private FacingDirection Direction;
+
+    public bool Targeted;
     
     public void Setup(Path2D Path)
     {
@@ -59,6 +62,7 @@ public partial class Enemy : CharacterBody2D
     private void UpdateFacingDirection()
     {
         float angle = LastPosition.GetIsometricAngleTo(GlobalPosition);
+        MoveDirection = (GlobalPosition - LastPosition).Normalized();
         LastPosition = GlobalPosition;
         
         if (angle >= 225 && angle < 315)
