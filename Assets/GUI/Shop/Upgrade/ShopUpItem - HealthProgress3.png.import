@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsy5xm3tr4jw5"
-path="res://.godot/imported/ShopMode1 - Default.png-7b8a4e896f6c2e3b9f447f5d7b1b7061.ctex"
+uid="uid://cffdusqbqvieq"
+path="res://.godot/imported/ShopUpItem - HealthProgress3.png-bdbfb8a58084d3775fa00e1509da4559.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/GUI/Shop/ShopMode1 - Default.png"
-dest_files=["res://.godot/imported/ShopMode1 - Default.png-7b8a4e896f6c2e3b9f447f5d7b1b7061.ctex"]
+source_file="res://Assets/GUI/Shop/Upgrade/ShopUpItem - HealthProgress3.png"
+dest_files=["res://.godot/imported/ShopUpItem - HealthProgress3.png-bdbfb8a58084d3775fa00e1509da4559.ctex"]
 
 [params]
 

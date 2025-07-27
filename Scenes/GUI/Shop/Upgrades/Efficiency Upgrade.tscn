@@ -1,0 +1,155 @@
+[gd_scene load_steps=20 format=3 uid="uid://xvldb6ot1knn"]
+
+[ext_resource type="Texture2D" uid="uid://cx43jc34sbsuv" path="res://Assets/GUI/Shop/Upgrade/ShopUpItem - EffiPanel.png" id="1_4da3k"]
+[ext_resource type="Theme" uid="uid://bm2m53cf2qpe4" path="res://Resources/GUI.tres" id="1_ftbvb"]
+[ext_resource type="Script" uid="uid://cldnsv87hhgn4" path="res://Scripts/GUI/Upgrade/EfficiencyUpgrade.cs" id="2_4da3k"]
+[ext_resource type="Texture2D" uid="uid://dnl215wgfu5j3" path="res://Assets/GUI/Shop/Upgrade/ShopUpItem - EffiProgress1.png" id="3_ybpnt"]
+[ext_resource type="Script" uid="uid://cvepldvigmdst" path="res://Resources/Shop/UpgradeData.cs" id="4_wga26"]
+[ext_resource type="Texture2D" uid="uid://rkridrtpjcm8" path="res://Assets/GUI/Shop/Upgrade/ShopUpItem - EffiProgress2.png" id="5_tbsj7"]
+[ext_resource type="Texture2D" uid="uid://bf6ekuqybkt3k" path="res://Assets/GUI/Shop/Upgrade/ShopUpItem - EffiProgress3.png" id="6_ob2ry"]
+[ext_resource type="Texture2D" uid="uid://ddmpcf4doad7f" path="res://Assets/GUI/Shop/Upgrade/ShopUpItem - Cost.png" id="7_fu3hy"]
+[ext_resource type="Texture2D" uid="uid://choa3u03f6xwr" path="res://Assets/GUI/Shop/Upgrade/ShopUpItem - EffiProgress0.png" id="8_bha60"]
+[ext_resource type="Texture2D" uid="uid://mu58qksnofd4" path="res://Assets/GUI/Shop/Upgrade/ShopUpItem - EffiSelected.png" id="8_ybpnt"]
+[ext_resource type="Texture2D" uid="uid://jwny2i1r7gke" path="res://Assets/GUI/Shop/Upgrade/ShopUpItem - EffiClicked.png" id="11_tbsj7"]
+[ext_resource type="Texture2D" uid="uid://3ba3k4fs8tt1" path="res://Assets/GUI/Shop/Upgrade/ShopUpItem - EffiHover.png" id="12_ob2ry"]
+[ext_resource type="Texture2D" uid="uid://b23emp4pmt4vr" path="res://Assets/GUI/Shop/Upgrade/ShopUpItem - Lock.png" id="13_ob2ry"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4da3k"]
+
+[sub_resource type="Resource" id="Resource_ftbvb"]
+script = ExtResource("4_wga26")
+Price = 45
+Addition = 2
+Graphic = ExtResource("3_ybpnt")
+metadata/_custom_type_script = "uid://cvepldvigmdst"
+
+[sub_resource type="Resource" id="Resource_ybpnt"]
+script = ExtResource("4_wga26")
+Price = 150
+Addition = 2
+Graphic = ExtResource("5_tbsj7")
+metadata/_custom_type_script = "uid://cvepldvigmdst"
+
+[sub_resource type="Resource" id="Resource_wga26"]
+script = ExtResource("4_wga26")
+Price = 350
+Addition = 5
+Graphic = ExtResource("6_ob2ry")
+metadata/_custom_type_script = "uid://cvepldvigmdst"
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tbsj7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n4hi5"]
+
+[node name="Efficiency" type="PanelContainer" node_paths=PackedStringArray("Background", "Tier", "Info", "Price", "Panel", "Lock", "Select")]
+custom_minimum_size = Vector2(421, 265)
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme = ExtResource("1_ftbvb")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_4da3k")
+script = ExtResource("2_4da3k")
+Database = Array[ExtResource("4_wga26")]([SubResource("Resource_ftbvb"), SubResource("Resource_ybpnt"), SubResource("Resource_wga26")])
+Background = NodePath("Main/Background")
+BGDefault = ExtResource("1_4da3k")
+BGSelected = ExtResource("8_ybpnt")
+Tier = NodePath("Main/Status/Tier")
+Info = NodePath("Main/Details/Align/Info")
+Price = NodePath("Main/Details/Align/Cost/Price")
+Panel = NodePath("Main")
+Lock = NodePath("Lock")
+Select = NodePath("Select")
+
+[node name="Main" type="PanelContainer" parent="."]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_tbsj7")
+
+[node name="Background" type="TextureRect" parent="Main"]
+layout_mode = 2
+texture = ExtResource("1_4da3k")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Details" type="HBoxContainer" parent="Main"]
+layout_mode = 2
+
+[node name="Start" type="VSeparator" parent="Main/Details"]
+layout_mode = 2
+theme_override_constants/separation = 197
+
+[node name="Align" type="VBoxContainer" parent="Main/Details"]
+custom_minimum_size = Vector2(177, 0)
+layout_mode = 2
+
+[node name="Start" type="HSeparator" parent="Main/Details/Align"]
+layout_mode = 2
+theme_override_constants/separation = 70
+
+[node name="Info" type="Label" parent="Main/Details/Align"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.0509804, 0.0509804, 0.0509804, 1)
+theme_override_font_sizes/font_size = 30
+text = "+5 Efficiency"
+horizontal_alignment = 1
+
+[node name="Info>Cost" type="HSeparator" parent="Main/Details/Align"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Cost" type="HBoxContainer" parent="Main/Details/Align"]
+layout_mode = 2
+
+[node name="Push" type="VSeparator" parent="Main/Details/Align/Cost"]
+layout_mode = 2
+theme_override_constants/separation = 26
+
+[node name="Icon" type="TextureRect" parent="Main/Details/Align/Cost"]
+custom_minimum_size = Vector2(56, 63)
+layout_mode = 2
+texture = ExtResource("7_fu3hy")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Icon>Price" type="VSeparator" parent="Main/Details/Align/Cost"]
+layout_mode = 2
+
+[node name="Price" type="Label" parent="Main/Details/Align/Cost"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0.45098, 0.870588, 0.886275, 1)
+theme_override_font_sizes/font_size = 55
+text = "15"
+
+[node name="End" type="VSeparator" parent="Main/Details"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Status" type="PanelContainer" parent="Main"]
+custom_minimum_size = Vector2(0, 46)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxEmpty_n4hi5")
+
+[node name="Tier" type="TextureRect" parent="Main/Status"]
+custom_minimum_size = Vector2(183, 33)
+layout_mode = 2
+size_flags_vertical = 0
+texture = ExtResource("8_bha60")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Select" type="TextureButton" parent="."]
+layout_mode = 2
+texture_pressed = ExtResource("11_tbsj7")
+texture_hover = ExtResource("12_ob2ry")
+ignore_texture_size = true
+stretch_mode = 6
+
+[node name="Lock" type="TextureRect" parent="."]
+visible = false
+layout_mode = 2
+texture = ExtResource("13_ob2ry")
+expand_mode = 1
+stretch_mode = 6

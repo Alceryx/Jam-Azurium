@@ -1,11 +1,10 @@
 using Godot;
 using Godot.Collections;
 using System;
-using Array = System.Array;
 
 public partial class ShopItem : PanelContainer
 {
-    [Export] public Panel Lock;
+    [Export] public TextureRect Lock;
     [Export] public TextureRect Icon;
     [Export] public PanelContainer Panel;
     [Export] public Array<TextureButton> ModeButton = [];
@@ -21,6 +20,7 @@ public partial class ShopItem : PanelContainer
 
     public override void _Ready()
     {
+        Lock.Hide();
         foreach (TextureButton button in ModeButton) button.SetButtonGroup(ShopManager.SM.Mode);
     }
 

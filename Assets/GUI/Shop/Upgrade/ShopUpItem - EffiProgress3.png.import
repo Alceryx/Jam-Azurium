@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ct8a8uqsd8tbo"
-path="res://.godot/imported/ShopMode2 - Selected.png-694f058dc37207c679ce9b180af8f4ca.ctex"
+uid="uid://bf6ekuqybkt3k"
+path="res://.godot/imported/ShopUpItem - EffiProgress3.png-8abb6b627005658c15b2923d1e55b56c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/GUI/Shop/ShopMode2 - Selected.png"
-dest_files=["res://.godot/imported/ShopMode2 - Selected.png-694f058dc37207c679ce9b180af8f4ca.ctex"]
+source_file="res://Assets/GUI/Shop/Upgrade/ShopUpItem - EffiProgress3.png"
+dest_files=["res://.godot/imported/ShopUpItem - EffiProgress3.png-8abb6b627005658c15b2923d1e55b56c.ctex"]
 
 [params]
 

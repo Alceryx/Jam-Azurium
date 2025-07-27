@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dn0elavwq2i1f"
-path="res://.godot/imported/ShopTurItem - Currency.png-4bd512bf48c85ca359d5adfb3435a7a7.ctex"
+uid="uid://cx43jc34sbsuv"
+path="res://.godot/imported/ShopUpItem - EffiPanel.png-7bfa1ff4247e7723446b45df39790ab8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/GUI/Shop/ShopTurItem - Currency.png"
-dest_files=["res://.godot/imported/ShopTurItem - Currency.png-4bd512bf48c85ca359d5adfb3435a7a7.ctex"]
+source_file="res://Assets/GUI/Shop/Upgrade/ShopUpItem - EffiPanel.png"
+dest_files=["res://.godot/imported/ShopUpItem - EffiPanel.png-7bfa1ff4247e7723446b45df39790ab8.ctex"]
 
 [params]
 

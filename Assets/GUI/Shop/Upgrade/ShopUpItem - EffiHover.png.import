@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4dsbmiji6ur4"
-path="res://.godot/imported/ShopTurItem - Price.png-9b5c13234ab2c7b7da95aa5e08c9f103.ctex"
+uid="uid://3ba3k4fs8tt1"
+path="res://.godot/imported/ShopUpItem - EffiHover.png-7f0fbaf4ededd956fa6002b2748b9769.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/GUI/Shop/ShopTurItem - Price.png"
-dest_files=["res://.godot/imported/ShopTurItem - Price.png-9b5c13234ab2c7b7da95aa5e08c9f103.ctex"]
+source_file="res://Assets/GUI/Shop/Upgrade/ShopUpItem - EffiHover.png"
+dest_files=["res://.godot/imported/ShopUpItem - EffiHover.png-7f0fbaf4ededd956fa6002b2748b9769.ctex"]
 
 [params]
 

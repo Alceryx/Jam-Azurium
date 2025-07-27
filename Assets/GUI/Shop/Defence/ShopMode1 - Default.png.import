@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bd4wgnxh2pvhb"
-path="res://.godot/imported/ShopTurItem - Lock.png-5abe7c532d8b9804947f9a9a1f058b3c.ctex"
+uid="uid://bsy5xm3tr4jw5"
+path="res://.godot/imported/ShopMode1 - Default.png-17aa439cac9112439f13180ba29d344c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/GUI/Shop/ShopTurItem - Lock.png"
-dest_files=["res://.godot/imported/ShopTurItem - Lock.png-5abe7c532d8b9804947f9a9a1f058b3c.ctex"]
+source_file="res://Assets/GUI/Shop/Defence/ShopMode1 - Default.png"
+dest_files=["res://.godot/imported/ShopMode1 - Default.png-17aa439cac9112439f13180ba29d344c.ctex"]
 
 [params]
 

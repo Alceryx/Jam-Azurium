@@ -1,6 +1,5 @@
-[gd_scene load_steps=25 format=3 uid="uid://dex3irx743gqe"]
+[gd_scene load_steps=29 format=3 uid="uid://dex3irx743gqe"]
 
-[ext_resource type="Texture2D" uid="uid://8j3a6skrhq5d" path="res://Assets/GUI/PT/[Shop] PT.png" id="1_al5ip"]
 [ext_resource type="Theme" uid="uid://bm2m53cf2qpe4" path="res://Resources/GUI.tres" id="2_7h1o4"]
 [ext_resource type="Script" uid="uid://uli68ss1jvut" path="res://Scripts/Managers/ShopManager.cs" id="2_kktns"]
 [ext_resource type="PackedScene" uid="uid://dp1iskdniviuw" path="res://Scenes/GUI/Shop/Shop Item.tscn" id="3_0d586"]
@@ -20,7 +19,10 @@
 [ext_resource type="Texture2D" uid="uid://c3d33ieeu5gn5" path="res://Assets/GUI/Shop/ShopUp - Selected.png" id="12_dgiod"]
 [ext_resource type="Texture2D" uid="uid://di6v1mpw3rp8g" path="res://Assets/GUI/Shop/ShopUp - Hover.png" id="13_h5hno"]
 [ext_resource type="Texture2D" uid="uid://itr6s6gd3xoi" path="res://Assets/GUI/Shop/ShopCloseButton - Clicked.png" id="13_rk5li"]
+[ext_resource type="PackedScene" uid="uid://evhqekwhn1mt" path="res://Scenes/GUI/Shop/Upgrades/Health Upgrade.tscn" id="14_dl43u"]
 [ext_resource type="Texture2D" uid="uid://cfyo2sbokcgj8" path="res://Assets/GUI/Shop/ShopCloseButton - Hover.png" id="14_doqmf"]
+[ext_resource type="PackedScene" uid="uid://xvldb6ot1knn" path="res://Scenes/GUI/Shop/Upgrades/Efficiency Upgrade.tscn" id="15_xcfsc"]
+[ext_resource type="Texture2D" uid="uid://bse2ywc1ej3fw" path="res://Assets/GUI/Shop/Upgrade/ShopUpItem - Ref1.png" id="21_dgiod"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r0504"]
 
@@ -29,7 +31,11 @@ texture = ExtResource("7_oa8j1")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4dw0l"]
 
-[node name="Shop" type="Control" node_paths=PackedStringArray("ItemList", "Buy", "DefenceTab", "UpgradeTab", "defence")]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h5hno"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dgiod"]
+
+[node name="Shop" type="Control" node_paths=PackedStringArray("ItemList", "UpgradeList", "DefenceTab", "UpgradeTab", "defence", "upgrade", "Buy")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -42,21 +48,14 @@ mouse_filter = 1
 theme = ExtResource("2_7h1o4")
 script = ExtResource("2_kktns")
 ItemList = NodePath("Placeholder/Main/Background/Options/Defence/Options/List")
-Item = ExtResource("3_0d586")
+UpgradeList = NodePath("Placeholder/Main/Background/Options/Upgrade/Options")
 Database = Array[ExtResource("4_dgiod")]([ExtResource("4_0d586"), ExtResource("6_dgiod")])
-Buy = NodePath("Placeholder/Buy Bar/Buy")
+ItemFrame = ExtResource("3_0d586")
 DefenceTab = NodePath("Placeholder/Main/Background/Options/Tabs/Defence")
 UpgradeTab = NodePath("Placeholder/Main/Background/Options/Tabs/Upgrade")
 defence = NodePath("Placeholder/Main/Background/Options/Defence")
-
-[node name="Ref" type="TextureRect" parent="."]
-visible = false
-layout_mode = 0
-offset_left = -12.0
-offset_top = -43.0
-offset_right = 663.0
-offset_bottom = 752.0
-texture = ExtResource("1_al5ip")
+upgrade = NodePath("Placeholder/Main/Background/Options/Upgrade")
+Buy = NodePath("Placeholder/Buy Bar/Buy")
 
 [node name="Placeholder" type="PanelContainer" parent="."]
 layout_mode = 0
@@ -121,6 +120,23 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 45
 
+[node name="Upgrade" type="PanelContainer" parent="Placeholder/Main/Background/Options"]
+visible = false
+custom_minimum_size = Vector2(0, 630)
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxEmpty_h5hno")
+
+[node name="Options" type="VBoxContainer" parent="Placeholder/Main/Background/Options/Upgrade"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Health" parent="Placeholder/Main/Background/Options/Upgrade/Options" instance=ExtResource("14_dl43u")]
+layout_mode = 2
+
+[node name="Efficiency" parent="Placeholder/Main/Background/Options/Upgrade/Options" instance=ExtResource("15_xcfsc")]
+layout_mode = 2
+
 [node name="Buy Bar" type="HBoxContainer" parent="Placeholder"]
 layout_mode = 2
 size_flags_vertical = 8
@@ -150,6 +166,24 @@ texture_hover = ExtResource("14_doqmf")
 ignore_texture_size = true
 stretch_mode = 6
 
+[node name="PanelContainer" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 2
+offset_top = 113.0
+offset_right = 618.0
+offset_bottom = 803.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_dgiod")
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer"]
+custom_minimum_size = Vector2(420, 420)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture = ExtResource("21_dgiod")
+expand_mode = 1
+stretch_mode = 4
+
 [connection signal="toggled" from="Placeholder/Main/Background/Options/Tabs/Defence" to="." method="OnDefenceToggled"]
+[connection signal="toggled" from="Placeholder/Main/Background/Options/Tabs/Upgrade" to="." method="OnUpgradeToggled"]
 [connection signal="pressed" from="Placeholder/Buy Bar/Buy" to="." method="OnPurchase"]
 [connection signal="pressed" from="Placeholder/Close" to="." method="OnClosePressed"]
