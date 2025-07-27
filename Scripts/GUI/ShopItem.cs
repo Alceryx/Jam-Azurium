@@ -24,6 +24,14 @@ public partial class ShopItem : PanelContainer
         foreach (TextureButton button in ModeButton) button.SetButtonGroup(ShopManager.SM.Mode);
     }
 
+    public override void _Process(double delta)
+    {
+        if (GameManager.GM != null && GameManager.GM.Currency < Data.Modes[Mode].Price)
+            price.AddThemeColorOverride("font_color", Colors.Red);
+        else
+            price.AddThemeColorOverride("font_color", Colors.White);
+    }
+
     public void SetUp(TurretData data, int mode)
     {
         Price = data.Modes[mode].Price;

@@ -41,7 +41,10 @@ public partial class ShopManager : Control
     public override void _PhysicsProcess(double delta)
     {
         if (Input.IsActionJustPressed("Escape")) Hide();
-        Buy.Disabled = !AnySelected;
+        if (SelectedItem != null && GameManager.GM.Currency < SelectedItem.Price)
+            Buy.Disabled = true;
+        else
+            Buy.Disabled = !AnySelected;
     }
     
     private void OnClosePressed() => Hide();
