@@ -134,10 +134,6 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Lock" type="Panel" parent="."]
-visible = false
-layout_mode = 2
-
 [node name="Buttons" type="VBoxContainer" parent="."]
 layout_mode = 2
 size_flags_horizontal = 0
@@ -170,6 +166,10 @@ stretch_mode = 6
 [node name="End" type="HSeparator" parent="Buttons"]
 layout_mode = 2
 size_flags_vertical = 3
+
+[node name="Lock" type="Panel" parent="."]
+visible = false
+layout_mode = 2
 
 [connection signal="toggled" from="Buttons/Mode 1" to="." method="OnMode1Selected"]
 [connection signal="toggled" from="Buttons/Mode 2" to="." method="OnMode2Selected"]
