@@ -1,5 +1,6 @@
 using Godot;
 using Godot.Collections;
+using Array = Godot.Collections.Array;
 using System;
 
 public abstract partial class Turret : StaticBody2D
@@ -32,7 +33,6 @@ public abstract partial class Turret : StaticBody2D
    public bool CanShoot = true;
    
    public Array<Vector2I> OccupiedPositions;
-   public Array<Enemy> EnemyToTarget = new();
 
    public abstract void Shoot(Vector2 target);
 
@@ -52,28 +52,6 @@ public abstract partial class Turret : StaticBody2D
 
    public override void _Process(double delta)
    {
-      if (EnemyToTarget.Count > 0)
-         {
-            while (EnemyToTarget.Count > 0 && EnemyToTarget[EnemyToTarget.Count - 1].Targeted)
-               EnemyToTarget.RemoveAt(EnemyToTarget.Count - 1);
-
-            float MinDist = Mathf.Inf;
-            foreach (Enemy enemy in EnemyToTarget)
-            {
-               if (enemy.GlobalPosition.DistanceTo(GlobalPosition) < MinDist)
-               {
-                  MinDist = enemy.GlobalPosition.DistanceTo(GlobalPosition);
-                  TargetedEnemy = enemy;
-               }
-            }
-
-            if (IsInstanceValid(TargetedEnemy))
-            {
-               TargetedEnemy.Targeted = true;
-               Shoot(TargetedEnemy.GlobalPosition);
-            }
-         }
-      
       if (DestructTimer > 0)
       {
          DestructTimer -= (float)delta;
@@ -82,6 +60,7 @@ public abstract partial class Turret : StaticBody2D
             BuildManager.BM.Destroy(this);
          }
       }
+   
       
       if (Input.IsActionJustPressed("Interact") && CanClick && !BuildManager.BM.IsBuilding)
       {
@@ -187,17 +166,17 @@ public abstract partial class Turret : StaticBody2D
       if (body is Enemy)
       {
          Enemy enemy = (Enemy)body;
-         EnemyToTarget.Add(enemy);
+         if (CanShoot && !enemy.Targeted && !enemy.Frozen)
+         {
+            TargetedEnemy = enemy;
+            enemy.Targeted = true;
+            Shoot(enemy.GlobalPosition);
+         }
       }
    }
 
    private void OnBodyExited(Node2D body)
    {
-      if (body is Enemy && EnemyToTarget.Contains((Enemy)body))
-      {
-         EnemyToTarget.Remove((Enemy)body);
-      }
-
       if (body is Enemy && TargetedEnemy == (Enemy)body)
       {
          ((Enemy)body).Targeted = false;

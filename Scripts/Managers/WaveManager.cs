@@ -25,6 +25,9 @@ public partial class WaveManager : Node
     [Signal]
     public delegate void WaveEndedEventHandler(int WaveNumber);
     
+    [Signal]
+    public delegate void WaveStartedEventHandler();
+    
     public override void _Ready()
     {
         WM = this;
@@ -90,6 +93,7 @@ public partial class WaveManager : Node
         CurrentBatchIndex = 0;
         CurrentQueueIndex = WaveNumber;
         NextBatch(CurrentBatchIndex);
+        EmitSignalWaveStarted();
     }
 
     public void NextBatch(int BatchIndex)

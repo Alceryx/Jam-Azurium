@@ -21,7 +21,7 @@ public partial class Projectile : CharacterBody2D
         Hitbox.BodyEntered += (Node2D body) => OnBodyEntered(body);
     }
     
-    private void OnBodyEntered(Node2D body)
+    public virtual void OnBodyEntered(Node2D body)
     {
         if (body is Enemy)
         {

@@ -36,6 +36,9 @@ enabled=PackedStringArray("res://addons/ProCam2D/plugin.cfg")
 [global_group]
 
 Enemy=""
+Targeted=""
+Frozen=""
+UnTargeted=""
 
 [gui]
 

@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://q4ayl8hxmqoi"]
+
+[ext_resource type="Script" uid="uid://bg454kho6wf4s" path="res://Scripts/Projectiles/FreezeBullet.cs" id="1_t7hq8"]
+[ext_resource type="Texture2D" uid="uid://d2o5d8y6g8qsr" path="res://icon.svg" id="2_vk15t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dkg77"]
+size = Vector2(56, 10)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t7hq8"]
+radius = 100.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_t7hq8"]
+radius = 100.0
+height = 200.0
+
+[node name="Bounce Bullet" type="CharacterBody2D" node_paths=PackedStringArray("FreezeAreaDisplay", "FreezeArea", "Sprite", "Hitbox")]
+script = ExtResource("1_t7hq8")
+FreezeAreaDisplay = NodePath("FreezeAreaDisplay")
+FreezeArea = NodePath("FreezeArea/CollisionShape2D")
+Sprite = NodePath("Sprite2D")
+JumpHeight = 500.0
+TimeToApex = 0.5
+TimeToGround = 0.3
+Hitbox = NodePath("Hitbox")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1.90735e-06, 4.76837e-07)
+scale = Vector2(0.4375, 0.078125)
+texture = ExtResource("2_vk15t")
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("RectangleShape2D_dkg77")
+
+[node name="FreezeArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FreezeArea"]
+shape = SubResource("CircleShape2D_t7hq8")
+
+[node name="FreezeAreaDisplay" type="MeshInstance2D" parent="."]
+modulate = Color(0.552068, 0.892861, 1, 0.14902)
+mesh = SubResource("SphereMesh_t7hq8")
+
+[connection signal="body_entered" from="FreezeArea" to="." method="OnFreezeEntered"]
+[connection signal="body_exited" from="FreezeArea" to="." method="OnFreezeExited"]

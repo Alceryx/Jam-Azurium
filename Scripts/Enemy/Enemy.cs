@@ -27,6 +27,7 @@ public partial class Enemy : CharacterBody2D
     private FacingDirection Direction;
 
     public bool Targeted;
+    public bool Frozen;
     
     public void Setup(Path2D Path)
     {
@@ -41,16 +42,42 @@ public partial class Enemy : CharacterBody2D
         GlobalPosition = PathFollow.GlobalPosition;
     }
 
+    public override void _Ready()
+    {
+        WaveManager.WM.WaveStarted += UnFreeze;
+    }
+
     public void TakeDamage(float damage)
     {
         Health -= damage;
         if (Health <= 0)
+        {
+            WaveManager.WM.WaveStarted -= UnFreeze;
             QueueFree();
+        }
+    }
+
+    public void Freeze()
+    {
+        Frozen = true;
+        Modulate = new Color(0, 0, 1);
+        RemoveFromGroup("Enemy");
+    }
+
+    private void UnFreeze()
+    {
+        if (Frozen && IsInstanceValid(this))
+        {
+            Frozen = false;
+            Modulate = new Color(1, 1, 1);
+            AddToGroup("Enemy");
+        }
     }
     
     public override void _PhysicsProcess(double delta)
     {
-        if (!IsInstanceValid(Path) || !IsInstanceValid(PathFollow))
+        
+        if (!IsInstanceValid(Path) || !IsInstanceValid(PathFollow) || Frozen)
             return;
 
         // Move toward current target
@@ -105,6 +132,7 @@ public partial class Enemy : CharacterBody2D
         if (body is NexusButton)
         {
             ((NexusButton)body).TakeDamage(Damage);
+            WaveManager.WM.WaveStarted -= UnFreeze;
             QueueFree();
         }
     }
