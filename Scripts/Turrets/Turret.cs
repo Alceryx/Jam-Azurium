@@ -46,7 +46,7 @@ public abstract partial class Turret : StaticBody2D
       if (!Preview)
       {
          DetectionArea.BodyEntered += (body) => OnBodyEntered(body);
-         DetectionArea.BodyExited += (body) => OnBodyExited(body); 
+         TreeExited += OnTreeExited; 
       }
    }
 
@@ -175,11 +175,10 @@ public abstract partial class Turret : StaticBody2D
       }
    }
 
-   private void OnBodyExited(Node2D body)
+   private void OnTreeExited()
    {
-      if (body is Enemy && TargetedEnemy == (Enemy)body)
-      {
-         ((Enemy)body).Targeted = false;
-      }
+      if (IsInstanceValid(TargetedEnemy))
+         TargetedEnemy.Targeted = false;
    }
+   
 }

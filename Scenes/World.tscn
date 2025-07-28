@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://jsl0kt2kqh1m"]
+[gd_scene load_steps=11 format=4 uid="uid://jsl0kt2kqh1m"]
 
 [ext_resource type="TileSet" uid="uid://812b6buxvihs" path="res://Resources/Map/Map.tres" id="1_5cjrv"]
 [ext_resource type="Script" uid="uid://cljto2ukqdtou" path="res://Scripts/Managers/GameManager.cs" id="1_gjpho"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cxrkc6mxf5yor" path="res://Scenes/Managers/Interface Manager.tscn" id="6_q2d71"]
 [ext_resource type="PackedScene" uid="uid://bc6lkoeu16lv1" path="res://Scenes/Managers/Wave Manager.tscn" id="7_y7y61"]
 [ext_resource type="Resource" uid="uid://1wsglml18pqg" path="res://Resources/Waves/Wave1.tres" id="8_q2d71"]
+[ext_resource type="Resource" uid="uid://d4kiqdpaucgj7" path="res://Resources/Waves/Wave2.tres" id="9_uo7di"]
 
 [sub_resource type="Curve2D" id="Curve2D_y7y61"]
 _data = {
@@ -17,8 +18,8 @@ point_count = 3
 
 [node name="World" type="Node"]
 script = ExtResource("1_gjpho")
-Efficiency = 1
-ButtonMaxHP = 1.0
+Efficiency = 100
+ButtonMaxHP = 100.0
 
 [node name="Tile Map" type="TileMapLayer" parent="."]
 texture_filter = 1
@@ -90,10 +91,14 @@ GroundLayer = [NodePath("../Tile Map/Land Lower"), NodePath("../Tile Map/Land Up
 [node name="Interface Manager" parent="." instance=ExtResource("6_q2d71")]
 
 [node name="WaveManager" parent="." node_paths=PackedStringArray("WavePath") instance=ExtResource("7_y7y61")]
-Waves = Array[Object]([ExtResource("8_q2d71")])
+Waves = Array[Object]([ExtResource("8_q2d71"), ExtResource("9_uo7di")])
 WavePath = NodePath("Path2D")
+TimePerWave = 30.0
 
 [node name="Path2D" type="Path2D" parent="WaveManager"]
 position = Vector2(-53.0974, 61.0574)
 scale = Vector2(1.08309, 0.893443)
 curve = SubResource("Curve2D_y7y61")
+
+[connection signal="mouse_entered" from="Tile Map/Animal/Nexus Button" to="Tile Map/Animal/Nexus Button" method="OnMouseEntered"]
+[connection signal="mouse_exited" from="Tile Map/Animal/Nexus Button" to="Tile Map/Animal/Nexus Button" method="OnMouseExited"]

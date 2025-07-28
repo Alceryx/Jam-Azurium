@@ -16,7 +16,7 @@ public partial class FirstTurret : Turret
         if (!Preview && Mode == 1)
         {
             Shoot(Vector2.Zero);
-            WaveManager.WM.WaveEnded += (int WaveNumber) => OnWaveEnded(WaveNumber);
+            WaveManager.WM.WaveEnded += OnWaveEnded;
         }
     }
 
@@ -85,7 +85,7 @@ public partial class FirstTurret : Turret
         CanShoot = false;
     }
 
-    private void OnWaveEnded(int WaveNumber)
+    private void OnWaveEnded()
     {
         SelfDestruct();
     }

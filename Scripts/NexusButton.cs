@@ -38,7 +38,7 @@ public partial class NexusButton : StaticBody2D
             ClickTimer -= (float)delta;
         }
 
-        if (HoldTimer >= HoldThreshold)
+        if (HoldTimer >= HoldThreshold && WaveManager.WM.WaveFinished)
         {
             ShopManager.SM.Show();
             HoldTimer = 0;

@@ -49,6 +49,9 @@ public partial class BuildManager : Node
 
         if (Input.IsActionJustPressed("Rotate") && TurretInfo.Modes[TurretMode].CanRotate && IsBuilding)
             Rotate();
+        
+        if (Input.IsActionJustPressed("Escape") && IsBuilding)
+            CancelPlacement();
             
         
         if (IsBuilding)
@@ -79,6 +82,12 @@ public partial class BuildManager : Node
         
     }
 
+    public void CancelPlacement()
+    {
+        PreviewLayer.EraseCell(GridPos);
+        IsBuilding = false;
+    }
+    
     public void Store(Turret turret)
     {
         Destroy(turret);

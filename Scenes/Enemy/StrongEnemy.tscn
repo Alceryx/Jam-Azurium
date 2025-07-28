@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://djbq55octpltn"]
+[gd_scene load_steps=13 format=3 uid="uid://djbq55octpltn"]
 
 [ext_resource type="Script" uid="uid://j5tokn85fm54" path="res://Scripts/Enemy/Enemy.cs" id="1_lta73"]
 [ext_resource type="Texture2D" uid="uid://bqjqh4wnrudt2" path="res://Assets/critters/boar/boar_NW_idle_0.png" id="2_mgbs8"]
@@ -150,8 +150,13 @@ _data = {
 &"Top Right": SubResource("Animation_shrp6")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_lta73"]
+radius = 30.0832
+
 [node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("sprite") groups=["Enemy"]]
 script = ExtResource("1_lta73")
+Health = 10.0
+Damage = 3.0
 sprite = NodePath("AnimationPlayer")
 
 [node name="Feet" type="CollisionPolygon2D" parent="."]
@@ -170,3 +175,11 @@ offset = Vector2(-20, 32)
 
 [node name="Head" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(0, -32, 64, 0, 0, 32, -64, 0)
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0, 32)
+shape = SubResource("CircleShape2D_lta73")
+
+[connection signal="body_entered" from="Hitbox" to="." method="OnBodyEntered"]
