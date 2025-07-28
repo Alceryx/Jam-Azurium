@@ -19,7 +19,7 @@ script = ExtResource("2_nlc01")
 Enemy = ExtResource("3_a7gyk")
 Count = 5
 SpawnInterval = 1.0
-PathID = 1
+PathID = 0
 Mode = 1
 metadata/_custom_type_script = "uid://bnqqnodjbvisx"
 
@@ -28,7 +28,7 @@ script = ExtResource("2_nlc01")
 Enemy = ExtResource("1_1qnre")
 Count = 3
 SpawnInterval = 1.0
-PathID = 2
+PathID = 0
 Mode = 0
 metadata/_custom_type_script = "uid://bnqqnodjbvisx"
 

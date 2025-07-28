@@ -40,7 +40,7 @@ public partial class WaveManager : Node
     
     private FacingDirection Direction;
     private FacingDirection LastDirection;
-    private float WaveTimer;
+    public float WaveTimer;
     private float BatchTimer;
     private float IndicatorTimer;
 

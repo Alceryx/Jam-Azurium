@@ -19,13 +19,13 @@ script = ExtResource("2_jl2wl")
 Enemy = ExtResource("3_jl2wl")
 Count = 3
 SpawnInterval = 1.0
-PathID = 1
+PathID = 0
 Mode = 0
 metadata/_custom_type_script = "uid://bnqqnodjbvisx"
 
 [resource]
 script = ExtResource("1_jqwoh")
 WaveNumber = 1
-TimeBetweenWaves = 30.0
+TimeBetweenWaves = 10.0
 SpawnedEnemy = [SubResource("Resource_4q48n"), SubResource("Resource_l743t")]
 metadata/_custom_type_script = "uid://c8ucpi2ldsff5"
