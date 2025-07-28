@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5ijbo3oomx1a"
-path="res://.godot/imported/boar_SE_run_3.png-7cddabba74a59c496e33a5f9c237d98b.ctex"
+uid="uid://u85aoumqout5"
+path="res://.godot/imported/Indicator.png-e84ad9221a85682ecd8965e9328e2453.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/critters/boar/boar_SE_run_3.png"
-dest_files=["res://.godot/imported/boar_SE_run_3.png-7cddabba74a59c496e33a5f9c237d98b.ctex"]
+source_file="res://Assets/World/Indicator/Indicator.png"
+dest_files=["res://.godot/imported/Indicator.png-e84ad9221a85682ecd8965e9328e2453.ctex"]
 
 [params]
 

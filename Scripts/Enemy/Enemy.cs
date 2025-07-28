@@ -4,7 +4,7 @@ using System;
 
 public partial class Enemy : CharacterBody2D
 {
-    public enum FacingDirection
+    private enum FacingDirection
     {
         TopLeft,
         TopRight,

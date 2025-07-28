@@ -4,12 +4,25 @@ using System;
 
 public partial class WaveManager : Node
 {
+    private enum FacingDirection
+    {
+        TopLeft,
+        TopRight,
+        BottomLeft,
+        BottomRight
+    }
+
+    
+    [ExportGroup("Wave Data")]
     [Export] public Array<WaveData> Waves;
-    [Export] public Path2D WavePath;
-    [Export] public float TimePerWave;
+    [Export] private float TimeBetweenWaves;
+    [ExportGroup("Wave Warning")]
+    [Export] private TileMapLayer Indicator;
+    [Export] private float IndicatorTime;
     private Dictionary<int, WaveData> WaveQuery = new();
     
     public WaveData CurrentWave;
+    public Path2D CurrentPath;
     public int CurrentWaveNumber;
     public Array<SpawnData> CurrentBatches = new();
     public Dictionary<SpawnData, int> CurrentBatchesQueue = new();
@@ -22,8 +35,12 @@ public partial class WaveManager : Node
     public static WaveManager WM;
     public bool SpawnFinished = true;
     public bool WaveFinished = true;
+    private bool Warned;
     
+    private FacingDirection Direction;
+    private FacingDirection LastDirection;
     private float WaveTimer;
+    private float IndicatorTimer;
 
     [Signal]
     public delegate void WaveEndedEventHandler();
@@ -34,36 +51,46 @@ public partial class WaveManager : Node
     public override void _Ready()
     {
         WM = this;
-        WaveTimer = TimePerWave;
+        WaveTimer = TimeBetweenWaves;
+        IndicatorTimer =  IndicatorTime;
+        CurrentWaveNumber = 1;
+        CurrentPath = GetChild<Path2D>(CurrentWaveNumber - 1);
         
-        foreach (WaveData wave in  Waves)
+        foreach (WaveData wave in Waves)
         {
+            
             WaveQuery.Add(wave.WaveNumber, wave);
         }
+        
+        CurrentWave = WaveQuery[CurrentWaveNumber];
     }
 
     public override void _Process(double delta)
     {
-        if (Input.IsActionJustPressed("NextWave"))
-            StartWave(1);
-
         if (WaveFinished)
         {
             WaveTimer -= (float)delta;
+            IndicatorTimer -= (float)delta;
             if (WaveTimer <= 0)
-            {
-                if (CurrentWaveNumber <= Waves.Count - 1)
-                    StartWave(CurrentWaveNumber + 1);
-                else
-                    StartWave(1);
-            }
+                StartWave(CurrentWaveNumber);
+
+            if (!Warned && IndicatorTimer <= 0)
+                WaveWarning(CurrentWaveNumber);
         }
         
         if (SpawnFinished && GetTree().GetNodesInGroup("Enemy").Count == 0 && !WaveFinished)
         {
             WaveFinished = true;
-            WaveTimer = TimePerWave;
+            WaveTimer = TimeBetweenWaves;
+            IndicatorTimer = IndicatorTime;
+            Warned = false;
             EmitSignalWaveEnded();
+            
+            if (CurrentWaveNumber <= Waves.Count - 1)
+                CurrentWaveNumber++;
+            else
+                CurrentWaveNumber = 1;
+            
             return;
         }
         
@@ -92,7 +119,7 @@ public partial class WaveManager : Node
     private void SpawnEnemy(PackedScene Enemy)
     {
         Enemy enemy = Enemy.Instantiate() as Enemy;
-        enemy.Setup(WavePath);
+        enemy.Setup(CurrentPath);
         GameManager.GM.AddChild(enemy);
 
         CurrentBatchesQueue[CurrentBatches[CurrentQueueIndex]] -= 1;
@@ -103,6 +130,15 @@ public partial class WaveManager : Node
         }
 
     }
+
+    private void WaveWarning(int WaveNumber)
+    {
+        CurrentWaveNumber = WaveNumber;
+        CurrentWave = WaveQuery[WaveNumber];
+        CurrentPath = GetChild<Path2D>(WaveNumber - 1);
+        Warned = true;
+        PlaceIndicator();
+    }
     
     public void StartWave(int WaveNumber)
     {
@@ -112,6 +148,7 @@ public partial class WaveManager : Node
         CurrentWave = WaveQuery[WaveNumber];
         CurrentBatchIndex = 0;
         CurrentQueueIndex = WaveNumber;
+        ClearIndication();
         NextBatch(CurrentBatchIndex);
         EmitSignalWaveStarted();
     }
@@ -143,5 +180,60 @@ public partial class WaveManager : Node
         
         CurrentBatchIndex = BatchIndex;
         CurrentQueueIndex = 0;
+    }
+
+    private void PlaceIndicator()
+    {
+        Curve2D curve = CurrentPath.GetCurve();
+        Vector2[] points = curve.GetBakedPoints();
+        LastDirection = FacingDirection.TopLeft;
+        
+        for (int i = 0; i < points.Length - 1; i++)
+        {
+            Vector2I GridPos = Indicator.LocalToMap(Indicator.ToLocal(CurrentPath.ToGlobal(points[i])));
+            
+            float angle = points[i].GetIsometricAngleTo(points[i + 1]);
+        
+            if (angle >= 225 && angle < 315)
+                Direction = FacingDirection.TopLeft;
+            else if (angle >= 315 || angle < 45)
+                Direction = FacingDirection.TopRight;
+            else if (angle >= 135 && angle < 225)
+                Direction = FacingDirection.BottomLeft;
+            else if (angle >= 45 && angle < 135)
+                Direction = FacingDirection.BottomRight;
+
+            
+            if (Direction == FacingDirection.TopLeft || Direction == FacingDirection.BottomRight)
+                Indicator.SetCell(GridPos, 3, new Vector2I(4, 0));
+            else
+                Indicator.SetCell(GridPos, 3, new Vector2I(5, 0));
+            
+            if (LastDirection != null)
+            {
+                if ((LastDirection == FacingDirection.TopLeft && Direction == FacingDirection.TopRight) || 
+                    (Direction == FacingDirection.BottomRight && LastDirection == FacingDirection.BottomLeft))
+                    Indicator.SetCell(GridPos, 3, new Vector2I(1, 0));
+                else if ((LastDirection == FacingDirection.TopRight && Direction == FacingDirection.BottomRight) ||
+                         (Direction == FacingDirection.BottomLeft && LastDirection == FacingDirection.TopLeft))
+                    Indicator.SetCell(GridPos, 3, new Vector2I(3, 0));
+                else if ((LastDirection == FacingDirection.BottomRight && Direction == FacingDirection.BottomLeft) ||
+                         (Direction == FacingDirection.TopLeft && LastDirection == FacingDirection.TopRight))
+                    Indicator.SetCell(GridPos, 3, new Vector2I(2, 0));
+                else if ((LastDirection == FacingDirection.BottomLeft && Direction == FacingDirection.TopLeft) || 
+                        (Direction == FacingDirection.TopRight && LastDirection == FacingDirection.BottomRight))
+                    Indicator.SetCell(GridPos, 3, new Vector2I(0, 0));
+            }
+            
+            LastDirection = Direction;
+        }
+    }
+
+    private void ClearIndication()
+    {
+        foreach (Vector2I cell in Indicator.GetUsedCells())
+        {
+            Indicator.EraseCell(cell);
+        }
     }
 }

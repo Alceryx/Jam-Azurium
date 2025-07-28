@@ -1,9 +1,10 @@
-[gd_resource type="TileSet" load_steps=8 format=3 uid="uid://812b6buxvihs"]
+[gd_resource type="TileSet" load_steps=10 format=3 uid="uid://812b6buxvihs"]
 
 [ext_resource type="Texture2D" uid="uid://beg5tgb5f3ovu" path="res://Assets/Tile Map.png" id="1_yn4uc"]
 [ext_resource type="PackedScene" uid="uid://ewd3qwa6ccua" path="res://Scenes/Nexus Button.tscn" id="3_cu0q7"]
 [ext_resource type="PackedScene" uid="uid://d3njk76vqeien" path="res://Scenes/Turrets/Turret.tscn" id="3_uvt2t"]
 [ext_resource type="PackedScene" uid="uid://byjt12v8wjc8c" path="res://Scenes/Turrets/SecondTurret.tscn" id="4_cu0q7"]
+[ext_resource type="Texture2D" uid="uid://u85aoumqout5" path="res://Assets/World/Indicator/Indicator.png" id="5_ret7r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_71t2j"]
 resource_name = "Top Half"
@@ -424,6 +425,16 @@ scenes/1/scene = ExtResource("3_uvt2t")
 scenes/2/scene = ExtResource("3_cu0q7")
 scenes/3/scene = ExtResource("4_cu0q7")
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ret7r"]
+texture = ExtResource("5_ret7r")
+texture_region_size = Vector2i(142, 71)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+
 [resource]
 tile_shape = 1
 tile_layout = 5
@@ -434,3 +445,5 @@ custom_data_layer_0/type = 1
 sources/0 = SubResource("TileSetAtlasSource_71t2j")
 sources/1 = SubResource("TileSetAtlasSource_yn4uc")
 sources/2 = SubResource("TileSetScenesCollectionSource_71t2j")
+sources/3 = SubResource("TileSetAtlasSource_ret7r")
+tile_proxies/coords_level = [[3, Vector2i(0, 0)], [9, Vector2i(0, 0)], [4, Vector2i(0, 0)], [9, Vector2i(1, 0)], [5, Vector2i(0, 0)], [9, Vector2i(2, 0)], [5, Vector2i(1, 0)], [9, Vector2i(3, 0)], [5, Vector2i(2, 0)], [9, Vector2i(4, 0)], [6, Vector2i(0, 0)], [9, Vector2i(5, 0)], [7, Vector2i(0, 0)], [9, Vector2i(6, 0)], [8, Vector2i(0, 0)], [9, Vector2i(7, 0)], [10, Vector2i(0, 0)], [16, Vector2i(0, 0)], [11, Vector2i(0, 0)], [16, Vector2i(1, 0)], [12, Vector2i(0, 0)], [16, Vector2i(2, 0)], [13, Vector2i(0, 0)], [16, Vector2i(3, 0)], [14, Vector2i(0, 0)], [16, Vector2i(4, 0)], [15, Vector2i(0, 0)], [16, Vector2i(5, 0)]]
