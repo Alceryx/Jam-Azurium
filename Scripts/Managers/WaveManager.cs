@@ -6,6 +6,7 @@ public partial class WaveManager : Node
 {
     [Export] public Array<WaveData> Waves;
     [Export] public Path2D WavePath;
+    [Export] public float TimePerWave;
     private Dictionary<int, WaveData> WaveQuery = new();
     
     public WaveData CurrentWave;
@@ -19,11 +20,13 @@ public partial class WaveManager : Node
     private float SpawnTimer;
     
     public static WaveManager WM;
-    public bool SpawnFinished = false;
-    public bool WaveFinished = false;
+    public bool SpawnFinished = true;
+    public bool WaveFinished = true;
+    
+    private float WaveTimer;
 
     [Signal]
-    public delegate void WaveEndedEventHandler(int WaveNumber);
+    public delegate void WaveEndedEventHandler();
     
     [Signal]
     public delegate void WaveStartedEventHandler();
@@ -31,7 +34,8 @@ public partial class WaveManager : Node
     public override void _Ready()
     {
         WM = this;
-
+        WaveTimer = TimePerWave;
+        
         foreach (WaveData wave in  Waves)
         {
             WaveQuery.Add(wave.WaveNumber, wave);
@@ -43,10 +47,23 @@ public partial class WaveManager : Node
         if (Input.IsActionJustPressed("NextWave"))
             StartWave(1);
 
+        if (WaveFinished)
+        {
+            WaveTimer -= (float)delta;
+            if (WaveTimer <= 0)
+            {
+                if (CurrentWaveNumber <= Waves.Count - 1)
+                    StartWave(CurrentWaveNumber + 1);
+                else
+                    StartWave(1);
+            }
+        }
+        
         if (SpawnFinished && GetTree().GetNodesInGroup("Enemy").Count == 0 && !WaveFinished)
         {
             WaveFinished = true;
-            EmitSignalWaveEnded(CurrentWaveNumber);
+            WaveTimer = TimePerWave;
+            EmitSignalWaveEnded();
             return;
         }
         
@@ -89,6 +106,9 @@ public partial class WaveManager : Node
     
     public void StartWave(int WaveNumber)
     {
+        SpawnFinished = false;
+        WaveFinished = false;
+        CurrentWaveNumber = WaveNumber;
         CurrentWave = WaveQuery[WaveNumber];
         CurrentBatchIndex = 0;
         CurrentQueueIndex = WaveNumber;

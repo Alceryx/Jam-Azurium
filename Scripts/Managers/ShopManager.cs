@@ -30,6 +30,8 @@ public partial class ShopManager : Control
 
     public Upgrade ActiveUpgrade;
 
+    private bool SignalConnected;
+
     public override void _Ready()
     {
         SM = this;
@@ -48,6 +50,13 @@ public partial class ShopManager : Control
 
     public override void _Process(double delta)
     {
+        if (!SignalConnected)
+        {
+            WaveManager.WM.WaveEnded += Unlock;
+            WaveManager.WM.WaveStarted += Hide;
+            SignalConnected = true;
+        }
+        
         if (Input.IsActionJustPressed("Escape")) Hide();
 
         if (Affordable()) Buy.Disabled = !AnySelected;
@@ -107,6 +116,18 @@ public partial class ShopManager : Control
                 upgrade.Lock.Show();
             }
         }
+    }
+
+    public void Unlock()
+    {
+        foreach (Upgrade upgrade in UpgradeList.GetChildren())
+        {
+            upgrade.Panel.Show();
+            upgrade.Lock.Hide();
+        }
+        
+        PackUp();
+        DisplayItem();
     }
     
     private void OnClosePressed() => Hide();

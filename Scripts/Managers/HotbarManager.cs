@@ -10,10 +10,21 @@ public partial class HotbarManager : Control
     public Dictionary<TurretData, Dictionary<int, HotbarSlot>> TurretsSlot = new();
     
     public static HotbarManager HM;
+
+    private bool SignalConnected;
     
     public override void _Ready()
     {
         HM = this;
+    }
+
+    public override void _Process(double delta)
+    {
+        if (!SignalConnected)
+        {
+            WaveManager.WM.WaveStarted += Hide;
+            WaveManager.WM.WaveEnded += Show;
+        }
     }
 
     public void AddSlot(TurretData data, int mode)
@@ -31,5 +42,11 @@ public partial class HotbarManager : Control
     public void UpdateSlot(TurretData data, int mode)
     {
         TurretsSlot[data][mode].SetUp(data, mode, TurretsSlot[data][mode].Amount + 1);
+    }
+
+    private void Appear()
+    {
+        if (TurretsSlot.Count > 0)
+            Show();
     }
 }
