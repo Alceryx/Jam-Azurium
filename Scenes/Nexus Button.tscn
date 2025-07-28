@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://dkwpps6dhmbbl" path="res://Scripts/NexusButton.cs" id="1_0h4l8"]
 [ext_resource type="Shader" uid="uid://de5cqnc22f116" path="res://Resources/Shaders/2DOutline.gdshader" id="2_k7c6v"]
-[ext_resource type="Texture2D" uid="uid://bvxofpeckbw5f" path="res://Assets/Nexus Button.png" id="3_0h4l8"]
-[ext_resource type="Texture2D" uid="uid://c4mk6pfckqvsv" path="res://Assets/Nexus Button - Clicked.png" id="4_k7c6v"]
-[ext_resource type="Texture2D" uid="uid://c1il5jr4vr6y3" path="res://Assets/Nexus - Mid.png" id="5_ke4vg"]
+[ext_resource type="Texture2D" uid="uid://bvxofpeckbw5f" path="res://Assets/World/Extractor/Nexus Button - Default.png" id="3_0h4l8"]
+[ext_resource type="Texture2D" uid="uid://c4mk6pfckqvsv" path="res://Assets/World/Extractor/Nexus Button - Clicked.png" id="4_k7c6v"]
+[ext_resource type="Texture2D" uid="uid://c1il5jr4vr6y3" path="res://Assets/World/Extractor/Nexus - Mid.png" id="5_ke4vg"]
 
 [sub_resource type="Animation" id="Animation_k7c6v"]
 resource_name = "Clicked"
