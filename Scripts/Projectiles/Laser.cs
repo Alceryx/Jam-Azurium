@@ -22,7 +22,7 @@ public partial class Laser : Projectile
         if (!IsInstanceValid(Turret))
             QueueFree();
         
-        RayCast.TargetPosition = RayCast.TargetPosition.MoveToward(Direction * Turret.Data.Modes[Turret.Mode].Range, CastSpeed * (float)delta);
+        RayCast.TargetPosition = RayCast.TargetPosition.MoveToward(Direction * (Turret.Data.Modes[Turret.Mode].Range * 70), CastSpeed * (float)delta);
         Ray.SetLength(GlobalPosition.DistanceTo(ToGlobal(RayCast.TargetPosition)));
         Collider.SetRotation((ToGlobal(RayCast.TargetPosition) - GlobalPosition).Normalized().Angle() - Mathf.Pi / 2);
         Vector2 EndPoint = RayCast.TargetPosition;

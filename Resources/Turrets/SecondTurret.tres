@@ -6,24 +6,24 @@
 [ext_resource type="Script" uid="uid://dpbvjc5ku3vl4" path="res://Resources/Turrets/TurretMode.cs" id="3_oaqtr"]
 [ext_resource type="PackedScene" uid="uid://q4ayl8hxmqoi" path="res://Scenes/Projectiles/FreezeBullet.tscn" id="4_7yynm"]
 
-[sub_resource type="Resource" id="Resource_6fjfc"]
+[sub_resource type="Resource" id="Resource_ju5jw"]
 script = ExtResource("3_oaqtr")
 Icon = ExtResource("1_3fquq")
 Price = 30
 CanRotate = false
 Projectile = ExtResource("2_7yynm")
 Damage = 5.0
-Range = 400.0
+Range = 3.0
 metadata/_custom_type_script = "uid://dpbvjc5ku3vl4"
 
-[sub_resource type="Resource" id="Resource_icsto"]
+[sub_resource type="Resource" id="Resource_p5ntn"]
 script = ExtResource("3_oaqtr")
 Icon = ExtResource("1_3fquq")
-Price = 50
+Price = 80
 CanRotate = false
 Projectile = ExtResource("4_7yynm")
-Damage = 1.0
-Range = 350.0
+Damage = 3.0
+Range = 2.0
 metadata/_custom_type_script = "uid://dpbvjc5ku3vl4"
 
 [resource]
@@ -31,5 +31,5 @@ script = ExtResource("1_33sie")
 ID = 3
 Name = "Second Turret"
 Size = Vector2(1, 1)
-Modes = [SubResource("Resource_6fjfc"), SubResource("Resource_icsto")]
+Modes = [SubResource("Resource_ju5jw"), SubResource("Resource_p5ntn")]
 metadata/_custom_type_script = "uid://cm64ammqner4"

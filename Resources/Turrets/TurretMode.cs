@@ -14,6 +14,6 @@ public partial class TurretMode : Resource
     [ExportGroup("Stats")] 
     [Export] public PackedScene Projectile;
     [Export] public float Damage;
-    [Export] public float Range;
+    [Export(PropertyHint.Range, "0, 100, 1, or_greater, suffix:tiles")] public float Range;
 }
 #endif

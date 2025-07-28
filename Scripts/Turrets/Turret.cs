@@ -93,7 +93,7 @@ public abstract partial class Turret : StaticBody2D
       this.OccupiedPositions = OccupiedPositions;
 
       Sprite.Texture = Data.Modes[Mode].Icon;
-      ((CircleShape2D)DetectionShape.Shape).SetRadius(Data.Modes[Mode].Range);
+      ((CircleShape2D)DetectionShape.Shape).SetRadius(30 + Data.Modes[Mode].Range * 70);
 
       UpdateSprite();
 
@@ -129,8 +129,8 @@ public abstract partial class Turret : StaticBody2D
    {
       DectectionPreview.Show();
       SphereMesh mesh = new SphereMesh();
-      mesh.SetRadius(Data.Modes[Mode].Range);
-      mesh.SetHeight(Data.Modes[Mode].Range * 2);
+      mesh.SetRadius(30 + Data.Modes[Mode].Range * 70);
+      mesh.SetHeight(mesh.Radius * 2);
       DectectionPreview.SetMesh(mesh);
    }
 

@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://beg5tgb5f3ovu" path="res://Assets/Tile Map.png" id="1_yn4uc"]
 [ext_resource type="PackedScene" uid="uid://ewd3qwa6ccua" path="res://Scenes/Nexus Button.tscn" id="3_cu0q7"]
-[ext_resource type="PackedScene" uid="uid://d3njk76vqeien" path="res://Scenes/Turrets/FirstTurret.tscn" id="3_uvt2t"]
+[ext_resource type="PackedScene" uid="uid://8662sttmmtyv" path="res://Scenes/Turrets/Turret.tscn" id="3_uvt2t"]
 [ext_resource type="PackedScene" uid="uid://byjt12v8wjc8c" path="res://Scenes/Turrets/SecondTurret.tscn" id="4_cu0q7"]
 [ext_resource type="Texture2D" uid="uid://u85aoumqout5" path="res://Assets/World/Indicator/Indicator.png" id="5_ret7r"]
 

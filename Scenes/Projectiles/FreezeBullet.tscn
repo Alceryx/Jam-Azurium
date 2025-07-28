@@ -13,7 +13,7 @@ radius = 100.0
 radius = 100.0
 height = 200.0
 
-[node name="Bounce Bullet" type="CharacterBody2D" node_paths=PackedStringArray("FreezeAreaDisplay", "FreezeArea", "Sprite", "Hitbox")]
+[node name="Freeze Bullet" type="CharacterBody2D" node_paths=PackedStringArray("FreezeAreaDisplay", "FreezeArea", "Sprite", "Hitbox")]
 script = ExtResource("1_t7hq8")
 FreezeAreaDisplay = NodePath("FreezeAreaDisplay")
 FreezeArea = NodePath("FreezeArea/CollisionShape2D")
@@ -34,12 +34,16 @@ texture = ExtResource("2_vk15t")
 shape = SubResource("RectangleShape2D_dkg77")
 
 [node name="FreezeArea" type="Area2D" parent="."]
+rotation = -0.523599
+skew = -0.523599
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FreezeArea"]
 shape = SubResource("CircleShape2D_t7hq8")
 
 [node name="FreezeAreaDisplay" type="MeshInstance2D" parent="."]
 modulate = Color(0.552068, 0.892861, 1, 0.14902)
+rotation = -0.523599
+skew = -0.523599
 mesh = SubResource("SphereMesh_t7hq8")
 
 [connection signal="body_entered" from="FreezeArea" to="." method="OnFreezeEntered"]

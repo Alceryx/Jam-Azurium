@@ -3,8 +3,8 @@
 [ext_resource type="TileSet" uid="uid://812b6buxvihs" path="res://Resources/Map/Map.tres" id="1_5cjrv"]
 [ext_resource type="Script" uid="uid://cljto2ukqdtou" path="res://Scripts/Managers/GameManager.cs" id="1_gjpho"]
 [ext_resource type="PackedScene" uid="uid://dgymrcaln58wc" path="res://Scenes/Managers/BuildManager.tscn" id="3_gjpho"]
-[ext_resource type="Resource" uid="uid://ct1kreps3d4lk" path="res://Resources/Turrets/BaseTurret.tres" id="4_gjpho"]
 [ext_resource type="Script" uid="uid://f51cuw0krxbt" path="res://addons/ProCam2D/scripts/procam2d.gd" id="5_p70al"]
+[ext_resource type="Resource" uid="uid://dow74su7kthuu" path="res://Resources/Turrets/FirstTurret.tres" id="5_uo7di"]
 [ext_resource type="PackedScene" uid="uid://cxrkc6mxf5yor" path="res://Scenes/Managers/Interface Manager.tscn" id="6_q2d71"]
 [ext_resource type="PackedScene" uid="uid://bc6lkoeu16lv1" path="res://Scenes/Managers/Wave Manager.tscn" id="7_y7y61"]
 [ext_resource type="Resource" uid="uid://1wsglml18pqg" path="res://Resources/Waves/Wave1.tres" id="8_q2d71"]
@@ -94,7 +94,7 @@ global_debug_draw = false
 metadata/_custom_type_script = "uid://f51cuw0krxbt"
 
 [node name="BuildManager" parent="." node_paths=PackedStringArray("PreviewLayer", "PlaceableLayer", "GroundLayer") instance=ExtResource("3_gjpho")]
-TurretInfo = ExtResource("4_gjpho")
+TurretInfo = ExtResource("5_uo7di")
 PreviewLayer = NodePath("../Tile Map/PreviewTile")
 PlaceableLayer = NodePath("../Tile Map/PlaceTile")
 GroundLayer = [NodePath("../Tile Map/Land Lower"), NodePath("../Tile Map/Land Upper")]
@@ -104,6 +104,7 @@ GroundLayer = [NodePath("../Tile Map/Land Lower"), NodePath("../Tile Map/Land Up
 [node name="WaveManager" parent="." node_paths=PackedStringArray("Indicator") instance=ExtResource("7_y7y61")]
 Waves = Array[Object]([ExtResource("8_q2d71"), ExtResource("9_uo7di")])
 TimeBetweenWaves = 30.0
+TimeBetweenBatches = 2.0
 Indicator = NodePath("../Tile Map/Indicator")
 IndicatorTime = 10.0
 

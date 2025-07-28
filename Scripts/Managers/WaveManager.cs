@@ -16,6 +16,7 @@ public partial class WaveManager : Node
     [ExportGroup("Wave Data")]
     [Export] public Array<WaveData> Waves;
     [Export] private float TimeBetweenWaves;
+    [Export] private float TimeBetweenBatches;
     [ExportGroup("Wave Warning")]
     [Export] private TileMapLayer Indicator;
     [Export] private float IndicatorTime;
@@ -40,6 +41,7 @@ public partial class WaveManager : Node
     private FacingDirection Direction;
     private FacingDirection LastDirection;
     private float WaveTimer;
+    private float BatchTimer;
     private float IndicatorTimer;
 
     [Signal]
@@ -53,12 +55,12 @@ public partial class WaveManager : Node
         WM = this;
         WaveTimer = TimeBetweenWaves;
         IndicatorTimer =  IndicatorTime;
+        BatchTimer = TimeBetweenBatches;
         CurrentWaveNumber = 1;
         CurrentPath = GetChild<Path2D>(CurrentWaveNumber - 1);
         
         foreach (WaveData wave in Waves)
         {
-            
             WaveQuery.Add(wave.WaveNumber, wave);
         }
         
@@ -113,7 +115,22 @@ public partial class WaveManager : Node
             }
         }
         else if (!SpawnFinished)
-            NextBatch(CurrentBatchIndex);
+        {
+            if (CurrentBatchIndex >= CurrentWave.SpawnedEnemy.Count)
+                SpawnFinished = true;
+            
+            if (BatchTimer <= 0)
+                BatchTimer = TimeBetweenBatches;
+        }
+            
+        
+
+        if (CurrentBatchesQueue.Count <= 0 && !SpawnFinished)
+        {
+            BatchTimer -= (float)delta;
+            if (BatchTimer <= 0)
+                NextBatch(CurrentBatchIndex);
+        }
     }
 
     private void SpawnEnemy(PackedScene Enemy)

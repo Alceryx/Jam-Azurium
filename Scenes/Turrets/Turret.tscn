@@ -1,11 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://byjt12v8wjc8c"]
+[gd_scene load_steps=15 format=3 uid="uid://8662sttmmtyv"]
 
-[ext_resource type="Script" uid="uid://cfimxhfc8u3aa" path="res://Scripts/Turrets/SecondTurret.cs" id="1_obnts"]
-[ext_resource type="Shader" uid="uid://de5cqnc22f116" path="res://Resources/Shaders/2DOutline.gdshader" id="2_mg5gd"]
-[ext_resource type="Texture2D" uid="uid://bbnvvrca4ih36" path="res://Assets/critters/boar/boar_SW_idle_0.png" id="3_ujnuh"]
-[ext_resource type="Texture2D" uid="uid://dksofjos6syp" path="res://Assets/critters/boar/boar_SE_idle_0.png" id="4_ma8i5"]
-[ext_resource type="Texture2D" uid="uid://bqjqh4wnrudt2" path="res://Assets/critters/boar/boar_NW_idle_0.png" id="5_afb1a"]
-[ext_resource type="Texture2D" uid="uid://c7h1km7tlajhr" path="res://Assets/critters/boar/boar_NE_idle_0.png" id="6_xacyt"]
+[ext_resource type="Script" uid="uid://b4ehhsn5s6b7c" path="res://Scripts/Turrets/FirstTurret.cs" id="1_vsmea"]
+[ext_resource type="Shader" uid="uid://de5cqnc22f116" path="res://Resources/Shaders/2DOutline.gdshader" id="2_54pmo"]
+[ext_resource type="Texture2D" uid="uid://bbnvvrca4ih36" path="res://Assets/critters/boar/boar_SW_idle_0.png" id="2_vsmea"]
+[ext_resource type="Texture2D" uid="uid://dksofjos6syp" path="res://Assets/critters/boar/boar_SE_idle_0.png" id="3_8o54u"]
+[ext_resource type="Texture2D" uid="uid://bqjqh4wnrudt2" path="res://Assets/critters/boar/boar_NW_idle_0.png" id="4_3psih"]
+[ext_resource type="Texture2D" uid="uid://c7h1km7tlajhr" path="res://Assets/critters/boar/boar_NE_idle_0.png" id="5_k7wci"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_vsmea"]
 
@@ -33,7 +33,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ExtResource("3_ujnuh")]
+"values": [ExtResource("2_vsmea")]
 }
 
 [sub_resource type="Animation" id="Animation_xqoj7"]
@@ -60,7 +60,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ExtResource("4_ma8i5")]
+"values": [ExtResource("3_8o54u")]
 }
 
 [sub_resource type="Animation" id="Animation_seemo"]
@@ -75,7 +75,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ExtResource("5_afb1a")]
+"values": [ExtResource("4_3psih")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -114,7 +114,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ExtResource("5_afb1a")]
+"values": [ExtResource("4_3psih")]
 }
 
 [sub_resource type="Animation" id="Animation_shrp6"]
@@ -141,7 +141,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ExtResource("6_xacyt")]
+"values": [ExtResource("5_k7wci")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_seemo"]
@@ -155,20 +155,21 @@ _data = {
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vsmea"]
 
-[node name="SecondTurret" type="StaticBody2D" node_paths=PackedStringArray("ShootPoint", "Sprite", "SpriteState", "DetectionArea", "DetectionShape", "DectectionPreview")]
+[node name="Turret" type="StaticBody2D" node_paths=PackedStringArray("OriginPoint", "TopLeftShootPoint", "TopRightShootPoint", "BottomLeftShootPoint", "BottomRightShootPoint", "Sprite", "SpriteState", "DetectionArea", "DetectionShape", "DectectionPreview")]
 input_pickable = true
-script = ExtResource("1_obnts")
-ShootPoint = NodePath("ShootPoint")
+script = ExtResource("1_vsmea")
+OriginPoint = NodePath("ShootPoints/Origin")
+TopLeftShootPoint = NodePath("ShootPoints/Top Left")
+TopRightShootPoint = NodePath("ShootPoints/Top Right")
+BottomLeftShootPoint = NodePath("ShootPoints/Bottom Left")
+BottomRightShootPoint = NodePath("ShootPoints/Bottom Right")
 Sprite = NodePath("Sprite2D")
 SpriteState = NodePath("AnimationPlayer")
 DetectionArea = NodePath("DetectionArea")
 DetectionShape = NodePath("DetectionArea/CollisionShape2D")
 DectectionPreview = NodePath("DetectionPreview")
-HighlightShader = ExtResource("2_mg5gd")
+HighlightShader = ExtResource("2_54pmo")
 DestructDelay = 0.2
-
-[node name="ShootPoint" type="Marker2D" parent="."]
-position = Vector2(25, 35)
 
 [node name="DetectionPreview" type="MeshInstance2D" parent="."]
 modulate = Color(1, 1, 1, 0.309804)
@@ -187,7 +188,7 @@ libraries = {
 }
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("5_afb1a")
+texture = ExtResource("4_3psih")
 offset = Vector2(-20, 32)
 
 [node name="Head" type="CollisionPolygon2D" parent="."]
@@ -202,6 +203,21 @@ skew = -0.523599
 shape = SubResource("CircleShape2D_vsmea")
 
 [node name="ShootPoints" type="Node2D" parent="."]
+
+[node name="Top Right" type="Marker2D" parent="ShootPoints"]
+position = Vector2(72, 7)
+
+[node name="Top Left" type="Marker2D" parent="ShootPoints"]
+position = Vector2(-37, 0)
+
+[node name="Bottom Right" type="Marker2D" parent="ShootPoints"]
+position = Vector2(81, 65)
+
+[node name="Bottom Left" type="Marker2D" parent="ShootPoints"]
+position = Vector2(-37, 73)
+
+[node name="Origin" type="Marker2D" parent="ShootPoints"]
+position = Vector2(25, 35)
 
 [connection signal="mouse_entered" from="." to="." method="OnMouseEntered"]
 [connection signal="mouse_exited" from="." to="." method="OnMouseExited"]
