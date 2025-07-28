@@ -1,8 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://bkf0xqfrwl72v"]
+[gd_scene load_steps=15 format=3 uid="uid://bkf0xqfrwl72v"]
 
 [ext_resource type="Script" uid="uid://chfqbb7h5sprm" path="res://Scripts/GUI/Stats.cs" id="1_8ewys"]
 [ext_resource type="Theme" uid="uid://bm2m53cf2qpe4" path="res://Resources/GUI.tres" id="2_btas5"]
-[ext_resource type="Texture2D" uid="uid://cxmpbeble1yly" path="res://Assets/GUI/Stats HUD/Stats - Ref.png" id="3_n6joj"]
 [ext_resource type="Texture2D" uid="uid://2ak5oy1ajct" path="res://Assets/GUI/Stats HUD/Stats - Panel.png" id="4_w8uvi"]
 [ext_resource type="Texture2D" uid="uid://b0ull1lacweb1" path="res://Assets/GUI/Stats HUD/StatsIcon - Health.png" id="5_42i26"]
 [ext_resource type="Texture2D" uid="uid://cvms5pbc5wi4e" path="res://Assets/GUI/Stats HUD/StatsBar - Line.png" id="6_1b80i"]
@@ -36,14 +35,6 @@ health = NodePath("Placeholder/Background/MarginContainer/Align/Detail/Health/Ma
 healthBar = NodePath("Placeholder/Background/MarginContainer/Align/Detail/Health/MarginContainer/Health Bar")
 efficiency = NodePath("Placeholder/Background/MarginContainer/Align/Detail/Efficiency/RichTextLabel")
 currency = NodePath("Placeholder/Property/PanelContainer/VBoxContainer/Detail/Currency")
-
-[node name="Ref" type="TextureRect" parent="."]
-visible = false
-layout_mode = 1
-offset_right = 1727.0
-offset_bottom = 1050.0
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("3_n6joj")
 
 [node name="Placeholder" type="PanelContainer" parent="."]
 layout_mode = 1
