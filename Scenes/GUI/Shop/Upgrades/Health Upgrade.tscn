@@ -1,0 +1,156 @@
+[gd_scene load_steps=20 format=3 uid="uid://evhqekwhn1mt"]
+
+[ext_resource type="Texture2D" uid="uid://cppfbog4758jh" path="res://Assets/GUI/Shop/Upgrade/ShopUpItem - HealthPanel.png" id="1_ar7hk"]
+[ext_resource type="Theme" uid="uid://bm2m53cf2qpe4" path="res://Resources/GUI.tres" id="1_h31cb"]
+[ext_resource type="Script" uid="uid://bscaqrskdt1lh" path="res://Scripts/GUI/Upgrade/HealthUpgrade.cs" id="2_sqcsn"]
+[ext_resource type="Script" uid="uid://cvepldvigmdst" path="res://Resources/Shop/UpgradeData.cs" id="3_kduds"]
+[ext_resource type="Texture2D" uid="uid://bclqctfef6j8s" path="res://Assets/GUI/Shop/Upgrade/ShopUpItem - HealthProgress1.png" id="4_acsii"]
+[ext_resource type="Texture2D" uid="uid://3132844eqwgg" path="res://Assets/GUI/Shop/Upgrade/ShopUpItem - HealthProgress2.png" id="5_ictw0"]
+[ext_resource type="Texture2D" uid="uid://cffdusqbqvieq" path="res://Assets/GUI/Shop/Upgrade/ShopUpItem - HealthProgress3.png" id="6_bcatn"]
+[ext_resource type="Texture2D" uid="uid://ddmpcf4doad7f" path="res://Assets/GUI/Shop/Upgrade/ShopUpItem - Cost.png" id="7_gs7n7"]
+[ext_resource type="Texture2D" uid="uid://dlrxiw5u8wl5v" path="res://Assets/GUI/Shop/Upgrade/ShopUpItem - HealthSelected.png" id="7_kduds"]
+[ext_resource type="Texture2D" uid="uid://cw3yl2wubx5lu" path="res://Assets/GUI/Shop/Upgrade/ShopUpItem - HealthProgress0.png" id="8_eu35m"]
+[ext_resource type="Texture2D" uid="uid://tndjrs38wpnn" path="res://Assets/GUI/Shop/Upgrade/ShopUpItem - HealthClicked.png" id="9_br6mn"]
+[ext_resource type="Texture2D" uid="uid://dm3ketchmhgst" path="res://Assets/GUI/Shop/Upgrade/ShopUpItem - HealthHover.png" id="10_02ql7"]
+[ext_resource type="Texture2D" uid="uid://b23emp4pmt4vr" path="res://Assets/GUI/Shop/Upgrade/ShopUpItem - Lock.png" id="13_acsii"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ar7hk"]
+
+[sub_resource type="Resource" id="Resource_7jjy3"]
+script = ExtResource("3_kduds")
+Price = 30
+Addition = 2
+Graphic = ExtResource("4_acsii")
+metadata/_custom_type_script = "uid://cvepldvigmdst"
+
+[sub_resource type="Resource" id="Resource_ar7hk"]
+script = ExtResource("3_kduds")
+Price = 50
+Addition = 2
+Graphic = ExtResource("5_ictw0")
+metadata/_custom_type_script = "uid://cvepldvigmdst"
+
+[sub_resource type="Resource" id="Resource_h31cb"]
+script = ExtResource("3_kduds")
+Price = 100
+Addition = 5
+Graphic = ExtResource("6_bcatn")
+metadata/_custom_type_script = "uid://cvepldvigmdst"
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kduds"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n4hi5"]
+
+[node name="Health" type="PanelContainer" node_paths=PackedStringArray("Background", "Tier", "CostBar", "Info", "Price", "Panel", "Lock", "Select")]
+custom_minimum_size = Vector2(421, 265)
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme = ExtResource("1_h31cb")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ar7hk")
+script = ExtResource("2_sqcsn")
+Database = Array[ExtResource("3_kduds")]([SubResource("Resource_7jjy3"), SubResource("Resource_ar7hk"), SubResource("Resource_h31cb")])
+Background = NodePath("Main/Background")
+BGDefault = ExtResource("1_ar7hk")
+BGSelected = ExtResource("7_kduds")
+Tier = NodePath("Main/Status/Tier")
+CostBar = NodePath("Main/Details/Align/Cost")
+Info = NodePath("Main/Details/Align/Info")
+Price = NodePath("Main/Details/Align/Cost/Price")
+Panel = NodePath("Main")
+Lock = NodePath("Lock")
+Select = NodePath("Select")
+
+[node name="Main" type="PanelContainer" parent="."]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_kduds")
+
+[node name="Background" type="TextureRect" parent="Main"]
+layout_mode = 2
+texture = ExtResource("1_ar7hk")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Details" type="HBoxContainer" parent="Main"]
+layout_mode = 2
+
+[node name="Start" type="VSeparator" parent="Main/Details"]
+layout_mode = 2
+theme_override_constants/separation = 197
+
+[node name="Align" type="VBoxContainer" parent="Main/Details"]
+custom_minimum_size = Vector2(177, 0)
+layout_mode = 2
+
+[node name="Start" type="HSeparator" parent="Main/Details/Align"]
+layout_mode = 2
+theme_override_constants/separation = 70
+
+[node name="Info" type="Label" parent="Main/Details/Align"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.0509804, 0.0509804, 0.0509804, 1)
+theme_override_font_sizes/font_size = 38
+text = "+2 Max HP"
+horizontal_alignment = 1
+
+[node name="Info>Cost" type="HSeparator" parent="Main/Details/Align"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Cost" type="HBoxContainer" parent="Main/Details/Align"]
+layout_mode = 2
+
+[node name="Push" type="VSeparator" parent="Main/Details/Align/Cost"]
+layout_mode = 2
+theme_override_constants/separation = 26
+
+[node name="Icon" type="TextureRect" parent="Main/Details/Align/Cost"]
+custom_minimum_size = Vector2(56, 63)
+layout_mode = 2
+texture = ExtResource("7_gs7n7")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Icon>Price" type="VSeparator" parent="Main/Details/Align/Cost"]
+layout_mode = 2
+
+[node name="Price" type="Label" parent="Main/Details/Align/Cost"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0.45098, 0.870588, 0.886275, 1)
+theme_override_font_sizes/font_size = 55
+text = "15"
+
+[node name="End" type="VSeparator" parent="Main/Details"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Status" type="PanelContainer" parent="Main"]
+custom_minimum_size = Vector2(0, 46)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxEmpty_n4hi5")
+
+[node name="Tier" type="TextureRect" parent="Main/Status"]
+custom_minimum_size = Vector2(183, 33)
+layout_mode = 2
+size_flags_vertical = 0
+texture = ExtResource("8_eu35m")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Select" type="TextureButton" parent="."]
+layout_mode = 2
+texture_pressed = ExtResource("9_br6mn")
+texture_hover = ExtResource("10_02ql7")
+ignore_texture_size = true
+stretch_mode = 6
+
+[node name="Lock" type="TextureRect" parent="."]
+visible = false
+layout_mode = 2
+texture = ExtResource("13_acsii")
+expand_mode = 1
+stretch_mode = 6

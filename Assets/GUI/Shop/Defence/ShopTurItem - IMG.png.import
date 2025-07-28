@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cs61v1g56h3t7"
-path="res://.godot/imported/ShopMode1 - Selected.png-ba15e338271417a4bb0dc159f3e1832e.ctex"
+uid="uid://ejv2boplrqnw"
+path="res://.godot/imported/ShopTurItem - IMG.png-2c7bb124d2dde7d77b43cfdd76fdb4cb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/GUI/Shop/ShopMode1 - Selected.png"
-dest_files=["res://.godot/imported/ShopMode1 - Selected.png-ba15e338271417a4bb0dc159f3e1832e.ctex"]
+source_file="res://Assets/GUI/Shop/Defence/ShopTurItem - IMG.png"
+dest_files=["res://.godot/imported/ShopTurItem - IMG.png-2c7bb124d2dde7d77b43cfdd76fdb4cb.ctex"]
 
 [params]
 

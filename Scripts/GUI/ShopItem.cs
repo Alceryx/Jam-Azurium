@@ -1,18 +1,20 @@
 using Godot;
 using Godot.Collections;
 using System;
-using Array = System.Array;
 
 public partial class ShopItem : PanelContainer
 {
-    [Export] public Panel Lock;
-    [Export] public TextureRect Icon;
+    [ExportGroup("Dynamic")]
     [Export] public PanelContainer Panel;
+    [Export] public TextureRect Lock;
+    [Export] public TextureRect Icon;
     [Export] public Array<TextureButton> ModeButton = [];
     
+    [ExportGroup("Detail")]
     [Export] private Label name;
     [Export] private Label price;
-    
+
+    public bool Affordable;
     public int Price;
 
     public int ModeCount;
@@ -21,15 +23,23 @@ public partial class ShopItem : PanelContainer
 
     public override void _Ready()
     {
+        Lock.Hide();
         foreach (TextureButton button in ModeButton) button.SetButtonGroup(ShopManager.SM.Mode);
     }
 
     public override void _Process(double delta)
     {
+        if (!ShopManager.SM.Defence.Visible) Deselect();
         if (GameManager.GM != null && GameManager.GM.Currency < Data.Modes[Mode].Price)
-            price.AddThemeColorOverride("font_color", Colors.Red);
+        {
+            price.AddThemeColorOverride("font_color", Color.FromString("A94241", Colors.White));
+            Affordable = false;
+        }
         else
+        {
             price.AddThemeColorOverride("font_color", Colors.White);
+            Affordable = true;
+        }
     }
 
     public void SetUp(TurretData data, int mode)
@@ -45,14 +55,22 @@ public partial class ShopItem : PanelContainer
         price.Text = $"{data.Modes[mode].Price}";
     }
 
-    public void OnMode1Selected(bool toggled_on)
+    public void Deselect()
+    {
+        foreach (TextureButton button in ModeButton)
+        {
+            button.ButtonPressed = false;
+        }
+    }
+
+    private void OnMode1Selected(bool toggled_on)
     {
         SetUp(Data, 0);
         
         ShopManager.SM.SelectedItem = toggled_on ? this : null;
         ShopManager.SM.AnySelected = toggled_on;
     }
-    public void OnMode2Selected(bool toggled_on)
+    private void OnMode2Selected(bool toggled_on)
     {
         SetUp(Data, 1);
         

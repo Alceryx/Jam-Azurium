@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d271k0r26hkmb"
-path="res://.godot/imported/ShopMode1 - Hover.png-09e52a70d3f62d2ebdc8ce8d9a7f327a.ctex"
+uid="uid://b4dsbmiji6ur4"
+path="res://.godot/imported/ShopTurItem - Price.png-ed0d78938cfb8519e62a2364742a8089.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/GUI/Shop/ShopMode1 - Hover.png"
-dest_files=["res://.godot/imported/ShopMode1 - Hover.png-09e52a70d3f62d2ebdc8ce8d9a7f327a.ctex"]
+source_file="res://Assets/GUI/Shop/Defence/ShopTurItem - Price.png"
+dest_files=["res://.godot/imported/ShopTurItem - Price.png-ed0d78938cfb8519e62a2364742a8089.ctex"]
 
 [params]
 

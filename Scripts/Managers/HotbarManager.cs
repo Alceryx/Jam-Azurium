@@ -20,8 +20,7 @@ public partial class HotbarManager : Control
     {
         HotbarSlot slot = Slot.Instantiate() as HotbarSlot;
         
-        if (!Visible)
-            Show();
+        if (!Visible) Show();
         
         if (TurretsSlot.ContainsKey(data)) TurretsSlot[data].Add(mode, slot);
         else TurretsSlot.Add(data, new Dictionary<int, HotbarSlot> {{mode, slot}});

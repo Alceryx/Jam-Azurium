@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5oqp5dgg7iqh"
-path="res://.godot/imported/ShopTurItem - Pane.png-261a221cfa8cb3d0ced0dfe5d6585e06.ctex"
+uid="uid://cs61v1g56h3t7"
+path="res://.godot/imported/ShopMode1 - Selected.png-87ad2cccd2056fba31f8fc19db8023a0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/GUI/Shop/ShopTurItem - Pane.png"
-dest_files=["res://.godot/imported/ShopTurItem - Pane.png-261a221cfa8cb3d0ced0dfe5d6585e06.ctex"]
+source_file="res://Assets/GUI/Shop/Defence/ShopMode1 - Selected.png"
+dest_files=["res://.godot/imported/ShopMode1 - Selected.png-87ad2cccd2056fba31f8fc19db8023a0.ctex"]
 
 [params]
 

@@ -4,56 +4,61 @@ using Godot.Collections;
 
 public partial class ShopManager : Control
 {
+    [ExportGroup("List")]
     [Export] public VBoxContainer ItemList;
-    [Export] public PackedScene Item;
+    [Export] public VBoxContainer UpgradeList;
+    
+    [ExportGroup("Item")]
     [Export] public Array<TurretData> Database = [];
-    [Export] public TextureButton Buy;
+    [Export] public PackedScene ItemFrame;
 
+    [ExportGroup("Tab")]
     [Export] public TextureButton DefenceTab;
     [Export] public TextureButton UpgradeTab;
-    [Export] private PanelContainer defence;
+    [Export] public PanelContainer Defence;
+    [Export] public PanelContainer Upgrade;
 
+    [ExportGroup("Button")]
+    [Export] public TextureButton Buy;
+    
     public static ShopManager SM;
     
     public bool AnySelected;
     public ShopItem SelectedItem;
+    public Upgrade SelectedUpgrade;
     public ButtonGroup Mode = new();
+
+    public Upgrade ActiveUpgrade;
 
     public override void _Ready()
     {
         SM = this;
         Buy.Disabled = true;
         
+        Upgrade.Hide();
+        
         Mode.AllowUnpress = true;
         
         ButtonGroup tab = new ButtonGroup();
         DefenceTab.SetButtonGroup(tab);
         UpgradeTab.SetButtonGroup(tab);
-
-        foreach (TurretData data in Database)
-        {
-            ShopItem item = Item.Instantiate() as ShopItem;
-            item.SetUp(data, 0);
-            ItemList.AddChild(item);
-        }
+        
+        DisplayItem();
     }
 
-    public override void _PhysicsProcess(double delta)
+    public override void _Process(double delta)
     {
         if (Input.IsActionJustPressed("Escape")) Hide();
-        if (SelectedItem != null && GameManager.GM.Currency < SelectedItem.Price)
-            Buy.Disabled = true;
-        else
-            Buy.Disabled = !AnySelected;
+
+        if (Affordable()) Buy.Disabled = !AnySelected;
+        else Buy.Disabled = true;
     }
     
-    private void OnClosePressed() => Hide();
-
     public void OnPurchase()
     {
-        if (GameManager.GM.Currency >= SelectedItem.Price)
+        if (SelectedItem != null && GameManager.GM.Currency >= SelectedItem.Price)
         {
-            Lock();
+            LockItem();
             
             if (HotbarManager.HM.TurretsSlot.ContainsKey(SelectedItem.Data))
             {
@@ -67,9 +72,21 @@ public partial class ShopManager : Control
             
             GameManager.GM.Currency -= SelectedItem.Price;
         }
+        else if (GameManager.GM.Currency >= SelectedUpgrade.Database[SelectedUpgrade.CurrentTier].Price)
+        {
+            LockUpgrade();
+            
+            GameManager.GM.Currency -= SelectedUpgrade.Database[SelectedUpgrade.CurrentTier].Price;
+            SelectedUpgrade.Update();
+        }
     }
-
-    public void Lock()
+    
+    public bool Affordable()
+    {
+        return SelectedItem is {Affordable: true } || SelectedUpgrade is {Affordable: true, Maxed: false };
+    }
+    
+    public void LockItem()
     {
         foreach (ShopItem item in ItemList.GetChildren())
         {
@@ -80,9 +97,50 @@ public partial class ShopManager : Control
             }
         }
     }
-
-    public void OnDefenceToggled(bool toggled_on)
+    public void LockUpgrade()
     {
-        defence.Visible = toggled_on;
+        foreach (Upgrade upgrade in UpgradeList.GetChildren())
+        {
+            if (upgrade != SelectedUpgrade)
+            {
+                upgrade.Panel.Hide();
+                upgrade.Lock.Show();
+            }
+        }
+    }
+    
+    private void OnClosePressed() => Hide();
+    private void DisplayItem()
+    {
+        foreach (TurretData data in Database)
+        {
+            ShopItem item = ItemFrame.Instantiate() as ShopItem;
+            item.SetUp(data, 0);
+            ItemList.AddChild(item);
+        }
+    }
+    private void PackUp()
+    {
+        foreach (Node item in ItemList.GetChildren())
+        {
+            item.QueueFree();
+        }
+    }
+    
+    private void OnDefenceToggled(bool toggled_on)
+    {
+        Defence.Visible = toggled_on;
+        
+        SelectedItem = null;
+        SelectedUpgrade = null;
+        AnySelected = false;
+    }
+    private void OnUpgradeToggled(bool toggled_on)
+    {
+        Upgrade.Visible = toggled_on;
+        
+        SelectedItem = null;
+        SelectedUpgrade = null;
+        AnySelected = false;
     }
 }

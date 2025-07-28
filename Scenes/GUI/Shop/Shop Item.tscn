@@ -1,18 +1,18 @@
-[gd_scene load_steps=19 format=3 uid="uid://dp1iskdniviuw"]
+[gd_scene load_steps=18 format=3 uid="uid://dp1iskdniviuw"]
 
 [ext_resource type="Theme" uid="uid://bm2m53cf2qpe4" path="res://Resources/GUI.tres" id="1_6rkdq"]
 [ext_resource type="Texture2D" uid="uid://d2o5d8y6g8qsr" path="res://icon.svg" id="1_rgnhs"]
 [ext_resource type="Script" uid="uid://deovqbn6kvfek" path="res://Scripts/GUI/ShopItem.cs" id="2_52ifu"]
-[ext_resource type="Texture2D" uid="uid://5oqp5dgg7iqh" path="res://Assets/GUI/Shop/ShopTurItem - Pane.png" id="2_71nuy"]
-[ext_resource type="Texture2D" uid="uid://bd4wgnxh2pvhb" path="res://Assets/GUI/Shop/ShopTurItem - Lock.png" id="3_k6ki2"]
-[ext_resource type="Texture2D" uid="uid://bsy5xm3tr4jw5" path="res://Assets/GUI/Shop/ShopMode1 - Default.png" id="4_kh4kd"]
-[ext_resource type="Texture2D" uid="uid://cs61v1g56h3t7" path="res://Assets/GUI/Shop/ShopMode1 - Selected.png" id="5_2no7j"]
-[ext_resource type="Texture2D" uid="uid://d271k0r26hkmb" path="res://Assets/GUI/Shop/ShopMode1 - Hover.png" id="6_q8bwd"]
-[ext_resource type="Texture2D" uid="uid://dn0elavwq2i1f" path="res://Assets/GUI/Shop/ShopTurItem - Currency.png" id="6_vesc7"]
-[ext_resource type="Texture2D" uid="uid://diiexup6ne8et" path="res://Assets/GUI/Shop/ShopMode2 - Default.png" id="7_b4nwx"]
-[ext_resource type="Texture2D" uid="uid://ct8a8uqsd8tbo" path="res://Assets/GUI/Shop/ShopMode2 - Selected.png" id="8_x476g"]
-[ext_resource type="Texture2D" uid="uid://cllvimo0fifmt" path="res://Assets/GUI/Shop/ShopMode2 - Hover.png" id="9_k6ki2"]
-[ext_resource type="Texture2D" uid="uid://b4dsbmiji6ur4" path="res://Assets/GUI/Shop/ShopTurItem - Price.png" id="11_x476g"]
+[ext_resource type="Texture2D" uid="uid://5oqp5dgg7iqh" path="res://Assets/GUI/Shop/Defence/ShopTurItem - Pane.png" id="2_71nuy"]
+[ext_resource type="Texture2D" uid="uid://bd4wgnxh2pvhb" path="res://Assets/GUI/Shop/Defence/ShopTurItem - Lock.png" id="3_k6ki2"]
+[ext_resource type="Texture2D" uid="uid://bsy5xm3tr4jw5" path="res://Assets/GUI/Shop/Defence/ShopMode1 - Default.png" id="4_kh4kd"]
+[ext_resource type="Texture2D" uid="uid://cs61v1g56h3t7" path="res://Assets/GUI/Shop/Defence/ShopMode1 - Selected.png" id="5_2no7j"]
+[ext_resource type="Texture2D" uid="uid://d271k0r26hkmb" path="res://Assets/GUI/Shop/Defence/ShopMode1 - Hover.png" id="6_q8bwd"]
+[ext_resource type="Texture2D" uid="uid://dn0elavwq2i1f" path="res://Assets/GUI/Shop/Defence/ShopTurItem - Currency.png" id="6_vesc7"]
+[ext_resource type="Texture2D" uid="uid://diiexup6ne8et" path="res://Assets/GUI/Shop/Defence/ShopMode2 - Default.png" id="7_b4nwx"]
+[ext_resource type="Texture2D" uid="uid://ct8a8uqsd8tbo" path="res://Assets/GUI/Shop/Defence/ShopMode2 - Selected.png" id="8_x476g"]
+[ext_resource type="Texture2D" uid="uid://cllvimo0fifmt" path="res://Assets/GUI/Shop/Defence/ShopMode2 - Hover.png" id="9_k6ki2"]
+[ext_resource type="Texture2D" uid="uid://b4dsbmiji6ur4" path="res://Assets/GUI/Shop/Defence/ShopTurItem - Price.png" id="11_x476g"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b4nwx"]
 
@@ -25,12 +25,7 @@ content_margin_left = 15.0
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k6ki2"]
 texture = ExtResource("11_x476g")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vesc7"]
-texture = ExtResource("3_k6ki2")
-expand_margin_top = 1.0
-expand_margin_right = 1.0
-
-[node name="Item" type="PanelContainer" node_paths=PackedStringArray("Lock", "Icon", "Panel", "ModeButton", "name", "price")]
+[node name="Item" type="PanelContainer" node_paths=PackedStringArray("Panel", "Lock", "Icon", "ModeButton", "name", "price")]
 custom_minimum_size = Vector2(380, 250)
 offset_right = 380.0
 offset_bottom = 250.0
@@ -38,9 +33,9 @@ size_flags_horizontal = 4
 theme = ExtResource("1_6rkdq")
 theme_override_styles/panel = SubResource("StyleBoxEmpty_b4nwx")
 script = ExtResource("2_52ifu")
+Panel = NodePath("Background")
 Lock = NodePath("Lock")
 Icon = NodePath("Background/VBoxContainer/Detail/Icon")
-Panel = NodePath("Background")
 ModeButton = [NodePath("Buttons/Mode 1"), NodePath("Buttons/Mode 2")]
 name = NodePath("Background/VBoxContainer/Name")
 price = NodePath("Background/VBoxContainer/Cost/PanelContainer/HBoxContainer/Price")
@@ -177,10 +172,12 @@ stretch_mode = 6
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Lock" type="Panel" parent="."]
+[node name="Lock" type="TextureRect" parent="."]
 visible = false
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_vesc7")
+texture = ExtResource("3_k6ki2")
+expand_mode = 1
+stretch_mode = 6
 
 [connection signal="toggled" from="Buttons/Mode 1" to="." method="OnMode1Selected"]
 [connection signal="toggled" from="Buttons/Mode 2" to="." method="OnMode2Selected"]
