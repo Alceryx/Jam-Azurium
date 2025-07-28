@@ -121,7 +121,6 @@ size_flags_vertical = 3
 theme_override_constants/separation = 45
 
 [node name="Upgrade" type="PanelContainer" parent="Placeholder/Main/Background/Options"]
-visible = false
 custom_minimum_size = Vector2(0, 630)
 layout_mode = 2
 size_flags_vertical = 8
