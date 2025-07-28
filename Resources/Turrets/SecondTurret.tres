@@ -28,7 +28,7 @@ metadata/_custom_type_script = "uid://dpbvjc5ku3vl4"
 
 [resource]
 script = ExtResource("1_33sie")
-ID = 3
+ID = 1
 Name = "Second Turret"
 Size = Vector2(1, 1)
 Modes = [SubResource("Resource_ju5jw"), SubResource("Resource_p5ntn")]

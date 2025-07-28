@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://8662sttmmtyv"]
+[gd_scene load_steps=15 format=3 uid="uid://b5u3qxo5d2gm3"]
 
 [ext_resource type="Script" uid="uid://b4ehhsn5s6b7c" path="res://Scripts/Turrets/FirstTurret.cs" id="1_vsmea"]
 [ext_resource type="Shader" uid="uid://de5cqnc22f116" path="res://Resources/Shaders/2DOutline.gdshader" id="2_54pmo"]

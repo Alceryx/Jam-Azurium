@@ -191,6 +191,9 @@ DestructDelay = 0.2
 
 [node name="DetectionPreview" type="MeshInstance2D" parent="."]
 modulate = Color(1, 1, 1, 0.309804)
+position = Vector2(0, 50)
+rotation = -0.523599
+skew = -0.523599
 mesh = SubResource("SphereMesh_vsmea")
 
 [node name="Feet" type="CollisionPolygon2D" parent="."]
@@ -215,6 +218,9 @@ polygon = PackedVector2Array(-64, -64, 0, -32, 64, -64, 64, 0, 0, 32, -64, 0)
 polygon = PackedVector2Array(0, -32, 64, 0, 0, 32, -64, 0)
 
 [node name="DetectionArea" type="Area2D" parent="."]
+position = Vector2(0, 50)
+rotation = -0.523599
+skew = -0.523599
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
 shape = SubResource("CircleShape2D_vsmea")
