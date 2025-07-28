@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://evhqekwhn1mt"]
+[gd_scene load_steps=19 format=3 uid="uid://evhqekwhn1mt"]
 
 [ext_resource type="Texture2D" uid="uid://cppfbog4758jh" path="res://Assets/GUI/Shop/Upgrade/ShopUpItem - HealthPanel.png" id="1_ar7hk"]
 [ext_resource type="Theme" uid="uid://bm2m53cf2qpe4" path="res://Resources/GUI.tres" id="1_h31cb"]
@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://bclqctfef6j8s" path="res://Assets/GUI/Shop/Upgrade/ShopUpItem - HealthProgress1.png" id="4_acsii"]
 [ext_resource type="Texture2D" uid="uid://3132844eqwgg" path="res://Assets/GUI/Shop/Upgrade/ShopUpItem - HealthProgress2.png" id="5_ictw0"]
 [ext_resource type="Texture2D" uid="uid://cffdusqbqvieq" path="res://Assets/GUI/Shop/Upgrade/ShopUpItem - HealthProgress3.png" id="6_bcatn"]
-[ext_resource type="Texture2D" uid="uid://ddmpcf4doad7f" path="res://Assets/GUI/Shop/Upgrade/ShopUpItem - Cost.png" id="7_gs7n7"]
 [ext_resource type="Texture2D" uid="uid://dlrxiw5u8wl5v" path="res://Assets/GUI/Shop/Upgrade/ShopUpItem - HealthSelected.png" id="7_kduds"]
 [ext_resource type="Texture2D" uid="uid://cw3yl2wubx5lu" path="res://Assets/GUI/Shop/Upgrade/ShopUpItem - HealthProgress0.png" id="8_eu35m"]
 [ext_resource type="Texture2D" uid="uid://tndjrs38wpnn" path="res://Assets/GUI/Shop/Upgrade/ShopUpItem - HealthClicked.png" id="9_br6mn"]
@@ -107,7 +106,6 @@ theme_override_constants/separation = 26
 [node name="Icon" type="TextureRect" parent="Main/Details/Align/Cost"]
 custom_minimum_size = Vector2(56, 63)
 layout_mode = 2
-texture = ExtResource("7_gs7n7")
 expand_mode = 1
 stretch_mode = 6
 

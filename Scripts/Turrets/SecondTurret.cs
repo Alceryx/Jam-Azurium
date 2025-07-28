@@ -10,24 +10,18 @@ public partial class SecondTurret : Turret
         if (!CanShoot)
             return;
         
-        if (Mode == 0)
-        {
-            Projectile projectile = Data.Modes[Mode].Projectile.Instantiate<Projectile>();
-            
-            UpdateSprite();
-            
-            Vector2 AimPos = target + TargetedEnemy.MoveDirection * TargetedEnemy.Speed;
-            Vector2 direction = (AimPos - ShootPoint.GlobalPosition).Normalized();
-            projectile.Setup(this, direction, Data.Modes[Mode].Damage, AimPos);
-            projectile.GlobalPosition = ShootPoint.GlobalPosition;
-            GameManager.GM.CallDeferred("add_child", projectile);
-            
-            SelfDestruct();
-        }
-        else
-        {   
-            
-        }
+        Projectile projectile = Data.Modes[Mode].Projectile.Instantiate<Projectile>();
+        
+        UpdateSprite();
+        
+        Vector2 AimPos = target - TargetedEnemy.MoveDirection * TargetedEnemy.Speed;
+        Vector2 direction = (AimPos - ShootPoint.GlobalPosition).Normalized();
+        projectile.Setup(this, direction, Data.Modes[Mode].Damage, AimPos);
+        projectile.GlobalPosition = ShootPoint.GlobalPosition;
+        GameManager.GM.CallDeferred("add_child", projectile);
+        
+        SelfDestruct();
+        
         CanShoot = false;
     }
 
