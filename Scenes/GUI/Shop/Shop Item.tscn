@@ -25,7 +25,7 @@ content_margin_left = 15.0
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k6ki2"]
 texture = ExtResource("11_x476g")
 
-[node name="Item" type="PanelContainer" node_paths=PackedStringArray("Lock", "Icon", "Panel", "ModeButton", "name", "price")]
+[node name="Item" type="PanelContainer" node_paths=PackedStringArray("Panel", "Lock", "Icon", "ModeButton", "name", "price")]
 custom_minimum_size = Vector2(380, 250)
 offset_right = 380.0
 offset_bottom = 250.0
@@ -33,9 +33,9 @@ size_flags_horizontal = 4
 theme = ExtResource("1_6rkdq")
 theme_override_styles/panel = SubResource("StyleBoxEmpty_b4nwx")
 script = ExtResource("2_52ifu")
+Panel = NodePath("Background")
 Lock = NodePath("Lock")
 Icon = NodePath("Background/VBoxContainer/Detail/Icon")
-Panel = NodePath("Background")
 ModeButton = [NodePath("Buttons/Mode 1"), NodePath("Buttons/Mode 2")]
 name = NodePath("Background/VBoxContainer/Name")
 price = NodePath("Background/VBoxContainer/Cost/PanelContainer/HBoxContainer/Price")

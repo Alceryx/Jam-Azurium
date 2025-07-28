@@ -17,8 +17,8 @@ point_count = 3
 
 [node name="World" type="Node"]
 script = ExtResource("1_gjpho")
-Efficiency = 10
-ButtonMaxHP = 100.0
+Efficiency = 1
+ButtonMaxHP = 1.0
 
 [node name="Tile Map" type="TileMapLayer" parent="."]
 texture_filter = 1

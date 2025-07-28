@@ -41,7 +41,7 @@ metadata/_custom_type_script = "uid://cvepldvigmdst"
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n4hi5"]
 
-[node name="Efficiency" type="PanelContainer" node_paths=PackedStringArray("Background", "Tier", "Info", "Price", "Panel", "Lock", "Select")]
+[node name="Efficiency" type="PanelContainer" node_paths=PackedStringArray("Background", "Tier", "CostBar", "Info", "Price", "Panel", "Lock", "Select")]
 custom_minimum_size = Vector2(421, 265)
 size_flags_horizontal = 4
 size_flags_vertical = 0
@@ -53,6 +53,7 @@ Background = NodePath("Main/Background")
 BGDefault = ExtResource("1_4da3k")
 BGSelected = ExtResource("8_ybpnt")
 Tier = NodePath("Main/Status/Tier")
+CostBar = NodePath("Main/Details/Align/Cost")
 Info = NodePath("Main/Details/Align/Info")
 Price = NodePath("Main/Details/Align/Cost/Price")
 Panel = NodePath("Main")

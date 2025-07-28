@@ -41,18 +41,19 @@ metadata/_custom_type_script = "uid://cvepldvigmdst"
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n4hi5"]
 
-[node name="Health" type="PanelContainer" node_paths=PackedStringArray("Background", "Tier", "Info", "Price", "Panel", "Lock", "Select")]
+[node name="Health" type="PanelContainer" node_paths=PackedStringArray("Background", "Tier", "CostBar", "Info", "Price", "Panel", "Lock", "Select")]
 custom_minimum_size = Vector2(421, 265)
 size_flags_horizontal = 4
 size_flags_vertical = 0
 theme = ExtResource("1_h31cb")
 theme_override_styles/panel = SubResource("StyleBoxEmpty_ar7hk")
 script = ExtResource("2_sqcsn")
-Database = [SubResource("Resource_7jjy3"), SubResource("Resource_ar7hk"), SubResource("Resource_h31cb")]
+Database = Array[ExtResource("3_kduds")]([SubResource("Resource_7jjy3"), SubResource("Resource_ar7hk"), SubResource("Resource_h31cb")])
 Background = NodePath("Main/Background")
 BGDefault = ExtResource("1_ar7hk")
 BGSelected = ExtResource("7_kduds")
 Tier = NodePath("Main/Status/Tier")
+CostBar = NodePath("Main/Details/Align/Cost")
 Info = NodePath("Main/Details/Align/Info")
 Price = NodePath("Main/Details/Align/Cost/Price")
 Panel = NodePath("Main")

@@ -15,8 +15,8 @@ public partial class ShopManager : Control
     [ExportGroup("Tab")]
     [Export] public TextureButton DefenceTab;
     [Export] public TextureButton UpgradeTab;
-    [Export] private PanelContainer defence;
-    [Export] private PanelContainer upgrade;
+    [Export] public PanelContainer Defence;
+    [Export] public PanelContainer Upgrade;
 
     [ExportGroup("Button")]
     [Export] public TextureButton Buy;
@@ -28,14 +28,14 @@ public partial class ShopManager : Control
     public Upgrade SelectedUpgrade;
     public ButtonGroup Mode = new();
 
-    public Upgrade Active;
+    public Upgrade ActiveUpgrade;
 
     public override void _Ready()
     {
         SM = this;
         Buy.Disabled = true;
         
-        upgrade.Hide();
+        Upgrade.Hide();
         
         Mode.AllowUnpress = true;
         
@@ -49,10 +49,8 @@ public partial class ShopManager : Control
     public override void _Process(double delta)
     {
         if (Input.IsActionJustPressed("Escape")) Hide();
-        if (PriceCheck())
-        {
-            Buy.Disabled = !AnySelected;
-        }
+
+        if (Affordable()) Buy.Disabled = !AnySelected;
         else Buy.Disabled = true;
     }
     
@@ -78,11 +76,16 @@ public partial class ShopManager : Control
         {
             LockUpgrade();
             
-            SelectedUpgrade.Update();
             GameManager.GM.Currency -= SelectedUpgrade.Database[SelectedUpgrade.CurrentTier].Price;
+            SelectedUpgrade.Update();
         }
     }
-
+    
+    public bool Affordable()
+    {
+        return SelectedItem is {Affordable: true } || SelectedUpgrade is {Affordable: true, Maxed: false };
+    }
+    
     public void LockItem()
     {
         foreach (ShopItem item in ItemList.GetChildren())
@@ -94,7 +97,6 @@ public partial class ShopManager : Control
             }
         }
     }
-
     public void LockUpgrade()
     {
         foreach (Upgrade upgrade in UpgradeList.GetChildren())
@@ -106,12 +108,8 @@ public partial class ShopManager : Control
             }
         }
     }
-
-    private bool PriceCheck()
-        => defence.Visible && SelectedItem != null && GameManager.GM.Currency >= SelectedItem.Price
-           || upgrade.Visible && SelectedUpgrade != null && GameManager.GM.Currency >= SelectedUpgrade.Database[SelectedUpgrade.CurrentTier].Price;
+    
     private void OnClosePressed() => Hide();
-
     private void DisplayItem()
     {
         foreach (TurretData data in Database)
@@ -129,19 +127,17 @@ public partial class ShopManager : Control
         }
     }
     
-    public void OnDefenceToggled(bool toggled_on)
+    private void OnDefenceToggled(bool toggled_on)
     {
-        DisplayItem();
-        defence.Visible = toggled_on;
+        Defence.Visible = toggled_on;
         
         SelectedItem = null;
         SelectedUpgrade = null;
         AnySelected = false;
     }
-    public void OnUpgradeToggled(bool toggled_on)
+    private void OnUpgradeToggled(bool toggled_on)
     {
-        PackUp();
-        upgrade.Visible = toggled_on;
+        Upgrade.Visible = toggled_on;
         
         SelectedItem = null;
         SelectedUpgrade = null;

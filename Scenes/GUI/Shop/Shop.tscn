@@ -35,7 +35,7 @@ texture = ExtResource("7_oa8j1")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dgiod"]
 
-[node name="Shop" type="Control" node_paths=PackedStringArray("ItemList", "UpgradeList", "DefenceTab", "UpgradeTab", "defence", "upgrade", "Buy")]
+[node name="Shop" type="Control" node_paths=PackedStringArray("ItemList", "UpgradeList", "DefenceTab", "UpgradeTab", "Defence", "Upgrade", "Buy")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -53,8 +53,8 @@ Database = Array[ExtResource("4_dgiod")]([ExtResource("4_0d586"), ExtResource("6
 ItemFrame = ExtResource("3_0d586")
 DefenceTab = NodePath("Placeholder/Main/Background/Options/Tabs/Defence")
 UpgradeTab = NodePath("Placeholder/Main/Background/Options/Tabs/Upgrade")
-defence = NodePath("Placeholder/Main/Background/Options/Defence")
-upgrade = NodePath("Placeholder/Main/Background/Options/Upgrade")
+Defence = NodePath("Placeholder/Main/Background/Options/Defence")
+Upgrade = NodePath("Placeholder/Main/Background/Options/Upgrade")
 Buy = NodePath("Placeholder/Buy Bar/Buy")
 
 [node name="Placeholder" type="PanelContainer" parent="."]
