@@ -39,7 +39,7 @@ public partial class Enemy : CharacterBody2D
         PathFollow.Rotates = false;
         Path.AddChild(PathFollow);
         
-        GlobalPosition = PathFollow.GlobalPosition;
+        GlobalPosition = PathFollow.GlobalPosition - new Vector2(0, 64);
     }
 
     public override void _Ready()
@@ -82,7 +82,7 @@ public partial class Enemy : CharacterBody2D
 
         // Move toward current target
         PathFollow.Progress += Speed * (float)delta;
-        GlobalPosition = PathFollow.GlobalPosition;
+        GlobalPosition = PathFollow.GlobalPosition - new Vector2(0, 64);
         UpdateFacingDirection();
     }
 

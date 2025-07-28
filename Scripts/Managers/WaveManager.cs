@@ -15,15 +15,15 @@ public partial class WaveManager : Node
     
     [ExportGroup("Wave Data")]
     [Export] public Array<WaveData> Waves;
-    [Export] private float TimeBetweenWaves;
     [Export] private float TimeBetweenBatches;
-    [ExportGroup("Wave Warning")]
-    [Export] private TileMapLayer Indicator;
+    [ExportGroup("Wave Warning")] 
+    [Export] private TileMapLayer IndicatorLayer;
+    [Export] private TileSet WorldTileSet;
     [Export] private float IndicatorTime;
     private Dictionary<int, WaveData> WaveQuery = new();
     
     public WaveData CurrentWave;
-    public Path2D CurrentPath;
+    //public Path2D CurrentPath;
     public int CurrentWaveNumber;
     public Array<SpawnData> CurrentBatches = new();
     public Dictionary<SpawnData, int> CurrentBatchesQueue = new();
@@ -53,11 +53,9 @@ public partial class WaveManager : Node
     public override void _Ready()
     {
         WM = this;
-        WaveTimer = TimeBetweenWaves;
         IndicatorTimer =  IndicatorTime;
         BatchTimer = TimeBetweenBatches;
         CurrentWaveNumber = 1;
-        CurrentPath = GetChild<Path2D>(CurrentWaveNumber - 1);
         
         foreach (WaveData wave in Waves)
         {
@@ -65,6 +63,7 @@ public partial class WaveManager : Node
         }
         
         CurrentWave = WaveQuery[CurrentWaveNumber];
+        WaveTimer = WaveQuery[CurrentWaveNumber].TimeBetweenWaves;
     }
 
     public override void _Process(double delta)
@@ -83,7 +82,6 @@ public partial class WaveManager : Node
         if (SpawnFinished && GetTree().GetNodesInGroup("Enemy").Count == 0 && !WaveFinished)
         {
             WaveFinished = true;
-            WaveTimer = TimeBetweenWaves;
             IndicatorTimer = IndicatorTime;
             Warned = false;
             EmitSignalWaveEnded();
@@ -93,6 +91,7 @@ public partial class WaveManager : Node
             else
                 CurrentWaveNumber = 1;
             
+            WaveTimer = WaveQuery[CurrentWaveNumber].TimeBetweenWaves;
             return;
         }
         
@@ -136,7 +135,7 @@ public partial class WaveManager : Node
     private void SpawnEnemy(PackedScene Enemy)
     {
         Enemy enemy = Enemy.Instantiate() as Enemy;
-        enemy.Setup(CurrentPath);
+        enemy.Setup(GetChild<Node2D>(CurrentWaveNumber - 1).GetChild<Path2D>(CurrentBatches[CurrentQueueIndex].PathID));
         GameManager.GM.AddChild(enemy);
 
         CurrentBatchesQueue[CurrentBatches[CurrentQueueIndex]] -= 1;
@@ -152,7 +151,6 @@ public partial class WaveManager : Node
     {
         CurrentWaveNumber = WaveNumber;
         CurrentWave = WaveQuery[WaveNumber];
-        CurrentPath = GetChild<Path2D>(WaveNumber - 1);
         Warned = true;
         PlaceIndicator();
     }
@@ -201,56 +199,66 @@ public partial class WaveManager : Node
 
     private void PlaceIndicator()
     {
-        Curve2D curve = CurrentPath.GetCurve();
-        Vector2[] points = curve.GetBakedPoints();
-        LastDirection = FacingDirection.TopLeft;
-        
-        for (int i = 0; i < points.Length - 1; i++)
+        foreach (SpawnData batch in CurrentWave.SpawnedEnemy)
         {
-            Vector2I GridPos = Indicator.LocalToMap(Indicator.ToLocal(CurrentPath.ToGlobal(points[i])));
-            
-            float angle = points[i].GetIsometricAngleTo(points[i + 1]);
-        
-            if (angle >= 225 && angle < 315)
-                Direction = FacingDirection.TopLeft;
-            else if (angle >= 315 || angle < 45)
-                Direction = FacingDirection.TopRight;
-            else if (angle >= 135 && angle < 225)
-                Direction = FacingDirection.BottomLeft;
-            else if (angle >= 45 && angle < 135)
-                Direction = FacingDirection.BottomRight;
+            Path2D path = GetChild<Node2D>(CurrentWaveNumber - 1).GetChild<Path2D>(batch.PathID);
+            Curve2D curve = path.GetCurve();
+            TileMapLayer Indicator = new TileMapLayer();
+            Vector2[] points = curve.GetBakedPoints();
+            LastDirection = FacingDirection.TopLeft;
 
+            Indicator.SetTileSet(WorldTileSet);
             
-            if (Direction == FacingDirection.TopLeft || Direction == FacingDirection.BottomRight)
-                Indicator.SetCell(GridPos, 3, new Vector2I(4, 0));
-            else
-                Indicator.SetCell(GridPos, 3, new Vector2I(5, 0));
-            
-            if (LastDirection != null)
+            for (int i = 0; i < points.Length - 1; i++)
             {
-                if ((LastDirection == FacingDirection.TopLeft && Direction == FacingDirection.TopRight) || 
-                    (Direction == FacingDirection.BottomRight && LastDirection == FacingDirection.BottomLeft))
-                    Indicator.SetCell(GridPos, 3, new Vector2I(1, 0));
-                else if ((LastDirection == FacingDirection.TopRight && Direction == FacingDirection.BottomRight) ||
-                         (Direction == FacingDirection.BottomLeft && LastDirection == FacingDirection.TopLeft))
-                    Indicator.SetCell(GridPos, 3, new Vector2I(3, 0));
-                else if ((LastDirection == FacingDirection.BottomRight && Direction == FacingDirection.BottomLeft) ||
-                         (Direction == FacingDirection.TopLeft && LastDirection == FacingDirection.TopRight))
-                    Indicator.SetCell(GridPos, 3, new Vector2I(2, 0));
-                else if ((LastDirection == FacingDirection.BottomLeft && Direction == FacingDirection.TopLeft) || 
-                        (Direction == FacingDirection.TopRight && LastDirection == FacingDirection.BottomRight))
-                    Indicator.SetCell(GridPos, 3, new Vector2I(0, 0));
+                Vector2I GridPos = IndicatorLayer.LocalToMap(IndicatorLayer.ToLocal(path.ToGlobal(points[i])));
+                
+                float angle = points[i].GetIsometricAngleTo(points[i + 1]);
+            
+                if (angle >= 225 && angle < 315)
+                    Direction = FacingDirection.TopLeft;
+                else if (angle >= 315 || angle < 45)
+                    Direction = FacingDirection.TopRight;
+                else if (angle >= 135 && angle < 225)
+                    Direction = FacingDirection.BottomLeft;
+                else if (angle >= 45 && angle < 135)
+                    Direction = FacingDirection.BottomRight;
+
+                
+                if (Direction == FacingDirection.TopLeft || Direction == FacingDirection.BottomRight)
+                    Indicator.SetCell(GridPos, 3, new Vector2I(4, 0));
+                else
+                    Indicator.SetCell(GridPos, 3, new Vector2I(5, 0));
+                
+                if (LastDirection != null)
+                {
+                    if ((LastDirection == FacingDirection.TopLeft && Direction == FacingDirection.TopRight) || 
+                        (Direction == FacingDirection.BottomRight && LastDirection == FacingDirection.BottomLeft))
+                        Indicator.SetCell(GridPos, 3, new Vector2I(1, 0));
+                    else if ((LastDirection == FacingDirection.TopRight && Direction == FacingDirection.BottomRight) ||
+                             (Direction == FacingDirection.BottomLeft && LastDirection == FacingDirection.TopLeft))
+                        Indicator.SetCell(GridPos, 3, new Vector2I(3, 0));
+                    else if ((LastDirection == FacingDirection.BottomRight && Direction == FacingDirection.BottomLeft) ||
+                             (Direction == FacingDirection.TopLeft && LastDirection == FacingDirection.TopRight))
+                        Indicator.SetCell(GridPos, 3, new Vector2I(2, 0));
+                    else if ((LastDirection == FacingDirection.BottomLeft && Direction == FacingDirection.TopLeft) || 
+                            (Direction == FacingDirection.TopRight && LastDirection == FacingDirection.BottomRight))
+                        Indicator.SetCell(GridPos, 3, new Vector2I(0, 0));
+                }
+                
+                LastDirection = Direction;
             }
             
-            LastDirection = Direction;
+            IndicatorLayer.AddChild(Indicator);
         }
+        
     }
 
     private void ClearIndication()
     {
-        foreach (Vector2I cell in Indicator.GetUsedCells())
+        foreach (TileMapLayer layer in IndicatorLayer.GetChildren())
         {
-            Indicator.EraseCell(cell);
+            layer.QueueFree();
         }
     }
 }

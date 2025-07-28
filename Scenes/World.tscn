@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://jsl0kt2kqh1m"]
+[gd_scene load_steps=15 format=4 uid="uid://jsl0kt2kqh1m"]
 
 [ext_resource type="TileSet" uid="uid://812b6buxvihs" path="res://Resources/Map/Map.tres" id="1_5cjrv"]
 [ext_resource type="Script" uid="uid://cljto2ukqdtou" path="res://Scripts/Managers/GameManager.cs" id="1_gjpho"]
@@ -13,16 +13,37 @@
 [sub_resource type="Curve2D" id="Curve2D_y7y61"]
 bake_interval = 80.0
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 936.3, 968.1, 0, 0, 0, 0, 1349.01, 715.146, 0, 0, 0, 0, 996.314, 503.605)
+"points": PackedVector2Array(0, 0, 0, 0, 936.3, 968.1, 0, 0, 0, 0, 1352.7, 715.146, 0, 0, 0, 0, 919.681, 449.881)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_kn06e"]
+bake_interval = 80.0
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 934.454, 968.1, 0, 0, 0, 0, 519.899, 716.266, 0, 0, 0, 0, 931.684, 462.192)
 }
 point_count = 3
 
 [sub_resource type="Curve2D" id="Curve2D_uo7di"]
-bake_interval = 100.0
+bake_interval = 80.0
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 879.057, 503.605, 0, 0, 0, 0, 757.183, 429.734, 0, 0, 0, 0, 994.467, 279.752, 0, 0, 0, 0, 879.057, 215.954)
+"points": PackedVector2Array(0, 0, 0, 0, 696.246, 30.1559, 0, 0, 0, 0, 877.21, 134.248, 0, 0, 0, 0, 637.156, 283.11, 0, 0, 0, 0, 867.054, 421.899)
 }
 point_count = 4
+
+[sub_resource type="Curve2D" id="Curve2D_7yo87"]
+bake_interval = 80.0
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1396.1, 173.422, 0, 0, 0, 0, 1645.38, 318.926, 0, 0, 0, 0, 1345.32, 502.486, 0, 0, 0, 0, 1111.72, 350.266, 0, 0, 0, 0, 996.314, 426.376)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_ti1bm"]
+bake_interval = 80.0
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1343.47, 787.899, 0, 0, 0, 0, 1108.03, 640.156, 0, 0, 0, 0, 877.21, 792.376, 0, 0, 0, 0, 636.233, 644.633, 0, 0, 0, 0, 923.374, 456.596)
+}
+point_count = 5
 
 [node name="World" type="Node"]
 script = ExtResource("1_gjpho")
@@ -40,7 +61,6 @@ tile_map_data = PackedByteArray("AAD//wIABAAAAAAAAAD//wEABAAAAAAAAAD+/wEABAAAAAA
 tile_set = ExtResource("1_5cjrv")
 
 [node name="Indicator" type="TileMapLayer" parent="Tile Map"]
-tile_map_data = PackedByteArray("AAAGAAcAAwAFAAAAAAAGAAYAAwAFAAAAAAAGAAUAAwAFAAAAAAAGAAQAAwAFAAAAAAAGAAMAAwAFAAAAAAAGAAIAAwAFAAAAAAA=")
 tile_set = ExtResource("1_5cjrv")
 
 [node name="PlaceTile" type="TileMapLayer" parent="Tile Map"]
@@ -92,21 +112,43 @@ GroundLayer = [NodePath("../Tile Map/Land Upper")]
 
 [node name="Interface Manager" parent="." instance=ExtResource("6_q2d71")]
 
-[node name="WaveManager" parent="." node_paths=PackedStringArray("Indicator") instance=ExtResource("7_y7y61")]
+[node name="WaveManager" parent="." node_paths=PackedStringArray("IndicatorLayer") instance=ExtResource("7_y7y61")]
 Waves = Array[Object]([ExtResource("8_q2d71"), ExtResource("9_uo7di")])
-TimeBetweenWaves = 5.0
 TimeBetweenBatches = 2.0
-Indicator = NodePath("../Tile Map/Indicator")
+IndicatorLayer = NodePath("../Tile Map/Indicator")
+WorldTileSet = ExtResource("1_5cjrv")
+IndicatorTime = 5.0
 
-[node name="Wave1Path" type="Path2D" parent="WaveManager"]
+[node name="Wave1Paths" type="Node2D" parent="WaveManager"]
+visible = false
+
+[node name="Path0" type="Path2D" parent="WaveManager/Wave1Paths"]
 position = Vector2(-53.0974, 61.0574)
 scale = Vector2(1.08309, 0.893443)
 curve = SubResource("Curve2D_y7y61")
 
-[node name="Wave2Path" type="Path2D" parent="WaveManager"]
+[node name="Path1" type="Path2D" parent="WaveManager/Wave1Paths"]
+position = Vector2(-53.0974, 61.0574)
+scale = Vector2(1.08309, 0.893443)
+curve = SubResource("Curve2D_kn06e")
+
+[node name="Wave2Paths" type="Node2D" parent="WaveManager"]
+visible = false
+
+[node name="Path0" type="Path2D" parent="WaveManager/Wave2Paths"]
 position = Vector2(-53.0974, 61.0574)
 scale = Vector2(1.08309, 0.893443)
 curve = SubResource("Curve2D_uo7di")
 
-[connection signal="mouse_entered" from="Tile Map/PlaceTile/@StaticBody2D@30256" to="Tile Map/PlaceTile/@StaticBody2D@30256" method="OnMouseEntered"]
-[connection signal="mouse_exited" from="Tile Map/PlaceTile/@StaticBody2D@30256" to="Tile Map/PlaceTile/@StaticBody2D@30256" method="OnMouseExited"]
+[node name="Path1" type="Path2D" parent="WaveManager/Wave2Paths"]
+position = Vector2(-53.0974, 61.0574)
+scale = Vector2(1.08309, 0.893443)
+curve = SubResource("Curve2D_7yo87")
+
+[node name="Path2" type="Path2D" parent="WaveManager/Wave2Paths"]
+position = Vector2(-53.0974, 61.0574)
+scale = Vector2(1.08309, 0.893443)
+curve = SubResource("Curve2D_ti1bm")
+
+[connection signal="mouse_entered" from="Tile Map/PlaceTile/Nexus Button" to="Tile Map/PlaceTile/Nexus Button" method="OnMouseEntered"]
+[connection signal="mouse_exited" from="Tile Map/PlaceTile/Nexus Button" to="Tile Map/PlaceTile/Nexus Button" method="OnMouseExited"]

@@ -26,6 +26,7 @@ public partial class SpawnData : Resource
     [Export] public PackedScene Enemy;
     [Export] public int Count;
     [Export] public float SpawnInterval; //The Interval between each enemy spawned
+    [Export] public int PathID;
     [Export] public SpawnMode Mode;
 }
 #endif

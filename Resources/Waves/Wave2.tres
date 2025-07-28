@@ -10,6 +10,7 @@ script = ExtResource("2_nlc01")
 Enemy = ExtResource("1_1qnre")
 Count = 3
 SpawnInterval = 1.0
+PathID = 0
 Mode = 1
 metadata/_custom_type_script = "uid://bnqqnodjbvisx"
 
@@ -18,6 +19,7 @@ script = ExtResource("2_nlc01")
 Enemy = ExtResource("3_a7gyk")
 Count = 5
 SpawnInterval = 1.0
+PathID = 1
 Mode = 1
 metadata/_custom_type_script = "uid://bnqqnodjbvisx"
 
@@ -26,11 +28,13 @@ script = ExtResource("2_nlc01")
 Enemy = ExtResource("1_1qnre")
 Count = 3
 SpawnInterval = 1.0
+PathID = 2
 Mode = 0
 metadata/_custom_type_script = "uid://bnqqnodjbvisx"
 
 [resource]
 script = ExtResource("1_xcoj0")
 WaveNumber = 2
+TimeBetweenWaves = 10.0
 SpawnedEnemy = [SubResource("Resource_ef0tk"), SubResource("Resource_l23xm"), SubResource("Resource_d84q2")]
 metadata/_custom_type_script = "uid://c8ucpi2ldsff5"
