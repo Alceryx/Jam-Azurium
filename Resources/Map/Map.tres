@@ -1,10 +1,17 @@
-[gd_resource type="TileSet" load_steps=9 format=3 uid="uid://812b6buxvihs"]
+[gd_resource type="TileSet" load_steps=12 format=3 uid="uid://812b6buxvihs"]
 
+[ext_resource type="PackedScene" uid="uid://df24pg8xmxlx6" path="res://Scenes/Enemy/Enemy.tscn" id="1_5flb4"]
+[ext_resource type="PackedScene" uid="uid://djbq55octpltn" path="res://Scenes/Enemy/StrongEnemy.tscn" id="2_0ferl"]
 [ext_resource type="PackedScene" uid="uid://d3njk76vqeien" path="res://Scenes/Turrets/FirstTurret.tscn" id="2_ret7r"]
 [ext_resource type="PackedScene" uid="uid://ewd3qwa6ccua" path="res://Scenes/Nexus Button.tscn" id="3_cu0q7"]
 [ext_resource type="PackedScene" uid="uid://byjt12v8wjc8c" path="res://Scenes/Turrets/SecondTurret.tscn" id="4_cu0q7"]
 [ext_resource type="Texture2D" uid="uid://8w3yok0stq6" path="res://Assets/World/Tile/Ground.png" id="5_3g01x"]
 [ext_resource type="Texture2D" uid="uid://cmex8e5uhkhkg" path="res://Assets/World/Indicator/Indicator.png" id="5_ret7r"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_m5if5"]
+resource_name = "Enemies"
+scenes/0/scene = ExtResource("1_5flb4")
+scenes/1/scene = ExtResource("2_0ferl")
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_71t2j"]
 resource_name = "TurretLayer"
@@ -39,4 +46,5 @@ custom_data_layer_0/type = 1
 sources/2 = SubResource("TileSetScenesCollectionSource_71t2j")
 sources/4 = SubResource("TileSetAtlasSource_5flb4")
 sources/3 = SubResource("TileSetAtlasSource_ret7r")
+sources/0 = SubResource("TileSetScenesCollectionSource_m5if5")
 tile_proxies/coords_level = [[3, Vector2i(0, 0)], [9, Vector2i(0, 0)], [4, Vector2i(0, 0)], [9, Vector2i(1, 0)], [5, Vector2i(0, 0)], [11, Vector2i(0, 0)], [5, Vector2i(1, 0)], [9, Vector2i(3, 0)], [5, Vector2i(2, 0)], [9, Vector2i(4, 0)], [6, Vector2i(0, 0)], [11, Vector2i(1, 0)], [7, Vector2i(0, 0)], [11, Vector2i(2, 0)], [8, Vector2i(0, 0)], [11, Vector2i(3, 0)], [9, Vector2i(0, 0)], [11, Vector2i(4, 0)], [10, Vector2i(0, 0)], [11, Vector2i(5, 0)], [11, Vector2i(0, 0)], [16, Vector2i(1, 0)], [12, Vector2i(0, 0)], [16, Vector2i(2, 0)], [13, Vector2i(0, 0)], [16, Vector2i(3, 0)], [14, Vector2i(0, 0)], [16, Vector2i(4, 0)], [15, Vector2i(0, 0)], [16, Vector2i(5, 0)]]

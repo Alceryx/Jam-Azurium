@@ -11,35 +11,30 @@
 [ext_resource type="Resource" uid="uid://d4kiqdpaucgj7" path="res://Resources/Waves/Wave2.tres" id="9_uo7di"]
 
 [sub_resource type="Curve2D" id="Curve2D_y7y61"]
-bake_interval = 80.0
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 936.3, 968.1, 0, 0, 0, 0, 1352.7, 715.146, 0, 0, 0, 0, 919.681, 449.881)
+"points": PackedVector2Array(0, 0, 0, 0, 936.3, 968.1, 0, 0, 0, 0, 1349.01, 712.908, 0, 0, 0, 0, 993.544, 496.89)
 }
 point_count = 3
 
 [sub_resource type="Curve2D" id="Curve2D_kn06e"]
-bake_interval = 80.0
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 934.454, 968.1, 0, 0, 0, 0, 519.899, 716.266, 0, 0, 0, 0, 931.684, 462.192)
+"points": PackedVector2Array(0, 0, 0, 0, 934.454, 968.1, 0, 0, 0, 0, 523.592, 709.55, 0, 0, 0, 0, 931.684, 462.192)
 }
 point_count = 3
 
 [sub_resource type="Curve2D" id="Curve2D_uo7di"]
-bake_interval = 80.0
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 696.246, 30.1559, 0, 0, 0, 0, 877.21, 134.248, 0, 0, 0, 0, 637.156, 283.11, 0, 0, 0, 0, 867.054, 421.899)
 }
 point_count = 4
 
 [sub_resource type="Curve2D" id="Curve2D_7yo87"]
-bake_interval = 80.0
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 1396.1, 173.422, 0, 0, 0, 0, 1645.38, 318.926, 0, 0, 0, 0, 1345.32, 502.486, 0, 0, 0, 0, 1111.72, 350.266, 0, 0, 0, 0, 996.314, 426.376)
 }
 point_count = 5
 
 [sub_resource type="Curve2D" id="Curve2D_ti1bm"]
-bake_interval = 80.0
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 1343.47, 787.899, 0, 0, 0, 0, 1108.03, 640.156, 0, 0, 0, 0, 877.21, 792.376, 0, 0, 0, 0, 636.233, 644.633, 0, 0, 0, 0, 923.374, 456.596)
 }

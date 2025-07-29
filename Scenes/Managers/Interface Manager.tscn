@@ -29,3 +29,4 @@ grow_vertical = 1
 mouse_filter = 2
 
 [node name="Timer" parent="." instance=ExtResource("4_wxi3v")]
+mouse_filter = 2

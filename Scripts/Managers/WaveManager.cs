@@ -23,10 +23,12 @@ public partial class WaveManager : Node
     private Dictionary<int, WaveData> WaveQuery = new();
     
     public WaveData CurrentWave;
-    //public Path2D CurrentPath;
+    public Path2D CurrentPath;
     public int CurrentWaveNumber;
+    
     public Array<SpawnData> CurrentBatches = new();
     public Dictionary<SpawnData, int> CurrentBatchesQueue = new();
+    
     public int CurrentBatchIndex; 
     public int CurrentQueueIndex;
 
@@ -36,6 +38,7 @@ public partial class WaveManager : Node
     public static WaveManager WM;
     public bool SpawnFinished = true;
     public bool WaveFinished = true;
+    public bool LevelFinished;
     private bool Warned;
     
     private FacingDirection Direction;
@@ -49,6 +52,9 @@ public partial class WaveManager : Node
     
     [Signal]
     public delegate void WaveStartedEventHandler();
+    
+    [Signal]
+    public delegate void AllWavesFinishedEventHandler();
     
     public override void _Ready()
     {
@@ -68,6 +74,9 @@ public partial class WaveManager : Node
 
     public override void _Process(double delta)
     {
+        if (LevelFinished)
+            return;
+        
         if (WaveFinished)
         {
             WaveTimer -= (float)delta;
@@ -89,7 +98,13 @@ public partial class WaveManager : Node
             if (CurrentWaveNumber <= Waves.Count - 1)
                 CurrentWaveNumber++;
             else
-                CurrentWaveNumber = 1;
+            {
+                LevelFinished = true;
+                EmitSignalAllWavesFinished();
+                GD.Print("Level Finished");
+                return;
+            }
+                
             
             WaveTimer = WaveQuery[CurrentWaveNumber].TimeBetweenWaves;
             return;
@@ -202,6 +217,7 @@ public partial class WaveManager : Node
         foreach (SpawnData batch in CurrentWave.SpawnedEnemy)
         {
             Path2D path = GetChild<Node2D>(CurrentWaveNumber - 1).GetChild<Path2D>(batch.PathID);
+            path.Curve.SetBakeInterval(80);
             Curve2D curve = path.GetCurve();
             TileMapLayer Indicator = new TileMapLayer();
             Vector2[] points = curve.GetBakedPoints();
@@ -250,6 +266,8 @@ public partial class WaveManager : Node
             }
             
             IndicatorLayer.AddChild(Indicator);
+            
+            path.Curve.SetBakeInterval(5);
         }
         
     }
