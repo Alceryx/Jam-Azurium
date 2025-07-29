@@ -44,7 +44,7 @@ public partial class NexusButton : StaticBody2D
             HoldTimer = 0;
         }
 
-        if (!BuildManager.BM.IsBuilding && CanClick && ClickTimer <= 0)
+        if (!BuildManager.BM.IsBuilding && CanClick && ClickTimer <= 0 && WaveManager.WM.WaveFinished)
         {
             SpriteState.Play("Mid");
             if (Input.IsActionJustPressed("Interact"))

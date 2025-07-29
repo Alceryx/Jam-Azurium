@@ -16,8 +16,8 @@ scenes/1/scene = ExtResource("2_0ferl")
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_71t2j"]
 resource_name = "TurretLayer"
 scenes/0/scene = ExtResource("2_ret7r")
-scenes/2/scene = ExtResource("4_cu0q7")
-scenes/3/scene = ExtResource("3_cu0q7")
+scenes/1/scene = ExtResource("4_cu0q7")
+scenes/2/scene = ExtResource("3_cu0q7")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ret7r"]
 texture = ExtResource("5_ret7r")
