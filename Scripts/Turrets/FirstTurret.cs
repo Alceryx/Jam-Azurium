@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using Godot.Collections;
 
 public partial class FirstTurret : Turret
 {
@@ -8,6 +9,9 @@ public partial class FirstTurret : Turret
     [Export] private Marker2D TopRightShootPoint;
     [Export] private Marker2D BottomLeftShootPoint;
     [Export] private Marker2D BottomRightShootPoint;
+    private Array<RayCast2D> DirCast = new();
+
+    private int EnemyEnteredLaser = 0;
     
     public override void _Ready()
     {
@@ -18,8 +22,50 @@ public partial class FirstTurret : Turret
             Shoot(Vector2.Zero);
             WaveManager.WM.WaveEnded += OnWaveEnded;
         }
+
+        if (!Preview && Mode == 0)
+        {
+            DetectionShape.Disabled = true;
+            Array<Vector2> ShootPoints = new Array<Vector2>()
+            {
+                TopLeftShootPoint.GlobalPosition,
+                TopRightShootPoint.GlobalPosition,
+                BottomLeftShootPoint.GlobalPosition,
+                BottomRightShootPoint.GlobalPosition
+            };
+
+            foreach (var point in ShootPoints)
+            {
+                RayCast2D ray = new RayCast2D();
+                AddChild(ray);
+                ray.GlobalPosition = OriginPoint.GlobalPosition;
+                ray.TargetPosition = (point - OriginPoint.GlobalPosition).Normalized() * (30 + Data.Modes[Mode].Range * 70);
+                DirCast.Add(ray);
+            }
+        }
     }
 
+    public override void _Process(double delta)
+    {
+        if (Mode == 0)
+        {
+            foreach (var ray in DirCast)
+            {
+                if (ray.GetCollider() is Enemy)
+                {
+                    Enemy enemy = (Enemy)ray.GetCollider();
+                    if (CanShoot && !enemy.Targeted && !enemy.Frozen)
+                    {
+                        TargetedEnemy = enemy;
+                        enemy.Targeted = true;
+                        Shoot(ray.GetCollisionPoint());
+                    }
+                }
+            }
+        }
+        base._Process(delta);
+    }
+    
     public override void Shoot(Vector2 target)
     {
         if (!CanShoot)
@@ -65,6 +111,8 @@ public partial class FirstTurret : Turret
         else
         {
             Projectile projectile = Data.Modes[Mode].Projectile.Instantiate<Projectile>();
+            projectile.Hitbox.BodyEntered += (body) => OnLaserEntered(body);
+            
             Vector2 ShootPoint = new();
             
             if (Direction == FacingDirection.TopLeft)
@@ -88,5 +136,15 @@ public partial class FirstTurret : Turret
     private void OnWaveEnded()
     {
         SelfDestruct();
+    }
+
+    private void OnLaserEntered(Node2D body)
+    {
+        if (body is Enemy)
+        {
+            EnemyEnteredLaser++;
+            if (EnemyEnteredLaser >= 3)
+                SelfDestruct();
+        }
     }
 }

@@ -63,7 +63,7 @@ tile_set = ExtResource("1_5cjrv")
 [node name="PlaceTile" type="TileMapLayer" parent="Tile Map"]
 z_index = 1
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAD8//3/AgAAAAAAAwA=")
+tile_map_data = PackedByteArray("AAD8//3/AgAAAAAAAgA=")
 tile_set = ExtResource("1_5cjrv")
 
 [node name="PreviewTile" type="TileMapLayer" parent="Tile Map"]

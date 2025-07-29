@@ -26,6 +26,6 @@ metadata/_custom_type_script = "uid://bnqqnodjbvisx"
 [resource]
 script = ExtResource("1_jqwoh")
 WaveNumber = 1
-TimeBetweenWaves = 30.0
+TimeBetweenWaves = 10.0
 SpawnedEnemy = [SubResource("Resource_4q48n"), SubResource("Resource_jl2wl")]
 metadata/_custom_type_script = "uid://c8ucpi2ldsff5"

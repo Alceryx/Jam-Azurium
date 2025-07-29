@@ -1,16 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://c47sp1oj85g4l"]
+[gd_scene load_steps=5 format=3 uid="uid://c47sp1oj85g4l"]
 
 [ext_resource type="Texture2D" uid="uid://d2o5d8y6g8qsr" path="res://icon.svg" id="1_5cs0p"]
-[ext_resource type="Script" uid="uid://btskkxxokh83d" path="res://Scripts/Projectiles/BounceBullet.cs" id="1_dkg77"]
+[ext_resource type="Script" uid="uid://bg454kho6wf4s" path="res://Scripts/Projectiles/FreezeBullet.cs" id="1_dkg77"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dkg77"]
 size = Vector2(56, 10)
 
-[node name="Bounce Bullet" type="CharacterBody2D" node_paths=PackedStringArray("Hitbox")]
+[sub_resource type="CircleShape2D" id="CircleShape2D_dkg77"]
+radius = 30.0
+
+[node name="Bounce Bullet" type="CharacterBody2D" node_paths=PackedStringArray("FreezeArea", "Sprite", "Hitbox")]
 script = ExtResource("1_dkg77")
-JumpHeight = 500.0
-TimeToApex = 0.5
-TimeToGround = 0.3
+Speed = 200.0
+HoverTime = 2.0
+HoverHeight = 100.0
+FreezeArea = NodePath("FreezeArea/CollisionShape2D")
+Sprite = NodePath("Sprite2D")
 Hitbox = NodePath("Hitbox")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -22,3 +27,13 @@ texture = ExtResource("1_5cs0p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 shape = SubResource("RectangleShape2D_dkg77")
+
+[node name="FreezeArea" type="Area2D" parent="."]
+rotation = -0.523599
+skew = -0.523599
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FreezeArea"]
+shape = SubResource("CircleShape2D_dkg77")
+
+[connection signal="body_entered" from="FreezeArea" to="." method="OnFreezeEntered"]
+[connection signal="body_exited" from="FreezeArea" to="." method="OnFreezeExited"]

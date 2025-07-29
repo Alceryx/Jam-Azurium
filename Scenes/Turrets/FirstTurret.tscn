@@ -378,6 +378,7 @@ HighlightShader = ExtResource("2_fpcsr")
 DestructDelay = 0.2
 
 [node name="DetectionPreview" type="MeshInstance2D" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0.309804)
 position = Vector2(0, 50)
 rotation = -0.523599
@@ -408,6 +409,7 @@ polygon = PackedVector2Array(-64, -64, 0, -32, 64, -64, 64, 0, 0, 32, -64, 0)
 polygon = PackedVector2Array(0, -32, 64, 0, 0, 32, -64, 0)
 
 [node name="DetectionArea" type="Area2D" parent="."]
+visible = false
 position = Vector2(0, 50)
 rotation = -0.523599
 skew = -0.523599

@@ -21,8 +21,7 @@ public partial class Laser : Projectile
     {
         if (!IsInstanceValid(Turret))
             QueueFree();
-        
-        RayCast.TargetPosition = RayCast.TargetPosition.MoveToward(Direction * (Turret.Data.Modes[Turret.Mode].Range * 70), CastSpeed * (float)delta);
+        RayCast.TargetPosition = RayCast.TargetPosition.MoveToward(Direction * 10000, CastSpeed * (float)delta);
         Ray.SetLength(GlobalPosition.DistanceTo(ToGlobal(RayCast.TargetPosition)));
         Collider.SetRotation((ToGlobal(RayCast.TargetPosition) - GlobalPosition).Normalized().Angle() - Mathf.Pi / 2);
         Vector2 EndPoint = RayCast.TargetPosition;
@@ -30,5 +29,13 @@ public partial class Laser : Projectile
         if (RayCast.IsColliding())
             EndPoint = ToLocal(RayCast.GetCollisionPoint());
         Line.SetPointPosition(1, EndPoint);
+    }
+
+    public override void OnBodyEntered(Node2D body)
+    {
+        if (body is Enemy)
+        {
+            ((Enemy)body).TakeDamage(((Enemy)body).MaxHealth / 2);
+        }
     }
 }

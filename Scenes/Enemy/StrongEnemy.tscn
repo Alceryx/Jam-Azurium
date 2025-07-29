@@ -157,7 +157,6 @@ radius = 30.0832
 z_index = 1
 y_sort_enabled = true
 script = ExtResource("1_lta73")
-Health = 10.0
 Damage = 3.0
 sprite = NodePath("AnimationPlayer")
 

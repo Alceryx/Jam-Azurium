@@ -4,51 +4,39 @@ using System;
 
 public partial class FreezeBullet : Projectile
 {
-    [Export] private MeshInstance2D FreezeAreaDisplay;
+    [ExportGroup("Info")]
+    [Export] private float Speed;
+    [Export] private float HoverTime;
+    [Export] private float HoverHeight;
+    [ExportGroup("Freeze")]
     [Export] private CollisionShape2D FreezeArea;
     [Export] private Sprite2D Sprite;
     
-    [Export] private float JumpHeight;
-    [Export] private float TimeToApex;
-    [Export] private float TimeToGround;
-    private float Speed;
-
-    private Vector2 NewVelocity;
-    private Vector2 OldVelocity;
-    private Vector2 AppliedVelocity;
-    
-    private bool IsJumping;
-    private bool IsFalling;
-    
-    private float ApexGravity =>  2 * JumpHeight / (TimeToApex * TimeToApex);
-    private float FallGravity => 2 * JumpHeight / (TimeToGround * TimeToGround);
-    private float JumpForce => -2 * JumpHeight / TimeToApex;
-    
-    private float JumpTimer;
-
     private Array<Enemy> EnemyToFreeze = new();
     private bool CanFreeze;
+    private float HoverTimer;
+    private bool Hovered;
 
+    private Vector2 OriginalPosition;
+    
+    [Signal]
+    public delegate void HoverFinishedEventHandler();
 
     public override void _Ready()
     {
+        HoverTimer = HoverTime;
+        OriginalPosition = GlobalPosition;
+        
         WaveManager.WM.WaveStarted += Destroy;
         
-        FreezeAreaDisplay.Hide();
         Sprite.Show();
-        
-        Speed = GlobalPosition.DistanceTo(Target) / (TimeToApex + TimeToGround);
-        
-        NewVelocity.Y = JumpForce;
     }
 
-    
     public override void _PhysicsProcess(double delta)
     {
         if (CanFreeze)
         {
             Sprite.Hide();
-            FreezeAreaDisplay.Show();
             foreach (Enemy enemy in EnemyToFreeze)
             {
                 if (!enemy.Frozen)
@@ -58,20 +46,32 @@ public partial class FreezeBullet : Projectile
             return;
         }
         
-        AppliedVelocity = Velocity;
-        
-        Move();
-
-        OldVelocity = NewVelocity;
-        NewVelocity.Y += Gravity() * (float)delta;
-        NewVelocity.Y = Mathf.Clamp(NewVelocity.Y, !IsOnCeiling() ? JumpForce : 0, !IsOnFloor() ? Mathf.Inf : 0);
-
-        AppliedVelocity.Y = (OldVelocity.Y + NewVelocity.Y) * .5f;
-        
-        Velocity = AppliedVelocity;
+        if (HoverTimer > 0)
+        {
+            HoverTimer -= (float)delta;
+            if (!Hovered)
+            {
+                Velocity = Vector2.Up * Speed;
+                if (GlobalPosition.DistanceTo(OriginalPosition) >= HoverHeight)
+                {
+                    Hovered = true;
+                    EmitSignalHoverFinished();
+                }
+            }
+            else
+            {
+                Velocity = Vector2.Zero;
+            }
+        }
+        else
+        {
+            Velocity = Direction * Speed;
+            LookAt(Direction * 10000);
+        }
         MoveAndSlide();
     }
-
+    
+    
     public override void OnBodyEntered(Node2D body)
     {
         if (body is Enemy && !CanFreeze)
@@ -80,18 +80,7 @@ public partial class FreezeBullet : Projectile
             CanFreeze = true;
         }
     }
-
-    void Move()
-    {
-        AppliedVelocity.X = Direction.X * Speed;
-    }
-
-    float Gravity()
-    {
-        IsFalling = !IsOnFloor() && NewVelocity.Y >= 0;
-        return IsFalling ? FallGravity : ApexGravity;
-    }
-
+    
     private void OnFreezeEntered(Node2D body)
     {
         if (body is Enemy)

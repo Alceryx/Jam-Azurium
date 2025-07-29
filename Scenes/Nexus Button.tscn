@@ -101,6 +101,7 @@ shader_parameter/outline_thickness = 2.0
 shader_parameter/outline_color = Color(1, 1, 1, 0)
 
 [node name="Nexus Button" type="StaticBody2D" node_paths=PackedStringArray("SpriteState", "Sprite")]
+collision_layer = 3
 input_pickable = true
 script = ExtResource("1_0h4l8")
 MaxCPS = 7

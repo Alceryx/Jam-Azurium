@@ -16,7 +16,7 @@ public abstract partial class Turret : StaticBody2D
    [Export] public Sprite2D Sprite;
    [Export] public AnimationPlayer SpriteState;
    [Export] private Area2D DetectionArea;
-   [Export] private CollisionShape2D DetectionShape;
+   [Export] public CollisionShape2D DetectionShape;
    [Export] private MeshInstance2D DectectionPreview;
    [Export] private Shader HighlightShader;
    [Export] private float DestructDelay;
@@ -106,16 +106,28 @@ public abstract partial class Turret : StaticBody2D
       switch (Direction)
       {
          case FacingDirection.TopLeft:
-            SpriteState.Play("Top Left");
+            if (Mode == 0)
+               SpriteState.Play("Mode 1/Top Left");
+            else
+               SpriteState.Play("Mode 2/Top Left");
             break;
          case FacingDirection.TopRight:
-            SpriteState.Play("Top Right");
+            if (Mode == 0)
+               SpriteState.Play("Mode 1/Top Right");
+            else
+               SpriteState.Play("Mode 2/Top Right");
             break;
          case FacingDirection.BottomLeft:
-            SpriteState.Play("Bottom Left");
+            if (Mode == 0)
+               SpriteState.Play("Mode 1/Bottom Left");
+            else
+               SpriteState.Play("Mode 2/Bottom Left");
             break;
          case FacingDirection.BottomRight:
-            SpriteState.Play("Bottom Right");
+            if (Mode == 0)
+               SpriteState.Play("Mode 1/Bottom Right");
+            else
+               SpriteState.Play("Mode 2/Bottom Right");
             break;
       }
    }
@@ -166,6 +178,7 @@ public abstract partial class Turret : StaticBody2D
       if (body is Enemy)
       {
          Enemy enemy = (Enemy)body;
+         
          if (CanShoot && !enemy.Targeted && !enemy.Frozen)
          {
             TargetedEnemy = enemy;

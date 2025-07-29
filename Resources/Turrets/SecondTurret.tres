@@ -12,7 +12,7 @@ Icon = ExtResource("1_3fquq")
 Price = 30
 CanRotate = false
 Projectile = ExtResource("2_7yynm")
-Damage = 5.0
+Damage = 0.0
 Range = 3.0
 metadata/_custom_type_script = "uid://dpbvjc5ku3vl4"
 
@@ -22,7 +22,7 @@ Icon = ExtResource("1_3fquq")
 Price = 80
 CanRotate = false
 Projectile = ExtResource("4_7yynm")
-Damage = 3.0
+Damage = 0.0
 Range = 2.0
 metadata/_custom_type_script = "uid://dpbvjc5ku3vl4"
 

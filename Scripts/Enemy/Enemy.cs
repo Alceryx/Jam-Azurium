@@ -13,9 +13,10 @@ public partial class Enemy : CharacterBody2D
     }
 
     [ExportGroup("Data")] 
-    [Export] private float Health = 5f;
+    [Export] public float MaxHealth = 5f;
     [Export] public float Speed = 100.0f;
     [Export] private float Damage = 5f;
+    public float CurrentHealth;
 
     [ExportGroup("References")] 
     [Export] private AnimationPlayer sprite;
@@ -44,13 +45,14 @@ public partial class Enemy : CharacterBody2D
 
     public override void _Ready()
     {
+        CurrentHealth = MaxHealth;
         WaveManager.WM.WaveStarted += UnFreeze;
     }
 
     public void TakeDamage(float damage)
     {
-        Health -= damage;
-        if (Health <= 0)
+        CurrentHealth -= damage;
+        if (CurrentHealth <= 0)
         {
             WaveManager.WM.WaveStarted -= UnFreeze;
             QueueFree();
