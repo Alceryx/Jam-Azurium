@@ -25,7 +25,7 @@ content_margin_left = 15.0
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k6ki2"]
 texture = ExtResource("11_x476g")
 
-[node name="Item" type="PanelContainer" node_paths=PackedStringArray("Panel", "Lock", "Icon", "ModeButton", "name", "price")]
+[node name="Item" type="PanelContainer" node_paths=PackedStringArray("Panel", "Lock", "Icon", "ModeButton", "name", "price", "description")]
 custom_minimum_size = Vector2(380, 250)
 offset_right = 380.0
 offset_bottom = 250.0
@@ -39,6 +39,7 @@ Icon = NodePath("Background/VBoxContainer/Detail/Frame/Icon")
 ModeButton = [NodePath("Buttons/Mode 1"), NodePath("Buttons/Mode 2")]
 name = NodePath("Background/VBoxContainer/Name")
 price = NodePath("Background/VBoxContainer/Cost/PanelContainer/HBoxContainer/Price")
+description = NodePath("Background/VBoxContainer/Detail/Description")
 
 [node name="Background" type="PanelContainer" parent="."]
 custom_minimum_size = Vector2(364, 250)
@@ -71,7 +72,7 @@ layout_mode = 2
 layout_mode = 2
 theme_override_constants/separation = 37
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Background/VBoxContainer/Detail"]
+[node name="Description" type="RichTextLabel" parent="Background/VBoxContainer/Detail"]
 custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
 size_flags_horizontal = 3

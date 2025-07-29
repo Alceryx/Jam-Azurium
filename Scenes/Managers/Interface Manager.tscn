@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cxrkc6mxf5yor"]
+[gd_scene load_steps=6 format=3 uid="uid://cxrkc6mxf5yor"]
 
 [ext_resource type="PackedScene" uid="uid://bkf0xqfrwl72v" path="res://Scenes/GUI/Stats.tscn" id="2_kffii"]
 [ext_resource type="PackedScene" uid="uid://dex3irx743gqe" path="res://Scenes/GUI/Shop/Shop.tscn" id="3_7ud4v"]
 [ext_resource type="PackedScene" uid="uid://cjmodeiwt6ovk" path="res://Scenes/GUI/Hotbar/Hotbar.tscn" id="3_wxi3v"]
 [ext_resource type="PackedScene" uid="uid://bai61h2offnsa" path="res://Scenes/GUI/Timer.tscn" id="4_wxi3v"]
+[ext_resource type="PackedScene" uid="uid://b0dyl21t28hwy" path="res://Scenes/GUI/DeathScreen.tscn" id="5_760ko"]
 
 [node name="Interface Manager" type="CanvasLayer"]
 
@@ -30,3 +31,6 @@ offset_bottom = 509.0
 grow_horizontal = 1
 grow_vertical = 1
 mouse_filter = 2
+
+[node name="Death Screen" parent="." instance=ExtResource("5_760ko")]
+visible = false

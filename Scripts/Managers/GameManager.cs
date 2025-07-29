@@ -6,7 +6,7 @@ using System;
 public partial class GameManager : Node
 {
     public static GameManager GM;
-
+    
     [ExportGroup("Nexus Button")]
     [Export] public int Efficiency;
     [Export] public float ButtonMaxHP;
@@ -20,4 +20,4 @@ public partial class GameManager : Node
         GM = this;
         ButtonHP = ButtonMaxHP;
     }
- }
+}

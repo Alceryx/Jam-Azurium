@@ -13,6 +13,7 @@ public partial class ShopItem : PanelContainer
     [ExportGroup("Detail")]
     [Export] private Label name;
     [Export] private Label price;
+    [Export] private RichTextLabel description;
 
     public bool Affordable;
     public int Price;

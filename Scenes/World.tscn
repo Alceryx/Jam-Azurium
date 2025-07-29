@@ -42,7 +42,7 @@ point_count = 5
 [node name="World" type="Node"]
 script = ExtResource("1_gjpho")
 Efficiency = 100
-ButtonMaxHP = 100.0
+ButtonMaxHP = 5.0
 
 [node name="Interface Manager" parent="." instance=ExtResource("6_q2d71")]
 
