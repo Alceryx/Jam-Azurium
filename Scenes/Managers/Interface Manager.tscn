@@ -7,6 +7,9 @@
 
 [node name="Interface Manager" type="CanvasLayer"]
 
+[node name="Timer" parent="." instance=ExtResource("4_wxi3v")]
+mouse_filter = 2
+
 [node name="Stats" parent="." instance=ExtResource("2_kffii")]
 mouse_filter = 2
 
@@ -20,13 +23,10 @@ visible = false
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 1035.0
+offset_left = 1087.0
 offset_top = 513.0
-offset_right = 1035.0
+offset_right = 1087.0
 offset_bottom = 513.0
 grow_horizontal = 1
 grow_vertical = 1
-mouse_filter = 2
-
-[node name="Timer" parent="." instance=ExtResource("4_wxi3v")]
 mouse_filter = 2

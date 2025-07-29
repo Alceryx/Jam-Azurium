@@ -1,9 +1,8 @@
-[gd_scene load_steps=15 format=4 uid="uid://jsl0kt2kqh1m"]
+[gd_scene load_steps=14 format=4 uid="uid://jsl0kt2kqh1m"]
 
 [ext_resource type="TileSet" uid="uid://812b6buxvihs" path="res://Resources/Map/Map.tres" id="1_5cjrv"]
 [ext_resource type="Script" uid="uid://cljto2ukqdtou" path="res://Scripts/Managers/GameManager.cs" id="1_gjpho"]
 [ext_resource type="PackedScene" uid="uid://dgymrcaln58wc" path="res://Scenes/Managers/BuildManager.tscn" id="3_gjpho"]
-[ext_resource type="Script" uid="uid://f51cuw0krxbt" path="res://addons/ProCam2D/scripts/procam2d.gd" id="5_p70al"]
 [ext_resource type="Resource" uid="uid://dow74su7kthuu" path="res://Resources/Turrets/FirstTurret.tres" id="5_uo7di"]
 [ext_resource type="PackedScene" uid="uid://cxrkc6mxf5yor" path="res://Scenes/Managers/Interface Manager.tscn" id="6_q2d71"]
 [ext_resource type="PackedScene" uid="uid://bc6lkoeu16lv1" path="res://Scenes/Managers/Wave Manager.tscn" id="7_y7y61"]
@@ -45,6 +44,8 @@ script = ExtResource("1_gjpho")
 Efficiency = 100
 ButtonMaxHP = 100.0
 
+[node name="Interface Manager" parent="." instance=ExtResource("6_q2d71")]
+
 [node name="Tile Map" type="TileMapLayer" parent="."]
 y_sort_enabled = true
 texture_filter = 1
@@ -70,46 +71,11 @@ modulate = Color(1, 1, 1, 0.458824)
 y_sort_enabled = true
 tile_set = ExtResource("1_5cjrv")
 
-[node name="ProCam2D" type="Node2D" parent="Tile Map"]
-z_index = 4096
-script = ExtResource("5_p70al")
-process_frame = 2
-follow_mode = 0
-drag_type = 0
-smooth_drag = true
-smooth_drag_speed = Vector2(5, 5)
-max_distance = Vector2(100000, 100000)
-offset = Vector2(0, 0)
-smooth_offset = true
-smooth_offset_speed = 2.0
-allow_rotation = true
-smooth_rotation = true
-smooth_rotation_speed = 5.0
-zoom = 0.75
-smooth_zoom = true
-smooth_zoom_speed = 5.0
-auto_zoom = true
-min_zoom = 0.0
-max_zoom = 1.0
-zoom_margin = 5.0
-smooth_limit = true
-left_limit = -10000000
-right_limit = 10000000
-top_limit = -10000000
-bottom_limit = 10000000
-use_h_margins = false
-use_v_margins = false
-working_radius = 2000.0
-global_debug_draw = false
-metadata/_custom_type_script = "uid://f51cuw0krxbt"
-
 [node name="BuildManager" parent="." node_paths=PackedStringArray("PreviewLayer", "PlaceableLayer", "GroundLayer") instance=ExtResource("3_gjpho")]
 TurretInfo = ExtResource("5_uo7di")
 PreviewLayer = NodePath("../Tile Map/PreviewTile")
 PlaceableLayer = NodePath("../Tile Map/PlaceTile")
 GroundLayer = [NodePath("../Tile Map/Land Upper")]
-
-[node name="Interface Manager" parent="." instance=ExtResource("6_q2d71")]
 
 [node name="WaveManager" parent="." node_paths=PackedStringArray("IndicatorLayer") instance=ExtResource("7_y7y61")]
 Waves = Array[Object]([ExtResource("8_q2d71"), ExtResource("9_uo7di")])
@@ -147,3 +113,6 @@ curve = SubResource("Curve2D_7yo87")
 position = Vector2(-53.0974, 61.0574)
 scale = Vector2(1.08309, 0.893443)
 curve = SubResource("Curve2D_ti1bm")
+
+[connection signal="mouse_entered" from="Tile Map/PlaceTile/Nexus Button" to="Tile Map/PlaceTile/Nexus Button" method="OnMouseEntered"]
+[connection signal="mouse_exited" from="Tile Map/PlaceTile/Nexus Button" to="Tile Map/PlaceTile/Nexus Button" method="OnMouseExited"]

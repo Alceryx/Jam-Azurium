@@ -12,7 +12,7 @@
 [node name="Slot" type="TextureButton" node_paths=PackedStringArray("icon", "amount")]
 custom_minimum_size = Vector2(225, 215)
 offset_right = 225.0
-offset_bottom = 225.0
+offset_bottom = 221.0
 theme = ExtResource("1_03178")
 texture_normal = ExtResource("5_60ley")
 texture_pressed = ExtResource("3_b2j6t")
@@ -27,8 +27,6 @@ amount = NodePath("Amount")
 
 [node name="Icon" type="TextureRect" parent="."]
 layout_mode = 2
-offset_right = 225.0
-offset_bottom = 225.0
 expand_mode = 1
 stretch_mode = 5
 

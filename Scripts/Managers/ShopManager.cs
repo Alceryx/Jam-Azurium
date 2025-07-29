@@ -56,8 +56,11 @@ public partial class ShopManager : Control
             WaveManager.WM.WaveStarted += Hide;
             SignalConnected = true;
         }
-        
-        if (Input.IsActionJustPressed("Escape")) Hide();
+
+        if (Input.IsActionJustPressed("Escape"))
+        {
+            Hide();
+        }
 
         if (Affordable()) Buy.Disabled = !AnySelected;
         else Buy.Disabled = true;
@@ -129,8 +132,11 @@ public partial class ShopManager : Control
         PackUp();
         DisplayItem();
     }
-    
-    private void OnClosePressed() => Hide();
+
+    private void OnClosePressed()
+    {
+        Hide();
+    }
     private void DisplayItem()
     {
         foreach (TurretData data in Database)

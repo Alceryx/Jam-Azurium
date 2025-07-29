@@ -53,7 +53,6 @@ public partial class NexusButton : StaticBody2D
                 GameManager.GM.Currency += GameManager.GM.Efficiency;
                 
                 SpriteState.Play("Clicked");
-                if (ShopManager.SM.Visible) ShopManager.SM.Hide();
             }
 
             if (Input.IsActionPressed("Interact") )
