@@ -3,7 +3,7 @@
 [ext_resource type="Theme" uid="uid://bm2m53cf2qpe4" path="res://Resources/GUI.tres" id="2_7h1o4"]
 [ext_resource type="Script" uid="uid://uli68ss1jvut" path="res://Scripts/Managers/ShopManager.cs" id="2_kktns"]
 [ext_resource type="PackedScene" uid="uid://dp1iskdniviuw" path="res://Scenes/GUI/Shop/Shop Item.tscn" id="3_0d586"]
-[ext_resource type="Resource" uid="uid://dow74su7kthuu" path="res://Resources/Turrets/FirstTurret.tres" id="3_h5hno"]
+[ext_resource type="Resource" uid="uid://dow74su7kthuu" path="res://Resources/Turrets/Pruner.tres" id="3_h5hno"]
 [ext_resource type="Script" uid="uid://cm64ammqner4" path="res://Resources/Turrets/TurretData.cs" id="3_xcfsc"]
 [ext_resource type="Resource" uid="uid://bb1usc2y6f5ix" path="res://Resources/Turrets/SecondTurret.tres" id="6_dgiod"]
 [ext_resource type="Texture2D" uid="uid://lflsw3cxcox4" path="res://Assets/GUI/Shop/ShopBuyButton - Enabled.png" id="7_fovie"]

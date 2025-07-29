@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvxofpeckbw5f"
-path="res://.godot/imported/Nexus Button - Default.png-800bb4fc8585b22a84dbae2a0bc67111.ctex"
+uid="uid://crk0ynp0ghld3"
+path="res://.godot/imported/Nexus - Low.png-bfa3b2f63182f5d8acbbaed0971fe131.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/World/Extractor/Nexus Button - Default.png"
-dest_files=["res://.godot/imported/Nexus Button - Default.png-800bb4fc8585b22a84dbae2a0bc67111.ctex"]
+source_file="res://Assets/World/Extractor/Nexus - Low.png"
+dest_files=["res://.godot/imported/Nexus - Low.png-bfa3b2f63182f5d8acbbaed0971fe131.ctex"]
 
 [params]
 

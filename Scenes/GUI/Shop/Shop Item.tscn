@@ -1,11 +1,11 @@
 [gd_scene load_steps=18 format=3 uid="uid://dp1iskdniviuw"]
 
 [ext_resource type="Theme" uid="uid://bm2m53cf2qpe4" path="res://Resources/GUI.tres" id="1_6rkdq"]
-[ext_resource type="Texture2D" uid="uid://d2o5d8y6g8qsr" path="res://icon.svg" id="1_rgnhs"]
 [ext_resource type="Script" uid="uid://deovqbn6kvfek" path="res://Scripts/GUI/ShopItem.cs" id="2_52ifu"]
 [ext_resource type="Texture2D" uid="uid://5oqp5dgg7iqh" path="res://Assets/GUI/Shop/Defence/ShopTurItem - Pane.png" id="2_71nuy"]
 [ext_resource type="Texture2D" uid="uid://bd4wgnxh2pvhb" path="res://Assets/GUI/Shop/Defence/ShopTurItem - Lock.png" id="3_k6ki2"]
 [ext_resource type="Texture2D" uid="uid://bsy5xm3tr4jw5" path="res://Assets/GUI/Shop/Defence/ShopMode1 - Default.png" id="4_kh4kd"]
+[ext_resource type="Texture2D" uid="uid://ejv2boplrqnw" path="res://Assets/GUI/Shop/Defence/ShopTurItem - IMG.png" id="4_oxhw4"]
 [ext_resource type="Texture2D" uid="uid://cs61v1g56h3t7" path="res://Assets/GUI/Shop/Defence/ShopMode1 - Selected.png" id="5_2no7j"]
 [ext_resource type="Texture2D" uid="uid://d271k0r26hkmb" path="res://Assets/GUI/Shop/Defence/ShopMode1 - Hover.png" id="6_q8bwd"]
 [ext_resource type="Texture2D" uid="uid://dn0elavwq2i1f" path="res://Assets/GUI/Shop/Defence/ShopTurItem - Currency.png" id="6_vesc7"]
@@ -35,7 +35,7 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_b4nwx")
 script = ExtResource("2_52ifu")
 Panel = NodePath("Background")
 Lock = NodePath("Lock")
-Icon = NodePath("Background/VBoxContainer/Detail/Icon")
+Icon = NodePath("Background/VBoxContainer/Detail/Frame/Icon")
 ModeButton = [NodePath("Buttons/Mode 1"), NodePath("Buttons/Mode 2")]
 name = NodePath("Background/VBoxContainer/Name")
 price = NodePath("Background/VBoxContainer/Cost/PanelContainer/HBoxContainer/Price")
@@ -77,14 +77,26 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "Turret goes boom boom, pew pew, pow pow, bang"
 
-[node name="Icon" type="TextureRect" parent="Background/VBoxContainer/Detail"]
-custom_minimum_size = Vector2(115, 115)
+[node name="Frame" type="TextureRect" parent="Background/VBoxContainer/Detail"]
+custom_minimum_size = Vector2(118, 115)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
-texture = ExtResource("1_rgnhs")
+texture = ExtResource("4_oxhw4")
 expand_mode = 1
 stretch_mode = 6
+
+[node name="Icon" type="TextureRect" parent="Background/VBoxContainer/Detail/Frame"]
+custom_minimum_size = Vector2(105, 0)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5
 
 [node name="End" type="VSeparator" parent="Background/VBoxContainer/Detail"]
 layout_mode = 2

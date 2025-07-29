@@ -25,6 +25,8 @@ public partial class NexusButton : StaticBody2D
 
     public override void _Process(double delta)
     {
+        if (ShopManager.SM.Visible) CanClick = false;
+        
         if (Releasing && RiseTimer > 0)
         {
             SpriteState.Play("Mid");

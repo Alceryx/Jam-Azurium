@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://beg5tgb5f3ovu"
-path="res://.godot/imported/Tile Map.png-dfadd5a344ce9d42ecd951314b7eca35.ctex"
+uid="uid://c3ph0y6gja5lk"
+path="res://.godot/imported/Pirate - P2.png-c3c53d5db6a5ffeb3a8243a38197cd83.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Tile Map.png"
-dest_files=["res://.godot/imported/Tile Map.png-dfadd5a344ce9d42ecd951314b7eca35.ctex"]
+source_file="res://Assets/World/Azure Seeker/Pirate - P2.png"
+dest_files=["res://.godot/imported/Pirate - P2.png-c3c53d5db6a5ffeb3a8243a38197cd83.ctex"]
 
 [params]
 

@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://dkwpps6dhmbbl" path="res://Scripts/NexusButton.cs" id="1_0h4l8"]
 [ext_resource type="Shader" uid="uid://de5cqnc22f116" path="res://Resources/Shaders/2DOutline.gdshader" id="2_k7c6v"]
-[ext_resource type="Texture2D" uid="uid://bvxofpeckbw5f" path="res://Assets/World/Extractor/Nexus Button - Default.png" id="3_0h4l8"]
-[ext_resource type="Texture2D" uid="uid://c4mk6pfckqvsv" path="res://Assets/World/Extractor/Nexus Button - Clicked.png" id="4_k7c6v"]
+[ext_resource type="Texture2D" uid="uid://crk0ynp0ghld3" path="res://Assets/World/Extractor/Nexus - Low.png" id="4_k7c6v"]
+[ext_resource type="Texture2D" uid="uid://b6djbjs7m2d50" path="res://Assets/World/Extractor/Nexus - Peak.png" id="4_ke4vg"]
 [ext_resource type="Texture2D" uid="uid://c1il5jr4vr6y3" path="res://Assets/World/Extractor/Nexus - Mid.png" id="5_ke4vg"]
 
 [sub_resource type="Animation" id="Animation_k7c6v"]
@@ -57,7 +57,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 33)]
+"values": [Vector2(0, 43)]
 }
 
 [sub_resource type="Animation" id="Animation_0h4l8"]
@@ -72,7 +72,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("3_0h4l8")]
+"values": [ExtResource("4_ke4vg")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -121,7 +121,7 @@ libraries = {
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_hqswg")
 scale = Vector2(0.883, 0.883)
-texture = ExtResource("3_0h4l8")
+texture = ExtResource("4_ke4vg")
 offset = Vector2(0, -7)
 
 [node name="Body" type="CollisionPolygon2D" parent="."]
