@@ -46,12 +46,12 @@ public partial class HotbarSlot : TextureButton
     {
         switch (mode)
         {
-            case 1:
+            case 0:
                 TextureNormal = Mode1Icon[0];
                 TextureHover = Mode1Icon[1];
                 TexturePressed = Mode1Icon[2];
                 break;
-            case 2:
+            case 1:
                 TextureNormal = Mode2Icon[0];
                 TextureHover = Mode2Icon[1];
                 TexturePressed = Mode2Icon[2];

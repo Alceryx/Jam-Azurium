@@ -112,7 +112,7 @@ Waves = Array[Object]([ExtResource("8_q2d71"), ExtResource("9_uo7di")])
 TimeBetweenBatches = 2.0
 IndicatorLayer = NodePath("../Tile Map/Indicator")
 WorldTileSet = ExtResource("1_5cjrv")
-IndicatorTime = 5.0
+IndicatorTime = 10.0
 
 [node name="Wave1Paths" type="Node2D" parent="WaveManager"]
 visible = false
@@ -144,3 +144,6 @@ curve = SubResource("Curve2D_7yo87")
 position = Vector2(-53.0974, 61.0574)
 scale = Vector2(1.08309, 0.893443)
 curve = SubResource("Curve2D_ti1bm")
+
+[connection signal="mouse_entered" from="Tile Map/PlaceTile/Nexus Button" to="Tile Map/PlaceTile/Nexus Button" method="OnMouseEntered"]
+[connection signal="mouse_exited" from="Tile Map/PlaceTile/Nexus Button" to="Tile Map/PlaceTile/Nexus Button" method="OnMouseExited"]

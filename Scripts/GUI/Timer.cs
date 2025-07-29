@@ -17,9 +17,7 @@ public partial class Timer : Control
 
     public override void _Process(double delta)
     {
-        string minute = Mathf.Floor(WaveManager.WM.WaveTimer / 60) >= 10 ? Mathf.Floor(WaveManager.WM.WaveTimer / 60).ToString() : "0" + Mathf.Floor(WaveManager.WM.WaveTimer / 60); 
-        string second = Mathf.Floor(WaveManager.WM.WaveTimer % 60) >= 10 ? Mathf.Floor(WaveManager.WM.WaveTimer % 60).ToString() : "0" + Mathf.Floor(WaveManager.WM.WaveTimer % 60); 
-        time.Text = minute + ":" + second;
+        time.Text = WaveManager.WM.WaveTimer <= 0 ? "00.00" : $"{WaveManager.WM.WaveTimer:00.00}";
         wave.Text = $"{WaveManager.WM.CurrentWaveNumber}/{WaveManager.WM.Waves.Count}";
 
         if (WaveManager.WM.WaveTimer <= 5) EndSoon();
