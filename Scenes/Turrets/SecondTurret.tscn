@@ -156,6 +156,8 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_vsmea"]
 
 [node name="SecondTurret" type="StaticBody2D" node_paths=PackedStringArray("ShootPoint", "Sprite", "SpriteState", "DetectionArea", "DetectionShape", "DectectionPreview")]
+z_index = 1
+y_sort_enabled = true
 input_pickable = true
 script = ExtResource("1_obnts")
 ShootPoint = NodePath("ShootPoint")
