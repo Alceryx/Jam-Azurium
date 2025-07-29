@@ -1,8 +1,14 @@
 using Godot;
 using System;
+using Godot.Collections;
 
-public partial class HotbarSlot : Button
+public partial class HotbarSlot : TextureButton
 {
+    [ExportGroup("Graphic")] 
+    [Export] private Array<Texture2D> Mode1Icon = [];
+    [Export] private Array<Texture2D> Mode2Icon = [];
+
+    [ExportGroup("Details")]
     [Export] private TextureRect icon;
     [Export] private Label amount;
 
@@ -22,6 +28,8 @@ public partial class HotbarSlot : Button
 
     public void SetUp(TurretData data, int mode, int amount)
     {
+        SetGraphic(mode);
+        
         Amount = amount;
         Data = data;
         Mode = mode;
@@ -32,6 +40,23 @@ public partial class HotbarSlot : Button
     {
         BuildManager.BM.SetTurret(Data, Mode);
         BuildManager.BM.Build();
+    }
+
+    private void SetGraphic(int mode)
+    {
+        switch (mode)
+        {
+            case 1:
+                TextureNormal = Mode1Icon[0];
+                TextureHover = Mode1Icon[1];
+                TexturePressed = Mode1Icon[2];
+                break;
+            case 2:
+                TextureNormal = Mode2Icon[0];
+                TextureHover = Mode2Icon[1];
+                TexturePressed = Mode2Icon[2];
+                break;
+        }
     }
 
     private void OnPlacementFinished(TurretData data, int mode)
