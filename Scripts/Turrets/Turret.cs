@@ -13,14 +13,18 @@ public abstract partial class Turret : StaticBody2D
       TopLeft
    }
    
+   [ExportGroup("References")]
    [Export] public Sprite2D Sprite;
    [Export] public AnimationPlayer SpriteState;
    [Export] private Area2D DetectionArea;
    [Export] public CollisionShape2D DetectionShape;
    [Export] private MeshInstance2D DectectionPreview;
+   [ExportGroup("Visual")]
    [Export] private Shader HighlightShader;
    [Export] private float DestructDelay;
+   [Export] private float HoldThreshold = 0.5f;
    private float DestructTimer;
+   private float HoldTimer;
 
    public FacingDirection Direction = FacingDirection.TopRight;
    public TurretData Data;
@@ -68,6 +72,19 @@ public abstract partial class Turret : StaticBody2D
          ShowDetectionPreview();
       }
 
+      if (Input.IsActionPressed("Interact") && CanClick && !BuildManager.BM.IsBuilding && WaveManager.WM.WaveFinished)
+      {
+         HoldTimer += (float)delta;
+         if (HoldTimer >= HoldThreshold)
+         {
+            HoldTimer = 0;
+            BuildManager.BM.Move(this);
+         }
+      }
+
+      if (Input.IsActionJustReleased("Interact"))
+         HoldTimer = 0;
+
       if (!Preview && BuildManager.BM.IsBuilding || (Input.IsActionJustReleased("Interact") && !CanClick))
       {
          Interacted = false;
@@ -77,11 +94,8 @@ public abstract partial class Turret : StaticBody2D
          CanClick = false;
       }
       
-      if (Input.IsActionJustPressed("Destroy") && Interacted)
+      if (Input.IsActionJustPressed("Destroy") && Interacted && WaveManager.WM.WaveFinished)
          BuildManager.BM.Store(this);
-      
-      if (Input.IsActionJustPressed("Move") && Interacted)
-         BuildManager.BM.Move(this);
    }
 
    public void SetUp(TurretData Data, int Mode, FacingDirection Direction, Array<Vector2I> OccupiedPositions = null, bool Preview = false)
@@ -158,7 +172,6 @@ public abstract partial class Turret : StaticBody2D
       
       Tween tween = CreateTween();
       tween.TweenProperty((ShaderMaterial)Sprite.Material, "shader_parameter/outline_color", new Color(1,1,1), 0.15f);
-      tween.Parallel().TweenProperty(this, "scale", new Vector2(1.1f, 1.1f), 0.15f);
       CanClick = true;
    }
 
@@ -170,7 +183,6 @@ public abstract partial class Turret : StaticBody2D
       
       Tween tween = CreateTween();
       tween.TweenProperty((ShaderMaterial)Sprite.Material, "shader_parameter/outline_color", new Color(1,1,1, 0), 0.15f);
-      tween.Parallel().TweenProperty(this, "scale", new Vector2(1, 1), 0.15f);
    }
    
    private void OnBodyEntered(Node2D body)

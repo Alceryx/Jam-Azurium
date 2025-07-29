@@ -25,7 +25,7 @@ public partial class Projectile : CharacterBody2D
     {
         if (body is Enemy)
         {
-            ((Enemy)body).TakeDamage(Damage);
+            ((Enemy)body).TakeDamage(((Enemy)body).MaxHealth * Damage);
             if (!Pierce)
                 QueueFree();
         }

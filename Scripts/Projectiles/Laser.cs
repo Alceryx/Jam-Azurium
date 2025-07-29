@@ -30,12 +30,4 @@ public partial class Laser : Projectile
             EndPoint = ToLocal(RayCast.GetCollisionPoint());
         Line.SetPointPosition(1, EndPoint);
     }
-
-    public override void OnBodyEntered(Node2D body)
-    {
-        if (body is Enemy)
-        {
-            ((Enemy)body).TakeDamage(((Enemy)body).MaxHealth / 2);
-        }
-    }
 }

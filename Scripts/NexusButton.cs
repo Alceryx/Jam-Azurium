@@ -26,14 +26,21 @@ public partial class NexusButton : StaticBody2D
     public override void _Process(double delta)
     {
         if (ShopManager.SM.Visible) CanClick = false;
-        
-        if (Releasing && RiseTimer > 0)
+
+        if (WaveManager.WM.WaveFinished)
         {
-            SpriteState.Play("Mid");
-            RiseTimer -= (float)delta;
+            if (Releasing && RiseTimer > 0)
+            {
+                SpriteState.Play("Mid");
+                RiseTimer -= (float)delta;
+            }
+            else if (!Releasing) RiseTimer = RiseDelay;
+            if (RiseTimer <= 0) SpriteState.Play("Neutral");
         }
-        else if (!Releasing) RiseTimer = RiseDelay;
-        if (RiseTimer <= 0) SpriteState.Play("Neutral");
+        else
+        {
+            SpriteState.Play("Neutral");
+        }
         
         if (ClickTimer > 0)
         {
