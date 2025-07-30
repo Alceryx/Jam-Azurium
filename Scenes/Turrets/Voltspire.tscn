@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bye1ink2txlol"]
+[gd_scene load_steps=14 format=3 uid="uid://bye1ink2txlol"]
 
 [ext_resource type="Script" uid="uid://cfimxhfc8u3aa" path="res://Scripts/Turrets/Voltspire.cs" id="1_dg4l2"]
 [ext_resource type="Shader" uid="uid://de5cqnc22f116" path="res://Resources/Shaders/2DOutline.gdshader" id="2_1s0j2"]
@@ -35,6 +35,58 @@ tracks/1/keys = {
 "values": [Vector2(0, 54)]
 }
 
+[sub_resource type="Animation" id="Animation_1s0j2"]
+resource_name = "Mode 1 Shoot"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_g4nv2")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 54)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Line2D:points")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [PackedVector2Array(0, 16, 0, 16), PackedVector2Array(0, -100, 0, 16), PackedVector2Array(0, -100, 0, -90)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Line2D:width")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [10.0, 10.0, 50.0]
+}
+
 [sub_resource type="Animation" id="Animation_obnts"]
 resource_name = "Mode 2"
 tracks/0/type = "value"
@@ -62,21 +114,128 @@ tracks/1/keys = {
 "values": [Vector2(0, 52)]
 }
 
+[sub_resource type="Animation" id="Animation_cbf36"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_g4nv2")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 54)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Line2D:points")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedVector2Array(0, -100, 0, 16)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Line2D:width")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [10.0]
+}
+
+[sub_resource type="Animation" id="Animation_ncty4"]
+resource_name = "Mode 1 Shoot_2"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_tmw7x")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 54)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Line2D:points")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [PackedVector2Array(0, 16, 0, 16), PackedVector2Array(0, -100, 0, 16), PackedVector2Array(0, -100, 0, -90)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Line2D:width")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [10.0, 10.0, 50.0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_seemo"]
 _data = {
 &"Mode 1": SubResource("Animation_8380i"),
-&"Mode 2": SubResource("Animation_obnts")
+&"Mode 1 Shoot": SubResource("Animation_1s0j2"),
+&"Mode 2": SubResource("Animation_obnts"),
+&"Mode 2 Shoot": SubResource("Animation_ncty4"),
+&"RESET": SubResource("Animation_cbf36")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vsmea"]
 
-[node name="SecondTurret" type="StaticBody2D" node_paths=PackedStringArray("ShootPoint", "Sprite", "SpriteState", "DetectionArea", "DetectionShape", "DectectionPreview")]
+[node name="SecondTurret" type="StaticBody2D" node_paths=PackedStringArray("ShootPoint", "Line", "Sprite", "SpriteState", "DetectionArea", "DetectionShape", "DectectionPreview")]
 y_sort_enabled = true
 collision_layer = 4
 collision_mask = 4
 input_pickable = true
 script = ExtResource("1_dg4l2")
 ShootPoint = NodePath("ShootPoint")
+Line = NodePath("Line2D")
 Sprite = NodePath("Sprite2D")
 SpriteState = NodePath("AnimationPlayer")
 DetectionArea = NodePath("DetectionArea")
@@ -123,6 +282,15 @@ skew = -0.523599
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
 shape = SubResource("CircleShape2D_vsmea")
+
+[node name="Line2D" type="Line2D" parent="."]
+visible = false
+modulate = Color(1.5, 1.5, 1.5, 1)
+points = PackedVector2Array(0, -100, 0, 16)
+default_color = Color(0.073, 1, 1, 0.541)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
 
 [connection signal="mouse_entered" from="." to="." method="OnMouseEntered"]
 [connection signal="mouse_exited" from="." to="." method="OnMouseExited"]

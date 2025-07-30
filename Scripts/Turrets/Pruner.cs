@@ -20,7 +20,6 @@ public partial class Pruner : Turret
         if (!Preview && Mode == 1)
         {
             Shoot(Vector2.Zero);
-            WaveManager.WM.WaveEnded += OnWaveEnded;
         }
 
         if (!Preview && Mode == 0)
@@ -130,12 +129,6 @@ public partial class Pruner : Turret
 
         }
         CanShoot = false;
-    }
-
-    private void OnWaveEnded()
-    {
-        if (Mode == 1)
-            SelfDestruct();
     }
 
     private void OnLaserEntered(Node2D body)

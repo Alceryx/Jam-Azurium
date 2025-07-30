@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://q4ayl8hxmqoi"]
+[gd_scene load_steps=6 format=3 uid="uid://q4ayl8hxmqoi"]
 
 [ext_resource type="Script" uid="uid://bg454kho6wf4s" path="res://Scripts/Projectiles/FreezeBullet.cs" id="1_t7hq8"]
+[ext_resource type="PackedScene" uid="uid://dbnv1j16avxmm" path="res://Resources/SmokeCloud.tscn" id="2_t7hq8"]
 [ext_resource type="PackedScene" uid="uid://b1akxow2dqy3y" path="res://Scenes/Projectiles/Trail.tscn" id="3_vk15t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dkg77"]
@@ -16,6 +17,7 @@ Speed = 300.0
 HoverTime = 0.75
 HoverHeight = 100.0
 FreezeArea = NodePath("FreezeArea/CollisionShape2D")
+HitParticle = ExtResource("2_t7hq8")
 Hitbox = NodePath("Hitbox")
 LifeTime = 5.0
 

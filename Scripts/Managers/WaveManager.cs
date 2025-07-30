@@ -234,7 +234,7 @@ public partial class WaveManager : Node
         foreach (SpawnData batch in CurrentWave.SpawnedEnemy)
         {
             Path2D path = GetChild<Node2D>(CurrentWaveNumber - 1).GetChild<Path2D>(batch.PathID);
-            path.Curve.SetBakeInterval(80);
+            path.Curve.SetBakeInterval(90);
             Curve2D curve = path.GetCurve();
             TileMapLayer Indicator = new TileMapLayer();
             Vector2[] points = curve.GetBakedPoints();

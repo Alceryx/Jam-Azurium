@@ -52,6 +52,8 @@ public abstract partial class Turret : StaticBody2D
          DetectionArea.BodyEntered += (body) => OnBodyEntered(body);
          TreeExited += OnTreeExited; 
       }
+      
+      WaveManager.WM.WaveEnded += SelfDestruct;
    }
 
    public override void _Process(double delta)
@@ -214,5 +216,4 @@ public abstract partial class Turret : StaticBody2D
       if (IsInstanceValid(TargetedEnemy))
          TargetedEnemy.Targeted = false;
    }
-   
 }

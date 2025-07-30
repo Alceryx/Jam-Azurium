@@ -92,8 +92,12 @@ public partial class FreezeBullet : Projectile
 
     private void Destroy()
     {
-        WaveManager.WM.WaveStarted -= Destroy;
-        QueueFree();
+        if (IsInstanceValid(this))
+        {
+            WaveManager.WM.WaveStarted -= Destroy;
+            QueueFree();
+        }
+        
     }
 }
 

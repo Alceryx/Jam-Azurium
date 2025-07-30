@@ -58,7 +58,7 @@ glow_blend_mode = 1
 [node name="World" type="Node" node_paths=PackedStringArray("Audio")]
 script = ExtResource("1_gjpho")
 Efficiency = 5
-ButtonMaxHP = 1.0
+ButtonMaxHP = 100.0
 Audio = NodePath("AudioStreamPlayer")
 AudioDelay = 2.0
 PauseMenu = ExtResource("2_ti1bm")
@@ -205,6 +205,4 @@ stream = ExtResource("13_op4cu")
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(566.391, 607.7)
 
-[connection signal="mouse_entered" from="Tile Map/PlaceTile/Nexus Button" to="Tile Map/PlaceTile/Nexus Button" method="OnMouseEntered"]
-[connection signal="mouse_exited" from="Tile Map/PlaceTile/Nexus Button" to="Tile Map/PlaceTile/Nexus Button" method="OnMouseExited"]
 [connection signal="WaveStarted" from="WaveManager" to="BuildManager" method="CancelPlacement"]

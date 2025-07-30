@@ -3,6 +3,7 @@ using System;
 
 public partial class Projectile : CharacterBody2D
 {
+    [Export] public PackedScene HitParticle;
     [Export] public Area2D Hitbox;
     [Export] public bool Pierce;
     [Export] public float LifeTime;
@@ -47,6 +48,13 @@ public partial class Projectile : CharacterBody2D
             ((Enemy)body).TakeDamage(((Enemy)body).MaxHealth * Damage);
             if (!Pierce)
             {
+                if (IsInstanceValid(HitParticle))
+                {
+                    GpuParticles2D particle = HitParticle.Instantiate<GpuParticles2D>();
+                    particle.GlobalPosition = GlobalPosition;
+                    particle.Emitting = true;
+                    GameManager.GM.AddChild(particle);
+                }
                 EmitSignalHit();
                 QueueFree();
             }
