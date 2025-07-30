@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="WaveData" load_steps=7 format=3 uid="uid://bdfrad7pmgvuc"]
+[gd_resource type="Resource" script_class="WaveData" load_steps=7 format=3 uid="uid://5d8g638jafrd"]
 
 [ext_resource type="Script" uid="uid://c8ucpi2ldsff5" path="res://Resources/Waves/WaveData.cs" id="1_4ucac"]
 [ext_resource type="PackedScene" uid="uid://df24pg8xmxlx6" path="res://Scenes/Enemy/Enemy.tscn" id="1_psac3"]

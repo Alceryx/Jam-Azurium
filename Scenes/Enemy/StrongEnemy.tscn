@@ -1,10 +1,10 @@
 [gd_scene load_steps=13 format=3 uid="uid://djbq55octpltn"]
 
 [ext_resource type="Script" uid="uid://j5tokn85fm54" path="res://Scripts/Enemy/Enemy.cs" id="1_lta73"]
-[ext_resource type="Texture2D" uid="uid://bqjqh4wnrudt2" path="res://Assets/Critters/boar/boar_NW_idle_0.png" id="2_mgbs8"]
-[ext_resource type="Texture2D" uid="uid://dksofjos6syp" path="res://Assets/Critters/boar/boar_SE_idle_0.png" id="3_v72u3"]
-[ext_resource type="Texture2D" uid="uid://bbnvvrca4ih36" path="res://Assets/Critters/boar/boar_SW_idle_0.png" id="4_pjke1"]
-[ext_resource type="Texture2D" uid="uid://c7h1km7tlajhr" path="res://Assets/Critters/boar/boar_NE_idle_0.png" id="5_50nln"]
+[ext_resource type="Texture2D" uid="uid://bqjqh4wnrudt2" path="res://Assets/critters/boar/boar_NW_idle_0.png" id="2_mgbs8"]
+[ext_resource type="Texture2D" uid="uid://dksofjos6syp" path="res://Assets/critters/boar/boar_SE_idle_0.png" id="3_v72u3"]
+[ext_resource type="Texture2D" uid="uid://bbnvvrca4ih36" path="res://Assets/critters/boar/boar_SW_idle_0.png" id="4_pjke1"]
+[ext_resource type="Texture2D" uid="uid://c7h1km7tlajhr" path="res://Assets/critters/boar/boar_NE_idle_0.png" id="5_50nln"]
 
 [sub_resource type="Animation" id="Animation_ljmj3"]
 resource_name = "Bottom Left"

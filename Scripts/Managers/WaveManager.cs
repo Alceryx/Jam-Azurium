@@ -20,7 +20,7 @@ public partial class WaveManager : Node
     [Export] private TileMapLayer IndicatorLayer;
     [Export] private TileSet WorldTileSet;
     [Export] private float IndicatorTime;
-    [Export] private float CountdownTime;
+    [Export] private float CountDownTime;
     private Dictionary<int, WaveData> WaveQuery = new();
     
     public WaveData CurrentWave;
@@ -39,8 +39,8 @@ public partial class WaveManager : Node
     public static WaveManager WM;
     public bool SpawnFinished = true;
     public bool WaveFinished = true;
-    public bool CountDownFinished;
     public bool LevelFinished;
+    public bool CountDownFinished;
     private bool Warned;
     
     private FacingDirection Direction;
@@ -48,7 +48,7 @@ public partial class WaveManager : Node
     public float WaveTimer;
     private float BatchTimer;
     private float IndicatorTimer;
-    private float CountdownTimer;
+    private float CountDownTimer;
 
     [Signal]
     public delegate void WaveEndedEventHandler();
@@ -64,7 +64,7 @@ public partial class WaveManager : Node
         WM = this;
         IndicatorTimer =  IndicatorTime;
         BatchTimer = TimeBetweenBatches;
-        CountdownTimer = CountdownTime;
+        CountDownTimer = CountDownTime;
         CurrentWaveNumber = 1;
         
         foreach (WaveData wave in Waves)
@@ -81,13 +81,12 @@ public partial class WaveManager : Node
         if (LevelFinished)
             return;
 
-        if (WaveFinished)
+        if (!CountDownFinished && WaveFinished)
         {
-            CountdownTimer -= (float)delta;
-            if (CountdownTimer <= 0)
-            {
+            CountDownTimer -= (float)delta;
+            if (CountDownTimer <= 0)
                 CountDownFinished = true;
-            }
+            
         }
         
         if (CountDownFinished)
@@ -99,13 +98,15 @@ public partial class WaveManager : Node
 
             if (!Warned && IndicatorTimer <= 0)
                 WaveWarning(CurrentWaveNumber);
+            
+            CountDownFinished = false;
         }
         
         if (SpawnFinished && GetTree().GetNodesInGroup("Enemy").Count == 0 && !WaveFinished)
         {
             WaveFinished = true;
-            IndicatorTimer = IndicatorTime;
-            CountdownTimer = CountdownTime;
+            CountDownTimer = CountDownTime;
+            IndicatorTimer = IndicatorTime; 
             Warned = false;
             EmitSignalWaveEnded();
             
