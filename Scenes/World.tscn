@@ -83,6 +83,7 @@ TimeBetweenBatches = 2.0
 IndicatorLayer = NodePath("../Tile Map/Indicator")
 WorldTileSet = ExtResource("1_5cjrv")
 IndicatorTime = 5.0
+CountdownTime = 5.0
 
 [node name="Wave1Paths" type="Node2D" parent="WaveManager"]
 

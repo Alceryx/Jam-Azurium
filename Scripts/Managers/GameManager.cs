@@ -13,6 +13,7 @@ public partial class GameManager : Node
     public float ButtonHP;
     
     public int Currency;
+    public NexusButton NexusButton;
     
 
     public override void _Ready()

@@ -31,6 +31,7 @@ public partial class ShopManager : Control
     public Upgrade ActiveUpgrade;
 
     private bool SignalConnected;
+    private bool IsInArea;
 
     public override void _Ready()
     {
@@ -50,6 +51,11 @@ public partial class ShopManager : Control
 
     public override void _Process(double delta)
     {
+        if (IsInArea)
+        {
+            GameManager.GM.NexusButton.CanClick = false;
+        }
+        
         if (!SignalConnected)
         {
             WaveManager.WM.WaveEnded += Unlock;
@@ -169,5 +175,15 @@ public partial class ShopManager : Control
         SelectedItem = null;
         SelectedUpgrade = null;
         AnySelected = false;
+    }
+
+    private void OnMouseEntered()
+    {
+        IsInArea = true;
+    }
+
+    private void OnMouseExited()
+    {
+        IsInArea = false;
     }
 }

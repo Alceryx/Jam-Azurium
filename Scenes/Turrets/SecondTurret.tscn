@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://byjt12v8wjc8c"]
+[gd_scene load_steps=16 format=3 uid="uid://byjt12v8wjc8c"]
 
 [ext_resource type="Script" uid="uid://cfimxhfc8u3aa" path="res://Scripts/Turrets/SecondTurret.cs" id="1_obnts"]
 [ext_resource type="Shader" uid="uid://de5cqnc22f116" path="res://Resources/Shaders/2DOutline.gdshader" id="2_mg5gd"]
+[ext_resource type="Shader" uid="uid://cyjpl0eeiivbn" path="res://Resources/Shaders/Dissolve.gdshader" id="3_mg5gd"]
 [ext_resource type="Texture2D" uid="uid://bbnvvrca4ih36" path="res://Assets/critters/boar/boar_SW_idle_0.png" id="3_ujnuh"]
 [ext_resource type="Texture2D" uid="uid://dksofjos6syp" path="res://Assets/critters/boar/boar_SE_idle_0.png" id="4_ma8i5"]
 [ext_resource type="Texture2D" uid="uid://bqjqh4wnrudt2" path="res://Assets/critters/boar/boar_NW_idle_0.png" id="5_afb1a"]
@@ -158,6 +159,8 @@ _data = {
 [node name="SecondTurret" type="StaticBody2D" node_paths=PackedStringArray("ShootPoint", "Sprite", "SpriteState", "DetectionArea", "DetectionShape", "DectectionPreview")]
 z_index = 1
 y_sort_enabled = true
+collision_layer = 4
+collision_mask = 4
 input_pickable = true
 script = ExtResource("1_obnts")
 ShootPoint = NodePath("ShootPoint")
@@ -167,7 +170,8 @@ DetectionArea = NodePath("DetectionArea")
 DetectionShape = NodePath("DetectionArea/CollisionShape2D")
 DectectionPreview = NodePath("DetectionPreview")
 HighlightShader = ExtResource("2_mg5gd")
-DestructDelay = 0.2
+DissolveShader = ExtResource("3_mg5gd")
+DestructDelay = 1.0
 
 [node name="ShootPoint" type="Marker2D" parent="."]
 position = Vector2(25, 35)

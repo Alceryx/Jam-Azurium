@@ -20,6 +20,7 @@ public partial class WaveManager : Node
     [Export] private TileMapLayer IndicatorLayer;
     [Export] private TileSet WorldTileSet;
     [Export] private float IndicatorTime;
+    [Export] private float CountdownTime;
     private Dictionary<int, WaveData> WaveQuery = new();
     
     public WaveData CurrentWave;
@@ -38,6 +39,7 @@ public partial class WaveManager : Node
     public static WaveManager WM;
     public bool SpawnFinished = true;
     public bool WaveFinished = true;
+    public bool CountDownFinished;
     public bool LevelFinished;
     private bool Warned;
     
@@ -46,6 +48,7 @@ public partial class WaveManager : Node
     public float WaveTimer;
     private float BatchTimer;
     private float IndicatorTimer;
+    private float CountdownTimer;
 
     [Signal]
     public delegate void WaveEndedEventHandler();
@@ -61,6 +64,7 @@ public partial class WaveManager : Node
         WM = this;
         IndicatorTimer =  IndicatorTime;
         BatchTimer = TimeBetweenBatches;
+        CountdownTimer = CountdownTime;
         CurrentWaveNumber = 1;
         
         foreach (WaveData wave in Waves)
@@ -76,8 +80,17 @@ public partial class WaveManager : Node
     {
         if (LevelFinished)
             return;
-        
+
         if (WaveFinished)
+        {
+            CountdownTimer -= (float)delta;
+            if (CountdownTimer <= 0)
+            {
+                CountDownFinished = true;
+            }
+        }
+        
+        if (CountDownFinished)
         {
             WaveTimer -= (float)delta;
             IndicatorTimer -= (float)delta;
@@ -92,6 +105,7 @@ public partial class WaveManager : Node
         {
             WaveFinished = true;
             IndicatorTimer = IndicatorTime;
+            CountdownTimer = CountdownTime;
             Warned = false;
             EmitSignalWaveEnded();
             

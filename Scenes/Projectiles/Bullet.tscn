@@ -8,7 +8,7 @@ size = Vector2(56, 10)
 
 [node name="Bullet" type="CharacterBody2D" node_paths=PackedStringArray("Hitbox")]
 script = ExtResource("1_jnb4d")
-Speed = 100.0
+Speed = 250.0
 Hitbox = NodePath("Hitbox")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

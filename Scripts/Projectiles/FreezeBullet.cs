@@ -18,9 +18,6 @@ public partial class FreezeBullet : Projectile
     private bool Hovered;
 
     private Vector2 OriginalPosition;
-    
-    [Signal]
-    public delegate void HoverFinishedEventHandler();
 
     public override void _Ready()
     {
@@ -53,10 +50,7 @@ public partial class FreezeBullet : Projectile
             {
                 Velocity = Vector2.Up * Speed;
                 if (GlobalPosition.DistanceTo(OriginalPosition) >= HoverHeight)
-                {
                     Hovered = true;
-                    EmitSignalHoverFinished();
-                }
             }
             else
             {
@@ -77,6 +71,7 @@ public partial class FreezeBullet : Projectile
         if (body is Enemy && !CanFreeze)
         {
             ((Enemy)body).TakeDamage(Damage);
+            EmitSignalHit();
             CanFreeze = true;
         }
     }

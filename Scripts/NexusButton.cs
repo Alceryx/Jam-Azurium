@@ -7,7 +7,7 @@ public partial class NexusButton : StaticBody2D
     [Export] private float HoldThreshold;
     [Export] private AnimationPlayer SpriteState;
     [Export] private Sprite2D Sprite;
-    private bool CanClick;
+    public bool CanClick;
     private bool Releasing;
 
     private float ClickDelay;
@@ -21,12 +21,12 @@ public partial class NexusButton : StaticBody2D
     {
         SpriteState.Play("Neutral");
         ClickDelay = 1.0f / MaxCPS;
+
+        CallDeferred("SetInstance");
     }
 
     public override void _Process(double delta)
     {
-        if (ShopManager.SM.Visible) CanClick = false;
-
         if (WaveManager.WM.WaveFinished)
         {
             if (Releasing && RiseTimer > 0)
@@ -61,7 +61,10 @@ public partial class NexusButton : StaticBody2D
                 ClickTimer = ClickDelay;
                 GameManager.GM.Currency += GameManager.GM.Efficiency;
                 
+                GD.Print("NexusButton clicked");
                 SpriteState.Play("Clicked");
+                if (ShopManager.SM.Visible)
+                    ShopManager.SM.Hide();
             }
 
             if (Input.IsActionPressed("Interact") )
@@ -92,6 +95,11 @@ public partial class NexusButton : StaticBody2D
     {
         Releasing = true;
         CanClick = false;
+    }
+
+    private void SetInstance()
+    {
+        GameManager.GM.NexusButton = this;
     }
 
 }

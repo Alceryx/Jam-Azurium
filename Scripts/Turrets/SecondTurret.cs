@@ -20,6 +20,7 @@ public partial class SecondTurret : Turret
         projectile.GlobalPosition = ShootPoint.GlobalPosition;
         GameManager.GM.CallDeferred("add_child", projectile);
 
+        projectile.Hit += SelfDestruct;
 
         if (Mode == 0)
         {
@@ -29,7 +30,8 @@ public partial class SecondTurret : Turret
             GameManager.GM.CallDeferred("add_child", projectile);
         }
 
-        ((FreezeBullet)projectile).HoverFinished += SelfDestruct;
+        
+        projectile.Hit += SelfDestruct;
         
         CanShoot = false;
     }

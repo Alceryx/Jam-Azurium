@@ -39,7 +39,7 @@ public partial class FirstTurret : Turret
                 RayCast2D ray = new RayCast2D();
                 AddChild(ray);
                 ray.GlobalPosition = OriginPoint.GlobalPosition;
-                ray.TargetPosition = (point - OriginPoint.GlobalPosition).Normalized() * (30 + Data.Modes[Mode].Range * 70);
+                ray.TargetPosition = (point - OriginPoint.GlobalPosition).Normalized() * (30 + Data.Modes[Mode].Range * 80);
                 DirCast.Add(ray);
             }
         }
@@ -104,9 +104,8 @@ public partial class FirstTurret : Turret
             Vector2 direction = (target - ShootPoint).Normalized();
             projectile.Setup(this, direction, Data.Modes[Mode].Damage, target);
             projectile.GlobalPosition = ShootPoint;
+            projectile.Hit += OnProjectileHit;
             GameManager.GM.CallDeferred("add_child", projectile);
-            
-            SelfDestruct();
         }
         else
         {
@@ -146,5 +145,11 @@ public partial class FirstTurret : Turret
             if (EnemyEnteredLaser >= 3)
                 SelfDestruct();
         }
+    }
+
+    private void OnProjectileHit()
+    {
+        if (Mode == 0)
+            SelfDestruct();
     }
 }

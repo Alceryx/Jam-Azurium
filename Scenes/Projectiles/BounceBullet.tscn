@@ -11,8 +11,8 @@ radius = 30.0
 
 [node name="Bounce Bullet" type="CharacterBody2D" node_paths=PackedStringArray("FreezeArea", "Sprite", "Hitbox")]
 script = ExtResource("1_dkg77")
-Speed = 200.0
-HoverTime = 2.0
+Speed = 250.0
+HoverTime = 1.0
 HoverHeight = 100.0
 FreezeArea = NodePath("FreezeArea/CollisionShape2D")
 Sprite = NodePath("Sprite2D")

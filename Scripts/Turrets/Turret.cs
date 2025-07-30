@@ -1,6 +1,5 @@
 using Godot;
 using Godot.Collections;
-using Array = Godot.Collections.Array;
 using System;
 
 public abstract partial class Turret : StaticBody2D
@@ -21,6 +20,7 @@ public abstract partial class Turret : StaticBody2D
    [Export] private MeshInstance2D DectectionPreview;
    [ExportGroup("Visual")]
    [Export] private Shader HighlightShader;
+   [Export] private Shader DissolveShader;
    [Export] private float DestructDelay;
    [Export] private float HoldThreshold = 0.5f;
    private float DestructTimer;
@@ -58,6 +58,7 @@ public abstract partial class Turret : StaticBody2D
    {
       if (DestructTimer > 0)
       {
+         ((ShaderMaterial)Sprite.Material).SetShaderParameter("progress", 1 - DestructTimer / DestructDelay);
          DestructTimer -= (float)delta;
          if (DestructTimer <= 0)
          {
@@ -148,6 +149,9 @@ public abstract partial class Turret : StaticBody2D
 
    public void SelfDestruct()
    {
+       ShaderMaterial material = (ShaderMaterial)Sprite.Material;
+       material.SetShader(DissolveShader);
+       material.SetShaderParameter("texture_size", new Vector2(283, 241));
        DestructTimer = DestructDelay;
    }
 
