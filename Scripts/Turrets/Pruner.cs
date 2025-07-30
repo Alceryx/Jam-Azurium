@@ -2,7 +2,7 @@ using Godot;
 using System;
 using Godot.Collections;
 
-public partial class FirstTurret : Turret
+public partial class Pruner : Turret
 {
     [Export] private Marker2D OriginPoint;
     [Export] private Marker2D TopLeftShootPoint;

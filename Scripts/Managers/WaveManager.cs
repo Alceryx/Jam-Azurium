@@ -48,7 +48,7 @@ public partial class WaveManager : Node
     public float WaveTimer;
     private float BatchTimer;
     private float IndicatorTimer;
-    private float CountDownTimer;
+    public float CountDownTimer;
 
     [Signal]
     public delegate void WaveEndedEventHandler();
