@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" uid="uid://mdgul34uldgv" path="res://Scripts/Managers/BuildManager.cs" id="1_2qodn"]
 
-[node name="BuildManager" type="Node" node_paths=PackedStringArray("GroundLayer")]
+[node name="BuildManager" type="Node" node_paths=PackedStringArray("GroundLayer", "UnplaceableLayer")]
 script = ExtResource("1_2qodn")
 TurretMode = 0
 GroundLayer = []
+UnplaceableLayer = []

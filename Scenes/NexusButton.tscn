@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ewd3qwa6ccua"]
+[gd_scene load_steps=13 format=3 uid="uid://ewd3qwa6ccua"]
 
 [ext_resource type="Script" uid="uid://dkwpps6dhmbbl" path="res://Scripts/NexusButton.cs" id="1_0h4l8"]
 [ext_resource type="Shader" uid="uid://de5cqnc22f116" path="res://Resources/Shaders/2DOutline.gdshader" id="2_k7c6v"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b6djbjs7m2d50" path="res://Assets/World/Extractor/Nexus - Peak.png" id="4_ke4vg"]
 [ext_resource type="Texture2D" uid="uid://c1il5jr4vr6y3" path="res://Assets/World/Extractor/Nexus - Mid.png" id="5_ke4vg"]
 [ext_resource type="PackedScene" uid="uid://dbnv1j16avxmm" path="res://Resources/SmokeCloud.tscn" id="6_whhl2"]
+[ext_resource type="Texture2D" uid="uid://3aywpph7ap5s" path="res://Assets/World/Lights/Light.png" id="7_yk1r3"]
 
 [sub_resource type="Animation" id="Animation_k7c6v"]
 resource_name = "Clicked"
@@ -102,6 +103,7 @@ shader_parameter/outline_thickness = 2.0
 shader_parameter/outline_color = Color(1, 1, 1, 0)
 
 [node name="Nexus Button" type="StaticBody2D" node_paths=PackedStringArray("SpriteState", "Sprite")]
+modulate = Color(1.25, 1.25, 1.25, 1)
 collision_layer = 3
 input_pickable = true
 script = ExtResource("1_0h4l8")
@@ -132,6 +134,20 @@ polygon = PackedVector2Array(0, -160, 128, -96, 128, 96, 0, 160, -128, 96, -128,
 [node name="Head" type="CollisionPolygon2D" parent="."]
 position = Vector2(0, -96)
 polygon = PackedVector2Array(0, -64, 128, 0, 0, 64, -128, 0)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-85, 136)
+color = Color(0, 0.823529, 1, 1)
+energy = 1.5
+texture = ExtResource("7_yk1r3")
+texture_scale = 0.5
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+position = Vector2(64, 120)
+color = Color(0, 0.823529, 1, 1)
+energy = 1.5
+texture = ExtResource("7_yk1r3")
+texture_scale = 0.5
 
 [connection signal="mouse_entered" from="." to="." method="OnMouseEntered"]
 [connection signal="mouse_exited" from="." to="." method="OnMouseExited"]

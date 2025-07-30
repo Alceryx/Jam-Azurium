@@ -11,6 +11,9 @@ public partial class GameManager : Node
     [Export] public int Efficiency;
     [Export] public float ButtonMaxHP;
     public float ButtonHP;
+
+    [ExportGroup("Pause")] 
+    [Export] private PackedScene PauseMenu;
     
     public int Currency;
     public NexusButton NexusButton;
@@ -20,5 +23,14 @@ public partial class GameManager : Node
     {
         GM = this;
         ButtonHP = ButtonMaxHP;
+    }
+
+    public override void _Process(double delta)
+    {
+        if (Input.IsActionJustPressed("Escape"))
+        {
+            Pause pause = PauseMenu.Instantiate<Pause>();
+            GetTree().Root.AddChild(pause);
+        }
     }
 }

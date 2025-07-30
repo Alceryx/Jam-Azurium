@@ -58,7 +58,7 @@ public abstract partial class Turret : StaticBody2D
    {
       if (DestructTimer > 0)
       {
-         ((ShaderMaterial)Sprite.Material).SetShaderParameter("progress", 1 - DestructTimer / DestructDelay);
+         ((ShaderMaterial)Sprite.Material).SetShaderParameter("dissolve_value", DestructTimer / DestructDelay);
          DestructTimer -= (float)delta;
          if (DestructTimer <= 0)
          {
@@ -150,8 +150,10 @@ public abstract partial class Turret : StaticBody2D
    public void SelfDestruct()
    {
        ShaderMaterial material = (ShaderMaterial)Sprite.Material;
+       NoiseTexture2D noise = new NoiseTexture2D();
+       noise.SetNoise(new FastNoiseLite());
        material.SetShader(DissolveShader);
-       material.SetShaderParameter("texture_size", new Vector2(283, 241));
+       material.SetShaderParameter("dissolve_texture", noise);
        DestructTimer = DestructDelay;
    }
 

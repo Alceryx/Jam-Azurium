@@ -54,3 +54,5 @@ theme_override_fonts/font = ExtResource("2_k6hn6")
 theme_override_font_sizes/font_size = 175
 text = "Start"
 icon_alignment = 1
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/Buttons/Start" to="." method="OnStartPressed"]

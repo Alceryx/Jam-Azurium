@@ -31,7 +31,7 @@ public partial class ShopManager : Control
     public Upgrade ActiveUpgrade;
 
     private bool SignalConnected;
-    private bool IsInArea;
+    public bool IsInArea;
 
     public override void _Ready()
     {

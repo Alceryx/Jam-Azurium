@@ -8,8 +8,8 @@ public partial class BulletTrail : Line2D
 
     public override void _Ready()
     {
-        Texture2D texture = ((Sprite2D)GetParent()).Texture;
-        Radius = texture.GetSize().X * .5f;
+        //Texture2D texture = ((Sprite2D)GetParent()).Texture;
+        Width = 500; //texture.GetSize().X * .5f;
         PreviousPosition = ((Sprite2D)GetParent()).GlobalPosition;
     }
 
@@ -18,7 +18,7 @@ public partial class BulletTrail : Line2D
         Vector2 CurrentPosition = ((Sprite2D)GetParent()).GlobalPosition;
         Vector2 direction = (CurrentPosition - PreviousPosition).Normalized();
         
-        AddPoint(CurrentPosition - Radius * direction);
+        AddPoint(ToLocal(CurrentPosition - direction * 100));
         if (Points.Length > 30)
         {
             RemovePoint(0);

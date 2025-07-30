@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class Death : Control
+public partial class DeathScreen : Control
 {
     [Export] private Label WaveSurvived;
 
@@ -29,6 +29,8 @@ public partial class Death : Control
 
     public void OnQuitPressed()
     {
-        GetTree().Quit();
+        SceneManager.SM.SwitchScene("res://Scenes/GUI/Start.tscn");
+        GetTree().Paused = false;
+        QueueFree();
     }
 }

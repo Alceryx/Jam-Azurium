@@ -38,8 +38,8 @@ public partial class FirstTurret : Turret
             {
                 RayCast2D ray = new RayCast2D();
                 AddChild(ray);
-                ray.GlobalPosition = OriginPoint.GlobalPosition;
-                ray.TargetPosition = (point - OriginPoint.GlobalPosition).Normalized() * (30 + Data.Modes[Mode].Range * 80);
+                ray.GlobalPosition = OriginPoint.GlobalPosition + new Vector2(0, 100);
+                ray.TargetPosition = (point - OriginPoint.GlobalPosition).Normalized() * (30 + Data.Modes[Mode].Range * 70);
                 DirCast.Add(ray);
             }
         }

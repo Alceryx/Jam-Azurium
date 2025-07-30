@@ -5,6 +5,7 @@
 [sub_resource type="SeparationRayShape2D" id="SeparationRayShape2D_xxohi"]
 
 [node name="Laser" type="CharacterBody2D" node_paths=PackedStringArray("RayCast", "Line", "Hitbox")]
+modulate = Color(3, 3, 3, 1)
 script = ExtResource("1_xxohi")
 CastSpeed = 1200.0
 RayCast = NodePath("RayCast2D")

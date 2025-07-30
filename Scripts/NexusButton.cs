@@ -96,6 +96,7 @@ public partial class NexusButton : StaticBody2D
     {
         Releasing = false;
         CanClick = true;
+        ShopManager.SM.IsInArea = false;
     }
 
     private void OnMouseExited()

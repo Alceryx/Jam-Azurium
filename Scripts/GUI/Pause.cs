@@ -14,7 +14,7 @@ public partial class Pause : Control
 
     public override void _Process(double delta)
     {
-        if (Input.IsActionJustPressed("Pause"))
+        if (Input.IsActionJustPressed("Escape"))
         {
             OnContinuePressed();
         }
@@ -28,7 +28,9 @@ public partial class Pause : Control
     
     private void OnQuitPressed()
     {
-        GetTree().Quit();
+        SceneManager.SM.SwitchScene("res://Scenes/GUI/Start.tscn");
+        GetTree().Paused = false;
+        QueueFree();
     }
     
     private void OnButtonToggled(bool toggled_on)

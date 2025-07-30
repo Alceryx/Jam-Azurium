@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://b0dyl21t28hwy"]
 
-[ext_resource type="Script" uid="uid://dbu3o6frajorp" path="res://Scripts/GUI/Death.cs" id="1_uyaue"]
+[ext_resource type="Script" uid="uid://dtxhpfyvtptni" path="res://Scripts/GUI/DeathScreen.cs" id="1_uyaue"]
 [ext_resource type="FontFile" uid="uid://dxwy40mal8xcd" path="res://Assets/Fonts/Liberator/Liberator-Heavy.ttf" id="2_h3abu"]
 [ext_resource type="Theme" uid="uid://bm2m53cf2qpe4" path="res://Resources/GUI.tres" id="3_af6un"]
 

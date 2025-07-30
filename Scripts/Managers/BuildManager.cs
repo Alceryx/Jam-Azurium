@@ -11,6 +11,7 @@ public partial class BuildManager : Node
     [Export] private TileMapLayer PreviewLayer;
     [Export] public TileMapLayer PlaceableLayer; //Layer to place the object one
     [Export] private Array<TileMapLayer> GroundLayer; //Layer for checking if placeable or not
+    [Export] private Array<TileMapLayer> UnplaceableLayer; //Layer that is unplaceable on.
 
     private Turret CurrentPreview;
     private Turret.FacingDirection PreviewRotation;
@@ -185,6 +186,12 @@ public partial class BuildManager : Node
                 if (OccupiedTiles.Contains(pos))
                     return false;
 
+                foreach (TileMapLayer layer in UnplaceableLayer)
+                {
+                    if (IsInstanceValid(layer.GetCellTileData(pos)))
+                        return false;
+                }
+                
                 foreach (TileMapLayer layer in GroundLayer)
                 {
                     if (IsInstanceValid(layer.GetCellTileData(pos)) && (bool)layer.GetCellTileData(pos).GetCustomData("Placeable"))

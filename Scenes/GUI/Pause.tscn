@@ -35,6 +35,7 @@ script = ExtResource("1_5eo7j")
 Fullscreen = NodePath("CanvasLayer/Panel Cont/Setting Margin/VBox/Fullscreen/MarginContainer/Fullscreen")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 3
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 anchors_preset = 15
