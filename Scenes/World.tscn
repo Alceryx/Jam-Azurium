@@ -151,6 +151,4 @@ curve = SubResource("Curve2D_kn06e")
 [node name="Path1" type="Path2D" parent="WaveManager/Wave3Paths"]
 curve = SubResource("Curve2D_op4cu")
 
-[connection signal="mouse_entered" from="Tile Map/NexusButton/Nexus Button" to="Tile Map/NexusButton/Nexus Button" method="OnMouseEntered"]
-[connection signal="mouse_exited" from="Tile Map/NexusButton/Nexus Button" to="Tile Map/NexusButton/Nexus Button" method="OnMouseExited"]
 [connection signal="WaveStarted" from="WaveManager" to="BuildManager" method="CancelPlacement"]

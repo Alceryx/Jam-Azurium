@@ -9,6 +9,7 @@ public partial class Bullet : Projectile
     {
         Velocity = Direction * Speed;
         LookAt(Direction * 10000);
+        
         MoveAndSlide();
     }
 }

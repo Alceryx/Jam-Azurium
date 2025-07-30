@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class DeathScreen : Control
+public partial class Death : Control
 {
     [Export] private Label WaveSurvived;
 

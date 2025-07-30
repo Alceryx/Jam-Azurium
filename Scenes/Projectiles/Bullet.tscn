@@ -1,7 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://b6i78g0nc3avm"]
+[gd_scene load_steps=6 format=3 uid="uid://b6i78g0nc3avm"]
 
-[ext_resource type="Script" uid="uid://bips1wvo63cen" path="res://Scripts/Projectiles/Bullet.cs" id="1_jnb4d"]
+[ext_resource type="Script" uid="uid://bips1wvo63cen" path="res://Scripts/Projectiles/Bullet/Bullet.cs" id="1_jnb4d"]
 [ext_resource type="Texture2D" uid="uid://d2o5d8y6g8qsr" path="res://icon.svg" id="2_rjcpp"]
+[ext_resource type="Script" uid="uid://b0ps8hr86yl0a" path="res://Scripts/Projectiles/Bullet/BulletTrail.cs" id="3_rjcpp"]
+
+[sub_resource type="Curve" id="Curve_rjcpp"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qupxw"]
 size = Vector2(56, 10)
@@ -15,6 +20,10 @@ Hitbox = NodePath("Hitbox")
 position = Vector2(-1.90735e-06, 4.76837e-07)
 scale = Vector2(0.4375, 0.078125)
 texture = ExtResource("2_rjcpp")
+
+[node name="Trail" type="Line2D" parent="Sprite2D"]
+width_curve = SubResource("Curve_rjcpp")
+script = ExtResource("3_rjcpp")
 
 [node name="Hitbox" type="Area2D" parent="."]
 
