@@ -27,7 +27,7 @@ public partial class NexusButton : StaticBody2D
 
     public override void _Process(double delta)
     {
-        if (WaveManager.WM.WaveFinished)
+        if (WaveManager.WM.WaveFinished && WaveManager.WM.CountDownFinished)
         {
             if (Releasing && RiseTimer > 0)
             {
@@ -47,13 +47,13 @@ public partial class NexusButton : StaticBody2D
             ClickTimer -= (float)delta;
         }
 
-        if (HoldTimer >= HoldThreshold && WaveManager.WM.WaveFinished)
+        if (HoldTimer >= HoldThreshold && WaveManager.WM.WaveFinished && WaveManager.WM.CountDownFinished)
         {
             ShopManager.SM.Show();
             HoldTimer = 0;
         }
 
-        if (!BuildManager.BM.IsBuilding && CanClick && ClickTimer <= 0 && WaveManager.WM.WaveFinished)
+        if (!BuildManager.BM.IsBuilding && CanClick && ClickTimer <= 0 && WaveManager.WM.WaveFinished && WaveManager.WM.CountDownFinished)
         {
             SpriteState.Play("Mid");
             if (Input.IsActionJustPressed("Interact"))
@@ -82,7 +82,6 @@ public partial class NexusButton : StaticBody2D
     public void TakeDamage(float damage)
     {
         GameManager.GM.ButtonHP -= damage;
-        GD.Print(GameManager.GM.ButtonHP);
     }
     private void OnMouseEntered()
     {

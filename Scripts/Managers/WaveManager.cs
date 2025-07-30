@@ -94,12 +94,13 @@ public partial class WaveManager : Node
             WaveTimer -= (float)delta;
             IndicatorTimer -= (float)delta;
             if (WaveTimer <= 0)
+            {
                 StartWave(CurrentWaveNumber);
+                CountDownFinished = false;
+            }
 
-            if (!Warned && IndicatorTimer <= 0)
+            if (!Warned && IndicatorTimer <= 0) 
                 WaveWarning(CurrentWaveNumber);
-            
-            CountDownFinished = false;
         }
         
         if (SpawnFinished && GetTree().GetNodesInGroup("Enemy").Count == 0 && !WaveFinished)
