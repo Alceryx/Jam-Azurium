@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="WaveData" load_steps=7 format=3 uid="uid://bdfrad7pmgvuc"]
+
+[ext_resource type="Script" uid="uid://c8ucpi2ldsff5" path="res://Resources/Waves/WaveData.cs" id="1_4ucac"]
+[ext_resource type="PackedScene" uid="uid://df24pg8xmxlx6" path="res://Scenes/Enemy/Enemy.tscn" id="1_psac3"]
+[ext_resource type="Script" uid="uid://bnqqnodjbvisx" path="res://Resources/Waves/SpawnData.cs" id="2_qc70f"]
+[ext_resource type="PackedScene" uid="uid://djbq55octpltn" path="res://Scenes/Enemy/StrongEnemy.tscn" id="3_qc70f"]
+
+[sub_resource type="Resource" id="Resource_o7uw4"]
+script = ExtResource("2_qc70f")
+Enemy = ExtResource("1_psac3")
+Count = 3
+SpawnInterval = 0.5
+PathID = 0
+Mode = 0
+metadata/_custom_type_script = "uid://bnqqnodjbvisx"
+
+[sub_resource type="Resource" id="Resource_psac3"]
+script = ExtResource("2_qc70f")
+Enemy = ExtResource("3_qc70f")
+Count = 1
+SpawnInterval = 0.0
+PathID = 1
+Mode = 0
+metadata/_custom_type_script = "uid://bnqqnodjbvisx"
+
+[resource]
+script = ExtResource("1_4ucac")
+WaveNumber = 3
+TimeBetweenWaves = 30.0
+SpawnedEnemy = Array[Object]([SubResource("Resource_o7uw4"), SubResource("Resource_psac3")])
+metadata/_custom_type_script = "uid://c8ucpi2ldsff5"

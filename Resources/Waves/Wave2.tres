@@ -1,14 +1,13 @@
-[gd_resource type="Resource" script_class="WaveData" load_steps=8 format=3 uid="uid://d4kiqdpaucgj7"]
+[gd_resource type="Resource" script_class="WaveData" load_steps=7 format=3 uid="uid://d4kiqdpaucgj7"]
 
 [ext_resource type="PackedScene" uid="uid://df24pg8xmxlx6" path="res://Scenes/Enemy/Enemy.tscn" id="1_1qnre"]
 [ext_resource type="Script" uid="uid://c8ucpi2ldsff5" path="res://Resources/Waves/WaveData.cs" id="1_xcoj0"]
 [ext_resource type="Script" uid="uid://bnqqnodjbvisx" path="res://Resources/Waves/SpawnData.cs" id="2_nlc01"]
-[ext_resource type="PackedScene" uid="uid://djbq55octpltn" path="res://Scenes/Enemy/StrongEnemy.tscn" id="3_a7gyk"]
 
 [sub_resource type="Resource" id="Resource_1qnre"]
 script = ExtResource("2_nlc01")
 Enemy = ExtResource("1_1qnre")
-Count = 5
+Count = 1
 SpawnInterval = 1.0
 PathID = 0
 Mode = 1
@@ -16,8 +15,8 @@ metadata/_custom_type_script = "uid://bnqqnodjbvisx"
 
 [sub_resource type="Resource" id="Resource_nlc01"]
 script = ExtResource("2_nlc01")
-Enemy = ExtResource("3_a7gyk")
-Count = 5
+Enemy = ExtResource("1_1qnre")
+Count = 1
 SpawnInterval = 1.0
 PathID = 1
 Mode = 1
@@ -25,16 +24,16 @@ metadata/_custom_type_script = "uid://bnqqnodjbvisx"
 
 [sub_resource type="Resource" id="Resource_a7gyk"]
 script = ExtResource("2_nlc01")
-Enemy = ExtResource("3_a7gyk")
-Count = 3
+Enemy = ExtResource("1_1qnre")
+Count = 1
 SpawnInterval = 1.0
 PathID = 2
-Mode = 0
+Mode = 1
 metadata/_custom_type_script = "uid://bnqqnodjbvisx"
 
 [resource]
 script = ExtResource("1_xcoj0")
 WaveNumber = 2
-TimeBetweenWaves = 10.0
+TimeBetweenWaves = 40.0
 SpawnedEnemy = [SubResource("Resource_1qnre"), SubResource("Resource_nlc01"), SubResource("Resource_a7gyk")]
 metadata/_custom_type_script = "uid://c8ucpi2ldsff5"

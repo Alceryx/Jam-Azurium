@@ -175,6 +175,8 @@ radius = 30.0832
 z_index = 1
 y_sort_enabled = true
 script = ExtResource("1_3l8kd")
+MaxHealth = 1.0
+Damage = 1.0
 sprite = NodePath("AnimationPlayer")
 
 [node name="Feet" type="CollisionPolygon2D" parent="."]

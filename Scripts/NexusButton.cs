@@ -61,7 +61,6 @@ public partial class NexusButton : StaticBody2D
                 ClickTimer = ClickDelay;
                 GameManager.GM.Currency += GameManager.GM.Efficiency;
                 
-                GD.Print("NexusButton clicked");
                 SpriteState.Play("Clicked");
                 if (ShopManager.SM.Visible)
                     ShopManager.SM.Hide();

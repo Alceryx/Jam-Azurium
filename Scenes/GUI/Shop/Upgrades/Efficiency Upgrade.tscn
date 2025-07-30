@@ -18,21 +18,21 @@
 [sub_resource type="Resource" id="Resource_ftbvb"]
 script = ExtResource("4_wga26")
 Price = 45
-Addition = 2
+Addition = 1
 Graphic = ExtResource("3_ybpnt")
 metadata/_custom_type_script = "uid://cvepldvigmdst"
 
 [sub_resource type="Resource" id="Resource_ybpnt"]
 script = ExtResource("4_wga26")
 Price = 150
-Addition = 2
+Addition = 1
 Graphic = ExtResource("5_tbsj7")
 metadata/_custom_type_script = "uid://cvepldvigmdst"
 
 [sub_resource type="Resource" id="Resource_wga26"]
 script = ExtResource("4_wga26")
 Price = 350
-Addition = 5
+Addition = 2
 Graphic = ExtResource("6_ob2ry")
 metadata/_custom_type_script = "uid://cvepldvigmdst"
 

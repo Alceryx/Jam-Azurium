@@ -1,9 +1,10 @@
-[gd_scene load_steps=26 format=3 uid="uid://dex3irx743gqe"]
+[gd_scene load_steps=27 format=3 uid="uid://dex3irx743gqe"]
 
 [ext_resource type="Theme" uid="uid://bm2m53cf2qpe4" path="res://Resources/GUI.tres" id="2_7h1o4"]
 [ext_resource type="Script" uid="uid://uli68ss1jvut" path="res://Scripts/Managers/ShopManager.cs" id="2_kktns"]
 [ext_resource type="PackedScene" uid="uid://dp1iskdniviuw" path="res://Scenes/GUI/Shop/Shop Item.tscn" id="3_0d586"]
 [ext_resource type="Resource" uid="uid://dow74su7kthuu" path="res://Resources/Turrets/Pruner.tres" id="3_h5hno"]
+[ext_resource type="Script" uid="uid://cm64ammqner4" path="res://Resources/Turrets/TurretData.cs" id="3_xcfsc"]
 [ext_resource type="Resource" uid="uid://bb1usc2y6f5ix" path="res://Resources/Turrets/SecondTurret.tres" id="6_dgiod"]
 [ext_resource type="Texture2D" uid="uid://lflsw3cxcox4" path="res://Assets/GUI/Shop/ShopBuyButton - Enabled.png" id="7_fovie"]
 [ext_resource type="Texture2D" uid="uid://ww8wi7rkjaxd" path="res://Assets/GUI/Shop/ShopBG.png" id="7_oa8j1"]
@@ -46,7 +47,7 @@ theme = ExtResource("2_7h1o4")
 script = ExtResource("2_kktns")
 ItemList = NodePath("Placeholder/Main/Background/Options/Defence/Options/List")
 UpgradeList = NodePath("Placeholder/Main/Background/Options/Upgrade/Options")
-Database = [ExtResource("3_h5hno"), ExtResource("6_dgiod")]
+Database = Array[ExtResource("3_xcfsc")]([ExtResource("3_h5hno"), ExtResource("6_dgiod")])
 ItemFrame = ExtResource("3_0d586")
 DefenceTab = NodePath("Placeholder/Main/Background/Options/Tabs/Defence")
 UpgradeTab = NodePath("Placeholder/Main/Background/Options/Tabs/Upgrade")
