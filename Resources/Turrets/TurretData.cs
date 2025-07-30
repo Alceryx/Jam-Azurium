@@ -1,7 +1,6 @@
 using Godot;
 using Godot.Collections;
 using System;
-
 /*
  * Contains basic info about the turrets
  */

@@ -12,19 +12,27 @@ script = ExtResource("3_usflb")
 Icon = ExtResource("1_chb7a")
 Price = 30
 CanRotate = false
+Description = "[Overhead]
+- Stunt Enemy
+- Dual Shot
+- Area: 1x1"
 Projectile = ExtResource("2_kkfcl")
 Damage = 0.0
-Range = 3.0
+Range = 5.0
 metadata/_custom_type_script = "uid://dpbvjc5ku3vl4"
 
 [sub_resource type="Resource" id="Resource_p5ntn"]
 script = ExtResource("3_usflb")
 Icon = ExtResource("4_wnhjd")
-Price = 80
+Price = 70
 CanRotate = false
+Description = "[Overhead]
+- Stunt Enemy
+- Area Shot
+- Area: 3x3"
 Projectile = ExtResource("5_yq7x5")
 Damage = 0.0
-Range = 2.0
+Range = 5.0
 metadata/_custom_type_script = "uid://dpbvjc5ku3vl4"
 
 [resource]

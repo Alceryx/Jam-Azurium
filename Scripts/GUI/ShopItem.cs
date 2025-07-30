@@ -52,6 +52,7 @@ public partial class ShopItem : PanelContainer
         Data = data;
         
         name.Text = data.Name;
+        description.Text = data.Modes[mode].Description;
         Icon.Texture = data.Modes[mode].Icon;
         price.Text = $"{data.Modes[mode].Price}";
     }

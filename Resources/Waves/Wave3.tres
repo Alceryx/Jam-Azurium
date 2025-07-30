@@ -9,7 +9,7 @@
 script = ExtResource("2_qc70f")
 Enemy = ExtResource("1_psac3")
 Count = 5
-SpawnInterval = 0.5
+SpawnInterval = 1.0
 PathID = 0
 Mode = 0
 metadata/_custom_type_script = "uid://bnqqnodjbvisx"
@@ -26,6 +26,6 @@ metadata/_custom_type_script = "uid://bnqqnodjbvisx"
 [resource]
 script = ExtResource("1_4ucac")
 WaveNumber = 3
-TimeBetweenWaves = 50.0
+TimeBetweenWaves = 60.0
 SpawnedEnemy = Array[Object]([SubResource("Resource_o7uw4"), SubResource("Resource_psac3")])
 metadata/_custom_type_script = "uid://c8ucpi2ldsff5"

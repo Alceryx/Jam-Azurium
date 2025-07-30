@@ -10,6 +10,7 @@ public partial class TurretMode : Resource
     [Export] public Texture2D Icon; //Icon (Preview icon)
     [Export] public int Price;
     [Export] public bool CanRotate; //Can Rotate on placing
+    [Export(PropertyHint.MultilineText)] public string Description;
     
     [ExportGroup("Stats")] 
     [Export] public PackedScene Projectile;

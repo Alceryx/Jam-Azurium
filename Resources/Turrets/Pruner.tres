@@ -12,9 +12,13 @@ script = ExtResource("3_vduep")
 Icon = ExtResource("1_244xu")
 Price = 25
 CanRotate = true
+Description = "- DMG: 1
+- Auto-rotate
+- Direction: 4
+- Pierce: 0"
 Projectile = ExtResource("2_4uga6")
 Damage = 1.0
-Range = 2.0
+Range = 3.0
 metadata/_custom_type_script = "uid://dpbvjc5ku3vl4"
 
 [sub_resource type="Resource" id="Resource_4sye3"]
@@ -22,9 +26,13 @@ script = ExtResource("3_vduep")
 Icon = ExtResource("4_244xu")
 Price = 50
 CanRotate = true
+Description = "- DMG: 0.5
+- Manually Rotate
+- Direction: 1
+- Pierce: 5"
 Projectile = ExtResource("5_md0qe")
 Damage = 0.5
-Range = 2.0
+Range = 0.0
 metadata/_custom_type_script = "uid://dpbvjc5ku3vl4"
 
 [resource]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://jsl0kt2kqh1m"]
+[gd_scene load_steps=32 format=4 uid="uid://jsl0kt2kqh1m"]
 
 [ext_resource type="TileSet" uid="uid://812b6buxvihs" path="res://Resources/Map/Map.tres" id="1_5cjrv"]
 [ext_resource type="Script" uid="uid://cljto2ukqdtou" path="res://Scripts/Managers/GameManager.cs" id="1_gjpho"]
@@ -11,6 +11,8 @@
 [ext_resource type="Resource" uid="uid://1wsglml18pqg" path="res://Resources/Waves/Wave1.tres" id="8_q2d71"]
 [ext_resource type="Resource" uid="uid://5d8g638jafrd" path="res://Resources/Waves/Wave3.tres" id="9_kn06e"]
 [ext_resource type="Resource" uid="uid://d4kiqdpaucgj7" path="res://Resources/Waves/Wave2.tres" id="9_uo7di"]
+[ext_resource type="Resource" uid="uid://s2bmwjkaat5a" path="res://Resources/Waves/Wave4.tres" id="11_8l3nt"]
+[ext_resource type="Resource" uid="uid://buik63ca38pun" path="res://Resources/Waves/Wave5.tres" id="12_kwl8l"]
 [ext_resource type="Texture2D" uid="uid://3aywpph7ap5s" path="res://Assets/World/Lights/Light.png" id="12_ti1bm"]
 [ext_resource type="AudioStream" uid="uid://b8oyjto4q80lj" path="res://Assets/Music&Video/Theme Loop.mp3" id="13_op4cu"]
 
@@ -38,17 +40,71 @@ _data = {
 }
 point_count = 2
 
-[sub_resource type="Curve2D" id="Curve2D_kn06e"]
+[sub_resource type="Curve2D" id="Curve2D_rwt1y"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1411, 830, 0, 0, 0, 0, 1154, 699, 0, 0, 0, 0, 1281, 637, 0, 0, 0, 0, 1066, 524)
+"points": PackedVector2Array(0, 0, 0, 0, 1346, 862, 0, 0, 0, 0, 1154, 763, 0, 0, 0, 0, 1280, 698, 0, 0, 0, 0, 976, 534)
 }
 point_count = 4
 
-[sub_resource type="Curve2D" id="Curve2D_op4cu"]
+[sub_resource type="Curve2D" id="Curve2D_mvfa8"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 1409, 189, 0, 0, 0, 0, 1279, 252, 0, 0, 0, 0, 1152, 185, 0, 0, 0, 0, 769, 379, 0, 0, 0, 0, 912, 451)
 }
 point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_kn06e"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 259, 508, 0, 0, 0, 0, 67, 603, 0, 0, 0, 0, -129, 505, 0, 0, 0, 0, 257, 310, 0, 0, 0, 0, 766, 572, 0, 0, 0, 0, 854, 525)
+}
+point_count = 6
+
+[sub_resource type="Curve2D" id="Curve2D_8l3nt"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1858, 538, 0, 0, 0, 0, 1986, 473, 0, 0, 0, 0, 1854, 408, 0, 0, 0, 0, 1731, 478, 0, 0, 0, 0, 1601, 410, 0, 0, 0, 0, 1153, 634, 0, 0, 0, 0, 1005, 555)
+}
+point_count = 7
+
+[sub_resource type="Curve2D" id="Curve2D_kwl8l"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1345, 156, 0, 0, 0, 0, 1220, 221, 0, 0, 0, 0, 1153, 186, 0, 0, 0, 0, 1087, 220, 0, 0, 0, 0, 1475, 410, 0, 0, 0, 0, 1344, 478, 0, 0, 0, 0, 1217, 409, 0, 0, 0, 0, 1078, 482)
+}
+point_count = 8
+
+[sub_resource type="Curve2D" id="Curve2D_xiqgv"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 512, 190, 0, 0, 0, 0, 641, 120, 0, 0, 0, 0, 835, 218, 0, 0, 0, 0, 643, 317, 0, 0, 0, 0, 947, 472)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_waglr"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 768, 954, 0, 0, 0, 0, 962, 1055, 0, 0, 0, 0, 1152, 955, 0, 0, 0, 0, 835, 796, 0, 0, 0, 0, 963, 733, 0, 0, 0, 0, 768, 635, 0, 0, 0, 0, 959, 537)
+}
+point_count = 7
+
+[sub_resource type="Curve2D" id="Curve2D_r0dna"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 702, 795, 0, 0, 0, 0, 575, 862, 0, 0, 0, 0, 447, 797, 0, 0, 0, 0, 702, 669, 0, 0, 0, 0, 640, 637, 0, 0, 0, 0, 384, 763, 0, 0, 0, 0, 196, 663, 0, 0, 0, 0, 512, 508, 0, 0, 0, 0, 704, 604, 0, 0, 0, 0, 898, 508)
+}
+point_count = 10
+
+[sub_resource type="Curve2D" id="Curve2D_b5aes"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1343, 158, 0, 0, 0, 0, 961, 346, 0, 0, 0, 0, 1156, 443, 0, 0, 0, 0, 1023, 508)
+}
+point_count = 4
+
+[sub_resource type="Curve2D" id="Curve2D_w0bku"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1663, 315, 0, 0, 0, 0, 1089, 604, 0, 0, 0, 0, 969, 536)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_0ao37"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1026, 766, 0, 0, 0, 0, 897, 697, 0, 0, 0, 0, 832, 736, 0, 0, 0, 0, 769, 700, 0, 0, 0, 0, 898, 635, 0, 0, 0, 0, 961, 669, 0, 0, 0, 0, 1028, 635, 0, 0, 0, 0, 897, 571, 0, 0, 0, 0, 957, 534)
+}
+point_count = 9
 
 [sub_resource type="Environment" id="Environment_ti1bm"]
 background_mode = 3
@@ -57,13 +113,21 @@ glow_blend_mode = 1
 
 [node name="World" type="Node" node_paths=PackedStringArray("Audio")]
 script = ExtResource("1_gjpho")
-Efficiency = 5
-ButtonMaxHP = 100.0
+Efficiency = 1
+ButtonMaxHP = 3.0
 Audio = NodePath("AudioStreamPlayer")
-AudioDelay = 2.0
+AudioDelay = 5.0
 PauseMenu = ExtResource("2_ti1bm")
 
 [node name="Interface Manager" parent="." instance=ExtResource("6_q2d71")]
+visible = true
+
+[node name="Background" type="TextureRect" parent="."]
+visibility_layer = 2
+z_index = -2
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_kn06e")
 
 [node name="Tile Map" type="TileMapLayer" parent="."]
 y_sort_enabled = true
@@ -113,8 +177,7 @@ UnplaceableLayer = [NodePath("../Tile Map/WallBottom"), NodePath("../Tile Map/Wa
 
 [node name="WaveManager" parent="." node_paths=PackedStringArray("SpawnLayer", "IndicatorLayer") instance=ExtResource("7_y7y61")]
 SpawnLayer = NodePath("../Tile Map/PlaceTile")
-Waves = Array[Object]([ExtResource("8_q2d71"), ExtResource("9_uo7di"), ExtResource("9_kn06e")])
-TimeBetweenBatches = 1.0
+Waves = Array[Object]([ExtResource("8_q2d71"), ExtResource("9_uo7di"), ExtResource("9_kn06e"), ExtResource("11_8l3nt"), ExtResource("12_kwl8l")])
 IndicatorLayer = NodePath("../Tile Map/Indicator")
 WorldTileSet = ExtResource("1_5cjrv")
 IndicatorTime = 5.0
@@ -147,25 +210,52 @@ scale = Vector2(1.08309, 0.893443)
 curve = SubResource("Curve2D_ti1bm")
 
 [node name="Wave3Paths" type="Node2D" parent="WaveManager"]
+visible = false
 
 [node name="Path0" type="Path2D" parent="WaveManager/Wave3Paths"]
-curve = SubResource("Curve2D_kn06e")
+curve = SubResource("Curve2D_rwt1y")
 
 [node name="Path1" type="Path2D" parent="WaveManager/Wave3Paths"]
-curve = SubResource("Curve2D_op4cu")
+curve = SubResource("Curve2D_mvfa8")
 
-[node name="Background" type="TextureRect" parent="."]
-visibility_layer = 2
-z_index = -2
-offset_right = 1920.0
-offset_bottom = 1080.0
-texture = ExtResource("2_kn06e")
+[node name="Wave4Paths" type="Node2D" parent="WaveManager"]
+visible = false
 
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0, 0, 0, 1)
+[node name="Path0" type="Path2D" parent="WaveManager/Wave4Paths"]
+curve = SubResource("Curve2D_kn06e")
+
+[node name="Path1" type="Path2D" parent="WaveManager/Wave4Paths"]
+curve = SubResource("Curve2D_8l3nt")
+
+[node name="Path2" type="Path2D" parent="WaveManager/Wave4Paths"]
+curve = SubResource("Curve2D_kwl8l")
+
+[node name="Path3" type="Path2D" parent="WaveManager/Wave4Paths"]
+curve = SubResource("Curve2D_xiqgv")
+
+[node name="Path4" type="Path2D" parent="WaveManager/Wave4Paths"]
+curve = SubResource("Curve2D_waglr")
+
+[node name="Wave5Paths" type="Node2D" parent="WaveManager"]
+visible = false
+
+[node name="Path0" type="Path2D" parent="WaveManager/Wave5Paths"]
+curve = SubResource("Curve2D_r0dna")
+
+[node name="Path1" type="Path2D" parent="WaveManager/Wave5Paths"]
+curve = SubResource("Curve2D_b5aes")
+
+[node name="Path2" type="Path2D" parent="WaveManager/Wave5Paths"]
+curve = SubResource("Curve2D_w0bku")
+
+[node name="Path3" type="Path2D" parent="WaveManager/Wave5Paths"]
+curve = SubResource("Curve2D_0ao37")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ti1bm")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0, 0, 0, 1)
 
 [node name="Lights" type="Node2D" parent="."]
 
@@ -205,4 +295,6 @@ stream = ExtResource("13_op4cu")
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(566.391, 607.7)
 
+[connection signal="mouse_entered" from="Tile Map/PlaceTile/Nexus Button" to="Tile Map/PlaceTile/Nexus Button" method="OnMouseEntered"]
+[connection signal="mouse_exited" from="Tile Map/PlaceTile/Nexus Button" to="Tile Map/PlaceTile/Nexus Button" method="OnMouseExited"]
 [connection signal="WaveStarted" from="WaveManager" to="BuildManager" method="CancelPlacement"]

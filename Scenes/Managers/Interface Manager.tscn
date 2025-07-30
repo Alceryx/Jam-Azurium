@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://x02sjlx6drim" path="res://Scenes/GUI/Recess.tscn" id="6_q13l1"]
 
 [node name="Interface Manager" type="CanvasLayer"]
+visible = false
 
 [node name="Timer" parent="." instance=ExtResource("4_wxi3v")]
 mouse_filter = 2
