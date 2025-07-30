@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="WaveData" load_steps=2 format=3 uid="uid://s2bmwjkaat5a"]
+
+[ext_resource type="Script" uid="uid://c8ucpi2ldsff5" path="res://Resources/Waves/WaveData.cs" id="1_gg3ad"]
+
+[resource]
+script = ExtResource("1_gg3ad")
+WaveNumber = 0
+TimeBetweenWaves = 0.0
+SpawnedEnemy = null
+metadata/_custom_type_script = "uid://c8ucpi2ldsff5"

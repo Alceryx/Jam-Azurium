@@ -143,7 +143,7 @@ public partial class Pruner : Turret
         if (body is Enemy)
         {
             EnemyEnteredLaser++;
-            if (EnemyEnteredLaser >= 3)
+            if (EnemyEnteredLaser >= 5)
                 SelfDestruct();
         }
     }

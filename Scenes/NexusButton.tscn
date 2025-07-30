@@ -114,6 +114,7 @@ Sprite = NodePath("Sprite2D")
 Particle = ExtResource("6_whhl2")
 
 [node name="Feet" type="CollisionPolygon2D" parent="."]
+visible = false
 position = Vector2(0, 96)
 polygon = PackedVector2Array(0, -64, 128, 0, 0, 64, -128, 0)
 
@@ -129,9 +130,11 @@ texture = ExtResource("4_ke4vg")
 offset = Vector2(0, -7)
 
 [node name="Body" type="CollisionPolygon2D" parent="."]
+visible = false
 polygon = PackedVector2Array(0, -160, 128, -96, 128, 96, 0, 160, -128, 96, -128, -96)
 
 [node name="Head" type="CollisionPolygon2D" parent="."]
+visible = false
 position = Vector2(0, -96)
 polygon = PackedVector2Array(0, -64, 128, 0, 0, 64, -128, 0)
 

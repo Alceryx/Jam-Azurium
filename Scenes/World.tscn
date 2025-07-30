@@ -16,37 +16,37 @@
 
 [sub_resource type="Curve2D" id="Curve2D_y7y61"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 908.852, 1055.71, 0, 0, 0, 0, 1152.49, 303.264)
+"points": PackedVector2Array(0, 0, 0, 0, 908.852, 1055.71, 0, 0, 0, 0, 1110.26, 442.417)
 }
 point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_uo7di"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 696.246, 30.1559, 0, 0, 0, 0, 877.21, 134.248, 0, 0, 0, 0, 637.156, 283.11, 0, 0, 0, 0, 923.374, 455.477)
+"points": PackedVector2Array(0, 0, 0, 0, 696.246, 30.1559, 0, 0, 0, 0, 877.21, 134.248, 0, 0, 0, 0, 637.156, 283.11, 0, 0, 0, 0, 887.366, 433.092)
 }
 point_count = 4
 
 [sub_resource type="Curve2D" id="Curve2D_7yo87"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1408.1, 176.78, 0, 0, 0, 0, 1645.38, 318.926, 0, 0, 0, 0, 1345.32, 502.486, 0, 0, 0, 0, 1111.72, 350.266, 0, 0, 0, 0, 874.44, 503.605)
+"points": PackedVector2Array(0, 0, 0, 0, 1408.1, 176.78, 0, 0, 0, 0, 1645.38, 318.926, 0, 0, 0, 0, 1345.32, 502.486, 0, 0, 0, 0, 1111.72, 350.266, 0, 0, 0, 0, 977.848, 434.211)
 }
 point_count = 5
 
 [sub_resource type="Curve2D" id="Curve2D_ti1bm"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 402.642, 789.018, 0, 0, 0, 0, 880.903, 494.651)
+"points": PackedVector2Array(0, 0, 0, 0, 402.642, 789.018, 0, 0, 0, 0, 840.279, 518.156)
 }
 point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_kn06e"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1411, 830, 0, 0, 0, 0, 1154, 699, 0, 0, 0, 0, 1281, 637, 0, 0, 0, 0, 1024, 501)
+"points": PackedVector2Array(0, 0, 0, 0, 1411, 830, 0, 0, 0, 0, 1154, 699, 0, 0, 0, 0, 1281, 637, 0, 0, 0, 0, 1066, 524)
 }
 point_count = 4
 
 [sub_resource type="Curve2D" id="Curve2D_op4cu"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1409, 189, 0, 0, 0, 0, 1279, 252, 0, 0, 0, 0, 1152, 185, 0, 0, 0, 0, 768, 378, 0, 0, 0, 0, 902, 446)
+"points": PackedVector2Array(0, 0, 0, 0, 1409, 189, 0, 0, 0, 0, 1279, 252, 0, 0, 0, 0, 1152, 185, 0, 0, 0, 0, 769, 379, 0, 0, 0, 0, 912, 451)
 }
 point_count = 5
 
@@ -57,7 +57,7 @@ glow_blend_mode = 1
 
 [node name="World" type="Node"]
 script = ExtResource("1_gjpho")
-Efficiency = 1000
+Efficiency = 5
 ButtonMaxHP = 1.0
 PauseMenu = ExtResource("2_ti1bm")
 
@@ -78,12 +78,18 @@ tile_set = ExtResource("1_5cjrv")
 
 [node name="WallBottom" type="TileMapLayer" parent="Tile Map"]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAD3//n/BAAAAAAAAAD1//n/BAAAAAAAAAD2//n/BAAAAAAAAAD4//n/BAAAAAAAAAD4//j/BAAAAAAAAAD4//f/BAAAAAAAAAD3//f/BAAAAAAAAAD2//f/BAAAAAAAAAD2//j/BAAAAAAAAAD3//j/BAAAAAAAAAD1//j/BAAAAAAAAAD1//f/BAAAAAAAAAD7/wUABgAAAAAAAAD7/wQABgAAAAAAAAD7/wMABgAAAAAAAAAEAPz/BgAAAAAAAAD4////BAAAAAAAAAD3////BAAAAAAAAAD3//7/BAAAAAAAAAD2////BAAAAAAAAAD2//7/BAAAAAAAAAD2//3/BAAAAAAAAAD5/wYABgAAAAAAAAD5/wUABgAAAAAAAAD5/wQABgAAAAAAAAD5/wMABgAAAAAAAAD2/wMABgAAAAAAAAD3/wMABgAAAAAAAAD4/wMABgAAAAAAAAD7/wYABgAAAAAAAAD8/wMABgAAAAAAAAD8/wQABgAAAAAAAAD8/wUABgAAAAAAAAD8/wYABgAAAAAAAAD//wYABgAAAAAAAAD//wUABgAAAAAAAAD//wQABgAAAAAAAAAAAAQABgAAAAAAAAACAAcABgAAAAAAAAACAAYABgAAAAAAAAADAAYABgAAAAAAAAAEAAYABgAAAAAAAAAFAAYABgAAAAAAAAAEAAIABgAAAAAAAAAFAAIABgAAAAAAAAADAAIABgAAAAAAAAACAAMABgAAAAAAAAACAAIABgAAAAAAAAACAAEABgAAAAAAAAAGAPr/BgAAAAAAAAAEAPj/BgAAAAAAAAAFAPn/BgAAAAAAAAADAPn/BgAAAAAAAAD9//r/BgAAAAAAAAD+//r/BgAAAAAAAAD///r/BgAAAAAAAAD8//r/BgAAAAAAAAD6//j/BgAAAAAAAAD6//n/BgAAAAAAAAD6//r/BgAAAAAAAAD6//v/BgAAAAAAAAD6//f/BgAAAAAAAAD1//b/BAAAAAAAAAD2//b/BAAAAAAAAAD3//b/BAAAAAAAAAD4//b/BAAAAAAAAAAFAP3/BgAAAAAAAAAGAP7/BgAAAAAAAAAFAPz/BgAAAAAAAAAGAP3/BgAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAD3//n/BAAAAAAAAAD1//n/BAAAAAAAAAD2//n/BAAAAAAAAAD4//n/BAAAAAAAAAD4//j/BAAAAAAAAAD4//f/BAAAAAAAAAD3//f/BAAAAAAAAAD2//f/BAAAAAAAAAD2//j/BAAAAAAAAAD3//j/BAAAAAAAAAD1//j/BAAAAAAAAAD1//f/BAAAAAAAAAD7/wUABgAAAAAAAAD7/wQABgAAAAAAAAD7/wMABgAAAAAAAAAEAPz/BgAAAAAAAAD4////BAAAAAAAAAD3////BAAAAAAAAAD3//7/BAAAAAAAAAD2////BAAAAAAAAAD2//7/BAAAAAAAAAD2//3/BAAAAAAAAAD5/wYABgAAAAAAAAD5/wUABgAAAAAAAAD5/wQABgAAAAAAAAD5/wMABgAAAAAAAAD2/wMABgAAAAAAAAD3/wMABgAAAAAAAAD4/wMABgAAAAAAAAD7/wYABgAAAAAAAAD8/wMABgAAAAAAAAD8/wQABgAAAAAAAAD8/wUABgAAAAAAAAD8/wYABgAAAAAAAAD//wYABgAAAAAAAAD//wUABgAAAAAAAAD//wQABgAAAAAAAAAAAAQABgAAAAAAAAACAAcABgAAAAAAAAACAAYABgAAAAAAAAADAAYABgAAAAAAAAAEAAYABgAAAAAAAAAFAAYABgAAAAAAAAAEAAIABgAAAAAAAAAFAAIABgAAAAAAAAADAAIABgAAAAAAAAACAAMABgAAAAAAAAACAAIABgAAAAAAAAACAAEABgAAAAAAAAAGAPr/BgAAAAAAAAAEAPj/BgAAAAAAAAAFAPn/BgAAAAAAAAADAPn/BgAAAAAAAAD9//r/BgAAAAAAAAD+//r/BgAAAAAAAAD///r/BgAAAAAAAAD8//r/BgAAAAAAAAD1//b/BAAAAAAAAAD2//b/BAAAAAAAAAD3//b/BAAAAAAAAAD4//b/BAAAAAAAAAAFAP3/BgAAAAAAAAAGAP7/BgAAAAAAAAAFAPz/BgAAAAAAAAAGAP3/BgAAAAAAAAD5//f/BgAAAAAAAAD5//j/BgAAAAAAAAD5//n/BgAAAAAAAAD5//b/BgAAAAAAAAD6//b/BgAAAAAAAAD6//f/BgAAAAAAAAA=")
 tile_set = ExtResource("1_5cjrv")
 
 [node name="WallTop" type="TileMapLayer" parent="Tile Map"]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAD5/wYABgABAAAAAAD2/wMABgABAAAAAAD5/wMABgABAAAAAAD7/wMABgABAAAAAAD8/wMABgABAAAAAAD7/wYABgABAAAAAAD8/wYABgABAAAAAAA=")
+tile_map_data = PackedByteArray("AAD5/wYABgABAAAAAAD2/wMABgABAAAAAAD5/wMABgABAAAAAAD7/wMABgABAAAAAAD8/wMABgABAAAAAAD7/wYABgABAAAAAAD8/wYABgABAAAAAAD//wYABgABAAAAAAD//wQABgABAAAAAAACAAcABgABAAAAAAAFAAYABgABAAAAAAACAAMABgABAAAAAAACAAEABgABAAAAAAAFAAIABgABAAAAAAAFAPz/BgABAAAAAAAGAP3/BgABAAAAAAAEAPj/BgABAAAAAAAGAPr/BgABAAAAAAAFAP3/BgABAAAAAAD9//r/BgABAAAAAAD///r/BgABAAAAAAD5//b/BgABAAAAAAD5//f/BgABAAAAAAD5//j/BgABAAAAAAD6//b/BgABAAAAAAA=")
+tile_set = ExtResource("1_5cjrv")
+
+[node name="Block" type="TileMapLayer" parent="Tile Map"]
+visible = false
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAD9////BAAAAAAAAAD+////BAAAAAAAAAD+//7/BAAAAAAAAAD9//7/BAAAAAAAAAA=")
 tile_set = ExtResource("1_5cjrv")
 
 [node name="PlaceTile" type="TileMapLayer" parent="Tile Map"]
@@ -101,7 +107,7 @@ TurretInfo = ExtResource("5_uo7di")
 PreviewLayer = NodePath("../Tile Map/PreviewTile")
 PlaceableLayer = NodePath("../Tile Map/PlaceTile")
 GroundLayer = [NodePath("../Tile Map/Ground")]
-UnplaceableLayer = [NodePath("../Tile Map/WallBottom"), NodePath("../Tile Map/WallTop")]
+UnplaceableLayer = [NodePath("../Tile Map/WallBottom"), NodePath("../Tile Map/WallTop"), NodePath("../Tile Map/Block")]
 
 [node name="WaveManager" parent="." node_paths=PackedStringArray("IndicatorLayer") instance=ExtResource("7_y7y61")]
 Waves = Array[Object]([ExtResource("8_q2d71"), ExtResource("9_uo7di"), ExtResource("9_kn06e")])
@@ -112,6 +118,7 @@ IndicatorTime = 5.0
 CountDownTime = 5.0
 
 [node name="Wave1Paths" type="Node2D" parent="WaveManager"]
+visible = false
 
 [node name="Path0" type="Path2D" parent="WaveManager/Wave1Paths"]
 position = Vector2(-1768.47, 354.313)
@@ -137,7 +144,6 @@ scale = Vector2(1.08309, 0.893443)
 curve = SubResource("Curve2D_ti1bm")
 
 [node name="Wave3Paths" type="Node2D" parent="WaveManager"]
-visible = false
 
 [node name="Path0" type="Path2D" parent="WaveManager/Wave3Paths"]
 curve = SubResource("Curve2D_kn06e")
@@ -197,6 +203,6 @@ autoplay = true
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(566.391, 607.7)
 
-[connection signal="mouse_entered" from="Tile Map/PlaceTile/@StaticBody2D@33197" to="Tile Map/PlaceTile/@StaticBody2D@33197" method="OnMouseEntered"]
-[connection signal="mouse_exited" from="Tile Map/PlaceTile/@StaticBody2D@33197" to="Tile Map/PlaceTile/@StaticBody2D@33197" method="OnMouseExited"]
+[connection signal="mouse_entered" from="Tile Map/PlaceTile/Nexus Button" to="Tile Map/PlaceTile/Nexus Button" method="OnMouseEntered"]
+[connection signal="mouse_exited" from="Tile Map/PlaceTile/Nexus Button" to="Tile Map/PlaceTile/Nexus Button" method="OnMouseExited"]
 [connection signal="WaveStarted" from="WaveManager" to="BuildManager" method="CancelPlacement"]

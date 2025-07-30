@@ -197,12 +197,13 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_lta73"]
 radius = 30.0832
 
-[node name="Enemy" type="CharacterBody2D" groups=["Enemy"]]
+[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("sprite") groups=["Enemy"]]
 z_index = 1
 y_sort_enabled = true
 script = ExtResource("1_lta73")
 Speed = 75.0
 Damage = 3.0
+sprite = NodePath("AnimationPlayer")
 
 [node name="Feet" type="CollisionPolygon2D" parent="."]
 position = Vector2(0, 64)

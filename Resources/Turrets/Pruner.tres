@@ -14,13 +14,13 @@ Price = 25
 CanRotate = true
 Projectile = ExtResource("2_4uga6")
 Damage = 1.0
-Range = 3.0
+Range = 2.0
 metadata/_custom_type_script = "uid://dpbvjc5ku3vl4"
 
 [sub_resource type="Resource" id="Resource_4sye3"]
 script = ExtResource("3_vduep")
 Icon = ExtResource("4_244xu")
-Price = 35
+Price = 50
 CanRotate = true
 Projectile = ExtResource("5_md0qe")
 Damage = 0.5
