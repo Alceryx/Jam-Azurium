@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://d3njk76vqeien"]
+[gd_scene load_steps=22 format=3 uid="uid://d3njk76vqeien"]
 
 [ext_resource type="Script" uid="uid://b4ehhsn5s6b7c" path="res://Scripts/Turrets/FirstTurret.cs" id="1_n8rdc"]
 [ext_resource type="Shader" uid="uid://de5cqnc22f116" path="res://Resources/Shaders/2DOutline.gdshader" id="2_fpcsr"]
@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ca5jsnebdqv0w" path="res://Assets/World/Extractor/T1 - M2 - P1.png" id="5_rust4"]
 [ext_resource type="Texture2D" uid="uid://c8q7duuqikoi6" path="res://Assets/World/Extractor/T1 - M2 - P2.png" id="6_fpcsr"]
 [ext_resource type="Texture2D" uid="uid://7c6efnvdyrlc" path="res://Assets/World/Extractor/T1 - M1 - P2.png" id="6_n8rdc"]
-[ext_resource type="Shader" uid="uid://cyjpl0eeiivbn" path="res://Resources/Shaders/Dissolve.gdshader" id="7_tfuq7"]
+[ext_resource type="Shader" path="res://Resources/Shaders/Dissolve.gdshader" id="7_tfuq7"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_vsmea"]
 
@@ -358,13 +358,6 @@ _data = {
 &"Top Right": SubResource("Animation_gaxmn")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_tfuq7"]
-shader = ExtResource("7_tfuq7")
-shader_parameter/progress = 0.5
-shader_parameter/texture_size = Vector2(0, 450)
-shader_parameter/float_dist = 6.0
-shader_parameter/progress_rand_range = 0.2
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_vsmea"]
 
 [node name="Turret" type="StaticBody2D" node_paths=PackedStringArray("OriginPoint", "TopLeftShootPoint", "TopRightShootPoint", "BottomLeftShootPoint", "BottomRightShootPoint", "Sprite", "SpriteState", "DetectionArea", "DetectionShape", "DectectionPreview")]
@@ -407,7 +400,6 @@ libraries = {
 }
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_tfuq7")
 scale = Vector2(0.85, 0.85)
 texture = ExtResource("3_n8rdc")
 offset = Vector2(0, -7)

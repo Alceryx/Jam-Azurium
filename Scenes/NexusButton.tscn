@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://crk0ynp0ghld3" path="res://Assets/World/Extractor/Nexus - Low.png" id="4_k7c6v"]
 [ext_resource type="Texture2D" uid="uid://b6djbjs7m2d50" path="res://Assets/World/Extractor/Nexus - Peak.png" id="4_ke4vg"]
 [ext_resource type="Texture2D" uid="uid://c1il5jr4vr6y3" path="res://Assets/World/Extractor/Nexus - Mid.png" id="5_ke4vg"]
-[ext_resource type="PackedScene" uid="uid://d3n1s8246girs" path="res://Resources/SmokeCloud.tscn" id="6_whhl2"]
+[ext_resource type="PackedScene" uid="uid://dbnv1j16avxmm" path="res://Resources/SmokeCloud.tscn" id="6_whhl2"]
 
 [sub_resource type="Animation" id="Animation_k7c6v"]
 resource_name = "Clicked"

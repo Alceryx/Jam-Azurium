@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=4 uid="uid://jsl0kt2kqh1m"]
+[gd_scene load_steps=17 format=4 uid="uid://jsl0kt2kqh1m"]
 
 [ext_resource type="TileSet" uid="uid://812b6buxvihs" path="res://Resources/Map/Map.tres" id="1_5cjrv"]
 [ext_resource type="Script" uid="uid://cljto2ukqdtou" path="res://Scripts/Managers/GameManager.cs" id="1_gjpho"]
+[ext_resource type="Texture2D" uid="uid://bj6dk1mojdjq3" path="res://Assets/Background.png" id="2_kn06e"]
 [ext_resource type="PackedScene" uid="uid://dgymrcaln58wc" path="res://Scenes/Managers/BuildManager.tscn" id="3_gjpho"]
 [ext_resource type="Resource" uid="uid://dow74su7kthuu" path="res://Resources/Turrets/Pruner.tres" id="5_uo7di"]
 [ext_resource type="PackedScene" uid="uid://cxrkc6mxf5yor" path="res://Scenes/Managers/Interface Manager.tscn" id="6_q2d71"]
@@ -51,6 +52,11 @@ script = ExtResource("1_gjpho")
 Efficiency = 1
 ButtonMaxHP = 1.0
 
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_kn06e")
+
 [node name="Interface Manager" parent="." instance=ExtResource("6_q2d71")]
 
 [node name="Tile Map" type="TileMapLayer" parent="."]
@@ -70,22 +76,29 @@ tile_set = ExtResource("1_5cjrv")
 [node name="PlaceTile" type="TileMapLayer" parent="Tile Map"]
 z_index = 1
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAD9//7/AgAAAAAAAgD5//f/BAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAD5//f/BAAAAAAAAAA=")
+tile_set = ExtResource("1_5cjrv")
+
+[node name="NexusButton" type="TileMapLayer" parent="Tile Map"]
+z_index = 1
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAD9//7/AgAAAAAAAgA=")
 tile_set = ExtResource("1_5cjrv")
 
 [node name="PreviewTile" type="TileMapLayer" parent="Tile Map"]
 modulate = Color(1, 1, 1, 0.458824)
+z_index = 1
 y_sort_enabled = true
 tile_set = ExtResource("1_5cjrv")
 
 [node name="WallBottom" type="TileMapLayer" parent="Tile Map"]
-z_index = 2
+z_index = 1
 y_sort_enabled = true
 tile_map_data = PackedByteArray("AAD3//n/BAAAAAAAAAD1//n/BAAAAAAAAAD2//n/BAAAAAAAAAD4//n/BAAAAAAAAAD4//j/BAAAAAAAAAD4//f/BAAAAAAAAAD3//f/BAAAAAAAAAD2//f/BAAAAAAAAAD2//j/BAAAAAAAAAD3//j/BAAAAAAAAAD1//j/BAAAAAAAAAD1//f/BAAAAAAAAAD7/wUABgAAAAAAAAD7/wQABgAAAAAAAAD7/wMABgAAAAAAAAD7/wIABAAAAAAAAAAEAPz/BgAAAAAAAAD4////BAAAAAAAAAD3////BAAAAAAAAAD3//7/BAAAAAAAAAD2////BAAAAAAAAAD2//7/BAAAAAAAAAD2//3/BAAAAAAAAAACAPj/BAAAAAAAAAAFAPz/BgAAAAAAAAAFAP3/BgAAAAAAAAD5/wYABgAAAAAAAAD5/wUABgAAAAAAAAD5/wQABgAAAAAAAAD5/wMABgAAAAAAAAD2/wMABgAAAAAAAAD3/wMABgAAAAAAAAD4/wMABgAAAAAAAAD7/wYABgAAAAAAAAD8/wMABgAAAAAAAAD8/wQABgAAAAAAAAD8/wUABgAAAAAAAAD8/wYABgAAAAAAAAD//wYABgAAAAAAAAD//wUABgAAAAAAAAD//wQABgAAAAAAAAAAAAQABgAAAAAAAAACAAgABgAAAAAAAAACAAcABgAAAAAAAAACAAYABgAAAAAAAAADAAYABgAAAAAAAAAEAAYABgAAAAAAAAAFAAYABgAAAAAAAAAGAAgABgAAAAAAAAAHAAgABgAAAAAAAAAEAAIABgAAAAAAAAAFAAIABgAAAAAAAAADAAIABgAAAAAAAAACAAMABgAAAAAAAAACAAIABgAAAAAAAAACAAEABgAAAAAAAAAGAP7/BgAAAAAAAAAGAP3/BgAAAAAAAAAGAPr/BgAAAAAAAAAEAPj/BgAAAAAAAAAFAPn/BgAAAAAAAAADAPn/BgAAAAAAAAD9//r/BgAAAAAAAAD+//r/BgAAAAAAAAD///r/BgAAAAAAAAD8//r/BgAAAAAAAAD6//j/BgAAAAAAAAD6//n/BgAAAAAAAAD6//r/BgAAAAAAAAD6//v/BgAAAAAAAAD6//f/BgAAAAAAAAD1//b/BAAAAAAAAAD2//b/BAAAAAAAAAD3//b/BAAAAAAAAAD4//b/BAAAAAAAAAA=")
 tile_set = ExtResource("1_5cjrv")
 
 [node name="WallTop" type="TileMapLayer" parent="Tile Map"]
-z_index = 3
+z_index = 2
 y_sort_enabled = true
 tile_map_data = PackedByteArray("AAD1/wIABgABAAAAAAD4/wIABgABAAAAAAD4/wUABgABAAAAAAD6/wUABgABAAAAAAD7/wUABgABAAAAAAD6/wIABgABAAAAAAD7/wIABgABAAAAAAD+/wMABgABAAAAAAD+/wUABgABAAAAAAABAAUABgABAAAAAAABAAcABgABAAAAAAAEAAUABgABAAAAAAABAAIABgABAAAAAAABAAAABgABAAAAAAAEAAEABgABAAAAAAAEAPv/BgABAAAAAAAFAPz/BgABAAAAAAADAPf/BgABAAAAAAAEAPj/BgABAAAAAAD+//n/BgABAAAAAAD7//n/BgABAAAAAAD5//b/BgABAAAAAAD5//f/BgABAAAAAAD5//j/BgABAAAAAAA=")
 tile_set = ExtResource("1_5cjrv")
@@ -94,7 +107,7 @@ tile_set = ExtResource("1_5cjrv")
 TurretInfo = ExtResource("5_uo7di")
 PreviewLayer = NodePath("../Tile Map/PreviewTile")
 PlaceableLayer = NodePath("../Tile Map/PlaceTile")
-GroundLayer = [NodePath("../Tile Map/Ground")]
+GroundLayer = [NodePath("../Tile Map/Ground"), NodePath("../Tile Map/WallBottom"), NodePath("../Tile Map/WallTop")]
 
 [node name="WaveManager" parent="." node_paths=PackedStringArray("IndicatorLayer") instance=ExtResource("7_y7y61")]
 Waves = Array[Object]([ExtResource("8_q2d71"), ExtResource("9_uo7di"), ExtResource("9_kn06e")])
@@ -102,6 +115,7 @@ TimeBetweenBatches = 1.0
 IndicatorLayer = NodePath("../Tile Map/Indicator")
 WorldTileSet = ExtResource("1_5cjrv")
 IndicatorTime = 5.0
+CountDownTime = 5.0
 
 [node name="Wave1Paths" type="Node2D" parent="WaveManager"]
 
@@ -135,4 +149,6 @@ curve = SubResource("Curve2D_kn06e")
 [node name="Path1" type="Path2D" parent="WaveManager/Wave3Paths"]
 curve = SubResource("Curve2D_op4cu")
 
+[connection signal="mouse_entered" from="Tile Map/NexusButton/Nexus Button" to="Tile Map/NexusButton/Nexus Button" method="OnMouseEntered"]
+[connection signal="mouse_exited" from="Tile Map/NexusButton/Nexus Button" to="Tile Map/NexusButton/Nexus Button" method="OnMouseExited"]
 [connection signal="WaveStarted" from="WaveManager" to="BuildManager" method="CancelPlacement"]

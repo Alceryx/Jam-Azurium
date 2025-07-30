@@ -3,8 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://df24pg8xmxlx6" path="res://Scenes/Enemy/Enemy.tscn" id="1_5flb4"]
 [ext_resource type="PackedScene" uid="uid://djbq55octpltn" path="res://Scenes/Enemy/StrongEnemy.tscn" id="2_0ferl"]
 [ext_resource type="PackedScene" uid="uid://d3njk76vqeien" path="res://Scenes/Turrets/Pruner.tscn" id="3_5flb4"]
-[ext_resource type="PackedScene" path="res://Scenes/Nexus Button.tscn" id="3_cu0q7"]
 [ext_resource type="PackedScene" uid="uid://byjt12v8wjc8c" path="res://Scenes/Turrets/SecondTurret.tscn" id="4_cu0q7"]
+[ext_resource type="PackedScene" uid="uid://ewd3qwa6ccua" path="res://Scenes/NexusButton.tscn" id="5_0ferl"]
 [ext_resource type="Texture2D" uid="uid://8w3yok0stq6" path="res://Assets/World/Tile/Ground.png" id="5_3g01x"]
 [ext_resource type="Texture2D" uid="uid://cmex8e5uhkhkg" path="res://Assets/World/Indicator/Indicator.png" id="5_ret7r"]
 [ext_resource type="Texture2D" uid="uid://b07mrqfnrlreu" path="res://Assets/World/Tile/Wall.png" id="8_0ferl"]
@@ -15,10 +15,10 @@ scenes/0/scene = ExtResource("1_5flb4")
 scenes/1/scene = ExtResource("2_0ferl")
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_71t2j"]
-resource_name = "TurretLayer"
+resource_name = "Extractor"
 scenes/0/scene = ExtResource("3_5flb4")
 scenes/1/scene = ExtResource("4_cu0q7")
-scenes/2/scene = ExtResource("3_cu0q7")
+scenes/2/scene = ExtResource("5_0ferl")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ret7r"]
 texture = ExtResource("5_ret7r")
@@ -42,7 +42,7 @@ texture = ExtResource("8_0ferl")
 texture_region_size = Vector2i(128, 128)
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, 32)
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, 0, -64.7263, -32.7395, 0, -63.9737, 64.067, -32.3445, 64, 0, 0, 32)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, 0, -65.7433, -64.5333, 2.63421, -96.7132, 65.7433, -65.34, 64, 0, 0, 32)
 1:0/0 = 0
 1:0/0/texture_origin = Vector2i(0, -32)
 1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0.175552, -29.8442, 64.4284, 1.9311, 63.9737, 35.3737, 0.175554, 68.9928, -64.0772, 36.1641, -64.4284, 2.80887)
