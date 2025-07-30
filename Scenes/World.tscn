@@ -125,6 +125,7 @@ scale = Vector2(2.36834, 0.388066)
 curve = SubResource("Curve2D_y7y61")
 
 [node name="Wave2Paths" type="Node2D" parent="WaveManager"]
+visible = false
 
 [node name="Path0" type="Path2D" parent="WaveManager/Wave2Paths"]
 position = Vector2(-53.0974, 61.0574)
@@ -142,6 +143,7 @@ scale = Vector2(1.08309, 0.893443)
 curve = SubResource("Curve2D_ti1bm")
 
 [node name="Wave3Paths" type="Node2D" parent="WaveManager"]
+visible = false
 
 [node name="Path0" type="Path2D" parent="WaveManager/Wave3Paths"]
 curve = SubResource("Curve2D_kn06e")

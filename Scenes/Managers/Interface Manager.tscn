@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dex3irx743gqe" path="res://Scenes/GUI/Shop/Shop.tscn" id="3_7ud4v"]
 [ext_resource type="PackedScene" uid="uid://cjmodeiwt6ovk" path="res://Scenes/GUI/Hotbar/Hotbar.tscn" id="3_wxi3v"]
 [ext_resource type="PackedScene" uid="uid://bai61h2offnsa" path="res://Scenes/GUI/Timer.tscn" id="4_wxi3v"]
-[ext_resource type="PackedScene" uid="uid://b0dyl21t28hwy" path="res://Scenes/GUI/DeathScreen.tscn" id="5_760ko"]
+[ext_resource type="PackedScene" uid="uid://b0dyl21t28hwy" path="res://Scenes/GUI/Death.tscn" id="5_760ko"]
 
 [node name="Interface Manager" type="CanvasLayer"]
 
