@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class SecondTurret : Turret
+public partial class Voltspire : Turret
 {
     [Export] private Marker2D ShootPoint;
 
