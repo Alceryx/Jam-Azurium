@@ -1,27 +1,26 @@
 [gd_scene load_steps=5 format=3 uid="uid://q4ayl8hxmqoi"]
 
 [ext_resource type="Script" uid="uid://bg454kho6wf4s" path="res://Scripts/Projectiles/FreezeBullet.cs" id="1_t7hq8"]
-[ext_resource type="Texture2D" uid="uid://d2o5d8y6g8qsr" path="res://icon.svg" id="2_vk15t"]
+[ext_resource type="PackedScene" uid="uid://b1akxow2dqy3y" path="res://Scenes/Projectiles/Trail.tscn" id="3_vk15t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dkg77"]
-size = Vector2(56, 10)
+size = Vector2(10, 10)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_t7hq8"]
 radius = 100.0
 
-[node name="Freeze Bullet" type="CharacterBody2D" node_paths=PackedStringArray("FreezeArea", "Sprite", "Hitbox")]
+[node name="Freeze Bullet" type="CharacterBody2D" node_paths=PackedStringArray("FreezeArea", "Hitbox")]
+z_index = 3
 script = ExtResource("1_t7hq8")
-Speed = 250.0
-HoverTime = 1.0
+Speed = 300.0
+HoverTime = 0.75
 HoverHeight = 100.0
 FreezeArea = NodePath("FreezeArea/CollisionShape2D")
-Sprite = NodePath("Sprite2D")
 Hitbox = NodePath("Hitbox")
+LifeTime = 5.0
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-1.90735e-06, 4.76837e-07)
-scale = Vector2(0.4375, 0.078125)
-texture = ExtResource("2_vk15t")
+[node name="Trail" parent="." instance=ExtResource("3_vk15t")]
+default_color = Color(2.02149e-06, 0.327417, 0.861571, 1)
 
 [node name="Hitbox" type="Area2D" parent="."]
 

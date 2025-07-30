@@ -1,12 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://b6i78g0nc3avm"]
+[gd_scene load_steps=5 format=3 uid="uid://b6i78g0nc3avm"]
 
 [ext_resource type="Script" uid="uid://bips1wvo63cen" path="res://Scripts/Projectiles/Bullet/Bullet.cs" id="1_jnb4d"]
+[ext_resource type="PackedScene" uid="uid://b1akxow2dqy3y" path="res://Scenes/Projectiles/Trail.tscn" id="2_2cv5c"]
 [ext_resource type="Texture2D" uid="uid://d2o5d8y6g8qsr" path="res://icon.svg" id="2_rjcpp"]
-[ext_resource type="Script" uid="uid://b0ps8hr86yl0a" path="res://Scripts/Projectiles/Bullet/BulletTrail.cs" id="3_rjcpp"]
-
-[sub_resource type="Curve" id="Curve_rjcpp"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qupxw"]
 size = Vector2(10, 10)
@@ -15,15 +11,14 @@ size = Vector2(10, 10)
 script = ExtResource("1_jnb4d")
 Speed = 250.0
 Hitbox = NodePath("Hitbox")
+LifeTime = 5.0
+
+[node name="Trail" parent="." instance=ExtResource("2_2cv5c")]
+default_color = Color(1, 1, 1, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.015625, 0.015625)
 texture = ExtResource("2_rjcpp")
-
-[node name="Trail" type="Line2D" parent="Sprite2D"]
-width = 200.0
-width_curve = SubResource("Curve_rjcpp")
-script = ExtResource("3_rjcpp")
 
 [node name="Hitbox" type="Area2D" parent="."]
 

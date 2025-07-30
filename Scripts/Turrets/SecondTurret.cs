@@ -12,11 +12,8 @@ public partial class SecondTurret : Turret
         
         Projectile projectile = Data.Modes[Mode].Projectile.Instantiate<Projectile>();
         
-        UpdateSprite();
-        
-        Vector2 AimPos = target + TargetedEnemy.MoveDirection * TargetedEnemy.Speed * 5;
-        Vector2 direction = (AimPos - ShootPoint.GlobalPosition).Normalized();
-        projectile.Setup(this, direction, Data.Modes[Mode].Damage, AimPos);
+        UpdateSprite(); ;
+        projectile.Setup(this, Vector2.Up, Data.Modes[Mode].Damage, TargetedEnemy.GlobalPosition, TargetedEnemy);
         projectile.GlobalPosition = ShootPoint.GlobalPosition;
         GameManager.GM.CallDeferred("add_child", projectile);
 
@@ -25,7 +22,7 @@ public partial class SecondTurret : Turret
         if (Mode == 0)
         {
             projectile = Data.Modes[Mode].Projectile.Instantiate<Projectile>();
-            projectile.Setup(this, -direction, Data.Modes[Mode].Damage, AimPos);
+            projectile.Setup(this, Vector2.Down, Data.Modes[Mode].Damage, TargetedEnemy.GlobalPosition, TargetedEnemy);
             projectile.GlobalPosition = ShootPoint.GlobalPosition;
             GameManager.GM.CallDeferred("add_child", projectile);
         }

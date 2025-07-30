@@ -89,14 +89,13 @@ public partial class WaveManager : Node
             
         }
         
-        if (CountDownFinished)
+        if (CountDownFinished && WaveFinished)
         {
             WaveTimer -= (float)delta;
             IndicatorTimer -= (float)delta;
             if (WaveTimer <= 0)
             {
                 StartWave(CurrentWaveNumber);
-                CountDownFinished = false;
             }
 
             if (!Warned && IndicatorTimer <= 0) 
@@ -109,6 +108,7 @@ public partial class WaveManager : Node
             CountDownTimer = CountDownTime;
             IndicatorTimer = IndicatorTime; 
             Warned = false;
+            CountDownFinished = false;
             EmitSignalWaveEnded();
             
             if (CurrentWaveNumber <= Waves.Count - 1)

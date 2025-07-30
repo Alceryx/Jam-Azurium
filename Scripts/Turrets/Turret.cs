@@ -149,12 +149,15 @@ public abstract partial class Turret : StaticBody2D
 
    public void SelfDestruct()
    {
-       ShaderMaterial material = (ShaderMaterial)Sprite.Material;
-       NoiseTexture2D noise = new NoiseTexture2D();
-       noise.SetNoise(new FastNoiseLite());
-       material.SetShader(DissolveShader);
-       material.SetShaderParameter("dissolve_texture", noise);
-       DestructTimer = DestructDelay;
+      if (IsInstanceValid(Sprite))
+      {
+          ShaderMaterial material = (ShaderMaterial)Sprite.Material;
+          NoiseTexture2D noise = new NoiseTexture2D();
+          noise.SetNoise(new FastNoiseLite());
+          material.SetShader(DissolveShader);
+          material.SetShaderParameter("dissolve_texture", noise);
+          DestructTimer = DestructDelay;
+      }
    }
 
    public void ShowDetectionPreview()

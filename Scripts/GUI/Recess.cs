@@ -15,7 +15,7 @@ public partial class Recess : Control
         if (!WaveManager.WM.CountDownFinished)
         {
             Show();
-            if (WaveManager.WM.CountDownTimer <= 1) CountDown.Text = $"Wave {WaveManager.WM.CurrentWave.WaveNumber}";
+            if (WaveManager.WM.CountDownTimer <= 1) CountDown.Text = $"Wave {WaveManager.WM.CurrentWaveNumber}";
             else CountDown.Text = $"{(int)WaveManager.WM.CountDownTimer}";
         }
         else Hide();

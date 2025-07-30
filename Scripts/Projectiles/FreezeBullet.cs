@@ -10,7 +10,6 @@ public partial class FreezeBullet : Projectile
     [Export] private float HoverHeight;
     [ExportGroup("Freeze")]
     [Export] private CollisionShape2D FreezeArea;
-    [Export] private Sprite2D Sprite;
     
     private Array<Enemy> EnemyToFreeze = new();
     private bool CanFreeze;
@@ -25,15 +24,12 @@ public partial class FreezeBullet : Projectile
         OriginalPosition = GlobalPosition;
         
         WaveManager.WM.WaveStarted += Destroy;
-        
-        Sprite.Show();
     }
 
     public override void _PhysicsProcess(double delta)
     {
         if (CanFreeze)
         {
-            Sprite.Hide();
             foreach (Enemy enemy in EnemyToFreeze)
             {
                 if (!enemy.Frozen)
@@ -50,7 +46,13 @@ public partial class FreezeBullet : Projectile
             {
                 Velocity = Vector2.Up * Speed;
                 if (GlobalPosition.DistanceTo(OriginalPosition) >= HoverHeight)
+                {
+                    if (Direction == Vector2.Up)
+                        Direction = (Targeted.GlobalPosition - GlobalPosition).Normalized();
+                    else
+                        Direction = (GlobalPosition - Targeted.GlobalPosition).Normalized();
                     Hovered = true;
+                }
             }
             else
             {

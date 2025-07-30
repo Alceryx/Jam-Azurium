@@ -38,7 +38,7 @@ public partial class Pruner : Turret
             {
                 RayCast2D ray = new RayCast2D();
                 AddChild(ray);
-                ray.GlobalPosition = OriginPoint.GlobalPosition + new Vector2(0, 100);
+                ray.GlobalPosition = OriginPoint.GlobalPosition + new Vector2(0, 50);
                 ray.TargetPosition = (point - OriginPoint.GlobalPosition).Normalized() * (30 + Data.Modes[Mode].Range * 70);
                 DirCast.Add(ray);
             }
@@ -102,7 +102,7 @@ public partial class Pruner : Turret
             UpdateSprite();
             
             Vector2 direction = (target - ShootPoint).Normalized();
-            projectile.Setup(this, direction, Data.Modes[Mode].Damage, target);
+            projectile.Setup(this, direction, Data.Modes[Mode].Damage, target, TargetedEnemy);
             projectile.GlobalPosition = ShootPoint;
             projectile.Hit += OnProjectileHit;
             GameManager.GM.CallDeferred("add_child", projectile);
@@ -124,7 +124,7 @@ public partial class Pruner : Turret
                 ShootPoint = BottomRightShootPoint.GlobalPosition;
             
             Vector2 direction = (ShootPoint - OriginPoint.GlobalPosition).Normalized();
-            projectile.Setup(this, direction, Data.Modes[Mode].Damage, target);
+            projectile.Setup(this, direction, Data.Modes[Mode].Damage, target, TargetedEnemy);
             projectile.GlobalPosition = ShootPoint;
             GameManager.GM.CallDeferred("add_child", projectile);
 
@@ -134,7 +134,8 @@ public partial class Pruner : Turret
 
     private void OnWaveEnded()
     {
-        SelfDestruct();
+        if (Mode == 1)
+            SelfDestruct();
     }
 
     private void OnLaserEntered(Node2D body)

@@ -10,17 +10,19 @@ public partial class Projectile : CharacterBody2D
     public Vector2 Direction;
     public Vector2 Target;
     public Turret Turret;
+    public Enemy Targeted;
 
     [Signal]
     public delegate void HitEventHandler();
     
 
-    public void Setup(Turret Turret, Vector2 Direction, float Damage, Vector2 Target)
+    public void Setup(Turret Turret, Vector2 Direction, float Damage, Vector2 Target, Enemy Targeted)
     {
         this.Direction = Direction;
         this.Damage = Damage;
         this.Turret = Turret;
         this.Target = Target;
+        this.Targeted = Targeted;
         
         Hitbox.BodyEntered += (Node2D body) => OnBodyEntered(body);
     }

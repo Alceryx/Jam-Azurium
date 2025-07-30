@@ -171,7 +171,7 @@ DetectionShape = NodePath("DetectionArea/CollisionShape2D")
 DectectionPreview = NodePath("DetectionPreview")
 HighlightShader = ExtResource("2_mg5gd")
 DissolveShader = ExtResource("3_mg5gd")
-DestructDelay = 1.0
+DestructDelay = 2.0
 
 [node name="ShootPoint" type="Marker2D" parent="."]
 position = Vector2(25, 35)
@@ -206,8 +206,6 @@ skew = -0.523599
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
 shape = SubResource("CircleShape2D_vsmea")
-
-[node name="ShootPoints" type="Node2D" parent="."]
 
 [connection signal="mouse_entered" from="." to="." method="OnMouseEntered"]
 [connection signal="mouse_exited" from="." to="." method="OnMouseExited"]

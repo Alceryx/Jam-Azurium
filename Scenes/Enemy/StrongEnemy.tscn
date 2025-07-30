@@ -88,6 +88,21 @@ tracks/2/keys = {
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_v72u3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 38)]
+}
+
 [sub_resource type="Animation" id="Animation_lta73"]
 resource_name = "Top Left"
 length = 0.333337
@@ -170,21 +185,6 @@ tracks/2/keys = {
 "values": [false]
 }
 
-[sub_resource type="Animation" id="Animation_v72u3"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:offset")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 38)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_v0in7"]
 _data = {
 &"Bottom Left": SubResource("Animation_v0in7"),
@@ -197,13 +197,12 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_lta73"]
 radius = 30.0832
 
-[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("sprite") groups=["Enemy"]]
+[node name="Enemy" type="CharacterBody2D" groups=["Enemy"]]
 z_index = 1
 y_sort_enabled = true
 script = ExtResource("1_lta73")
 Speed = 75.0
 Damage = 3.0
-sprite = NodePath("")
 
 [node name="Feet" type="CollisionPolygon2D" parent="."]
 position = Vector2(0, 64)
@@ -218,6 +217,7 @@ libraries = {
 scale = Vector2(0.727, 0.727)
 texture = ExtResource("4_pjke1")
 offset = Vector2(0, 38)
+flip_h = true
 
 [node name="Head" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(0, -32, 64, 0, 0, 32, -64, 0)

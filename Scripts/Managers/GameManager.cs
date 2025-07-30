@@ -27,7 +27,7 @@ public partial class GameManager : Node
 
     public override void _Process(double delta)
     {
-        if (Input.IsActionJustPressed("Escape"))
+        if (Input.IsActionJustPressed("Escape") && !ShopManager.SM.Visible && !BuildManager.BM.IsBuilding)
         {
             Pause pause = PauseMenu.Instantiate<Pause>();
             GetTree().Root.AddChild(pause);

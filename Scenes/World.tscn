@@ -1,8 +1,9 @@
-[gd_scene load_steps=19 format=4 uid="uid://jsl0kt2kqh1m"]
+[gd_scene load_steps=21 format=4 uid="uid://jsl0kt2kqh1m"]
 
 [ext_resource type="TileSet" uid="uid://812b6buxvihs" path="res://Resources/Map/Map.tres" id="1_5cjrv"]
 [ext_resource type="Script" uid="uid://cljto2ukqdtou" path="res://Scripts/Managers/GameManager.cs" id="1_gjpho"]
 [ext_resource type="Texture2D" uid="uid://bj6dk1mojdjq3" path="res://Assets/Background.png" id="2_kn06e"]
+[ext_resource type="PackedScene" uid="uid://dk003rhxgxnug" path="res://Scenes/GUI/Pause.tscn" id="2_ti1bm"]
 [ext_resource type="PackedScene" uid="uid://dgymrcaln58wc" path="res://Scenes/Managers/BuildManager.tscn" id="3_gjpho"]
 [ext_resource type="Resource" uid="uid://dow74su7kthuu" path="res://Resources/Turrets/Pruner.tres" id="5_uo7di"]
 [ext_resource type="PackedScene" uid="uid://cxrkc6mxf5yor" path="res://Scenes/Managers/Interface Manager.tscn" id="6_q2d71"]
@@ -11,6 +12,7 @@
 [ext_resource type="Resource" uid="uid://5d8g638jafrd" path="res://Resources/Waves/Wave3.tres" id="9_kn06e"]
 [ext_resource type="Resource" uid="uid://d4kiqdpaucgj7" path="res://Resources/Waves/Wave2.tres" id="9_uo7di"]
 [ext_resource type="Texture2D" uid="uid://3aywpph7ap5s" path="res://Assets/World/Lights/Light.png" id="12_ti1bm"]
+[ext_resource type="AudioStream" uid="uid://b8oyjto4q80lj" path="res://Assets/Music&Video/Theme Loop.mp3" id="13_op4cu"]
 
 [sub_resource type="Curve2D" id="Curve2D_y7y61"]
 _data = {
@@ -57,6 +59,7 @@ glow_blend_mode = 1
 script = ExtResource("1_gjpho")
 Efficiency = 1000
 ButtonMaxHP = 1.0
+PauseMenu = ExtResource("2_ti1bm")
 
 [node name="Interface Manager" parent="." instance=ExtResource("6_q2d71")]
 
@@ -75,7 +78,7 @@ tile_set = ExtResource("1_5cjrv")
 
 [node name="WallBottom" type="TileMapLayer" parent="Tile Map"]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAD3//n/BAAAAAAAAAD1//n/BAAAAAAAAAD2//n/BAAAAAAAAAD4//n/BAAAAAAAAAD4//j/BAAAAAAAAAD4//f/BAAAAAAAAAD3//f/BAAAAAAAAAD2//f/BAAAAAAAAAD2//j/BAAAAAAAAAD3//j/BAAAAAAAAAD1//j/BAAAAAAAAAD1//f/BAAAAAAAAAD7/wUABgAAAAAAAAD7/wQABgAAAAAAAAD7/wMABgAAAAAAAAAEAPz/BgAAAAAAAAD4////BAAAAAAAAAD3////BAAAAAAAAAD3//7/BAAAAAAAAAD2////BAAAAAAAAAD2//7/BAAAAAAAAAD2//3/BAAAAAAAAAD5/wYABgAAAAAAAAD5/wUABgAAAAAAAAD5/wQABgAAAAAAAAD5/wMABgAAAAAAAAD2/wMABgAAAAAAAAD3/wMABgAAAAAAAAD4/wMABgAAAAAAAAD7/wYABgAAAAAAAAD8/wMABgAAAAAAAAD8/wQABgAAAAAAAAD8/wUABgAAAAAAAAD8/wYABgAAAAAAAAD//wYABgAAAAAAAAD//wUABgAAAAAAAAD//wQABgAAAAAAAAAAAAQABgAAAAAAAAACAAgABgAAAAAAAAACAAcABgAAAAAAAAACAAYABgAAAAAAAAADAAYABgAAAAAAAAAEAAYABgAAAAAAAAAFAAYABgAAAAAAAAAGAAgABgAAAAAAAAAHAAgABgAAAAAAAAAEAAIABgAAAAAAAAAFAAIABgAAAAAAAAADAAIABgAAAAAAAAACAAMABgAAAAAAAAACAAIABgAAAAAAAAACAAEABgAAAAAAAAAGAPr/BgAAAAAAAAAEAPj/BgAAAAAAAAAFAPn/BgAAAAAAAAADAPn/BgAAAAAAAAD9//r/BgAAAAAAAAD+//r/BgAAAAAAAAD///r/BgAAAAAAAAD8//r/BgAAAAAAAAD6//j/BgAAAAAAAAD6//n/BgAAAAAAAAD6//r/BgAAAAAAAAD6//v/BgAAAAAAAAD6//f/BgAAAAAAAAD1//b/BAAAAAAAAAD2//b/BAAAAAAAAAD3//b/BAAAAAAAAAD4//b/BAAAAAAAAAAFAP3/BgAAAAAAAAAGAP7/BgAAAAAAAAAFAPz/BgAAAAAAAAAGAP3/BgAAAAAAAAAEAPv/AgAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAD3//n/BAAAAAAAAAD1//n/BAAAAAAAAAD2//n/BAAAAAAAAAD4//n/BAAAAAAAAAD4//j/BAAAAAAAAAD4//f/BAAAAAAAAAD3//f/BAAAAAAAAAD2//f/BAAAAAAAAAD2//j/BAAAAAAAAAD3//j/BAAAAAAAAAD1//j/BAAAAAAAAAD1//f/BAAAAAAAAAD7/wUABgAAAAAAAAD7/wQABgAAAAAAAAD7/wMABgAAAAAAAAAEAPz/BgAAAAAAAAD4////BAAAAAAAAAD3////BAAAAAAAAAD3//7/BAAAAAAAAAD2////BAAAAAAAAAD2//7/BAAAAAAAAAD2//3/BAAAAAAAAAD5/wYABgAAAAAAAAD5/wUABgAAAAAAAAD5/wQABgAAAAAAAAD5/wMABgAAAAAAAAD2/wMABgAAAAAAAAD3/wMABgAAAAAAAAD4/wMABgAAAAAAAAD7/wYABgAAAAAAAAD8/wMABgAAAAAAAAD8/wQABgAAAAAAAAD8/wUABgAAAAAAAAD8/wYABgAAAAAAAAD//wYABgAAAAAAAAD//wUABgAAAAAAAAD//wQABgAAAAAAAAAAAAQABgAAAAAAAAACAAgABgAAAAAAAAACAAcABgAAAAAAAAACAAYABgAAAAAAAAADAAYABgAAAAAAAAAEAAYABgAAAAAAAAAFAAYABgAAAAAAAAAGAAgABgAAAAAAAAAHAAgABgAAAAAAAAAEAAIABgAAAAAAAAAFAAIABgAAAAAAAAADAAIABgAAAAAAAAACAAMABgAAAAAAAAACAAIABgAAAAAAAAACAAEABgAAAAAAAAAGAPr/BgAAAAAAAAAEAPj/BgAAAAAAAAAFAPn/BgAAAAAAAAADAPn/BgAAAAAAAAD9//r/BgAAAAAAAAD+//r/BgAAAAAAAAD///r/BgAAAAAAAAD8//r/BgAAAAAAAAD6//j/BgAAAAAAAAD6//n/BgAAAAAAAAD6//r/BgAAAAAAAAD6//v/BgAAAAAAAAD6//f/BgAAAAAAAAD1//b/BAAAAAAAAAD2//b/BAAAAAAAAAD3//b/BAAAAAAAAAD4//b/BAAAAAAAAAAFAP3/BgAAAAAAAAAGAP7/BgAAAAAAAAAFAPz/BgAAAAAAAAAGAP3/BgAAAAAAAAA=")
 tile_set = ExtResource("1_5cjrv")
 
 [node name="WallTop" type="TileMapLayer" parent="Tile Map"]
@@ -85,7 +88,7 @@ tile_set = ExtResource("1_5cjrv")
 
 [node name="PlaceTile" type="TileMapLayer" parent="Tile Map"]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAD5//f/BAAAAAAAAAD9/wAAAgAAAAAAAAD5/wIAAgAAAAAAAAD6/wQAAgAAAAAAAAD9//7/AgAAAAAAAgA=")
+tile_map_data = PackedByteArray("AAD5//f/BAAAAAAAAAD9//7/AgAAAAAAAgA=")
 tile_set = ExtResource("1_5cjrv")
 
 [node name="PreviewTile" type="TileMapLayer" parent="Tile Map"]
@@ -93,11 +96,12 @@ modulate = Color(1, 1, 1, 0.458824)
 y_sort_enabled = true
 tile_set = ExtResource("1_5cjrv")
 
-[node name="BuildManager" parent="." node_paths=PackedStringArray("PreviewLayer", "PlaceableLayer", "GroundLayer") instance=ExtResource("3_gjpho")]
+[node name="BuildManager" parent="." node_paths=PackedStringArray("PreviewLayer", "PlaceableLayer", "GroundLayer", "UnplaceableLayer") instance=ExtResource("3_gjpho")]
 TurretInfo = ExtResource("5_uo7di")
 PreviewLayer = NodePath("../Tile Map/PreviewTile")
 PlaceableLayer = NodePath("../Tile Map/PlaceTile")
 GroundLayer = [NodePath("../Tile Map/Ground")]
+UnplaceableLayer = [NodePath("../Tile Map/WallBottom"), NodePath("../Tile Map/WallTop")]
 
 [node name="WaveManager" parent="." node_paths=PackedStringArray("IndicatorLayer") instance=ExtResource("7_y7y61")]
 Waves = Array[Object]([ExtResource("8_q2d71"), ExtResource("9_uo7di"), ExtResource("9_kn06e")])
@@ -186,4 +190,13 @@ scale = Vector2(10.418, 4.41797)
 energy = 0.3
 texture = ExtResource("12_ti1bm")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_op4cu")
+autoplay = true
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(566.391, 607.7)
+
+[connection signal="mouse_entered" from="Tile Map/PlaceTile/@StaticBody2D@51554" to="Tile Map/PlaceTile/@StaticBody2D@51554" method="OnMouseEntered"]
+[connection signal="mouse_exited" from="Tile Map/PlaceTile/@StaticBody2D@51554" to="Tile Map/PlaceTile/@StaticBody2D@51554" method="OnMouseExited"]
 [connection signal="WaveStarted" from="WaveManager" to="BuildManager" method="CancelPlacement"]
