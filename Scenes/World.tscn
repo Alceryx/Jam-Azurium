@@ -55,10 +55,12 @@ background_mode = 3
 glow_enabled = true
 glow_blend_mode = 1
 
-[node name="World" type="Node"]
+[node name="World" type="Node" node_paths=PackedStringArray("Audio")]
 script = ExtResource("1_gjpho")
 Efficiency = 5
 ButtonMaxHP = 1.0
+Audio = NodePath("AudioStreamPlayer")
+AudioDelay = 2.0
 PauseMenu = ExtResource("2_ti1bm")
 
 [node name="Interface Manager" parent="." instance=ExtResource("6_q2d71")]
@@ -74,6 +76,7 @@ tile_map_data = PackedByteArray("AAD//wIABAAAAAAAAAD//wEABAAAAAAAAAD+/wEABAAAAAA
 tile_set = ExtResource("1_5cjrv")
 
 [node name="Indicator" type="TileMapLayer" parent="Tile Map"]
+z_index = -1
 tile_set = ExtResource("1_5cjrv")
 
 [node name="WallBottom" type="TileMapLayer" parent="Tile Map"]
@@ -88,8 +91,7 @@ tile_set = ExtResource("1_5cjrv")
 
 [node name="Block" type="TileMapLayer" parent="Tile Map"]
 visible = false
-y_sort_enabled = true
-tile_map_data = PackedByteArray("AAD9////BAAAAAAAAAD+////BAAAAAAAAAD+//7/BAAAAAAAAAD9//7/BAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAD//wAABAAAAAAAAAD+/wAABAAAAAAAAAD+////BAAAAAAAAAD/////BAAAAAAAAAA=")
 tile_set = ExtResource("1_5cjrv")
 
 [node name="PlaceTile" type="TileMapLayer" parent="Tile Map"]
@@ -109,7 +111,8 @@ PlaceableLayer = NodePath("../Tile Map/PlaceTile")
 GroundLayer = [NodePath("../Tile Map/Ground")]
 UnplaceableLayer = [NodePath("../Tile Map/WallBottom"), NodePath("../Tile Map/WallTop"), NodePath("../Tile Map/Block")]
 
-[node name="WaveManager" parent="." node_paths=PackedStringArray("IndicatorLayer") instance=ExtResource("7_y7y61")]
+[node name="WaveManager" parent="." node_paths=PackedStringArray("SpawnLayer", "IndicatorLayer") instance=ExtResource("7_y7y61")]
+SpawnLayer = NodePath("../Tile Map/PlaceTile")
 Waves = Array[Object]([ExtResource("8_q2d71"), ExtResource("9_uo7di"), ExtResource("9_kn06e")])
 TimeBetweenBatches = 1.0
 IndicatorLayer = NodePath("../Tile Map/Indicator")
@@ -198,7 +201,6 @@ texture = ExtResource("12_ti1bm")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_op4cu")
-autoplay = true
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(566.391, 607.7)

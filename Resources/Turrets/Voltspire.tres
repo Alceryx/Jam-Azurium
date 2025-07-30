@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="TurretData" load_steps=9 format=3 uid="uid://bb1usc2y6f5ix"]
+[gd_resource type="Resource" script_class="TurretData" load_steps=9 format=3 uid="uid://cpijjkct8yxd4"]
 
 [ext_resource type="Texture2D" uid="uid://cx7uf6ranrfja" path="res://Assets/World/Extractor/T2 - M1.png" id="1_chb7a"]
 [ext_resource type="PackedScene" uid="uid://c47sp1oj85g4l" path="res://Scenes/Projectiles/BounceBullet.tscn" id="2_kkfcl"]

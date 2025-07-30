@@ -17,6 +17,7 @@ public partial class BuildManager : Node
     private Turret.FacingDirection PreviewRotation;
     
     public bool IsBuilding;
+    public bool IsRelocating;
     public Array<Vector2I> OccupiedTiles = new();
     private Array<Vector2I> RecentlyOccupied = new();
     
@@ -85,8 +86,13 @@ public partial class BuildManager : Node
 
     public void CancelPlacement()
     {
-        PreviewLayer.EraseCell(GridPos);
-        IsBuilding = false;
+        if (IsRelocating)
+            Place();
+        else
+        {
+            PreviewLayer.EraseCell(GridPos);
+            IsBuilding = false;
+        }
     }
     
     public void Store(Turret turret)
@@ -109,6 +115,7 @@ public partial class BuildManager : Node
         Destroy(turret);
         SetTurret(turret.Data, turret.Mode);
         Build();
+        IsRelocating = true;
     }
  
     //Rotate the turret
@@ -123,6 +130,7 @@ public partial class BuildManager : Node
     //Place the turret
     public void Place()
     {
+        IsRelocating = false;
         Vector2I RealPos = GridPos + Vector2I.One;
         IsBuilding = false;
         PreviewLayer.EraseCell(GridPos);

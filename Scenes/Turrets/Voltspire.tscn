@@ -1,6 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://byjt12v8wjc8c"]
+[gd_scene load_steps=11 format=3 uid="uid://bye1ink2txlol"]
 
-[ext_resource type="Script" uid="uid://cfimxhfc8u3aa" path="res://Scripts/Turrets/Voltspire.cs" id="1_ncty4"]
+[ext_resource type="Script" uid="uid://cfimxhfc8u3aa" path="res://Scripts/Turrets/Voltspire.cs" id="1_dg4l2"]
 [ext_resource type="Shader" uid="uid://de5cqnc22f116" path="res://Resources/Shaders/2DOutline.gdshader" id="2_1s0j2"]
 [ext_resource type="Shader" uid="uid://cyjpl0eeiivbn" path="res://Resources/Shaders/Dissolve.gdshader" id="3_cbf36"]
 [ext_resource type="Texture2D" uid="uid://cx7uf6ranrfja" path="res://Assets/World/Extractor/T2 - M1.png" id="4_g4nv2"]
@@ -71,12 +71,11 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_vsmea"]
 
 [node name="SecondTurret" type="StaticBody2D" node_paths=PackedStringArray("ShootPoint", "Sprite", "SpriteState", "DetectionArea", "DetectionShape", "DectectionPreview")]
-z_index = 1
 y_sort_enabled = true
 collision_layer = 4
 collision_mask = 4
 input_pickable = true
-script = ExtResource("1_ncty4")
+script = ExtResource("1_dg4l2")
 ShootPoint = NodePath("ShootPoint")
 Sprite = NodePath("Sprite2D")
 SpriteState = NodePath("AnimationPlayer")
@@ -88,7 +87,6 @@ DissolveShader = ExtResource("3_cbf36")
 DestructDelay = 2.0
 
 [node name="ShootPoint" type="Marker2D" parent="."]
-position = Vector2(25, 35)
 
 [node name="Feet" type="CollisionPolygon2D" parent="."]
 position = Vector2(0, 96)
@@ -108,8 +106,8 @@ libraries = {
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.883, 0.883)
-texture = ExtResource("5_tmw7x")
-offset = Vector2(0, 52)
+texture = ExtResource("4_g4nv2")
+offset = Vector2(0, 54)
 
 [node name="Body" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(0, -160, 128, -96, 128, 96, 0, 160, -128, 96, -128, -96)

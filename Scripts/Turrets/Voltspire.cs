@@ -35,6 +35,9 @@ public partial class Voltspire : Turret
 
     public override void UpdateSprite()
     {
-        SpriteState.Play("Top Right");
+        if (Mode == 0)
+            SpriteState.Play("Mode 1");
+        else
+            SpriteState.Play("Mode 2");
     }
 }

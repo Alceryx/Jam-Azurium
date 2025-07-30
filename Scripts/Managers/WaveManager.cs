@@ -12,8 +12,9 @@ public partial class WaveManager : Node
         BottomRight
     }
 
-    
-    [ExportGroup("Wave Data")]
+
+    [ExportGroup("Wave Data")] 
+    [Export] private TileMapLayer SpawnLayer;
     [Export] public Array<WaveData> Waves;
     [Export] private float TimeBetweenBatches;
     [ExportGroup("Wave Warning")] 
@@ -167,7 +168,7 @@ public partial class WaveManager : Node
     {
         Enemy enemy = Enemy.Instantiate() as Enemy;
         enemy.Setup(GetChild<Node2D>(CurrentWaveNumber - 1).GetChild<Path2D>(CurrentBatches[CurrentQueueIndex].PathID));
-        GameManager.GM.AddChild(enemy);
+        SpawnLayer.AddChild(enemy);
 
         CurrentBatchesQueue[CurrentBatches[CurrentQueueIndex]] -= 1;
         if (CurrentBatchesQueue[CurrentBatches[CurrentQueueIndex]] <= 0)

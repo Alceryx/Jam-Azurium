@@ -12,8 +12,12 @@ public partial class GameManager : Node
     [Export] public float ButtonMaxHP;
     public float ButtonHP;
 
-    [ExportGroup("Pause")] 
+    [ExportGroup("Misc")] 
+    [Export] private AudioStreamPlayer Audio;
+    [Export] private float AudioDelay;
     [Export] private PackedScene PauseMenu;
+    
+    private float AudioDelayTimer;
     
     public int Currency;
     public NexusButton NexusButton;
@@ -23,10 +27,18 @@ public partial class GameManager : Node
     {
         GM = this;
         ButtonHP = ButtonMaxHP;
+        AudioDelayTimer = AudioDelay;
     }
 
     public override void _Process(double delta)
     {
+        if (AudioDelayTimer > 0)
+        {
+            AudioDelayTimer -= (float)delta;
+            if (AudioDelayTimer <= 0)
+                Audio.Play();
+        } 
+        
         if (Input.IsActionJustPressed("Escape") && !ShopManager.SM.Visible && !BuildManager.BM.IsBuilding)
         {
             Pause pause = PauseMenu.Instantiate<Pause>();
