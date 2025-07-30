@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ctxufr0i2ocjw"
-path="res://.godot/imported/boar_NW_idle_strip.png-02a7bf92581165328de2fc97ad5dc73b.ctex"
+path="res://.godot/imported/boar_NW_idle_strip.png-5eac1b78906ef93756e92caee0f844d9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Critters/boar/boar_NW_idle_strip.png"
-dest_files=["res://.godot/imported/boar_NW_idle_strip.png-02a7bf92581165328de2fc97ad5dc73b.ctex"]
+source_file="res://Assets/critters/boar/boar_NW_idle_strip.png"
+dest_files=["res://.godot/imported/boar_NW_idle_strip.png-5eac1b78906ef93756e92caee0f844d9.ctex"]
 
 [params]
 

@@ -23,6 +23,7 @@ public partial class DeathScreen : Control
 
     public void OnReplayPressed()
     {
+        GetTree().Paused = false;
         GetTree().ReloadCurrentScene();
     }
 

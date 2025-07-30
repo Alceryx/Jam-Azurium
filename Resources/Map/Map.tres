@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://df24pg8xmxlx6" path="res://Scenes/Enemy/Enemy.tscn" id="1_5flb4"]
 [ext_resource type="PackedScene" uid="uid://djbq55octpltn" path="res://Scenes/Enemy/StrongEnemy.tscn" id="2_0ferl"]
-[ext_resource type="PackedScene" uid="uid://bo356rtc6bb7q" path="res://Scenes/Turrets/FirstTurret.tscn" id="2_ret7r"]
+[ext_resource type="PackedScene" uid="uid://d3njk76vqeien" path="res://Scenes/Turrets/Pruner.tscn" id="3_5flb4"]
 [ext_resource type="PackedScene" uid="uid://ewd3qwa6ccua" path="res://Scenes/Nexus Button.tscn" id="3_cu0q7"]
 [ext_resource type="PackedScene" uid="uid://byjt12v8wjc8c" path="res://Scenes/Turrets/SecondTurret.tscn" id="4_cu0q7"]
 [ext_resource type="Texture2D" uid="uid://8w3yok0stq6" path="res://Assets/World/Tile/Ground.png" id="5_3g01x"]
@@ -15,7 +15,7 @@ scenes/1/scene = ExtResource("2_0ferl")
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_71t2j"]
 resource_name = "TurretLayer"
-scenes/0/scene = ExtResource("2_ret7r")
+scenes/0/scene = ExtResource("3_5flb4")
 scenes/1/scene = ExtResource("4_cu0q7")
 scenes/2/scene = ExtResource("3_cu0q7")
 
