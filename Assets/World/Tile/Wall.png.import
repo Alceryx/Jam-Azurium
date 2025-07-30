@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d3t7fnvkehy4c"
-path="res://.godot/imported/critter_stag_SE_walk.png-f3af9bdd6bf99c2f5a01ce35294755ad.ctex"
+uid="uid://b07mrqfnrlreu"
+path="res://.godot/imported/Wall.png-094597e2b58163de2d344eca3e8cbff2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Critters/stag/critter_stag_SE_walk.png"
-dest_files=["res://.godot/imported/critter_stag_SE_walk.png-f3af9bdd6bf99c2f5a01ce35294755ad.ctex"]
+source_file="res://Assets/World/Tile/Wall.png"
+dest_files=["res://.godot/imported/Wall.png-094597e2b58163de2d344eca3e8cbff2.ctex"]
 
 [params]
 

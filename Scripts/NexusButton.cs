@@ -7,6 +7,7 @@ public partial class NexusButton : StaticBody2D
     [Export] private float HoldThreshold;
     [Export] private AnimationPlayer SpriteState;
     [Export] private Sprite2D Sprite;
+    [Export] private PackedScene Particle;
     public bool CanClick;
     private bool Releasing;
 
@@ -21,7 +22,7 @@ public partial class NexusButton : StaticBody2D
     {
         SpriteState.Play("Neutral");
         ClickDelay = 1.0f / MaxCPS;
-
+        
         CallDeferred("SetInstance");
     }
 
@@ -61,9 +62,8 @@ public partial class NexusButton : StaticBody2D
                 ClickTimer = ClickDelay;
                 GameManager.GM.Currency += GameManager.GM.Efficiency;
                 
-                SpriteState.Play("Clicked");
-                if (ShopManager.SM.Visible)
-                    ShopManager.SM.Hide();
+                SpawnCloud();
+                if (ShopManager.SM.Visible) ShopManager.SM.Hide();
             }
 
             if (Input.IsActionPressed("Interact") )
@@ -82,6 +82,15 @@ public partial class NexusButton : StaticBody2D
     public void TakeDamage(float damage)
     {
         GameManager.GM.ButtonHP -= damage;
+    }
+
+    private void SpawnCloud()
+    {
+        GpuParticles2D SmokeCloud = Particle.Instantiate() as GpuParticles2D;
+        AddChild(SmokeCloud);
+        MoveChild(SmokeCloud, 0);
+        SmokeCloud.Position = new Vector2(0, 64);
+        SmokeCloud.Emitting = true;
     }
     private void OnMouseEntered()
     {

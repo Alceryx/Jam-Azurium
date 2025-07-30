@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://ewd3qwa6ccua"]
+[gd_scene load_steps=12 format=3 uid="uid://ewd3qwa6ccua"]
 
 [ext_resource type="Script" uid="uid://dkwpps6dhmbbl" path="res://Scripts/NexusButton.cs" id="1_0h4l8"]
 [ext_resource type="Shader" uid="uid://de5cqnc22f116" path="res://Resources/Shaders/2DOutline.gdshader" id="2_k7c6v"]
 [ext_resource type="Texture2D" uid="uid://crk0ynp0ghld3" path="res://Assets/World/Extractor/Nexus - Low.png" id="4_k7c6v"]
 [ext_resource type="Texture2D" uid="uid://b6djbjs7m2d50" path="res://Assets/World/Extractor/Nexus - Peak.png" id="4_ke4vg"]
 [ext_resource type="Texture2D" uid="uid://c1il5jr4vr6y3" path="res://Assets/World/Extractor/Nexus - Mid.png" id="5_ke4vg"]
+[ext_resource type="PackedScene" uid="uid://d3n1s8246girs" path="res://Resources/SmokeCloud.tscn" id="6_whhl2"]
 
 [sub_resource type="Animation" id="Animation_k7c6v"]
 resource_name = "Clicked"
@@ -108,6 +109,7 @@ MaxCPS = 7
 HoldThreshold = 0.5
 SpriteState = NodePath("AnimationPlayer")
 Sprite = NodePath("Sprite2D")
+Particle = ExtResource("6_whhl2")
 
 [node name="Feet" type="CollisionPolygon2D" parent="."]
 position = Vector2(0, 96)

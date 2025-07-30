@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://d3n1s8246girs"]
+
+[sub_resource type="Curve" id="Curve_tbknn"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.166977), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_udk6e"]
+curve = SubResource("Curve_tbknn")
+
+[sub_resource type="Gradient" id="Gradient_5mc0l"]
+colors = PackedColorArray(0.45098, 0.870588, 0.886275, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_5yew1"]
+gradient = SubResource("Gradient_5mc0l")
+
+[sub_resource type="Curve" id="Curve_udk6e"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.256847), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_5mc0l"]
+curve = SubResource("Curve_udk6e")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tbknn"]
+particle_flag_disable_z = true
+radial_velocity_min = 150.0
+radial_velocity_max = 200.0
+gravity = Vector3(0, 0, 0)
+scale_min = 20.0
+scale_max = 25.0
+scale_curve = SubResource("CurveTexture_5mc0l")
+color_ramp = SubResource("GradientTexture1D_5yew1")
+alpha_curve = SubResource("CurveTexture_udk6e")
+turbulence_enabled = true
+turbulence_noise_speed = Vector3(0.5, 0.5, 0.5)
+turbulence_influence_max = 0.5
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.1
+
+[node name="Smoke" type="GPUParticles2D"]
+emitting = false
+amount = 30
+amount_ratio = 0.75
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_tbknn")
