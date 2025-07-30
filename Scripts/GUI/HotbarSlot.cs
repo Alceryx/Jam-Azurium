@@ -38,6 +38,7 @@ public partial class HotbarSlot : TextureButton
 
     private void OnButtonPressed()
     {
+        ShopManager.SM.Hide();
         BuildManager.BM.SetTurret(Data, Mode);
         BuildManager.BM.Build();
     }
