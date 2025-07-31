@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://dgymrcaln58wc"]
+[gd_scene load_steps=3 format=3 uid="uid://dgymrcaln58wc"]
 
 [ext_resource type="Script" uid="uid://cboc6vonuw2qg" path="res://Scripts/Managers/BuildManager.gd" id="1_2qodn"]
+[ext_resource type="AudioStream" uid="uid://cogaevrhq65es" path="res://Assets/Music&SFX/Place.mp3" id="2_trgnx"]
 
-[node name="BuildManager" type="Node"]
+[node name="BuildManager" type="Node" node_paths=PackedStringArray("AudioPlayer")]
 script = ExtResource("1_2qodn")
+AudioPlayer = NodePath("AudioStreamPlayer2D")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_trgnx")

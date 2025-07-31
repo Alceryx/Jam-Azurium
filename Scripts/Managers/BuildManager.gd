@@ -10,6 +10,7 @@ class_name BuildManager
 @export var PlaceableLayer: TileMapLayer
 @export var GroundLayer: Array[TileMapLayer] = []
 @export var UnplaceableLayer: Array[TileMapLayer] = []
+@export var AudioPlayer : AudioStreamPlayer2D
 
 var CurrentPreview: Turret
 var PreviewRotation: Turret.FacingDirection = Turret.FacingDirection.TopRight
@@ -125,6 +126,7 @@ func Place():
 
 			OccupiedTiles.append(pos)
 			RecentlyOccupied.append(display)
+	AudioPlayer.play()
 
 func IsPlacementValid() -> bool:
 	var RealPos = GridPos + Vector2i.ONE

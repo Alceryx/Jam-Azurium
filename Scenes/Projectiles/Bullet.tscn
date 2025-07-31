@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c0r48g0uivf32" path="res://Scripts/Projectiles/Bullet/Bullet.gd" id="1_jnb4d"]
 [ext_resource type="PackedScene" uid="uid://b1akxow2dqy3y" path="res://Scenes/Projectiles/Trail.tscn" id="2_2cv5c"]
-[ext_resource type="Texture2D" uid="uid://d2o5d8y6g8qsr" path="res://icon.svg" id="2_rjcpp"]
+[ext_resource type="Texture2D" uid="uid://barkwlymq00tg" path="res://icon.svg" id="2_rjcpp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qupxw"]
 size = Vector2(10, 10)

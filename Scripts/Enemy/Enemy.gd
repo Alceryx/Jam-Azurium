@@ -46,8 +46,7 @@ func TakeDamage(damage: float) -> void:
 	CurrentHealth -= damage
 	print(CurrentHealth)
 	if CurrentHealth <= 0:
-		WaveManager.WM.WaveStarted.disconnect(UnFreeze)
-		queue_free()
+		Die()
 
 func Freeze() -> void:
 	Frozen = true
@@ -97,9 +96,8 @@ func UpdateSprite() -> void:
 			sprite.play("Bottom Left")
 		FacingDirection.BottomRight:
 			sprite.play("Bottom Right")
+		
 
-func OnBodyEntered(body: Node2D) -> void:
-	if body is NexusButton:
-		body.TakeDamage(Damage)
-		WaveManager.WM.WaveStarted.disconnect(UnFreeze)
-		queue_free()
+func Die():
+	WaveManager.WM.WaveStarted.disconnect(UnFreeze)
+	queue_free()

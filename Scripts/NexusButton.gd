@@ -62,9 +62,6 @@ func _process(delta: float) -> void:
 		if Input.is_action_just_released("Interact"):
 			HoldTimer = 0
 
-func TakeDamage(damage: float) -> void:
-	GameManager.GM.ButtonHP -= damage
-
 func SpawnCloud() -> void:
 	var SmokeCloud: GPUParticles2D = Particle.instantiate() as GPUParticles2D
 	add_child(SmokeCloud)
@@ -82,3 +79,8 @@ func OnMouseExited() -> void:
 
 func SetInstance() -> void:
 	GameManager.GM.NexusButton = self
+	
+func OnBodyEntered(body:Node2D):
+	if (body is Enemy):
+		GameManager.GM.ButtonHP -= (body as Enemy).Damage
+		body.Die()
