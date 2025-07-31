@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="UpgradeData" load_steps=3 format=3 uid="uid://ctstr5gcml1ff"]
+
+[ext_resource type="Texture2D" uid="uid://cffdusqbqvieq" path="res://Assets/GUI/Shop/Upgrade/ShopUpItem - HealthProgress3.png" id="1_fnvdn"]
+[ext_resource type="Script" uid="uid://bi5q4odhi38r4" path="res://Resources/Shop/UpgradeData.gd" id="2_y53h4"]
+
+[resource]
+script = ExtResource("2_y53h4")
+Price = 100
+Addition = 5
+Graphic = ExtResource("1_fnvdn")
+metadata/_custom_type_script = "uid://bi5q4odhi38r4"

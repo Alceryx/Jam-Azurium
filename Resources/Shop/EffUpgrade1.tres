@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="UpgradeData" load_steps=3 format=3 uid="uid://522l7ruj3xm2"]
+
+[ext_resource type="Texture2D" uid="uid://dnl215wgfu5j3" path="res://Assets/GUI/Shop/Upgrade/ShopUpItem - EffiProgress1.png" id="1_dl1a0"]
+[ext_resource type="Script" uid="uid://bi5q4odhi38r4" path="res://Resources/Shop/UpgradeData.gd" id="2_1403r"]
+
+[resource]
+script = ExtResource("2_1403r")
+Price = 150
+Addition = 1
+Graphic = ExtResource("1_dl1a0")
+metadata/_custom_type_script = "uid://bi5q4odhi38r4"

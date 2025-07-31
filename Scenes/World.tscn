@@ -429,6 +429,3 @@ texture = ExtResource("12_ti1bm")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_op4cu")
-
-[connection signal="mouse_entered" from="Tile Map/PlaceTile/Nexus Button" to="Tile Map/PlaceTile/Nexus Button" method="OnMouseEntered"]
-[connection signal="mouse_exited" from="Tile Map/PlaceTile/Nexus Button" to="Tile Map/PlaceTile/Nexus Button" method="OnMouseExited"]

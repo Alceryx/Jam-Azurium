@@ -17,7 +17,7 @@ func _on_continue_pressed():
 	queue_free()
 
 func _on_quit_pressed():
-	SceneManager.SM.SwitchScene("res://Scenes/GUI/Start.tscn")
+	SceneManager.SM.switch_scene("res://Scenes/GUI/Start.tscn")
 	get_tree().paused = false
 	queue_free()
 

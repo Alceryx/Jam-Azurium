@@ -1,8 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://evhqekwhn1mt"]
+[gd_scene load_steps=16 format=3 uid="uid://evhqekwhn1mt"]
 
 [ext_resource type="Texture2D" uid="uid://cppfbog4758jh" path="res://Assets/GUI/Shop/Upgrade/ShopUpItem - HealthPanel.png" id="1_ar7hk"]
 [ext_resource type="Theme" uid="uid://bm2m53cf2qpe4" path="res://Resources/GUI.tres" id="1_h31cb"]
 [ext_resource type="Script" uid="uid://bb7u43bs4svup" path="res://Scripts/GUI/Upgrade/HealthUpgrade.gd" id="2_sqcsn"]
+[ext_resource type="Script" uid="uid://bi5q4odhi38r4" path="res://Resources/Shop/UpgradeData.gd" id="3_7jjy3"]
+[ext_resource type="Resource" uid="uid://cmv1w7nnlfyph" path="res://Resources/Shop/HealthUpgrade1.tres" id="4_kduds"]
+[ext_resource type="Resource" uid="uid://by7anrc1ppq7v" path="res://Resources/Shop/HealthUpgrade2.tres" id="5_acsii"]
+[ext_resource type="Resource" uid="uid://ctstr5gcml1ff" path="res://Resources/Shop/HealthUpgrade3.tres" id="6_ictw0"]
 [ext_resource type="Texture2D" uid="uid://dlrxiw5u8wl5v" path="res://Assets/GUI/Shop/Upgrade/ShopUpItem - HealthSelected.png" id="7_kduds"]
 [ext_resource type="Texture2D" uid="uid://cw3yl2wubx5lu" path="res://Assets/GUI/Shop/Upgrade/ShopUpItem - HealthProgress0.png" id="8_eu35m"]
 [ext_resource type="Texture2D" uid="uid://tndjrs38wpnn" path="res://Assets/GUI/Shop/Upgrade/ShopUpItem - HealthClicked.png" id="9_br6mn"]
@@ -22,6 +26,7 @@ size_flags_vertical = 0
 theme = ExtResource("1_h31cb")
 theme_override_styles/panel = SubResource("StyleBoxEmpty_ar7hk")
 script = ExtResource("2_sqcsn")
+Database = Array[ExtResource("3_7jjy3")]([ExtResource("4_kduds"), ExtResource("5_acsii"), ExtResource("6_ictw0")])
 Background = NodePath("Main/Background")
 BGDefault = ExtResource("1_ar7hk")
 BGSelected = ExtResource("7_kduds")

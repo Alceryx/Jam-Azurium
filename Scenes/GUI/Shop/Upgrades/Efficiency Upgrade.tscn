@@ -1,8 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://xvldb6ot1knn"]
+[gd_scene load_steps=16 format=3 uid="uid://xvldb6ot1knn"]
 
 [ext_resource type="Texture2D" uid="uid://cx43jc34sbsuv" path="res://Assets/GUI/Shop/Upgrade/ShopUpItem - EffiPanel.png" id="1_4da3k"]
 [ext_resource type="Theme" uid="uid://bm2m53cf2qpe4" path="res://Resources/GUI.tres" id="1_ftbvb"]
 [ext_resource type="Script" uid="uid://co35wncu7qk83" path="res://Scripts/GUI/Upgrade/EfficiencyUpgrade.gd" id="2_4da3k"]
+[ext_resource type="Script" uid="uid://bi5q4odhi38r4" path="res://Resources/Shop/UpgradeData.gd" id="3_tbsj7"]
+[ext_resource type="Resource" uid="uid://522l7ruj3xm2" path="res://Resources/Shop/EffUpgrade1.tres" id="4_ob2ry"]
+[ext_resource type="Resource" uid="uid://b3ej3mpiichc5" path="res://Resources/Shop/EffUpgrade2.tres" id="5_fu3hy"]
+[ext_resource type="Resource" uid="uid://pcrc3q4wxi4e" path="res://Resources/Shop/EffUpgrade3.tres" id="6_bha60"]
 [ext_resource type="Texture2D" uid="uid://choa3u03f6xwr" path="res://Assets/GUI/Shop/Upgrade/ShopUpItem - EffiProgress0.png" id="8_bha60"]
 [ext_resource type="Texture2D" uid="uid://mu58qksnofd4" path="res://Assets/GUI/Shop/Upgrade/ShopUpItem - EffiSelected.png" id="8_ybpnt"]
 [ext_resource type="Texture2D" uid="uid://jwny2i1r7gke" path="res://Assets/GUI/Shop/Upgrade/ShopUpItem - EffiClicked.png" id="11_tbsj7"]
@@ -22,6 +26,7 @@ size_flags_vertical = 0
 theme = ExtResource("1_ftbvb")
 theme_override_styles/panel = SubResource("StyleBoxEmpty_4da3k")
 script = ExtResource("2_4da3k")
+Database = Array[ExtResource("3_tbsj7")]([ExtResource("4_ob2ry"), ExtResource("5_fu3hy"), ExtResource("6_bha60")])
 Background = NodePath("Main/Background")
 BGDefault = ExtResource("1_4da3k")
 BGSelected = ExtResource("8_ybpnt")
