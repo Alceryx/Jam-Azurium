@@ -3,6 +3,7 @@ extends Projectile
 @export var CastSpeed: float
 @export var RayCast: RayCast2D
 @export var Line: Line2D
+@export var OverlayLine: Line2D
 
 var Ray: SeparationRayShape2D
 var Collider: CollisionShape2D
@@ -25,5 +26,5 @@ func _physics_process(delta: float) -> void:
 	RayCast.force_raycast_update()
 	if RayCast.is_colliding():
 		EndPoint = to_local(RayCast.get_collision_point())
-
+	OverlayLine.set_point_position(1, EndPoint)
 	Line.set_point_position(1, EndPoint)

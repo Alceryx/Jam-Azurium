@@ -1,7 +1,9 @@
-[gd_scene load_steps=25 format=3 uid="uid://d3njk76vqeien"]
+[gd_scene load_steps=27 format=3 uid="uid://d3njk76vqeien"]
 
 [ext_resource type="Script" uid="uid://s1iusg1dnpt0" path="res://Scripts/Turrets/Pruner.gd" id="1_n8rdc"]
 [ext_resource type="Shader" uid="uid://de5cqnc22f116" path="res://Resources/Shaders/2DOutline.gdshader" id="2_fpcsr"]
+[ext_resource type="AudioStream" uid="uid://r347xjgnjwhr" path="res://Assets/Music&SFX/shoot.wav" id="2_ywoka"]
+[ext_resource type="AudioStream" uid="uid://ecgmy5lyy4f7" path="res://Assets/Music&SFX/laser.wav" id="3_7ixm5"]
 [ext_resource type="Texture2D" uid="uid://cn0l55nnskom6" path="res://Assets/World/Extractor/T1 - M1 - P1.png" id="3_n8rdc"]
 [ext_resource type="Texture2D" uid="uid://ca5jsnebdqv0w" path="res://Assets/World/Extractor/T1 - M2 - P1.png" id="5_rust4"]
 [ext_resource type="Texture2D" uid="uid://c8q7duuqikoi6" path="res://Assets/World/Extractor/T1 - M2 - P2.png" id="6_fpcsr"]
@@ -372,17 +374,20 @@ shader_parameter/dissolve_value = 1.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vsmea"]
 
-[node name="Turret" type="StaticBody2D" node_paths=PackedStringArray("OriginPoint", "TopLeftShootPoint", "TopRightShootPoint", "BottomLeftShootPoint", "BottomRightShootPoint", "Sprite", "SpriteState", "DetectionArea", "DetectionShape", "DectectionPreview")]
+[node name="Turret" type="StaticBody2D" node_paths=PackedStringArray("OriginPoint", "TopLeftShootPoint", "TopRightShootPoint", "BottomLeftShootPoint", "BottomRightShootPoint", "AudioPlayer", "Sprite", "SpriteState", "DetectionArea", "DetectionShape", "DectectionPreview")]
 y_sort_enabled = true
 collision_layer = 4
 collision_mask = 4
 input_pickable = true
 script = ExtResource("1_n8rdc")
+BulletShootSFX = ExtResource("2_ywoka")
+LaserSFX = ExtResource("3_7ixm5")
 OriginPoint = NodePath("ShootPoints/Origin")
 TopLeftShootPoint = NodePath("ShootPoints/Top Left")
 TopRightShootPoint = NodePath("ShootPoints/Top Right")
 BottomLeftShootPoint = NodePath("ShootPoints/Bottom Left")
 BottomRightShootPoint = NodePath("ShootPoints/Bottom Right")
+AudioPlayer = NodePath("AudioStreamPlayer2D")
 Sprite = NodePath("Sprite2D")
 SpriteState = NodePath("AnimationPlayer")
 DetectionArea = NodePath("DetectionArea")
@@ -450,6 +455,8 @@ position = Vector2(-112, 41)
 
 [node name="Origin" type="Marker2D" parent="ShootPoints"]
 position = Vector2(0, -20)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 
 [connection signal="mouse_entered" from="." to="." method="OnMouseEntered"]
 [connection signal="mouse_exited" from="." to="." method="OnMouseExited"]

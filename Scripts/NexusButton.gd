@@ -6,6 +6,7 @@ class_name NexusButton
 @export var SpriteState: AnimationPlayer
 @export var Sprite: Sprite2D
 @export var Particle: PackedScene
+@export var AudioPlayer: AudioStreamPlayer2D
 
 var CanClick: bool
 var Releasing: bool
@@ -51,6 +52,7 @@ func _process(delta: float) -> void:
 		if Input.is_action_just_pressed("Interact"):
 			ClickTimer = ClickDelay
 			GameManager.GM.Currency += GameManager.GM.Efficiency
+			AudioPlayer.play()
 			SpawnCloud()
 
 		if Input.is_action_pressed("Interact"):

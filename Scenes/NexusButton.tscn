@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ewd3qwa6ccua"]
+[gd_scene load_steps=14 format=3 uid="uid://ewd3qwa6ccua"]
 
 [ext_resource type="Script" uid="uid://bw2gguejy0smr" path="res://Scripts/NexusButton.gd" id="1_0h4l8"]
 [ext_resource type="Shader" uid="uid://de5cqnc22f116" path="res://Resources/Shaders/2DOutline.gdshader" id="2_k7c6v"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c1il5jr4vr6y3" path="res://Assets/World/Extractor/Nexus - Mid.png" id="5_ke4vg"]
 [ext_resource type="PackedScene" uid="uid://dbnv1j16avxmm" path="res://Resources/SmokeCloud.tscn" id="6_whhl2"]
 [ext_resource type="Texture2D" uid="uid://3aywpph7ap5s" path="res://Assets/World/Lights/Light.png" id="7_yk1r3"]
+[ext_resource type="AudioStream" uid="uid://cxcnern4wh5si" path="res://Assets/Music&SFX/nexus click.wav" id="8_eqc4r"]
 
 [sub_resource type="Animation" id="Animation_k7c6v"]
 resource_name = "Clicked"
@@ -102,8 +103,7 @@ shader_parameter/allow_out_of_bounds = true
 shader_parameter/outline_thickness = 2.0
 shader_parameter/outline_color = Color(1, 1, 1, 0)
 
-[node name="Nexus Button" type="StaticBody2D" node_paths=PackedStringArray("SpriteState", "Sprite")]
-modulate = Color(1.25, 1.25, 1.25, 1)
+[node name="Nexus Button" type="StaticBody2D" node_paths=PackedStringArray("SpriteState", "Sprite", "AudioPlayer")]
 collision_layer = 3
 input_pickable = true
 script = ExtResource("1_0h4l8")
@@ -112,6 +112,7 @@ HoldThreshold = 0.5
 SpriteState = NodePath("AnimationPlayer")
 Sprite = NodePath("Sprite2D")
 Particle = ExtResource("6_whhl2")
+AudioPlayer = NodePath("AudioStreamPlayer2D")
 
 [node name="Feet" type="CollisionPolygon2D" parent="."]
 visible = false
@@ -151,6 +152,12 @@ color = Color(0, 0.823529, 1, 1)
 energy = 1.5
 texture = ExtResource("7_yk1r3")
 texture_scale = 0.5
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+current = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_eqc4r")
 
 [connection signal="mouse_entered" from="." to="." method="OnMouseEntered"]
 [connection signal="mouse_exited" from="." to="." method="OnMouseExited"]

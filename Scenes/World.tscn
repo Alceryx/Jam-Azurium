@@ -13,11 +13,11 @@
 [ext_resource type="Resource" uid="uid://d4kiqdpaucgj7" path="res://Resources/Waves/Wave2.tres" id="11_r0dna"]
 [ext_resource type="Resource" uid="uid://5d8g638jafrd" path="res://Resources/Waves/Wave3.tres" id="12_b5aes"]
 [ext_resource type="Texture2D" uid="uid://3aywpph7ap5s" path="res://Assets/World/Lights/Light.png" id="12_ti1bm"]
-[ext_resource type="AudioStream" uid="uid://b8oyjto4q80lj" path="res://Assets/Music&Video/Theme Loop.mp3" id="13_op4cu"]
 [ext_resource type="Resource" uid="uid://s2bmwjkaat5a" path="res://Resources/Waves/Wave4.tres" id="13_w0bku"]
 [ext_resource type="Resource" uid="uid://buik63ca38pun" path="res://Resources/Waves/Wave5.tres" id="14_0ao37"]
 [ext_resource type="Resource" uid="uid://b6wn6e4mgtd43" path="res://Resources/Waves/Wave6.tres" id="15_d3ars"]
 [ext_resource type="Resource" uid="uid://dcje0ooi624fc" path="res://Resources/Waves/Wave7.tres" id="16_l11rc"]
+[ext_resource type="AudioStream" uid="uid://b8oyjto4q80lj" path="res://Assets/Music&SFX/Theme Loop.mp3" id="18_rwt1y"]
 
 [sub_resource type="Curve2D" id="Curve2D_y7y61"]
 _data = {
@@ -400,32 +400,34 @@ color = Color(0, 0, 0, 1)
 [node name="PointLight2D" type="PointLight2D" parent="Lights"]
 position = Vector2(946.5, 492.5)
 scale = Vector2(10.418, 4.41797)
-energy = 0.67
 texture = ExtResource("12_ti1bm")
 
 [node name="PointLight2D2" type="PointLight2D" parent="Lights"]
 position = Vector2(13, 529)
 scale = Vector2(10.418, 4.41797)
-energy = 0.3
+energy = 0.6
 texture = ExtResource("12_ti1bm")
 
 [node name="PointLight2D3" type="PointLight2D" parent="Lights"]
 position = Vector2(1929, 509)
 scale = Vector2(10.418, 4.41797)
-energy = 0.3
+energy = 0.6
 texture = ExtResource("12_ti1bm")
 
 [node name="PointLight2D4" type="PointLight2D" parent="Lights"]
 position = Vector2(969, 1014)
 scale = Vector2(10.418, 4.41797)
-energy = 0.3
+energy = 0.6
 texture = ExtResource("12_ti1bm")
 
 [node name="PointLight2D5" type="PointLight2D" parent="Lights"]
 position = Vector2(960, -99)
 scale = Vector2(10.418, 4.41797)
-energy = 0.3
+energy = 0.6
 texture = ExtResource("12_ti1bm")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("13_op4cu")
+stream = ExtResource("18_rwt1y")
+
+[connection signal="mouse_entered" from="Tile Map/PlaceTile/Nexus Button" to="Tile Map/PlaceTile/Nexus Button" method="OnMouseEntered"]
+[connection signal="mouse_exited" from="Tile Map/PlaceTile/Nexus Button" to="Tile Map/PlaceTile/Nexus Button" method="OnMouseExited"]

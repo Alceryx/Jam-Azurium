@@ -1,11 +1,12 @@
-[gd_scene load_steps=19 format=3 uid="uid://cxp6pacg44o1l"]
+[gd_scene load_steps=20 format=3 uid="uid://cxp6pacg44o1l"]
 
 [ext_resource type="Script" uid="uid://bcytncwoa4i3t" path="res://Scripts/GUI/Start.gd" id="1_k6hn6"]
 [ext_resource type="Theme" uid="uid://bm2m53cf2qpe4" path="res://Resources/GUI.tres" id="1_ti4rm"]
 [ext_resource type="Texture2D" uid="uid://by5xn3xut4ify" path="res://Assets/Tittle Screen.png" id="2_6g6ey"]
 [ext_resource type="VideoStream" uid="uid://c2ohax5oj8aae" path="res://Assets/Opening.ogv" id="2_14gk4"]
 [ext_resource type="FontFile" uid="uid://dxwy40mal8xcd" path="res://Assets/Fonts/Liberator/Liberator-Heavy.ttf" id="2_k6hn6"]
-[ext_resource type="AudioStream" uid="uid://dw5sierd2x7xm" path="res://Assets/Music&Video/Azurium.mp3" id="4_10il3"]
+[ext_resource type="PackedScene" uid="uid://dk003rhxgxnug" path="res://Scenes/GUI/Pause.tscn" id="3_i5c2d"]
+[ext_resource type="AudioStream" uid="uid://dw5sierd2x7xm" path="res://Assets/Music&SFX/Azurium.mp3" id="6_14gk4"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6g6ey"]
 
@@ -41,6 +42,7 @@ grow_vertical = 2
 script = ExtResource("1_k6hn6")
 video = NodePath("VideoStreamPlayer")
 skip = NodePath("Button")
+pause = ExtResource("3_i5c2d")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -119,7 +121,7 @@ theme_override_font_sizes/font_size = 80
 text = "SKIP >>>"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_10il3")
+stream = ExtResource("6_14gk4")
 autoplay = true
 
 [connection signal="pressed" from="PanelContainer/MarginContainer/Buttons/Start" to="." method="_on_start_pressed"]

@@ -1,11 +1,16 @@
 extends Turret
 class_name Pruner
 
+@export_group("Effects")
+@export var BulletShootSFX : AudioStreamWAV
+@export var LaserSFX: AudioStreamWAV
+@export_group("References")
 @export var OriginPoint: Marker2D
 @export var TopLeftShootPoint: Marker2D
 @export var TopRightShootPoint: Marker2D
 @export var BottomLeftShootPoint: Marker2D
 @export var BottomRightShootPoint: Marker2D
+@export var AudioPlayer : AudioStreamPlayer2D
 
 var DirCast: Array[RayCast2D] = []
 var EnemyEnteredLaser: int = 0
@@ -72,6 +77,9 @@ func Shoot(target: Vector2):
 		projectile.global_position = ShootPoint
 		projectile.Hit.connect(OnProjectileHit)
 		GameManager.GM.call_deferred("add_child", projectile)
+		
+		AudioPlayer.stream = BulletShootSFX
+		AudioPlayer.play()
 	else:
 		var projectile = Data.Modes[Mode].Projectile.instantiate() as Projectile
 		projectile.Hitbox.body_entered.connect(OnLaserEntered)
@@ -91,6 +99,9 @@ func Shoot(target: Vector2):
 		projectile.Setup(self, direction, Data.Modes[Mode].Damage, target, TargetedEnemy)
 		projectile.global_position = ShootPoint
 		GameManager.GM.call_deferred("add_child", projectile)
+		
+		AudioPlayer.stream = LaserSFX
+		AudioPlayer.play()
 
 	CanShoot = false
 

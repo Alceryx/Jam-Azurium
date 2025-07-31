@@ -3,6 +3,8 @@ class_name Voltspire
 
 @export var ShootPoint: Marker2D
 @export var Line: Line2D
+@export var AudioPlayer: AudioStreamPlayer2D
+@export var ShootFX : AudioStreamWAV
 
 func Shoot(target: Vector2) -> void:
 	if not CanShoot:
@@ -30,6 +32,9 @@ func Shoot(target: Vector2) -> void:
 		SpriteState.play("Mode 2 Shoot")
 
 	CanShoot = false
+	
+	AudioPlayer.stream = ShootFX
+	AudioPlayer.play()
 
 func UpdateSprite() -> void:
 	if Mode == 0:

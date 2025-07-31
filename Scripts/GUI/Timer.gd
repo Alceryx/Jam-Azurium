@@ -13,7 +13,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if WaveManager.WM:
 		time.text = "00.00" if WaveManager.WM.WaveTimer <= 0 else "%.2f" % WaveManager.WM.WaveTimer
-		if (WaveManager.WM.WaveTimer < 10):
+		if (WaveManager.WM.WaveTimer < 10 && WaveManager.WM.WaveTimer > 0):
 			time.text = "0" + time.text
 		wave.text = "%d/%d" % [WaveManager.WM.CurrentWaveNumber, WaveManager.WM.Waves.size()]
 

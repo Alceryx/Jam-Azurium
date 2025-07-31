@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b8oyjto4q80lj"
+path="res://.godot/imported/Theme Loop.mp3-72a3f92d8270ebd5c90fd6ffa8ecb4d4.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music&SFX/Theme Loop.mp3"
+dest_files=["res://.godot/imported/Theme Loop.mp3-72a3f92d8270ebd5c90fd6ffa8ecb4d4.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
