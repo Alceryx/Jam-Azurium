@@ -53,33 +53,38 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_6g6ey")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
-layout_mode = 1
+[node name="CanvasGroup" type="CanvasGroup" parent="."]
+skew = 0.0750492
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasGroup"]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -239.0
-offset_top = -196.0
-offset_right = 239.0
+offset_left = 679.371
+offset_top = 898.529
+offset_right = 1157.37
+offset_bottom = 1238.53
 grow_horizontal = 2
 grow_vertical = 0
+rotation = -0.471239
 size_flags_horizontal = 4
 theme = ExtResource("1_ti4rm")
 theme_override_styles/panel = SubResource("StyleBoxEmpty_6g6ey")
+metadata/_edit_group_ = true
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasGroup/PanelContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="Buttons" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+[node name="Buttons" type="VBoxContainer" parent="CanvasGroup/PanelContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="Start" type="Button" parent="PanelContainer/MarginContainer/Buttons"]
+[node name="Start" type="Button" parent="CanvasGroup/PanelContainer/MarginContainer/Buttons"]
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/icon_pressed_color = Color(1, 1, 1, 1)
@@ -100,7 +105,30 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_mbqyj")
 text = "Start"
 icon_alignment = 1
 
+[node name="About" type="Button" parent="CanvasGroup/PanelContainer/MarginContainer/Buttons"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.180392, 0.988235, 1, 1)
+theme_override_colors/icon_pressed_color = Color(0.180392, 0.988235, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_k6hn6")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/focus = SubResource("StyleBoxEmpty_14gk4")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_i5c2d")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_twaru")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_mw67f")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ydlgw")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_q27lh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_bjugq")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_frxmf")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_1bqrh")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_no87a")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mbqyj")
+text = "About"
+alignment = 2
+icon_alignment = 1
+
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -124,5 +152,6 @@ text = "SKIP >>>"
 stream = ExtResource("6_14gk4")
 autoplay = true
 
-[connection signal="pressed" from="PanelContainer/MarginContainer/Buttons/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="CanvasGroup/PanelContainer/MarginContainer/Buttons/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="CanvasGroup/PanelContainer/MarginContainer/Buttons/About" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Button" to="." method="OnSkipPressed"]

@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="WaveData" load_steps=5 format=3 uid="uid://1wsglml18pqg"]
 
 [ext_resource type="Script" uid="uid://ddsqecblanmut" path="res://Resources/Waves/WaveData.gd" id="1_jqwoh"]
-[ext_resource type="PackedScene" uid="uid://djbq55octpltn" path="res://Scenes/Enemy/StrongEnemy.tscn" id="2_1sc38"]
+[ext_resource type="PackedScene" uid="uid://df24pg8xmxlx6" path="res://Scenes/Enemy/Enemy.tscn" id="2_1sc38"]
 [ext_resource type="Script" uid="uid://525jiu36grsd" path="res://Resources/Waves/SpawnData.gd" id="2_jl2wl"]
 
 [sub_resource type="Resource" id="Resource_4q48n"]

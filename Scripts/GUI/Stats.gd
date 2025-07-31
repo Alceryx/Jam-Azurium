@@ -10,6 +10,8 @@ func _physics_process(delta: float) -> void:
 		health_bar.value = GameManager.GM.ButtonHP
 		health_bar.max_value = GameManager.GM.ButtonMaxHP
 
+	if (GameManager.GM.ButtonHP >= 0):
 		health.text = "%d/%d" % [GameManager.GM.ButtonHP, GameManager.GM.ButtonMaxHP]
-		currency.text = str(GameManager.GM.Currency)
-		efficiency.text = "%d / click" % GameManager.GM.Efficiency
+	else: health.text = "0/0"
+	currency.text = str(GameManager.GM.Currency)
+	efficiency.text = "%d / click" % GameManager.GM.Efficiency
