@@ -1,13 +1,13 @@
-[gd_resource type="Resource" script_class="TurretData" load_steps=9 format=3 uid="uid://dow74su7kthuu"]
+[gd_resource type="Resource" script_class="TurretData" load_steps=9 format=3 uid="uid://oiek2ms8ltw6"]
 
 [ext_resource type="Texture2D" uid="uid://cn0l55nnskom6" path="res://Assets/World/Extractor/T1 - M1 - P1.png" id="1_244xu"]
-[ext_resource type="PackedScene" uid="uid://b6i78g0nc3avm" path="res://Scenes/Projectiles/Bullet.tscn" id="2_4uga6"]
-[ext_resource type="Script" uid="uid://dpbvjc5ku3vl4" path="res://Resources/Turrets/TurretMode.cs" id="3_vduep"]
+[ext_resource type="Script" uid="uid://bwudi70dp1kk4" path="res://Resources/Turrets/TurretData.gd" id="2_ydnbr"]
+[ext_resource type="PackedScene" uid="uid://b6i78g0nc3avm" path="res://Scenes/Projectiles/Bullet.tscn" id="3_v1l1p"]
+[ext_resource type="Script" uid="uid://db34x052jh2rn" path="res://Resources/Turrets/TurretMode.gd" id="3_vduep"]
 [ext_resource type="Texture2D" uid="uid://ca5jsnebdqv0w" path="res://Assets/World/Extractor/T1 - M2 - P1.png" id="4_244xu"]
-[ext_resource type="PackedScene" uid="uid://dx8jxkf7r6n2d" path="res://Scenes/Projectiles/Laser.tscn" id="5_md0qe"]
-[ext_resource type="Script" uid="uid://cm64ammqner4" path="res://Resources/Turrets/TurretData.cs" id="6_871um"]
+[ext_resource type="PackedScene" uid="uid://dx8jxkf7r6n2d" path="res://Scenes/Projectiles/Laser.tscn" id="5_4uga6"]
 
-[sub_resource type="Resource" id="Resource_s250v"]
+[sub_resource type="Resource" id="Resource_1jpk4"]
 script = ExtResource("3_vduep")
 Icon = ExtResource("1_244xu")
 Price = 25
@@ -16,12 +16,12 @@ Description = "- DMG: 1
 - Auto-rotate
 - Direction: 4
 - Pierce: 0"
-Projectile = ExtResource("2_4uga6")
+Projectile = ExtResource("3_v1l1p")
 Damage = 1.0
-Range = 3.0
-metadata/_custom_type_script = "uid://dpbvjc5ku3vl4"
+ShootRange = 3.0
+metadata/_custom_type_script = "uid://db34x052jh2rn"
 
-[sub_resource type="Resource" id="Resource_4sye3"]
+[sub_resource type="Resource" id="Resource_vduep"]
 script = ExtResource("3_vduep")
 Icon = ExtResource("4_244xu")
 Price = 50
@@ -30,15 +30,15 @@ Description = "- DMG: 0.5
 - Manually Rotate
 - Direction: 1
 - Pierce: 5"
-Projectile = ExtResource("5_md0qe")
+Projectile = ExtResource("5_4uga6")
 Damage = 0.5
-Range = 0.0
-metadata/_custom_type_script = "uid://dpbvjc5ku3vl4"
+ShootRange = 0.0
+metadata/_custom_type_script = "uid://db34x052jh2rn"
 
 [resource]
-script = ExtResource("6_871um")
+script = ExtResource("2_ydnbr")
 ID = 0
 Name = "Pruner"
 Size = Vector2(1, 1)
-Modes = Array[Object]([SubResource("Resource_s250v"), SubResource("Resource_4sye3")])
-metadata/_custom_type_script = "uid://cm64ammqner4"
+Modes = Array[ExtResource("3_vduep")]([SubResource("Resource_1jpk4"), SubResource("Resource_vduep")])
+metadata/_custom_type_script = "uid://bwudi70dp1kk4"

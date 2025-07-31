@@ -1,20 +1,23 @@
-[gd_scene load_steps=32 format=4 uid="uid://jsl0kt2kqh1m"]
+[gd_scene load_steps=44 format=4 uid="uid://jsl0kt2kqh1m"]
 
 [ext_resource type="TileSet" uid="uid://812b6buxvihs" path="res://Resources/Map/Map.tres" id="1_5cjrv"]
-[ext_resource type="Script" uid="uid://cljto2ukqdtou" path="res://Scripts/Managers/GameManager.cs" id="1_gjpho"]
+[ext_resource type="Script" uid="uid://c7uxyffik1r3a" path="res://Scripts/Managers/GameManager.gd" id="1_gjpho"]
 [ext_resource type="Texture2D" uid="uid://bj6dk1mojdjq3" path="res://Assets/Background.png" id="2_kn06e"]
 [ext_resource type="PackedScene" uid="uid://dk003rhxgxnug" path="res://Scenes/GUI/Pause.tscn" id="2_ti1bm"]
 [ext_resource type="PackedScene" uid="uid://dgymrcaln58wc" path="res://Scenes/Managers/BuildManager.tscn" id="3_gjpho"]
-[ext_resource type="Resource" uid="uid://dow74su7kthuu" path="res://Resources/Turrets/Pruner.tres" id="5_uo7di"]
+[ext_resource type="Resource" uid="uid://oiek2ms8ltw6" path="res://Resources/Turrets/Pruner.tres" id="5_uo7di"]
 [ext_resource type="PackedScene" uid="uid://cxrkc6mxf5yor" path="res://Scenes/Managers/Interface Manager.tscn" id="6_q2d71"]
 [ext_resource type="PackedScene" uid="uid://bc6lkoeu16lv1" path="res://Scenes/Managers/Wave Manager.tscn" id="7_y7y61"]
-[ext_resource type="Resource" uid="uid://1wsglml18pqg" path="res://Resources/Waves/Wave1.tres" id="8_q2d71"]
-[ext_resource type="Resource" uid="uid://5d8g638jafrd" path="res://Resources/Waves/Wave3.tres" id="9_kn06e"]
-[ext_resource type="Resource" uid="uid://d4kiqdpaucgj7" path="res://Resources/Waves/Wave2.tres" id="9_uo7di"]
-[ext_resource type="Resource" uid="uid://s2bmwjkaat5a" path="res://Resources/Waves/Wave4.tres" id="11_8l3nt"]
-[ext_resource type="Resource" uid="uid://buik63ca38pun" path="res://Resources/Waves/Wave5.tres" id="12_kwl8l"]
+[ext_resource type="Script" uid="uid://ddsqecblanmut" path="res://Resources/Waves/WaveData.gd" id="9_rwt1y"]
+[ext_resource type="Resource" uid="uid://1wsglml18pqg" path="res://Resources/Waves/Wave1.tres" id="10_mvfa8"]
+[ext_resource type="Resource" uid="uid://d4kiqdpaucgj7" path="res://Resources/Waves/Wave2.tres" id="11_r0dna"]
+[ext_resource type="Resource" uid="uid://5d8g638jafrd" path="res://Resources/Waves/Wave3.tres" id="12_b5aes"]
 [ext_resource type="Texture2D" uid="uid://3aywpph7ap5s" path="res://Assets/World/Lights/Light.png" id="12_ti1bm"]
 [ext_resource type="AudioStream" uid="uid://b8oyjto4q80lj" path="res://Assets/Music&Video/Theme Loop.mp3" id="13_op4cu"]
+[ext_resource type="Resource" uid="uid://s2bmwjkaat5a" path="res://Resources/Waves/Wave4.tres" id="13_w0bku"]
+[ext_resource type="Resource" uid="uid://buik63ca38pun" path="res://Resources/Waves/Wave5.tres" id="14_0ao37"]
+[ext_resource type="Resource" uid="uid://b6wn6e4mgtd43" path="res://Resources/Waves/Wave6.tres" id="15_d3ars"]
+[ext_resource type="Resource" uid="uid://dcje0ooi624fc" path="res://Resources/Waves/Wave7.tres" id="16_l11rc"]
 
 [sub_resource type="Curve2D" id="Curve2D_y7y61"]
 _data = {
@@ -102,7 +105,61 @@ point_count = 3
 
 [sub_resource type="Curve2D" id="Curve2D_0ao37"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1026, 766, 0, 0, 0, 0, 897, 697, 0, 0, 0, 0, 832, 736, 0, 0, 0, 0, 769, 700, 0, 0, 0, 0, 898, 635, 0, 0, 0, 0, 961, 669, 0, 0, 0, 0, 1028, 635, 0, 0, 0, 0, 897, 571, 0, 0, 0, 0, 957, 534)
+"points": PackedVector2Array(0, 0, 0, 0, 1029, 825, 0, 0, 0, 0, 963, 861, 0, 0, 0, 0, 830, 797, 0, 0, 0, 0, 970, 735, 0, 0, 0, 0, 897, 697, 0, 0, 0, 0, 832, 736, 0, 0, 0, 0, 769, 700, 0, 0, 0, 0, 898, 635, 0, 0, 0, 0, 961, 669, 0, 0, 0, 0, 1028, 635, 0, 0, 0, 0, 898, 574, 0, 0, 0, 0, 957, 534)
+}
+point_count = 12
+
+[sub_resource type="Curve2D" id="Curve2D_d3ars"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1408, 829, 0, 0, 0, 0, 894, 571, 0, 0, 0, 0, 939, 549)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_l11rc"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 322, 278, 0, 0, 0, 0, 771, 511, 0, 0, 0, 0, 834, 473, 0, 0, 0, 0, 901, 511)
+}
+point_count = 4
+
+[sub_resource type="Curve2D" id="Curve2D_w86vl"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 709, 795, 0, 0, 0, 0, 575, 864, 0, 0, 0, 0, 384, 766, 0, 0, 0, 0, 895, 506)
+}
+point_count = 4
+
+[sub_resource type="Curve2D" id="Curve2D_33kev"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1473, 221, 0, 0, 0, 0, 1343, 155, 0, 0, 0, 0, 1021, 316, 0, 0, 0, 0, 1156, 381, 0, 0, 0, 0, 977, 466)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_g01fq"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 705, 793, 0, 0, 0, 0, 574, 860, 0, 0, 0, 0, -138, 508, 0, 0, 0, 0, 0, 439, 0, 0, 0, 0, 132, 510, 0, 0, 0, 0, 197, 478, 0, 0, 0, 0, 63, 406, 0, 0, 0, 0, 313, 281, 0, 0, 0, 0, 832, 541, 0, 0, 0, 0, 894, 507)
+}
+point_count = 10
+
+[sub_resource type="Curve2D" id="Curve2D_0bcf6"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1347, 154, 0, 0, 0, 0, 1793, 380, 0, 0, 0, 0, 1215, 668, 0, 0, 0, 0, 986, 544)
+}
+point_count = 4
+
+[sub_resource type="Curve2D" id="Curve2D_y1bqn"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1281, 187, 0, 0, 0, 0, 1664, 380, 0, 0, 0, 0, 1216, 608, 0, 0, 0, 0, 1048, 515)
+}
+point_count = 4
+
+[sub_resource type="Curve2D" id="Curve2D_7dsfl"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1216, 220, 0, 0, 0, 0, 1540, 380, 0, 0, 0, 0, 1217, 542, 0, 0, 0, 0, 1089, 474, 0, 0, 0, 0, 1022, 507)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_mq4nq"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 644, 124, 0, 0, 0, 0, 701, 95, 0, 0, 0, 0, 897, 189, 0, 0, 0, 0, 639, 314, 0, 0, 0, 0, 706, 349, 0, 0, 0, 0, 961, 218, 0, 0, 0, 0, 1089, 283, 0, 0, 0, 0, 830, 412, 0, 0, 0, 0, 947, 463)
 }
 point_count = 9
 
@@ -113,7 +170,7 @@ glow_blend_mode = 1
 
 [node name="World" type="Node" node_paths=PackedStringArray("Audio")]
 script = ExtResource("1_gjpho")
-Efficiency = 1
+Efficiency = 100
 ButtonMaxHP = 3.0
 Audio = NodePath("AudioStreamPlayer")
 AudioDelay = 5.0
@@ -141,6 +198,55 @@ tile_set = ExtResource("1_5cjrv")
 
 [node name="Indicator" type="TileMapLayer" parent="Tile Map"]
 z_index = -1
+tile_set = ExtResource("1_5cjrv")
+
+[node name="Wave1" type="Node2D" parent="Tile Map/Indicator"]
+visible = false
+
+[node name="Path0" type="TileMapLayer" parent="Tile Map/Indicator/Wave1"]
+tile_map_data = PackedByteArray("AAD+/wgAAwAFAAAAAAD+/wcAAwAFAAAAAAD+/wYAAwAFAAAAAAD+/wUAAwAFAAAAAAD+/wQAAwAFAAAAAAD+/wMAAwAFAAAAAAD+/wIAAwAFAAAAAAD+/wEAAwAFAAAAAAA=")
+tile_set = ExtResource("1_5cjrv")
+
+[node name="Wave 2" type="Node2D" parent="Tile Map/Indicator"]
+visible = false
+
+[node name="Path0" type="TileMapLayer" parent="Tile Map/Indicator/Wave 2"]
+tile_map_data = PackedByteArray("AAD5//7/AwAFAAAAAAD5//3/AwAFAAAAAAD5//z/AwAFAAAAAAD5//v/AwACAAAAAAD5////AwABAAAAAAD6////AwAEAAAAAAD7////AwAEAAAAAAD8////AwAEAAAAAAD9////AwAEAAAAAAD2//v/AwAEAAAAAAD3//v/AwAEAAAAAAD4//v/AwAEAAAAAAD+/wgAAwAFAAAAAAD+/wcAAwAFAAAAAAD+/wYAAwAFAAAAAAD+/wUAAwAFAAAAAAD+/wQAAwAFAAAAAAD+/wMAAwAFAAAAAAD+/wIAAwAFAAAAAAD+/wEAAwAFAAAAAAD+//7/AwAFAAAAAAD+//3/AwAFAAAAAAACAPv/AwAFAAAAAAACAPr/AwAFAAAAAAACAPn/AwAFAAAAAAACAPj/AwAFAAAAAAD///z/AwAEAAAAAAAAAPz/AwAEAAAAAAABAPz/AwAEAAAAAAD+//f/AwAEAAAAAAD///f/AwAEAAAAAAAAAPf/AwAEAAAAAAABAPf/AwAEAAAAAAACAPf/AwACAAAAAAACAPz/AwAAAAAAAAD+//z/AwADAAAAAAA=")
+tile_set = ExtResource("1_5cjrv")
+
+[node name="Wave 3" type="Node2D" parent="Tile Map/Indicator"]
+visible = false
+
+[node name="Paths" type="TileMapLayer" parent="Tile Map/Indicator/Wave 3"]
+tile_map_data = PackedByteArray("AAAAAAAAAwAEAAAAAAABAAAAAwAEAAAAAAACAAAAAwAEAAAAAAADAAAAAwAEAAAAAAAFAAIAAwAEAAAAAAAGAAIAAwAEAAAAAAAHAAIAAwAEAAAAAAAEAAIAAwABAAAAAAAEAAAAAwACAAAAAAAEAAEAAwAFAAAAAAD7//7/AwAFAAAAAAD7//3/AwAFAAAAAAD7//z/AwAFAAAAAAD7//v/AwAFAAAAAAD7//r/AwAFAAAAAAD7//n/AwADAAAAAAD7////AwABAAAAAAD8////AwAEAAAAAAD9////AwAEAAAAAAD8//n/AwAEAAAAAAD9//n/AwAAAAAAAAD9//j/AwAFAAAAAAD9//f/AwAFAAAAAAA=")
+tile_set = ExtResource("1_5cjrv")
+
+[node name="Wave 4" type="Node2D" parent="Tile Map/Indicator"]
+visible = false
+
+[node name="Paths" type="TileMapLayer" parent="Tile Map/Indicator/Wave 4"]
+tile_map_data = PackedByteArray("AAAAAAAAAwAEAAAAAAABAAAAAwAEAAAAAAAAAAMAAwAEAAAAAAABAAMAAwAEAAAAAAD3/wIAAwAEAAAAAAD9/wIAAwAEAAAAAAD4/wIAAwAEAAAAAAD5/wIAAwAEAAAAAAD6/wIAAwAEAAAAAAD7/wIAAwAEAAAAAAD8/wIAAwAEAAAAAAD3//z/AwAEAAAAAAD4//z/AwAEAAAAAAD6////AwAEAAAAAAD7////AwAEAAAAAAD8////AwAEAAAAAAD9////AwAEAAAAAAAAAPz/AwAEAAAAAAD8//r/AwAEAAAAAAD9//r/AwACAAAAAAD+//r/AwAEAAAAAAD///r/AwAEAAAAAAAAAPr/AwAEAAAAAAADAAUAAwAEAAAAAAAEAAUAAwAEAAAAAAAFAAUAAwAEAAAAAAAGAAUAAwAEAAAAAAD3/wgAAwAEAAAAAAD4/wgAAwAEAAAAAAAFAAgAAwAEAAAAAAAGAAgAAwAEAAAAAAADAPn/AwAEAAAAAAAFAPf/AwAEAAAAAAACAAQAAwAFAAAAAAD//wIAAwAFAAAAAAD//wEAAwAFAAAAAAD+/wEAAwAFAAAAAAD5//7/AwAFAAAAAAD5//3/AwAFAAAAAAD2/wcAAwAFAAAAAAD2/wYAAwAFAAAAAAD2/wUAAwAFAAAAAAD2/wQAAwAFAAAAAAD2/wMAAwAFAAAAAAD5/wUAAwAFAAAAAAD5/wYAAwAFAAAAAAD5/wcAAwAFAAAAAAAHAAcAAwAFAAAAAAAHAAYAAwAFAAAAAAACAP//AwAFAAAAAAACAP7/AwAFAAAAAAACAP3/AwAFAAAAAAACAPz/AwAFAAAAAAACAPv/AwAFAAAAAAACAPr/AwAFAAAAAAAGAPn/AwAFAAAAAAAGAPj/AwAFAAAAAAAEAPj/AwAFAAAAAAD///3/AwAFAAAAAAD///7/AwAFAAAAAAD2//7/AwAFAAAAAAD2//3/AwAFAAAAAAD8//j/AwAFAAAAAAD8//f/AwAFAAAAAAABAPz/AwAAAAAAAAD///z/AwADAAAAAAD2/wIAAwADAAAAAAACAAUAAwABAAAAAAD//wMAAwABAAAAAAD7//r/AwABAAAAAAD5////AwABAAAAAAABAPv/AwAFAAAAAAABAPr/AwACAAAAAAD7//z/AwACAAAAAAD9//v/AwACAAAAAAD5//z/AwACAAAAAAAHAAUAAwACAAAAAAD2//z/AwADAAAAAAD7//n/AwADAAAAAAACAPn/AwADAAAAAAAHAAgAAwAAAAAAAAD5/wgAAwAAAAAAAAD+/wIAAwAAAAAAAAACAAAAAwAAAAAAAAAEAAgAAwAEAAAAAAAGAPf/AwACAAAAAAAEAPf/AwADAAAAAAAEAPn/AwAAAAAAAAD2/wgAAwABAAAAAAA=")
+tile_set = ExtResource("1_5cjrv")
+
+[node name="Wave 5" type="Node2D" parent="Tile Map/Indicator"]
+visible = false
+
+[node name="Paths" type="TileMapLayer" parent="Tile Map/Indicator/Wave 5"]
+tile_map_data = PackedByteArray("AAAAAAIAAwADAAAAAAD+/wQAAwADAAAAAAD7/wMAAwADAAAAAAABAAEAAwACAAAAAAD//wQAAwACAAAAAAD7/wgAAwABAAAAAAD//wgAAwABAAAAAAABAAgAAwAAAAAAAAD+/wgAAwAAAAAAAAD///3/AwACAAAAAAABAAAAAwAAAAAAAAD+/wMAAwAAAAAAAAD+/wIAAwAFAAAAAAD+/wEAAwAFAAAAAAD+/wAAAwAFAAAAAAABAP//AwAFAAAAAAABAP7/AwAFAAAAAAABAP3/AwAFAAAAAAABAPz/AwAFAAAAAAABAPv/AwAFAAAAAAABAPr/AwAFAAAAAAABAPn/AwAFAAAAAAABAPj/AwAFAAAAAAABAPf/AwAFAAAAAAD8//f/AwAFAAAAAAD8//j/AwAFAAAAAAD8//n/AwAFAAAAAAD8//r/AwAFAAAAAAD8//v/AwAFAAAAAAD8//z/AwAFAAAAAAD9//3/AwAEAAAAAAD+//3/AwAEAAAAAAAAAAMAAwAFAAAAAAAAAAQAAwABAAAAAAABAAQAAwAAAAAAAAABAAMAAwADAAAAAAACAAMAAwAFAAAAAAADAAMAAwAFAAAAAAABAAIAAwAAAAAAAAAAAAEAAwAEAAAAAAD9/wMAAwAEAAAAAAD8/wMAAwAEAAAAAAD7/wQAAwAFAAAAAAD7/wUAAwAFAAAAAAD7/wYAAwAFAAAAAAD7/wcAAwAFAAAAAAAAAAAAAwAEAAAAAAD//wEAAwABAAAAAAD///7/AwAFAAAAAAD/////AwAFAAAAAAD+/wUAAwAFAAAAAAD+/wYAAwAFAAAAAAD+/wcAAwAFAAAAAAABAAcAAwAFAAAAAAABAAYAAwAFAAAAAAAAAAgAAwAEAAAAAAD8/wgAAwAEAAAAAAD9/wgAAwAEAAAAAAADAAUAAwAEAAAAAAACAAQAAwAFAAAAAAAEAAQAAwAFAAAAAAACAAUAAwABAAAAAAAEAAUAAwAAAAAAAAA=")
+tile_set = ExtResource("1_5cjrv")
+
+[node name="Wave 6" type="Node2D" parent="Tile Map/Indicator"]
+visible = false
+
+[node name="Paths" type="TileMapLayer" parent="Tile Map/Indicator/Wave 6"]
+tile_map_data = PackedByteArray("AAAAAAEAAwAEAAAAAAABAAEAAwAEAAAAAAACAAEAAwAEAAAAAAADAAEAAwAEAAAAAAAEAAEAAwAEAAAAAAAFAAEAAwAEAAAAAAAGAAEAAwAEAAAAAAAHAAEAAwAEAAAAAAD8/wEAAwAEAAAAAAD7/wEAAwAEAAAAAAD6/wEAAwAEAAAAAAD5/wEAAwAEAAAAAAD4/wEAAwAEAAAAAAD3/wEAAwAEAAAAAAD2/wEAAwAEAAAAAAD+/wAAAwAFAAAAAAD+/wEAAwAFAAAAAAD+/wIAAwAFAAAAAAD+/wMAAwAFAAAAAAD+/wQAAwAFAAAAAAD+/wUAAwAFAAAAAAD+/wYAAwAFAAAAAAD+/wcAAwAFAAAAAAABAAcAAwAFAAAAAAABAAYAAwAFAAAAAAD+////AwAFAAAAAAD+//7/AwAFAAAAAAD+//3/AwAFAAAAAAD8//v/AwAFAAAAAAD8//r/AwAFAAAAAAD8//n/AwAFAAAAAAD8//j/AwAFAAAAAAD9//f/AwAEAAAAAAD+//f/AwAEAAAAAAD9//z/AwAEAAAAAAD+//z/AwACAAAAAAD9/wAAAwADAAAAAAD//wEAAwABAAAAAAD+/wgAAwABAAAAAAD9/wEAAwAAAAAAAAABAAgAAwAAAAAAAAD8//f/AwADAAAAAAAAAAgAAwAEAAAAAAD//wgAAwAEAAAAAAA=")
+tile_set = ExtResource("1_5cjrv")
+
+[node name="Wave 7" type="Node2D" parent="Tile Map/Indicator"]
+visible = false
+
+[node name="Paths" type="TileMapLayer" parent="Tile Map/Indicator/Wave 7"]
+tile_map_data = PackedByteArray("AAD3/wEAAwAEAAAAAAD4/wEAAwAEAAAAAAD5/wEAAwAEAAAAAAD6/wEAAwAEAAAAAAD7/wEAAwAEAAAAAAD8/wEAAwAEAAAAAAD3//v/AwAEAAAAAAD4//v/AwAEAAAAAAD7//v/AwAEAAAAAAD8//n/AwAEAAAAAAD9//n/AwAEAAAAAAD+//n/AwAEAAAAAAD///n/AwAEAAAAAAAAAPn/AwAEAAAAAAD8//j/AwAEAAAAAAD9//j/AwAEAAAAAAD+//j/AwAEAAAAAAD///j/AwAEAAAAAAD///f/AwAEAAAAAAAAAPj/AwAEAAAAAAABAPj/AwAEAAAAAAD8//f/AwAEAAAAAAD9//f/AwAEAAAAAAD+//f/AwAEAAAAAAAAAPf/AwAEAAAAAAABAPf/AwAEAAAAAAACAPf/AwAEAAAAAAD3/wgAAwAEAAAAAAD4/wgAAwAEAAAAAAD5/wgAAwAEAAAAAAD6/wgAAwAEAAAAAAD7/wgAAwAEAAAAAAD8/wgAAwAEAAAAAAD9/wgAAwAEAAAAAAD+/wgAAwAEAAAAAAD//wgAAwAEAAAAAAAAAAgAAwAEAAAAAAAAAAAAAwAEAAAAAAABAAAAAwAEAAAAAAACAAAAAwAEAAAAAAAAAP//AwAEAAAAAAABAP//AwAEAAAAAAAAAP7/AwAEAAAAAAABAP3/AwAFAAAAAAABAPz/AwAFAAAAAAABAPv/AwAFAAAAAAABAPr/AwAFAAAAAAACAP7/AwAFAAAAAAACAP3/AwAFAAAAAAACAPz/AwAFAAAAAAACAPv/AwAFAAAAAAACAPr/AwAFAAAAAAADAPr/AwAFAAAAAAACAPn/AwAFAAAAAAADAP//AwAFAAAAAAADAP7/AwAFAAAAAAADAP3/AwAFAAAAAAADAPz/AwAFAAAAAAADAPv/AwAFAAAAAAADAPn/AwAFAAAAAAADAPj/AwAFAAAAAAABAPn/AwACAAAAAAACAPj/AwACAAAAAAADAPf/AwACAAAAAAD5//v/AwACAAAAAAD8//v/AwACAAAAAAD4/wUAAwACAAAAAAD2/wYAAwADAAAAAAD2/wEAAwADAAAAAAD6//v/AwADAAAAAAD///7/AwADAAAAAAD2//z/AwAFAAAAAAD5//7/AwAFAAAAAAD5//3/AwAFAAAAAAD5//z/AwAFAAAAAAD6//7/AwAFAAAAAAD6//3/AwAFAAAAAAD6//z/AwAFAAAAAAD2/wcAAwAFAAAAAAD9/wEAAwAEAAAAAAD+/wEAAwAAAAAAAAD4/wYAAwAAAAAAAAABAP7/AwAAAAAAAAACAP//AwAAAAAAAAADAAAAAwAAAAAAAAD6////AwAAAAAAAAD5////AwABAAAAAAD2/wgAAwABAAAAAAD2/wUAAwABAAAAAAD8/wUAAwABAAAAAAABAAgAAwAAAAAAAAABAAcAAwAFAAAAAAABAAYAAwAFAAAAAAD2//v/AwADAAAAAAD9//7/AwADAAAAAAD8//7/AwAFAAAAAAD8//3/AwAFAAAAAAD8//z/AwAFAAAAAAD8////AwABAAAAAAD9////AwAEAAAAAAD2/wQAAwAFAAAAAAD2/wMAAwAFAAAAAAD2/wIAAwAFAAAAAAD3/wYAAwAEAAAAAAD3/wUAAwAEAAAAAAA=")
 tile_set = ExtResource("1_5cjrv")
 
 [node name="WallBottom" type="TileMapLayer" parent="Tile Map"]
@@ -177,9 +283,8 @@ UnplaceableLayer = [NodePath("../Tile Map/WallBottom"), NodePath("../Tile Map/Wa
 
 [node name="WaveManager" parent="." node_paths=PackedStringArray("SpawnLayer", "IndicatorLayer") instance=ExtResource("7_y7y61")]
 SpawnLayer = NodePath("../Tile Map/PlaceTile")
-Waves = Array[Object]([ExtResource("8_q2d71"), ExtResource("9_uo7di"), ExtResource("9_kn06e"), ExtResource("11_8l3nt"), ExtResource("12_kwl8l")])
+Waves = Array[ExtResource("9_rwt1y")]([ExtResource("10_mvfa8"), ExtResource("11_r0dna"), ExtResource("12_b5aes"), ExtResource("13_w0bku"), ExtResource("14_0ao37"), ExtResource("15_d3ars"), ExtResource("16_l11rc")])
 IndicatorLayer = NodePath("../Tile Map/Indicator")
-WorldTileSet = ExtResource("1_5cjrv")
 IndicatorTime = 5.0
 CountDownTime = 5.0
 
@@ -251,6 +356,39 @@ curve = SubResource("Curve2D_w0bku")
 [node name="Path3" type="Path2D" parent="WaveManager/Wave5Paths"]
 curve = SubResource("Curve2D_0ao37")
 
+[node name="Wave6Paths" type="Node2D" parent="WaveManager"]
+visible = false
+
+[node name="Path0" type="Path2D" parent="WaveManager/Wave6Paths"]
+curve = SubResource("Curve2D_d3ars")
+
+[node name="Path1" type="Path2D" parent="WaveManager/Wave6Paths"]
+curve = SubResource("Curve2D_l11rc")
+
+[node name="Path2" type="Path2D" parent="WaveManager/Wave6Paths"]
+curve = SubResource("Curve2D_w86vl")
+
+[node name="Path3" type="Path2D" parent="WaveManager/Wave6Paths"]
+curve = SubResource("Curve2D_33kev")
+
+[node name="Wave7Paths" type="Node2D" parent="WaveManager"]
+visible = false
+
+[node name="Path0" type="Path2D" parent="WaveManager/Wave7Paths"]
+curve = SubResource("Curve2D_g01fq")
+
+[node name="Path 1" type="Path2D" parent="WaveManager/Wave7Paths"]
+curve = SubResource("Curve2D_0bcf6")
+
+[node name="Path 2" type="Path2D" parent="WaveManager/Wave7Paths"]
+curve = SubResource("Curve2D_y1bqn")
+
+[node name="Path 3" type="Path2D" parent="WaveManager/Wave7Paths"]
+curve = SubResource("Curve2D_7dsfl")
+
+[node name="Path 4" type="Path2D" parent="WaveManager/Wave7Paths"]
+curve = SubResource("Curve2D_mq4nq")
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ti1bm")
 
@@ -292,9 +430,5 @@ texture = ExtResource("12_ti1bm")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_op4cu")
 
-[node name="Node2D" type="Node2D" parent="."]
-position = Vector2(566.391, 607.7)
-
 [connection signal="mouse_entered" from="Tile Map/PlaceTile/Nexus Button" to="Tile Map/PlaceTile/Nexus Button" method="OnMouseEntered"]
 [connection signal="mouse_exited" from="Tile Map/PlaceTile/Nexus Button" to="Tile Map/PlaceTile/Nexus Button" method="OnMouseExited"]
-[connection signal="WaveStarted" from="WaveManager" to="BuildManager" method="CancelPlacement"]

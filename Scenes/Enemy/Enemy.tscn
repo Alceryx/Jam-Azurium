@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://df24pg8xmxlx6"]
 
-[ext_resource type="Script" uid="uid://j5tokn85fm54" path="res://Scripts/Enemy/Enemy.cs" id="1_3l8kd"]
+[ext_resource type="Script" uid="uid://cejnlrto4rqas" path="res://Scripts/Enemy/Enemy.gd" id="1_3l8kd"]
 [ext_resource type="Texture2D" uid="uid://bsfhe3cg7nrm" path="res://Assets/World/Azure Seeker/Pirate - P1.png" id="2_fw0yv"]
 [ext_resource type="Texture2D" uid="uid://dvltg1boyx4ix" path="res://Assets/World/Azure Seeker/Pirate - P1 - Move.png" id="4_02vxf"]
 [ext_resource type="Texture2D" uid="uid://c3ph0y6gja5lk" path="res://Assets/World/Azure Seeker/Pirate - P2.png" id="5_fw0yv"]

@@ -1,0 +1,57 @@
+[gd_resource type="Resource" script_class="WaveData" load_steps=10 format=3 uid="uid://dcje0ooi624fc"]
+
+[ext_resource type="Script" uid="uid://ddsqecblanmut" path="res://Resources/Waves/WaveData.gd" id="1_4gv2i"]
+[ext_resource type="PackedScene" uid="uid://djbq55octpltn" path="res://Scenes/Enemy/StrongEnemy.tscn" id="1_t0yli"]
+[ext_resource type="Script" uid="uid://525jiu36grsd" path="res://Resources/Waves/SpawnData.gd" id="2_1u25b"]
+[ext_resource type="PackedScene" uid="uid://df24pg8xmxlx6" path="res://Scenes/Enemy/Enemy.tscn" id="3_w483m"]
+
+[sub_resource type="Resource" id="Resource_kkm81"]
+script = ExtResource("2_1u25b")
+Enemy = ExtResource("1_t0yli")
+Count = 3
+SpawnInterval = 1.0
+PathID = 0
+Mode = 0
+metadata/_custom_type_script = "uid://bnqqnodjbvisx"
+
+[sub_resource type="Resource" id="Resource_50oog"]
+script = ExtResource("2_1u25b")
+Enemy = ExtResource("3_w483m")
+Count = 10
+SpawnInterval = 0.0
+PathID = 1
+Mode = 0
+metadata/_custom_type_script = "uid://bnqqnodjbvisx"
+
+[sub_resource type="Resource" id="Resource_3auxo"]
+script = ExtResource("2_1u25b")
+Enemy = ExtResource("1_t0yli")
+Count = 1
+SpawnInterval = 0.0
+PathID = 2
+Mode = 0
+metadata/_custom_type_script = "uid://bnqqnodjbvisx"
+
+[sub_resource type="Resource" id="Resource_demym"]
+script = ExtResource("2_1u25b")
+Enemy = ExtResource("3_w483m")
+Count = 5
+SpawnInterval = 0.0
+PathID = 3
+Mode = 0
+metadata/_custom_type_script = "uid://bnqqnodjbvisx"
+
+[sub_resource type="Resource" id="Resource_dsbli"]
+script = ExtResource("2_1u25b")
+Enemy = ExtResource("1_t0yli")
+Count = 2
+SpawnInterval = 2.0
+PathID = 4
+Mode = 0
+metadata/_custom_type_script = "uid://bnqqnodjbvisx"
+
+[resource]
+script = ExtResource("1_4gv2i")
+WaveNumber = 7
+TimeBetweenWaves = 60.0
+SpawnedEnemy = Array[ExtResource("2_1u25b")]([SubResource("Resource_kkm81"), SubResource("Resource_50oog"), SubResource("Resource_3auxo"), SubResource("Resource_demym"), SubResource("Resource_dsbli")])

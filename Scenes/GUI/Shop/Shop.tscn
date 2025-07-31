@@ -1,11 +1,8 @@
-[gd_scene load_steps=27 format=3 uid="uid://dex3irx743gqe"]
+[gd_scene load_steps=24 format=3 uid="uid://dex3irx743gqe"]
 
 [ext_resource type="Theme" uid="uid://bm2m53cf2qpe4" path="res://Resources/GUI.tres" id="2_7h1o4"]
-[ext_resource type="Script" uid="uid://uli68ss1jvut" path="res://Scripts/Managers/ShopManager.cs" id="2_kktns"]
+[ext_resource type="Script" uid="uid://djmhh1w81ml5m" path="res://Scripts/Managers/ShopManager.gd" id="2_kktns"]
 [ext_resource type="PackedScene" uid="uid://dp1iskdniviuw" path="res://Scenes/GUI/Shop/Shop Item.tscn" id="3_0d586"]
-[ext_resource type="Resource" uid="uid://dow74su7kthuu" path="res://Resources/Turrets/Pruner.tres" id="3_h5hno"]
-[ext_resource type="Script" uid="uid://cm64ammqner4" path="res://Resources/Turrets/TurretData.cs" id="3_xcfsc"]
-[ext_resource type="Resource" uid="uid://cpijjkct8yxd4" path="res://Resources/Turrets/Voltspire.tres" id="5_n4hi5"]
 [ext_resource type="Texture2D" uid="uid://lflsw3cxcox4" path="res://Assets/GUI/Shop/ShopBuyButton - Enabled.png" id="7_fovie"]
 [ext_resource type="Texture2D" uid="uid://ww8wi7rkjaxd" path="res://Assets/GUI/Shop/ShopBG.png" id="7_oa8j1"]
 [ext_resource type="Texture2D" uid="uid://c4626j2kd7qus" path="res://Assets/GUI/Shop/ShopDef - Hover.png" id="8_doqmf"]
@@ -32,7 +29,7 @@ texture = ExtResource("7_oa8j1")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h5hno"]
 
-[node name="Shop" type="Control" node_paths=PackedStringArray("ItemList", "UpgradeList", "DefenceTab", "UpgradeTab", "Defence", "Upgrade", "Buy")]
+[node name="Shop" type="Control" node_paths=PackedStringArray("ItemContainer", "UpgradeList", "DefenceTab", "UpgradeTab", "DefenceScreen", "UpgradeScreen", "Buy")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -45,14 +42,13 @@ mouse_filter = 1
 mouse_force_pass_scroll_events = false
 theme = ExtResource("2_7h1o4")
 script = ExtResource("2_kktns")
-ItemList = NodePath("Placeholder/Main/Background/Options/Defence/Options/List")
+ItemContainer = NodePath("Placeholder/Main/Background/Options/Defence/Options/List")
 UpgradeList = NodePath("Placeholder/Main/Background/Options/Upgrade/Options")
-Database = Array[ExtResource("3_xcfsc")]([ExtResource("3_h5hno"), ExtResource("5_n4hi5")])
 ItemFrame = ExtResource("3_0d586")
 DefenceTab = NodePath("Placeholder/Main/Background/Options/Tabs/Defence")
 UpgradeTab = NodePath("Placeholder/Main/Background/Options/Tabs/Upgrade")
-Defence = NodePath("Placeholder/Main/Background/Options/Defence")
-Upgrade = NodePath("Placeholder/Main/Background/Options/Upgrade")
+DefenceScreen = NodePath("Placeholder/Main/Background/Options/Defence")
+UpgradeScreen = NodePath("Placeholder/Main/Background/Options/Upgrade")
 Buy = NodePath("Placeholder/Buy Bar/Buy")
 
 [node name="Placeholder" type="PanelContainer" parent="."]

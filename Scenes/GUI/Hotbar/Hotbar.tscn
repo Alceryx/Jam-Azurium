@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cjmodeiwt6ovk"]
 
 [ext_resource type="Theme" uid="uid://bm2m53cf2qpe4" path="res://Resources/GUI.tres" id="1_abltk"]
-[ext_resource type="Script" uid="uid://cwv36g8jjuv4u" path="res://Scripts/Managers/HotbarManager.cs" id="2_n7lr1"]
+[ext_resource type="Script" uid="uid://bgydkkd51qumg" path="res://Scripts/Managers/HotbarManager.gd" id="2_n7lr1"]
 [ext_resource type="PackedScene" uid="uid://dydw14v600iar" path="res://Scenes/GUI/Hotbar/Hotbar Slot.tscn" id="3_qqth1"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qqth1"]

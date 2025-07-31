@@ -1,11 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://cxrkc6mxf5yor"]
+[gd_scene load_steps=10 format=3 uid="uid://cxrkc6mxf5yor"]
 
 [ext_resource type="PackedScene" uid="uid://bkf0xqfrwl72v" path="res://Scenes/GUI/Stats.tscn" id="2_kffii"]
 [ext_resource type="PackedScene" uid="uid://dex3irx743gqe" path="res://Scenes/GUI/Shop/Shop.tscn" id="3_7ud4v"]
 [ext_resource type="PackedScene" uid="uid://cjmodeiwt6ovk" path="res://Scenes/GUI/Hotbar/Hotbar.tscn" id="3_wxi3v"]
 [ext_resource type="PackedScene" uid="uid://bai61h2offnsa" path="res://Scenes/GUI/Timer.tscn" id="4_wxi3v"]
+[ext_resource type="Script" uid="uid://bwudi70dp1kk4" path="res://Resources/Turrets/TurretData.gd" id="5_4qsf2"]
 [ext_resource type="PackedScene" uid="uid://b0dyl21t28hwy" path="res://Scenes/GUI/Death.tscn" id="5_760ko"]
+[ext_resource type="Resource" uid="uid://oiek2ms8ltw6" path="res://Resources/Turrets/Pruner.tres" id="6_egpis"]
 [ext_resource type="PackedScene" uid="uid://x02sjlx6drim" path="res://Scenes/GUI/Recess.tscn" id="6_q13l1"]
+[ext_resource type="Resource" uid="uid://cmyesn650mdgs" path="res://Resources/Turrets/Voltspire.tres" id="7_0tekp"]
 
 [node name="Interface Manager" type="CanvasLayer"]
 visible = false
@@ -33,6 +36,7 @@ offset_bottom = 509.0
 grow_horizontal = 1
 grow_vertical = 1
 mouse_filter = 2
+Database = Array[ExtResource("5_4qsf2")]([ExtResource("6_egpis"), ExtResource("7_0tekp")])
 
 [node name="Recess" parent="." instance=ExtResource("6_q13l1")]
 visible = false

@@ -1,6 +1,6 @@
 [gd_scene load_steps=25 format=3 uid="uid://d3njk76vqeien"]
 
-[ext_resource type="Script" uid="uid://b4ehhsn5s6b7c" path="res://Scripts/Turrets/Pruner.cs" id="1_n8rdc"]
+[ext_resource type="Script" uid="uid://s1iusg1dnpt0" path="res://Scripts/Turrets/Pruner.gd" id="1_n8rdc"]
 [ext_resource type="Shader" uid="uid://de5cqnc22f116" path="res://Resources/Shaders/2DOutline.gdshader" id="2_fpcsr"]
 [ext_resource type="Texture2D" uid="uid://cn0l55nnskom6" path="res://Assets/World/Extractor/T1 - M1 - P1.png" id="3_n8rdc"]
 [ext_resource type="Texture2D" uid="uid://ca5jsnebdqv0w" path="res://Assets/World/Extractor/T1 - M2 - P1.png" id="5_rust4"]
@@ -453,4 +453,3 @@ position = Vector2(0, -20)
 
 [connection signal="mouse_entered" from="." to="." method="OnMouseEntered"]
 [connection signal="mouse_exited" from="." to="." method="OnMouseExited"]
-[connection signal="body_entered" from="DetectionArea" to="." method="OnBodyEntered"]

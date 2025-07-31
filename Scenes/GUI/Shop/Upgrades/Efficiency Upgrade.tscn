@@ -1,12 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://xvldb6ot1knn"]
+[gd_scene load_steps=12 format=3 uid="uid://xvldb6ot1knn"]
 
 [ext_resource type="Texture2D" uid="uid://cx43jc34sbsuv" path="res://Assets/GUI/Shop/Upgrade/ShopUpItem - EffiPanel.png" id="1_4da3k"]
 [ext_resource type="Theme" uid="uid://bm2m53cf2qpe4" path="res://Resources/GUI.tres" id="1_ftbvb"]
-[ext_resource type="Script" uid="uid://cldnsv87hhgn4" path="res://Scripts/GUI/Upgrade/EfficiencyUpgrade.cs" id="2_4da3k"]
-[ext_resource type="Texture2D" uid="uid://dnl215wgfu5j3" path="res://Assets/GUI/Shop/Upgrade/ShopUpItem - EffiProgress1.png" id="3_ybpnt"]
-[ext_resource type="Script" uid="uid://cvepldvigmdst" path="res://Resources/Shop/UpgradeData.cs" id="4_wga26"]
-[ext_resource type="Texture2D" uid="uid://rkridrtpjcm8" path="res://Assets/GUI/Shop/Upgrade/ShopUpItem - EffiProgress2.png" id="5_tbsj7"]
-[ext_resource type="Texture2D" uid="uid://bf6ekuqybkt3k" path="res://Assets/GUI/Shop/Upgrade/ShopUpItem - EffiProgress3.png" id="6_ob2ry"]
+[ext_resource type="Script" uid="uid://co35wncu7qk83" path="res://Scripts/GUI/Upgrade/EfficiencyUpgrade.gd" id="2_4da3k"]
 [ext_resource type="Texture2D" uid="uid://choa3u03f6xwr" path="res://Assets/GUI/Shop/Upgrade/ShopUpItem - EffiProgress0.png" id="8_bha60"]
 [ext_resource type="Texture2D" uid="uid://mu58qksnofd4" path="res://Assets/GUI/Shop/Upgrade/ShopUpItem - EffiSelected.png" id="8_ybpnt"]
 [ext_resource type="Texture2D" uid="uid://jwny2i1r7gke" path="res://Assets/GUI/Shop/Upgrade/ShopUpItem - EffiClicked.png" id="11_tbsj7"]
@@ -15,39 +11,17 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4da3k"]
 
-[sub_resource type="Resource" id="Resource_ftbvb"]
-script = ExtResource("4_wga26")
-Price = 45
-Addition = 1
-Graphic = ExtResource("3_ybpnt")
-metadata/_custom_type_script = "uid://cvepldvigmdst"
-
-[sub_resource type="Resource" id="Resource_ybpnt"]
-script = ExtResource("4_wga26")
-Price = 150
-Addition = 1
-Graphic = ExtResource("5_tbsj7")
-metadata/_custom_type_script = "uid://cvepldvigmdst"
-
-[sub_resource type="Resource" id="Resource_wga26"]
-script = ExtResource("4_wga26")
-Price = 350
-Addition = 2
-Graphic = ExtResource("6_ob2ry")
-metadata/_custom_type_script = "uid://cvepldvigmdst"
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tbsj7"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n4hi5"]
 
-[node name="Efficiency" type="PanelContainer" node_paths=PackedStringArray("Background", "Tier", "CostBar", "Info", "Price", "Panel", "Lock", "Select")]
+[node name="Efficiency" type="PanelContainer" node_paths=PackedStringArray("Background", "Tier", "CostBar", "Info", "Price", "ItemPanel", "Lock", "Select")]
 custom_minimum_size = Vector2(421, 265)
 size_flags_horizontal = 4
 size_flags_vertical = 0
 theme = ExtResource("1_ftbvb")
 theme_override_styles/panel = SubResource("StyleBoxEmpty_4da3k")
 script = ExtResource("2_4da3k")
-Database = Array[ExtResource("4_wga26")]([SubResource("Resource_ftbvb"), SubResource("Resource_ybpnt"), SubResource("Resource_wga26")])
 Background = NodePath("Main/Background")
 BGDefault = ExtResource("1_4da3k")
 BGSelected = ExtResource("8_ybpnt")
@@ -55,7 +29,7 @@ Tier = NodePath("Main/Status/Tier")
 CostBar = NodePath("Main/Details/Align/Cost")
 Info = NodePath("Main/Details/Align/Info")
 Price = NodePath("Main/Details/Align/Cost/Price")
-Panel = NodePath("Main")
+ItemPanel = NodePath("Main")
 Lock = NodePath("Lock")
 Select = NodePath("Select")
 

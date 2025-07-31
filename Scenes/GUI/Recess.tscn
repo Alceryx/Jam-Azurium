@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://x02sjlx6drim"]
 
 [ext_resource type="Theme" uid="uid://bm2m53cf2qpe4" path="res://Resources/GUI.tres" id="1_hevqk"]
-[ext_resource type="Script" uid="uid://bgowsjtuvjltc" path="res://Scripts/GUI/Recess.cs" id="2_lybwc"]
+[ext_resource type="Script" uid="uid://qpcf0a1mmpq" path="res://Scripts/GUI/Recess.gd" id="2_lybwc"]
 
-[node name="Recess" type="Control" node_paths=PackedStringArray("CountDown")]
+[node name="Recess" type="Control" node_paths=PackedStringArray("count_down")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,7 +12,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_hevqk")
 script = ExtResource("2_lybwc")
-CountDown = NodePath("Label")
+count_down = NodePath("Label")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1

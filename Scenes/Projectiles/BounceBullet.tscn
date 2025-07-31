@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://c47sp1oj85g4l"]
 
-[ext_resource type="Script" uid="uid://bg454kho6wf4s" path="res://Scripts/Projectiles/FreezeBullet.cs" id="1_dkg77"]
-[ext_resource type="PackedScene" uid="uid://dbnv1j16avxmm" path="res://Resources/SmokeCloud.tscn" id="2_dkg77"]
+[ext_resource type="Script" uid="uid://lmnj4x6g381v" path="res://Scripts/Projectiles/FreezeBullet.gd" id="1_dkg77"]
+[ext_resource type="PackedScene" uid="uid://btue30w38t6ku" path="res://Resources/Explosion.tscn" id="2_mbo41"]
 [ext_resource type="PackedScene" uid="uid://b1akxow2dqy3y" path="res://Scenes/Projectiles/Trail.tscn" id="3_mbo41"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dkg77"]
@@ -12,15 +12,16 @@ radius = 30.0
 
 [node name="Bounce Bullet" type="CharacterBody2D" node_paths=PackedStringArray("FreezeArea", "Hitbox")]
 script = ExtResource("1_dkg77")
-Speed = 300.0
-HoverTime = 0.75
+Speed = 500.0
+HoverTime = 0.5
 HoverHeight = 100.0
 FreezeArea = NodePath("FreezeArea/CollisionShape2D")
-HitParticle = ExtResource("2_dkg77")
+HitParticle = ExtResource("2_mbo41")
 Hitbox = NodePath("Hitbox")
 LifeTime = 5.0
 
 [node name="Trail" parent="." instance=ExtResource("3_mbo41")]
+visible = false
 default_color = Color(0.555768, 1, 0.997525, 1)
 
 [node name="Hitbox" type="Area2D" parent="."]

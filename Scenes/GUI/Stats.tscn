@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://bkf0xqfrwl72v"]
 
-[ext_resource type="Script" uid="uid://chfqbb7h5sprm" path="res://Scripts/GUI/Stats.cs" id="1_8ewys"]
+[ext_resource type="Script" uid="uid://ns6f4lklktdg" path="res://Scripts/GUI/Stats.gd" id="1_8ewys"]
 [ext_resource type="Theme" uid="uid://bm2m53cf2qpe4" path="res://Resources/GUI.tres" id="2_btas5"]
 [ext_resource type="Texture2D" uid="uid://2ak5oy1ajct" path="res://Assets/GUI/Stats HUD/Stats - Panel.png" id="4_w8uvi"]
 [ext_resource type="Texture2D" uid="uid://b0ull1lacweb1" path="res://Assets/GUI/Stats HUD/StatsIcon - Health.png" id="5_42i26"]
@@ -20,7 +20,7 @@ texture = ExtResource("4_w8uvi")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o8vwe"]
 texture = ExtResource("11_mikfe")
 
-[node name="Stats" type="Control" node_paths=PackedStringArray("health", "healthBar", "efficiency", "currency")]
+[node name="Stats" type="Control" node_paths=PackedStringArray("health", "health_bar", "efficiency", "currency")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -32,7 +32,7 @@ size_flags_vertical = 0
 theme = ExtResource("2_btas5")
 script = ExtResource("1_8ewys")
 health = NodePath("Placeholder/Background/MarginContainer/Align/Detail/Health/MarginContainer/Health Bar/Align/HP")
-healthBar = NodePath("Placeholder/Background/MarginContainer/Align/Detail/Health/MarginContainer/Health Bar")
+health_bar = NodePath("Placeholder/Background/MarginContainer/Align/Detail/Health/MarginContainer/Health Bar")
 efficiency = NodePath("Placeholder/Background/MarginContainer/Align/Detail/Efficiency/RichTextLabel")
 currency = NodePath("Placeholder/Property/PanelContainer/VBoxContainer/Detail/Currency")
 

@@ -2,13 +2,13 @@
 
 [ext_resource type="Theme" uid="uid://bm2m53cf2qpe4" path="res://Resources/GUI.tres" id="1_sbbxy"]
 [ext_resource type="Texture2D" uid="uid://jmktc2r3ad6k" path="res://Assets/GUI/HUD - TimerRef.png" id="1_u0n13"]
-[ext_resource type="Script" uid="uid://f8732t68835f" path="res://Scripts/GUI/Timer.cs" id="2_2mp5s"]
+[ext_resource type="Script" uid="uid://bu0apl1f3pqo3" path="res://Scripts/GUI/Timer.gd" id="2_2mp5s"]
 [ext_resource type="Texture2D" uid="uid://xu25hle3g7ou" path="res://Assets/GUI/HUD - TimerRed.png" id="3_0oe0h"]
 [ext_resource type="Texture2D" uid="uid://cy68gpsfow8oi" path="res://Assets/GUI/HUD - Timer.png" id="3_uc8x3"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sbbxy"]
 
-[node name="Timer" type="Control" node_paths=PackedStringArray("Background", "time", "wave")]
+[node name="Timer" type="Control" node_paths=PackedStringArray("background", "time", "wave")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -17,8 +17,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_sbbxy")
 script = ExtResource("2_2mp5s")
-Background = NodePath("Main/Background")
-TimeExpiring = ExtResource("3_0oe0h")
+background = NodePath("Main/Background")
+time_expiring = ExtResource("3_0oe0h")
 time = NodePath("Main/Details/Time")
 wave = NodePath("Main/Details/Wave")
 

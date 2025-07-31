@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://ewd3qwa6ccua"]
 
-[ext_resource type="Script" uid="uid://dkwpps6dhmbbl" path="res://Scripts/NexusButton.cs" id="1_0h4l8"]
+[ext_resource type="Script" uid="uid://bw2gguejy0smr" path="res://Scripts/NexusButton.gd" id="1_0h4l8"]
 [ext_resource type="Shader" uid="uid://de5cqnc22f116" path="res://Resources/Shaders/2DOutline.gdshader" id="2_k7c6v"]
 [ext_resource type="Texture2D" uid="uid://crk0ynp0ghld3" path="res://Assets/World/Extractor/Nexus - Low.png" id="4_k7c6v"]
 [ext_resource type="Texture2D" uid="uid://b6djbjs7m2d50" path="res://Assets/World/Extractor/Nexus - Peak.png" id="4_ke4vg"]

@@ -1,9 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dgymrcaln58wc"]
 
-[ext_resource type="Script" uid="uid://mdgul34uldgv" path="res://Scripts/Managers/BuildManager.cs" id="1_2qodn"]
+[ext_resource type="Script" uid="uid://cboc6vonuw2qg" path="res://Scripts/Managers/BuildManager.gd" id="1_2qodn"]
 
-[node name="BuildManager" type="Node" node_paths=PackedStringArray("GroundLayer", "UnplaceableLayer")]
+[node name="BuildManager" type="Node"]
 script = ExtResource("1_2qodn")
-TurretMode = 0
-GroundLayer = []
-UnplaceableLayer = []

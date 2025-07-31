@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://dk003rhxgxnug"]
 
-[ext_resource type="Script" uid="uid://by46rqv0rnso" path="res://Scripts/GUI/Pause.cs" id="1_5eo7j"]
+[ext_resource type="Script" uid="uid://bccxt5fwfmei4" path="res://Scripts/GUI/Pause.gd" id="1_5eo7j"]
 [ext_resource type="FontFile" uid="uid://dxwy40mal8xcd" path="res://Assets/Fonts/Liberator/Liberator-Heavy.ttf" id="2_i874s"]
 [ext_resource type="Theme" uid="uid://bm2m53cf2qpe4" path="res://Resources/GUI.tres" id="4_g6a5h"]
 [ext_resource type="FontFile" uid="uid://7jg5y6gtb0hw" path="res://Assets/Fonts/Sans - Jura Bold.ttf" id="4_n8qkg"]
@@ -163,6 +163,6 @@ texture_hover = ExtResource("6_xu16p")
 ignore_texture_size = true
 stretch_mode = 5
 
-[connection signal="pressed" from="CanvasLayer/Panel Cont/Actions/HBoxContainer/Button" to="." method="OnQuitPressed"]
-[connection signal="pressed" from="CanvasLayer/Panel Cont/Actions/HBoxContainer/Continue" to="." method="OnContinuePressed"]
-[connection signal="toggled" from="CanvasLayer/Panel Cont/Setting Margin/VBox/Fullscreen/MarginContainer/Fullscreen" to="." method="OnButtonToggled"]
+[connection signal="pressed" from="CanvasLayer/Panel Cont/Actions/HBoxContainer/Button" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel Cont/Actions/HBoxContainer/Continue" to="." method="_on_continue_pressed"]
+[connection signal="toggled" from="CanvasLayer/Panel Cont/Setting Margin/VBox/Fullscreen/MarginContainer/Fullscreen" to="." method="_on_button_toggled"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dx8jxkf7r6n2d"]
 
-[ext_resource type="Script" uid="uid://csoxeu28261jy" path="res://Scripts/Projectiles/Laser.cs" id="1_xxohi"]
+[ext_resource type="Script" uid="uid://cbmcxanc3732y" path="res://Scripts/Projectiles/Laser.gd" id="1_xxohi"]
 
 [sub_resource type="SeparationRayShape2D" id="SeparationRayShape2D_xxohi"]
 

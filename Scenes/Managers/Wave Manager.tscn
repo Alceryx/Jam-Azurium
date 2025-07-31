@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bc6lkoeu16lv1"]
 
-[ext_resource type="Script" uid="uid://cxkuqji6yx271" path="res://Scripts/Managers/WaveManager.cs" id="1_eysgo"]
+[ext_resource type="Script" uid="uid://bov2hr1jxhu3a" path="res://Scripts/Managers/WaveManager.gd" id="1_eysgo"]
 
 [node name="WaveManager" type="Node"]
 script = ExtResource("1_eysgo")

@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="WaveData" load_steps=10 format=3 uid="uid://s2bmwjkaat5a"]
 
 [ext_resource type="PackedScene" uid="uid://df24pg8xmxlx6" path="res://Scenes/Enemy/Enemy.tscn" id="1_6s5ib"]
-[ext_resource type="Script" uid="uid://c8ucpi2ldsff5" path="res://Resources/Waves/WaveData.cs" id="1_gg3ad"]
+[ext_resource type="Script" uid="uid://ddsqecblanmut" path="res://Resources/Waves/WaveData.gd" id="1_gg3ad"]
 [ext_resource type="PackedScene" uid="uid://djbq55octpltn" path="res://Scenes/Enemy/StrongEnemy.tscn" id="1_rh52t"]
-[ext_resource type="Script" uid="uid://bnqqnodjbvisx" path="res://Resources/Waves/SpawnData.cs" id="2_6s5ib"]
+[ext_resource type="Script" uid="uid://525jiu36grsd" path="res://Resources/Waves/SpawnData.gd" id="2_6s5ib"]
 
 [sub_resource type="Resource" id="Resource_rh52t"]
 script = ExtResource("2_6s5ib")
@@ -54,5 +54,4 @@ metadata/_custom_type_script = "uid://bnqqnodjbvisx"
 script = ExtResource("1_gg3ad")
 WaveNumber = 4
 TimeBetweenWaves = 60.0
-SpawnedEnemy = [SubResource("Resource_rh52t"), SubResource("Resource_6s5ib"), SubResource("Resource_n7787"), SubResource("Resource_01o3k"), SubResource("Resource_8scoo")]
-metadata/_custom_type_script = "uid://c8ucpi2ldsff5"
+SpawnedEnemy = Array[ExtResource("2_6s5ib")]([SubResource("Resource_rh52t"), SubResource("Resource_6s5ib"), SubResource("Resource_n7787"), SubResource("Resource_01o3k"), SubResource("Resource_8scoo")])

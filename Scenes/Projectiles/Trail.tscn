@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b1akxow2dqy3y"]
 
-[ext_resource type="Script" uid="uid://b0ps8hr86yl0a" path="res://Scripts/Projectiles/Bullet/BulletTrail.cs" id="1_potlv"]
+[ext_resource type="Script" uid="uid://kw8ml74iend" path="res://Scripts/Projectiles/Bullet/BulletTrail.gd" id="1_potlv"]
 
 [sub_resource type="Curve" id="Curve_rjcpp"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]

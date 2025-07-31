@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://bye1ink2txlol"]
 
-[ext_resource type="Script" uid="uid://cfimxhfc8u3aa" path="res://Scripts/Turrets/Voltspire.cs" id="1_dg4l2"]
+[ext_resource type="Script" uid="uid://d20q14h63b075" path="res://Scripts/Turrets/Voltspire.gd" id="1_dg4l2"]
 [ext_resource type="Shader" uid="uid://de5cqnc22f116" path="res://Resources/Shaders/2DOutline.gdshader" id="2_1s0j2"]
 [ext_resource type="Shader" uid="uid://cyjpl0eeiivbn" path="res://Resources/Shaders/Dissolve.gdshader" id="3_cbf36"]
 [ext_resource type="Texture2D" uid="uid://cx7uf6ranrfja" path="res://Assets/World/Extractor/T2 - M1.png" id="4_g4nv2"]
@@ -86,6 +86,18 @@ tracks/3/keys = {
 "update": 0,
 "values": [10.0, 10.0, 50.0]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Line2D:default_color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.073, 1, 1, 0.541)]
+}
 
 [sub_resource type="Animation" id="Animation_obnts"]
 resource_name = "Mode 2"
@@ -165,6 +177,18 @@ tracks/3/keys = {
 "update": 0,
 "values": [10.0, 10.0, 50.0]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Line2D:default_color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.0745098, 0.639216, 1, 0.541176)]
+}
 
 [sub_resource type="Animation" id="Animation_cbf36"]
 length = 0.001
@@ -216,6 +240,18 @@ tracks/3/keys = {
 "update": 0,
 "values": [10.0]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Line2D:default_color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.073, 1, 1, 0.541)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_seemo"]
 _data = {
@@ -228,13 +264,14 @@ _data = {
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vsmea"]
 
-[node name="SecondTurret" type="StaticBody2D" node_paths=PackedStringArray("ShootPoint", "Sprite", "SpriteState", "DetectionArea", "DetectionShape", "DectectionPreview")]
+[node name="SecondTurret" type="StaticBody2D" node_paths=PackedStringArray("ShootPoint", "Line", "Sprite", "SpriteState", "DetectionArea", "DetectionShape", "DectectionPreview")]
 y_sort_enabled = true
 collision_layer = 4
 collision_mask = 4
 input_pickable = true
 script = ExtResource("1_dg4l2")
 ShootPoint = NodePath("ShootPoint")
+Line = NodePath("Line2D")
 Sprite = NodePath("Sprite2D")
 SpriteState = NodePath("AnimationPlayer")
 DetectionArea = NodePath("DetectionArea")
@@ -293,4 +330,3 @@ end_cap_mode = 2
 
 [connection signal="mouse_entered" from="." to="." method="OnMouseEntered"]
 [connection signal="mouse_exited" from="." to="." method="OnMouseExited"]
-[connection signal="body_entered" from="DetectionArea" to="." method="OnBodyEntered"]
