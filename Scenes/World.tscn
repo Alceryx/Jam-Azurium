@@ -261,7 +261,7 @@ tile_set = ExtResource("1_5cjrv")
 
 [node name="Block" type="TileMapLayer" parent="Tile Map"]
 visible = false
-tile_map_data = PackedByteArray("AAD//wAABAAAAAAAAAD+/wAABAAAAAAAAAD+////BAAAAAAAAAD/////BAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAD+////BAAAAAAAAAD9////BAAAAAAAAAD9//7/BAAAAAAAAAD+//7/BAAAAAAAAAA=")
 tile_set = ExtResource("1_5cjrv")
 
 [node name="PlaceTile" type="TileMapLayer" parent="Tile Map"]
